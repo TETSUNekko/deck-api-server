@@ -1,0 +1,167 @@
+[
+  {
+    "id": "hSD07-001",
+    "type": "Oshi",
+    "name": "不知火フレア",
+    "imageFolder": "hSD07/",
+    "color": ["yellow"],
+    "grade": "",
+    "series": ["hSD07"],
+    "searchKeywords": ["不知火フレア", "不知火芙蕾雅", "Shiranui Flare"],
+    "versions": ["_OC.png"]  
+  },
+  {
+    "id": "hSD07-002",
+    "type": "Member",
+    "name": "不知火フレア",
+    "imageFolder": "hSD07/",
+    "color": ["yellow"],
+    "grade": "debut",
+    "series": ["hSD07"],
+    "searchKeywords": ["不知火フレア", "不知火芙蕾雅", "Shiranui Flare"],
+    "versions": ["_C.png"]  
+  },
+  {
+    "id": "hSD07-003",
+    "type": "Member",
+    "name": "不知火フレア",
+    "imageFolder": "hSD07/",
+    "color": ["yellow"],
+    "grade": "debut",
+    "series": ["hSD07"],
+    "searchKeywords": ["不知火フレア", "不知火芙蕾雅", "Shiranui Flare"],
+    "versions": ["_C.png"]  
+  },
+  {
+    "id": "hSD07-004",
+    "type": "Member",
+    "name": "不知火フレア",
+    "imageFolder": "hSD07/",
+    "color": ["yellow"],
+    "grade": "debut",
+    "series": ["hSD07"],
+    "searchKeywords": ["不知火フレア", "不知火芙蕾雅", "Shiranui Flare"],
+    "versions": ["_U.png"]  
+  },
+  {
+    "id": "hSD07-005",
+    "type": "Member",
+    "name": "不知火フレア",
+    "imageFolder": "hSD07/",
+    "color": ["yellow"],
+    "grade": "1st",
+    "series": ["hSD07"],
+    "searchKeywords": ["不知火フレア", "不知火芙蕾雅", "Shiranui Flare"],
+    "versions": ["_C.png"]  
+  },
+  {
+    "id": "hSD07-006",
+    "type": "Member",
+    "name": "不知火フレア",
+    "imageFolder": "hSD07/",
+    "color": ["yellow"],
+    "grade": "1st",
+    "series": ["hSD07"],
+    "searchKeywords": ["不知火フレア", "不知火芙蕾雅", "Shiranui Flare"],
+    "versions": ["_C.png"]  
+  },
+  {
+    "id": "hSD07-007",
+    "type": "Member",
+    "name": "不知火フレア",
+    "imageFolder": "hSD07/",
+    "color": ["yellow"],
+    "grade": "1st",
+    "series": ["hSD07"],
+    "searchKeywords": ["不知火フレア", "不知火芙蕾雅", "Shiranui Flare"],
+    "versions": ["_U.png"]   
+  },
+  {
+    "id": "hSD07-008",
+    "type": "Member",
+    "name": "不知火フレア",
+    "imageFolder": "hSD07/",
+    "color": ["yellow"],
+    "grade": "buzz",
+    "series": ["hSD07"],
+    "searchKeywords": ["不知火フレア", "不知火芙蕾雅", "Shiranui Flare"],
+    "versions": ["_R.png"]  
+  },
+  {
+    "id": "hSD07-009",
+    "type": "Member",
+    "name": "不知火フレア",
+    "imageFolder": "hSD07/",
+    "color": ["yellow"],
+    "grade": "2nd",
+    "series": ["hSD07"],
+    "searchKeywords": ["不知火フレア", "不知火芙蕾雅", "Shiranui Flare"],
+    "versions": ["_RR.png", "_SR.png"]  
+  },
+  {
+    "id": "hSD07-010",
+    "type": "Member",
+    "name": "白銀ノエル",
+    "imageFolder": "hSD07/",
+    "color": ["white"],
+    "grade": "debut",
+    "series": ["hSD07"],
+    "searchKeywords": ["白銀ノエル", "白銀諾艾爾", "Shirogane Noel"],
+    "versions": ["_U.png"]  
+  },
+  {
+    "id": "hSD07-011",
+    "type": "Member",
+    "name": "さくらみこ",
+    "imageFolder": "hSD07/",
+    "color": ["red"],
+    "grade": "debut",
+    "series": ["hSD07"],
+    "searchKeywords": ["さくらみこ", "櫻巫女", "Sakura Miko"],
+    "versions": ["_U.png"]  
+  },
+  {
+    "id": "hSD07-012",
+    "type": "Member",
+    "name": "尾丸ポルカ",
+    "imageFolder": "hSD07/",
+    "color": ["red"],
+    "grade": "debut",
+    "series": ["hSD07"],
+    "searchKeywords": ["尾丸ポルカ", "尾丸波爾卡", "Omaru Polka"],
+    "versions": ["_U.png"]  
+  },
+  {
+    "id": "hSD07-013",
+    "type": "Member",
+    "name": "星街すいせい",
+    "imageFolder": "hSD07/",
+    "color": ["blue"],
+    "grade": "debut",
+    "series": ["hSD07"],
+    "searchKeywords": ["星街すいせい", "星街彗星", "Hoshimachi Suisei"],
+    "versions": ["_U.png"]  
+  },
+  {
+    "id": "hSD07-014",
+    "type": "Support",
+    "name": "不知火建設",
+    "imageFolder": "hSD07/",
+    "color": "",
+    "grade": "",
+    "series": ["hSD07"],
+    "searchKeywords": ["event", "イベント", "不知火建設"],
+    "versions": ["_U.png"]  
+  },
+  {
+    "id": "hSD07-015",
+    "type": "Support",
+    "name": "エルフレンド",
+    "imageFolder": "hSD07/",
+    "color": "",
+    "grade": "",
+    "series": ["hSD07"],
+    "searchKeywords": ["fan", "ファン", "エルフレンド"],
+    "versions": ["_C.png"]
+  }
+] 

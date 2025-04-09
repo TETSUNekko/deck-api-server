@@ -1,0 +1,233 @@
+[
+  {
+    "id": "hSD01-001",
+    "type": "Oshi",
+    "name": "ときのそら",
+    "imageFolder": "hSD01/",
+    "color": ["white"],
+    "grade": "",
+    "series": ["hSD01"],
+    "searchKeywords": ["ときのそら", "時乃空", "Tokino Sora"],
+    "versions": ["_OSR.png"]  
+  },
+  {
+    "id": "hSD01-002",
+    "type": "Oshi",
+    "name": "AZKi",
+    "imageFolder": "hSD01/",
+    "color": ["green"],
+    "grade": "",
+    "series": ["hSD01"],
+    "searchKeywords": ["AZKi", "AZKi", "AZKi"],
+    "versions": ["_OSR.png"]
+  },
+  {
+    "id": "hSD01-003",
+    "type": "Member",
+    "name": "ときのそら",
+    "imageFolder": "hSD01/",
+    "color": ["white"],
+    "grade": "debut",
+    "series": ["hSD01"],
+    "searchKeywords": ["ときのそら", "時乃空", "Tokino Sora"],
+    "versions": ["_C.png"]
+  },
+  {
+    "id": "hSD01-004",
+    "type": "Member",
+    "name": "ときのそら",
+    "imageFolder": "hSD01/",
+    "color": ["white"],
+    "grade": "debut",
+    "series": ["hSD01", "hPR"],
+    "searchKeywords": ["ときのそら", "時乃空", "Tokino Sora"],
+    "versions": ["_P.png", "_R.png"]
+  },
+  {
+    "id": "hSD01-005",
+    "type": "Member",
+    "name": "ときのそら",
+    "imageFolder": "hSD01/",
+    "color": ["white"],
+    "grade": "1st",
+    "series": ["hSD01"],
+    "searchKeywords": ["ときのそら", "時乃空", "Tokino Sora"],
+    "versions": ["_U.png"]
+  },
+  {
+    "id": "hSD01-006",
+    "type": "Member",
+    "name": "ときのそら",
+    "imageFolder": "hSD01/",
+    "color": ["white"],
+    "grade": "buzz",
+    "series": ["hSD01", "hPR"],
+    "searchKeywords": ["ときのそら", "時乃空", "Tokino Sora"],
+    "versions": ["_P.png", "_RR.png"]
+  },
+  {
+    "id": "hSD01-007",
+    "type": "Member",
+    "name": "IRyS",
+    "imageFolder": "hSD01/",
+    "color": ["white"],
+    "grade": "debut",
+    "series": ["hSD01", "hPR"],
+    "searchKeywords": ["IRyS", "IRyS", "IRyS"],
+    "versions": ["_C.png", "_P.png"]
+  },
+  {
+    "id": "hSD01-008",
+    "type": "Member",
+    "name": "AZKi",
+    "imageFolder": "hSD01/",
+    "color": ["green"],
+    "grade": "debut",
+    "series": ["hSD01"],
+    "searchKeywords": ["AZKi", "AZKi", "AZKi"],
+    "versions": ["_C.png"]
+  },
+  {
+    "id": "hSD01-009",
+    "type": "Member",
+    "name": "AZKi",
+    "imageFolder": "hSD01/",
+    "color": ["green"],
+    "grade": "debut",
+    "series": ["hSD01", "hPR"],
+    "searchKeywords": ["AZKi", "AZKi", "AZKi"],
+    "versions": ["_R.png", "_P.png"]
+  },
+  {
+    "id": "hSD01-010",
+    "type": "Member",
+    "name": "AZKi",
+    "imageFolder": "hSD01/",
+    "color": ["green"],
+    "grade": "1st",
+    "series": ["hSD01"],
+    "searchKeywords": ["AZKi", "AZKi", "AZKi"],
+    "versions": ["_U.png"]
+  },
+  {
+    "id": "hSD01-011",
+    "type": "Member",
+    "name": "AZKi",
+    "imageFolder": "hSD01/",
+    "color": ["green"],
+    "grade": "2nd",
+    "series": ["hSD01", "hPR"],
+    "searchKeywords": ["AZKi", "AZKi", "AZKi"],
+    "versions": ["_RR.png", "_P.png"]
+  },
+  {
+    "id": "hSD01-012",
+    "type": "Member",
+    "name": "アイラニ・イオフィフティーン",
+    "imageFolder": "hSD01/",
+    "color": ["green"],
+    "grade": "debut",
+    "series": ["hSD01", "hPR"],
+    "searchKeywords": ["アイラニ・イオフィフティーン", "艾拉妮·伊歐菲芙婷", "Airani Iofifteen"],
+    "versions": ["_C.png", "_P.png"]
+  },
+  {
+    "id": "hSD01-013",
+    "type": "Member",
+    "name": "SorAZ",
+    "imageFolder": "hSD01/",
+    "color": ["green", "white"],
+    "grade": "1st",
+    "series": ["hSD01"],
+    "searchKeywords": ["AZKi", "ときのそら", "時乃空", "Tokino Sora", "SorAZ"],
+    "versions": ["_R.png"]
+  },
+  {
+    "id": "hSD01-014",
+    "type": "Member",
+    "name": "天音かなた",
+    "imageFolder": "hSD01/",
+    "color": ["colorless"],
+    "grade": "spot",
+    "series": ["hSD01"],
+    "searchKeywords": ["天音かなた", "天音彼方", "Amane Kanata"],
+    "versions": ["_U.png"]
+  },
+  {
+    "id": "hSD01-015",
+    "type": "Member",
+    "name": "博衣こより",
+    "imageFolder": "hSD01/",
+    "color": ["colorless"],
+    "grade": "spot",
+    "series": ["hSD01"],
+    "searchKeywords": ["博衣こより", "博衣小夜璃", "Hakui Koyori"],
+    "versions": ["_U.png"]
+  },
+  {
+    "id": "hSD01-016",
+    "type": "Support",
+    "name": "春先のどか",
+    "imageFolder": "hSD01/",
+    "color": "",
+    "grade": "",
+    "series": ["hSD01", "hPR"],
+    "searchKeywords": ["staff", "スタッフ", "春先のどか"],
+    "versions": ["_C.png", "_P.png"]
+  },
+  {
+    "id": "hSD01-017",
+    "type": "Support",
+    "name": "マネちゃん",
+    "imageFolder": "hSD01/",
+    "color": "",
+    "grade": "",
+    "series": ["hSD01", "hPR"],
+    "searchKeywords": ["staff", "スタッフ", "マネちゃん"],
+    "versions": ["_C.png", "_P.png"]
+  },
+  {
+    "id": "hSD01-018",
+    "type": "Support",
+    "name": "サブパソコン",
+    "imageFolder": "hSD01/",
+    "color": "",
+    "grade": "",
+    "series": ["hSD01", "hPR"],
+    "searchKeywords": ["item", "アイテム", "サブパソコン"],
+    "versions": ["_C.png", "_P.png"]
+  },
+  {
+    "id": "hSD01-019",
+    "type": "Support",
+    "name": "スゴイパソコン",
+    "imageFolder": "hSD01/",
+    "color": "",
+    "grade": "",
+    "series": ["hSD01"],
+    "searchKeywords": ["item", "アイテム", "スゴイパソコン"],
+    "versions": ["_C.png"]
+  },
+  {
+    "id": "hSD01-020",
+    "type": "Support",
+    "name": "ホロリスの輪",
+    "imageFolder": "hSD01/",
+    "color": "",
+    "grade": "",
+    "series": ["hSD01"],
+    "searchKeywords": ["event", "イベント", "ホロリスの輪"],
+    "versions": ["_C.png"]
+  },
+  {
+    "id": "hSD01-021",
+    "type": "Support",
+    "name": "First Gravity",
+    "imageFolder": "hSD01/",
+    "color": "",
+    "grade": "",
+    "series": ["hSD01"],
+    "searchKeywords": ["event", "イベント", "First Gravity"],
+    "versions": ["_C.png"]
+  }
+] 

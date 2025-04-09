@@ -21,7 +21,8 @@ function SearchBar({
   setShareCode,
   onExportImage,
   onExportCode,
-  onImportCode
+  onImportCode,
+  onClearDeck
 }) {
   const handleCopyCode = async () => {
     const data = await onExportCode();
@@ -36,8 +37,25 @@ function SearchBar({
 
   return (
     <div className="sticky top-0 z-10 bg-amber-50 p-3 border-b border-yellow-300 shadow-sm">
-      <div className="flex flex-wrap items-center gap-2">
-        <h2 className="text-lg font-bold">👤 玩家：{playerName}</h2>
+      
+      
+      
+      <div className="flex flex-wrap items-center gap-2 overflow-x-auto">
+
+        <button
+          onClick={() => {
+            setSearchTerm("");
+            setFilterType("全部");
+            setFilterColor("全部顏色");
+            setFilterGrade("全部階級");
+            setFilterSeries("全部彈數");
+            setSupportSubtype("全部");
+            setFilterVersion("全部版本");
+          }}
+          className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded"
+        >
+          🔄 清空搜尋
+        </button>
 
         <select className="border rounded px-2 py-1" value={filterType} onChange={(e) => setFilterType(e.target.value)}>
           <option value="全部">全部</option>
@@ -80,6 +98,14 @@ function SearchBar({
           <option value="hBP01">hBP01ブースターパック「ブルーミングレディアンス」</option>
           <option value="hBP02">hBP02ブースターパック「クインテットスペクトラム」</option>
           <option value="hBP03">hBP03ブースターパック「エリートスパーク」</option>
+          <option value="hSD01">hSD01スタートデッキ「ときのそら＆AZKi」</option>
+          <option value="hSD02">hSD02スタートデッキ 赤 百鬼あやめ</option>
+          <option value="hSD03">hSD03スタートデッキ 青 猫又おかゆ</option>
+          <option value="hSD04">hSD04スタートデッキ 紫 癒月ちょこ</option>
+          <option value="hSD05">hSD05スタートデッキ 白 轟はじめ</option>
+          <option value="hSD06">hSD06スタートデッキ 緑 風真いろは</option>
+          <option value="hSD07">hSD07スタートデッキ 黄 不知火フレア</option>
+          <option value="hPR">PRカード</option>
         </select>
 
         <select
@@ -93,6 +119,7 @@ function SearchBar({
           <option value="tool">Tool</option>
           <option value="mascot">Mascot</option>
           <option value="fan">Fan</option>
+          <option value="staff">Staff</option>
         </select>
 
         <select
@@ -118,6 +145,12 @@ function SearchBar({
       </div>
 
       <div className="mt-2 flex flex-wrap items-center gap-2">
+        <button 
+          onClick={onClearDeck}
+          className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded"
+        >
+          🧹 清空牌組
+        </button>
         <button 
           onClick={onExportImage}
           className="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded"
@@ -150,6 +183,17 @@ function SearchBar({
           className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded"
         >
           📮 意見回饋
+        </a>
+      </div>
+
+      <div className="mt text-right text-[12px] text-gray-500 pr-1">
+        翻譯圖來源：<a
+          href="https://www.facebook.com/HoONeko"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline hover:text-blue-500"
+        >
+          鳳凰貓 Bushiroad Card Gamer 
         </a>
       </div>
     </div>

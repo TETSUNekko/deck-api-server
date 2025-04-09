@@ -1,0 +1,24 @@
+[
+  {
+    "id": "hPR-001",
+    "type": "Member",
+    "name": "さくらみこ",
+    "imageFolder": "hPR/",
+    "color": ["colorless"],
+    "grade": "spot",
+    "series": ["hPR"],
+    "searchKeywords": ["さくらみこ", "櫻巫女", "Sakura Miko"],
+    "versions": ["_P.png"]  
+  },
+  {
+    "id": "hPR-002",
+    "type": "Support",
+    "name": "ReGLOSS",
+    "imageFolder": "hPR/",
+    "color": "",
+    "grade": "",
+    "series": ["hPR", "hSD05"],
+    "searchKeywords": ["event", "イベント", "ReGLOSS"],
+    "versions": ["_P.png", "_P_2.png", "_U.png"]  
+  }
+] 

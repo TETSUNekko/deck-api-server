@@ -1,0 +1,134 @@
+[
+  {
+    "id": "hSD06-001",
+    "type": "Oshi",
+    "name": "風真いろは",
+    "imageFolder": "hSD06/",
+    "color": ["green"],
+    "grade": "",
+    "series": ["hSD06"],
+    "searchKeywords": ["風真いろは", "風真伊呂波", "Kazama Iroha"],
+    "versions": ["_OC.png"]  
+  },
+  {
+    "id": "hSD06-002",
+    "type": "Member",
+    "name": "風真いろは",
+    "imageFolder": "hSD06/",
+    "color": ["green"],
+    "grade": "debut",
+    "series": ["hSD06"],
+    "searchKeywords": ["風真いろは", "風真伊呂波", "Kazama Iroha"],
+    "versions": ["_C.png"]  
+  },
+  {
+    "id": "hSD06-003",
+    "type": "Member",
+    "name": "風真いろは",
+    "imageFolder": "hSD06/",
+    "color": ["green"],
+    "grade": "debut",
+    "series": ["hSD06"],
+    "searchKeywords": ["風真いろは", "風真伊呂波", "Kazama Iroha"],
+    "versions": ["_U.png"]  
+  },
+  {
+    "id": "hSD06-004",
+    "type": "Member",
+    "name": "風真いろは",
+    "imageFolder": "hSD06/",
+    "color": ["green"],
+    "grade": "1st",
+    "series": ["hSD06"],
+    "searchKeywords": ["風真いろは", "風真伊呂波", "Kazama Iroha"],
+    "versions": ["_C.png"]  
+  },
+  {
+    "id": "hSD06-005",
+    "type": "Member",
+    "name": "風真いろは",
+    "imageFolder": "hSD06/",
+    "color": ["green"],
+    "grade": "1st",
+    "series": ["hSD06"],
+    "searchKeywords": ["風真いろは", "風真伊呂波", "Kazama Iroha"],
+    "versions": ["_C.png"]  
+  },
+  {
+    "id": "hSD06-006",
+    "type": "Member",
+    "name": "風真いろは",
+    "imageFolder": "hSD06/",
+    "color": ["green"],
+    "grade": "buzz",
+    "series": ["hSD06"],
+    "searchKeywords": ["風真いろは", "風真伊呂波", "Kazama Iroha"],
+    "versions": ["_R.png"]  
+  },
+  {
+    "id": "hSD06-007",
+    "type": "Member",
+    "name": "風真いろは",
+    "imageFolder": "hSD06/",
+    "color": ["green"],
+    "grade": "2nd",
+    "series": ["hSD06"],
+    "searchKeywords": ["風真いろは", "風真伊呂波", "Kazama Iroha"],
+    "versions": ["_RR.png", "_SR.png"]   
+  },
+  {
+    "id": "hSD06-008",
+    "type": "Member",
+    "name": "博衣こより",
+    "imageFolder": "hSD06/",
+    "color": ["white"],
+    "grade": "debut",
+    "series": ["hSD06"],
+    "searchKeywords": ["博衣こより", "博衣小夜璃", "Hakui Koyori"],
+    "versions": ["_U.png"]  
+  },
+  {
+    "id": "hSD06-009",
+    "type": "Member",
+    "name": "鷹嶺ルイ",
+    "imageFolder": "hSD06/",
+    "color": ["red"],
+    "grade": "debut",
+    "series": ["hSD06"],
+    "searchKeywords": ["鷹嶺ルイ", "鷹嶺琉依", "Takane Rui"],
+    "versions": ["_U.png"]  
+  },
+  {
+    "id": "hSD06-010",
+    "type": "Member",
+    "name": "ラプラス・ダークネス",
+    "imageFolder": "hSD06/",
+    "color": ["purple"],
+    "grade": "debut",
+    "series": ["hSD06"],
+    "searchKeywords": ["ラプラス・ダークネス", "拉普拉斯·達克尼斯", "Laplus Darknesss"],
+    "versions": ["_U.png"]  
+  },
+  {
+    "id": "hSD06-011",
+    "type": "Support",
+    "name": "ﾁｬｷ丸",
+    "imageFolder": "hSD06/",
+    "color": "",
+    "grade": "",
+    "series": ["hSD06"],
+    "searchKeywords": ["tool", "ツール", "ﾁｬｷ丸"],
+    "versions": ["_C.png"]  
+  },
+  {
+    "id": "hSD06-012",
+    "type": "Support",
+    "name": "ぽこべぇ",
+    "imageFolder": "hSD06/",
+    "color": "",
+    "grade": "",
+    "series": ["hSD06"],
+    "searchKeywords": ["mascot", "マスコット", "ぽこべぇ"],
+    "versions": ["_C.png"]
+  }
+] 

@@ -1,0 +1,156 @@
+[
+  {
+    "id": "hSD05-001",
+    "type": "Oshi",
+    "name": "轟はじめ",
+    "imageFolder": "hSD05/",
+    "color": ["white"],
+    "grade": "",
+    "series": ["hSD05"],
+    "searchKeywords": ["轟はじめ", "轟一", "Todoroki Hajime"],
+    "versions": ["_OC.png"]  
+  },
+  {
+    "id": "hSD05-002",
+    "type": "Member",
+    "name": "轟はじめ",
+    "imageFolder": "hSD05/",
+    "color": ["white"],
+    "grade": "debut",
+    "series": ["hSD05"],
+    "searchKeywords": ["轟はじめ", "轟一", "Todoroki Hajime"],
+    "versions": ["_C.png"]  
+  },
+  {
+    "id": "hSD05-003",
+    "type": "Member",
+    "name": "轟はじめ",
+    "imageFolder": "hSD05/",
+    "color": ["white"],
+    "grade": "debut",
+    "series": ["hSD05"],
+    "searchKeywords": ["轟はじめ", "轟一", "Todoroki Hajime"],
+    "versions": ["_C.png"]  
+  },
+  {
+    "id": "hSD05-004",
+    "type": "Member",
+    "name": "轟はじめ",
+    "imageFolder": "hSD05/",
+    "color": ["white"],
+    "grade": "debut",
+    "series": ["hSD05"],
+    "searchKeywords": ["轟はじめ", "轟一", "Todoroki Hajime"],
+    "versions": ["_U.png"]  
+  },
+  {
+    "id": "hSD05-005",
+    "type": "Member",
+    "name": "轟はじめ",
+    "imageFolder": "hSD05/",
+    "color": ["white"],
+    "grade": "1st",
+    "series": ["hSD05"],
+    "searchKeywords": ["轟はじめ", "轟一", "Todoroki Hajime"],
+    "versions": ["_C.png"]  
+  },
+  {
+    "id": "hSD05-006",
+    "type": "Member",
+    "name": "轟はじめ",
+    "imageFolder": "hSD05/",
+    "color": ["white"],
+    "grade": "1st",
+    "series": ["hSD05"],
+    "searchKeywords": ["轟はじめ", "轟一", "Todoroki Hajime"],
+    "versions": ["_C.png"]  
+  },
+  {
+    "id": "hSD05-007",
+    "type": "Member",
+    "name": "轟はじめ",
+    "imageFolder": "hSD05/",
+    "color": ["white"],
+    "grade": "1st",
+    "series": ["hSD05"],
+    "searchKeywords": ["轟はじめ", "轟一", "Todoroki Hajime"],
+    "versions": ["_U.png"]  
+  },
+  {
+    "id": "hSD05-008",
+    "type": "Member",
+    "name": "轟はじめ",
+    "imageFolder": "hSD05/",
+    "color": ["white"],
+    "grade": "buzz",
+    "series": ["hSD05"],
+    "searchKeywords": ["轟はじめ", "轟一", "Todoroki Hajime"],
+    "versions": ["_R.png"]  
+  },
+  {
+    "id": "hSD05-009",
+    "type": "Member",
+    "name": "轟はじめ",
+    "imageFolder": "hSD05/",
+    "color": ["white"],
+    "grade": "2nd",
+    "series": ["hSD05"],
+    "searchKeywords": ["轟はじめ", "轟一", "Todoroki Hajime"],
+    "versions": ["_RR.png", "_SR.png"]  
+  },
+  {
+    "id": "hSD05-010",
+    "type": "Member",
+    "name": "儒烏風亭らでん",
+    "imageFolder": "hSD05/",
+    "color": ["green"],
+    "grade": "debut",
+    "series": ["hSD05"],
+    "searchKeywords": ["儒烏風亭らでん", "儒烏風亭螺鈿", "Juufuutei Raden"],
+    "versions": ["_U.png"]  
+  },
+  {
+    "id": "hSD05-011",
+    "type": "Member",
+    "name": "一条莉々華",
+    "imageFolder": "hSD05/",
+    "color": ["red"],
+    "grade": "debut",
+    "series": ["hSD05"],
+    "searchKeywords": ["一条莉々華", "一條莉莉華", "Ichijou Ririka"],
+    "versions": ["_U.png"]  
+  },
+  {
+    "id": "hSD05-012",
+    "type": "Member",
+    "name": "火威青",
+    "imageFolder": "hSD05/",
+    "color": ["blue"],
+    "grade": "debut",
+    "series": ["hSD05"],
+    "searchKeywords": ["火威青", "火威青", "Hiodoshi Ao"],
+    "versions": ["_U.png"]
+  },
+  {
+    "id": "hSD05-013",
+    "type": "Member",
+    "name": "音乃瀨奏",
+    "imageFolder": "hSD05/",
+    "color": ["yellow"],
+    "grade": "debut",
+    "series": ["hSD05"],
+    "searchKeywords": ["音乃瀨奏", "音乃瀨奏", "Otonose Kanade"],
+    "versions": ["_U.png"]
+  },
+  {
+    "id": "hSD05-014",
+    "type": "Support",
+    "name": "ばんぺん",
+    "imageFolder": "hSD05/",
+    "color": "",
+    "grade": "",
+    "series": ["hSD05"],
+    "searchKeywords": ["mascot", "マスコット", "ばんぺん"],
+    "versions": ["_C.png"]
+  }
+] 

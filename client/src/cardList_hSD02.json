@@ -1,0 +1,156 @@
+[
+  {
+    "id": "hSD02-001",
+    "type": "Oshi",
+    "name": "百鬼あやめ",
+    "imageFolder": "hSD02/",
+    "color": ["red"],
+    "grade": "",
+    "series": ["hSD02"],
+    "searchKeywords": ["百鬼あやめ", "百鬼綾目", "Nakiri Ayame"],
+    "versions": ["_OC.png"]  
+  },
+  {
+    "id": "hSD02-002",
+    "type": "Member",
+    "name": "百鬼あやめ",
+    "imageFolder": "hSD02/",
+    "color": ["red"],
+    "grade": "debut",
+    "series": ["hSD02"],
+    "searchKeywords": ["百鬼あやめ", "百鬼綾目", "Nakiri Ayame"],
+    "versions": ["_C.png"]  
+  },
+  {
+    "id": "hSD02-003",
+    "type": "Member",
+    "name": "百鬼あやめ",
+    "imageFolder": "hSD02/",
+    "color": ["red"],
+    "grade": "debut",
+    "series": ["hSD02"],
+    "searchKeywords": ["百鬼あやめ", "百鬼綾目", "Nakiri Ayame"],
+    "versions": ["_C.png"]  
+  },
+  {
+    "id": "hSD02-004",
+    "type": "Member",
+    "name": "百鬼あやめ",
+    "imageFolder": "hSD02/",
+    "color": ["red"],
+    "grade": "debut",
+    "series": ["hSD02"],
+    "searchKeywords": ["百鬼あやめ", "百鬼綾目", "Nakiri Ayame"],
+    "versions": ["_U.png"]  
+  },
+  {
+    "id": "hSD02-005",
+    "type": "Member",
+    "name": "百鬼あやめ",
+    "imageFolder": "hSD02/",
+    "color": ["red"],
+    "grade": "1st",
+    "series": ["hSD02"],
+    "searchKeywords": ["百鬼あやめ", "百鬼綾目", "Nakiri Ayame"],
+    "versions": ["_C.png"]  
+  },
+  {
+    "id": "hSD02-006",
+    "type": "Member",
+    "name": "百鬼あやめ",
+    "imageFolder": "hSD02/",
+    "color": ["red"],
+    "grade": "1st",
+    "series": ["hSD02"],
+    "searchKeywords": ["百鬼あやめ", "百鬼綾目", "Nakiri Ayame"],
+    "versions": ["_C.png"]  
+  },
+  {
+    "id": "hSD02-007",
+    "type": "Member",
+    "name": "百鬼あやめ",
+    "imageFolder": "hSD02/",
+    "color": ["red"],
+    "grade": "1st",
+    "series": ["hSD02", "hPR"],
+    "searchKeywords": ["百鬼あやめ", "百鬼綾目", "Nakiri Ayame"],
+    "versions": ["_P.png", "_U.png"]  
+  },
+  {
+    "id": "hSD02-008",
+    "type": "Member",
+    "name": "百鬼あやめ",
+    "imageFolder": "hSD02/",
+    "color": ["red"],
+    "grade": "buzz",
+    "series": ["hSD02"],
+    "searchKeywords": ["百鬼あやめ", "百鬼綾目", "Nakiri Ayame"],
+    "versions": ["_R.png"]  
+  },
+  {
+    "id": "hSD02-009",
+    "type": "Member",
+    "name": "百鬼あやめ",
+    "imageFolder": "hSD02/",
+    "color": ["red"],
+    "grade": "2nd",
+    "series": ["hSD02"],
+    "searchKeywords": ["百鬼あやめ", "百鬼綾目", "Nakiri Ayame"],
+    "versions": ["_RR.png", "_SR.png"]  
+  },
+  {
+    "id": "hSD02-010",
+    "type": "Member",
+    "name": "白上フブキ",
+    "imageFolder": "hSD02/",
+    "color": ["colorless"],
+    "grade": "spot",
+    "series": ["hSD02"],
+    "searchKeywords": ["白上フブキ", "白上吹雪", "Shirakami Fubuki"],
+    "versions": ["_U.png"]  
+  },
+  {
+    "id": "hSD02-011",
+    "type": "Member",
+    "name": "大神ミオ",
+    "imageFolder": "hSD02/",
+    "color": ["colorless"],
+    "grade": "spot",
+    "series": ["hSD02"],
+    "searchKeywords": ["大神ミオ", "大神澪", "Ookami Mio"],
+    "versions": ["_U.png"]  
+  },
+  {
+    "id": "hSD02-012",
+    "type": "Support",
+    "name": "いろはにほへっと あやふぶみ",
+    "imageFolder": "hSD02/",
+    "color": "",
+    "grade": "",
+    "series": ["hSD02", "hPR"],
+    "searchKeywords": ["event", "イベント", "いろはにほへっと あやふぶみ"],
+    "versions": ["_P.png", "_U.png"]
+  },
+  {
+    "id": "hSD02-013",
+    "type": "Support",
+    "name": "阿修羅＆羅刹",
+    "imageFolder": "hSD02/",
+    "color": "",
+    "grade": "",
+    "series": ["hSD02"],
+    "searchKeywords": ["tool", "ツール", "阿修羅＆羅刹"],
+    "versions": ["_C.png"]
+  },
+  {
+    "id": "hSD02-014",
+    "type": "Support",
+    "name": "ぽよ余",
+    "imageFolder": "hSD02/",
+    "color": "",
+    "grade": "",
+    "series": ["hSD02"],
+    "searchKeywords": ["mascot", "マスコット", "ぽよ余"],
+    "versions": ["_C.png"]
+  }
+] 

@@ -1,0 +1,68 @@
+[
+  {
+    "id": "hBD24-001",
+    "type": "Oshi",
+    "name": "パヴォリア・レイネ",
+    "imageFolder": "hBD24/",
+    "color": ["green"],
+    "grade": "",
+    "series": ["hPR", "hBD24"],
+    "searchKeywords": ["パヴォリア・レイネ", "帕沃莉亞·蕾內", "Pavolia Reine"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-002",
+    "type": "Oshi",
+    "name": "獅白ぼたん",
+    "imageFolder": "hBD24/",
+    "color": ["green"],
+    "grade": "",
+    "series": ["hPR", "hBD24"],
+    "searchKeywords": ["獅白ぼたん", "獅白牡丹", "Shishiro Botan"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-003",
+    "type": "Oshi",
+    "name": "戌神ころね",
+    "imageFolder": "hBD24/",
+    "color": ["yellow"],
+    "grade": "",
+    "series": ["hPR", "hBD24"],
+    "searchKeywords": ["戌神ころね", "戌神沁音", "Inugami Korone"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-004",
+    "type": "Oshi",
+    "name": "白上フブキ",
+    "imageFolder": "hBD24/",
+    "color": ["white"],
+    "grade": "",
+    "series": ["hPR", "hBD24"],
+    "searchKeywords": ["白上フブキ", "白上吹雪", "Shirakami Fubuki"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-006",
+    "type": "Oshi",
+    "name": "クレイジー・オリー",
+    "imageFolder": "hBD24/",
+    "color": ["purple"],
+    "grade": "",
+    "series": ["hPR", "hBD24"],
+    "searchKeywords": ["クレイジー・オリー", "克蕾西·奧莉", "Kureiji Ollie"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-007",
+    "type": "Oshi",
+    "name": "ジジ・ムリン",
+    "imageFolder": "hBD24/",
+    "color": ["yellow"],
+    "grade": "",
+    "series": ["hPR", "hBD24"],
+    "searchKeywords": ["ジジ・ムリン", "琪琪·沐林", "Gigi Murin"],
+    "versions": ["_P.png"]
+  }
+] 

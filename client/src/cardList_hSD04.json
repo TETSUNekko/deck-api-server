@@ -1,0 +1,156 @@
+[
+  {
+    "id": "hSD04-001",
+    "type": "Oshi",
+    "name": "癒月ちょこ",
+    "imageFolder": "hSD04/",
+    "color": ["purple"],
+    "grade": "",
+    "series": ["hSD04"],
+    "searchKeywords": ["癒月ちょこ", "癒月巧可", "Yuzuki Choco"],
+    "versions": ["_OC.png"]  
+  },
+  {
+    "id": "hSD04-002",
+    "type": "Member",
+    "name": "癒月ちょこ",
+    "imageFolder": "hSD04/",
+    "color": ["purple"],
+    "grade": "debut",
+    "series": ["hSD04"],
+    "searchKeywords": ["癒月ちょこ", "癒月巧可", "Yuzuki Choco"],
+    "versions": ["_C.png"]  
+  },
+  {
+    "id": "hSD04-003",
+    "type": "Member",
+    "name": "癒月ちょこ",
+    "imageFolder": "hSD04/",
+    "color": ["purple"],
+    "grade": "debut",
+    "series": ["hSD04"],
+    "searchKeywords": ["癒月ちょこ", "癒月巧可", "Yuzuki Choco"],
+    "versions": ["_C.png"]  
+  },
+  {
+    "id": "hSD04-004",
+    "type": "Member",
+    "name": "癒月ちょこ",
+    "imageFolder": "hSD04/",
+    "color": ["purple"],
+    "grade": "debut",
+    "series": ["hSD04"],
+    "searchKeywords": ["癒月ちょこ", "癒月巧可", "Yuzuki Choco"],
+    "versions": ["_U.png"]  
+  },
+  {
+    "id": "hSD04-005",
+    "type": "Member",
+    "name": "癒月ちょこ",
+    "imageFolder": "hSD04/",
+    "color": ["purple"],
+    "grade": "1st",
+    "series": ["hSD04"],
+    "searchKeywords": ["癒月ちょこ", "癒月巧可", "Yuzuki Choco"],
+    "versions": ["_C.png"]  
+  },
+  {
+    "id": "hSD04-006",
+    "type": "Member",
+    "name": "癒月ちょこ",
+    "imageFolder": "hSD04/",
+    "color": ["purple"],
+    "grade": "1st",
+    "series": ["hSD04"],
+    "searchKeywords": ["癒月ちょこ", "癒月巧可", "Yuzuki Choco"],
+    "versions": ["_C.png"]  
+  },
+  {
+    "id": "hSD04-007",
+    "type": "Member",
+    "name": "癒月ちょこ",
+    "imageFolder": "hSD04/",
+    "color": ["purple"],
+    "grade": "1st",
+    "series": ["hSD04", "hPR"],
+    "searchKeywords": ["癒月ちょこ", "癒月巧可", "Yuzuki Choco"],
+    "versions": ["_P.png", "_U.png"]  
+  },
+  {
+    "id": "hSD04-008",
+    "type": "Member",
+    "name": "癒月ちょこ",
+    "imageFolder": "hSD04/",
+    "color": ["purple"],
+    "grade": "buzz",
+    "series": ["hSD04"],
+    "searchKeywords": ["癒月ちょこ", "癒月巧可", "Yuzuki Choco"],
+    "versions": ["_R.png"]  
+  },
+  {
+    "id": "hSD04-009",
+    "type": "Member",
+    "name": "癒月ちょこ",
+    "imageFolder": "hSD04/",
+    "color": ["purple"],
+    "grade": "2nd",
+    "series": ["hSD04"],
+    "searchKeywords": ["癒月ちょこ", "癒月巧可", "Yuzuki Choco"],
+    "versions": ["_RR.png", "_SR.png"]  
+  },
+  {
+    "id": "hSD04-010",
+    "type": "Member",
+    "name": "大空スバル",
+    "imageFolder": "hSD04/",
+    "color": ["colorless"],
+    "grade": "spot",
+    "series": ["hSD04"],
+    "searchKeywords": ["大空スバル", "大空昴", "Ozora Subaru"],
+    "versions": ["_U.png"]  
+  },
+  {
+    "id": "hSD04-011",
+    "type": "Member",
+    "name": "姫森ルーナ",
+    "imageFolder": "hSD04/",
+    "color": ["colorless"],
+    "grade": "spot",
+    "series": ["hSD04"],
+    "searchKeywords": ["姫森ルーナ", "姬森璐娜", "Himemori Luna"],
+    "versions": ["_U.png"]  
+  },
+  {
+    "id": "hSD04-012",
+    "type": "Support",
+    "name": "スバちょこルーナ",
+    "imageFolder": "hSD04/",
+    "color": "",
+    "grade": "",
+    "series": ["hSD04"],
+    "searchKeywords": ["event", "イベント", "スバちょこルーナ"],
+    "versions": ["_U.png"]
+  },
+  {
+    "id": "hSD04-013",
+    "type": "Support",
+    "name": "ちょこのオムライス",
+    "imageFolder": "hSD04/",
+    "color": "",
+    "grade": "",
+    "series": ["hSD04"],
+    "searchKeywords": ["event", "イベント", "ちょこのオムライス"],
+    "versions": ["_C.png"]
+  },
+  {
+    "id": "hSD04-014",
+    "type": "Support",
+    "name": "しょこら",
+    "imageFolder": "hSD04/",
+    "color": "",
+    "grade": "",
+    "series": ["hSD04"],
+    "searchKeywords": ["mascot", "マスコット", "しょこら"],
+    "versions": ["_C.png"]
+  }
+] 

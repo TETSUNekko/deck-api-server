@@ -6,7 +6,7 @@
     "imageFolder": "hBP03/",
     "color": ["white"],
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["姫森ルーナ", "姬森璐娜", "Himemori Luna"],
     "versions": ["_OSR.png", "_OUR.png"]  
   },
@@ -17,7 +17,7 @@
     "imageFolder": "hBP03/",
     "color": ["green"],
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["獅白ぼたん", "獅白牡丹", "Shishiro Botan"],
     "versions": ["_SEC.png", "_OSR.png", "_OUR.png"]
   },
@@ -28,7 +28,7 @@
     "imageFolder": "hBP03/",
     "color": ["red"],
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["さくらみこ", "櫻巫女", "Sakura Miko"],
     "versions": ["_SEC.png", "_OSR.png", "_OUR.png"]
   },
@@ -39,7 +39,7 @@
     "imageFolder": "hBP03/",
     "color": ["blue"],
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["FUWAMOCO", "FUWAMOCO", "FUWAMOCO"],
     "versions": ["_OSR.png", "_OUR.png"]
   },
@@ -50,7 +50,7 @@
     "imageFolder": "hBP03/",
     "color": ["purple"],
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["常闇トワ", "常闇永遠", "Tokoyami Towa"],
     "versions": ["_SEC.png", "_OSR.png", "_OUR.png"]
   },
@@ -61,7 +61,7 @@
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["戌神ころね", "戌神沁音", "Inugami Korone"],
     "versions": ["_OSR.png", "_OUR.png"]
   },
@@ -72,7 +72,7 @@
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["角巻わため", "角卷綿芽", "Tsunomaki Watame"],
     "versions": ["_SEC.png", "_OSR.png", "_OUR.png"]
   },
@@ -83,7 +83,7 @@
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["アユンダ・リス", "阿芸達·栗絲", "Ayunda Risu"],
     "versions": ["_OSR.png", "_OUR.png"]
   },
@@ -94,7 +94,7 @@
     "imageFolder": "hBP03/",
     "color": ["white"],
     "grade": "debut",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["姫森ルーナ", "姬森璐娜", "Himemori Luna"],
     "versions": ["_C.png"]
   },
@@ -105,7 +105,7 @@
     "imageFolder": "hBP03/",
     "color": ["white"],
     "grade": "debut",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["姫森ルーナ", "姬森璐娜", "Himemori Luna"],
     "versions": ["_U.png", "_S.png"]
   },
@@ -116,7 +116,7 @@
     "imageFolder": "hBP03/",
     "color": ["white"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["姫森ルーナ", "姬森璐娜", "Himemori Luna"],
     "versions": ["_C.png", "_S.png"]
   },
@@ -127,7 +127,7 @@
     "imageFolder": "hBP03/",
     "color": ["white"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["姫森ルーナ", "姬森璐娜", "Himemori Luna"],
     "versions": ["_U.png", "_S.png"]
   },
@@ -138,7 +138,7 @@
     "imageFolder": "hBP03/",
     "color": ["white"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["姫森ルーナ", "姬森璐娜", "Himemori Luna"],
     "versions": ["_R.png", "_SR.png"]
   },
@@ -149,7 +149,7 @@
     "imageFolder": "hBP03/",
     "color": ["white"],
     "grade": "2nd",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["姫森ルーナ", "姬森璐娜", "Himemori Luna"],
     "versions": ["_RR.png", "_SR.png", "_UR.png"]
   },
@@ -160,7 +160,7 @@
     "imageFolder": "hBP03/",
     "color": ["white"],
     "grade": "2nd",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["轟はじめ", "轟一", "Todoroki Hajime"],
     "versions": ["_RR.png", "_SR.png", "_UR.png"]
   },
@@ -171,7 +171,7 @@
     "imageFolder": "hBP03/",
     "color": ["green"],
     "grade": "debut",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["獅白ぼたん", "獅白牡丹", "Shishiro Botan"],
     "versions": ["_C.png"]
   },
@@ -182,7 +182,7 @@
     "imageFolder": "hBP03/",
     "color": ["green"],
     "grade": "debut",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["獅白ぼたん", "獅白牡丹", "Shishiro Botan"],
     "versions": ["_S.png", "_U.png"]
   },
@@ -193,7 +193,7 @@
     "imageFolder": "hBP03/",
     "color": ["green"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["獅白ぼたん", "獅白牡丹", "Shishiro Botan"],
     "versions": ["_C.png", "_S.png"]
   },
@@ -204,7 +204,7 @@
     "imageFolder": "hBP03/",
     "color": ["green"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["獅白ぼたん", "獅白牡丹", "Shishiro Botan"],
     "versions": ["_U.png", "_S.png"]
   },
@@ -215,7 +215,7 @@
     "imageFolder": "hBP03/",
     "color": ["green"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["獅白ぼたん", "獅白牡丹", "Shishiro Botan"],
     "versions": ["_R.png", "_SR.png"]
   },
@@ -226,7 +226,7 @@
     "imageFolder": "hBP03/",
     "color": ["green"],
     "grade": "2nd",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["獅白ぼたん", "獅白牡丹", "Shishiro Botan"],
     "versions": ["_RR.png", "_SR.png", "_UR.png"]
   },
@@ -237,7 +237,7 @@
     "imageFolder": "hBP03/",
     "color": ["green"],
     "grade": "buzz",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["アキ・ローゼンタール", "亞綺·羅森塔爾", "Aki Rosenthal"],
     "versions": ["_R.png", "_SR.png"]
   },
@@ -248,7 +248,7 @@
     "imageFolder": "hBP03/",
     "color": ["green"],
     "grade": "buzz",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["兔田ぺこら", "兔田佩可拉", "Usada Pekora"],
     "versions": ["_R.png", "_SR.png"]
   },
@@ -259,7 +259,7 @@
     "imageFolder": "hBP03/",
     "color": ["green"],
     "grade": "2nd",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["風真いろは", "風真伊呂波", "Kazama Iroha"],
     "versions": ["_RR.png", "_SR.png", "_UR.png"]
   },
@@ -270,7 +270,7 @@
     "imageFolder": "hBP03/",
     "color": ["red"],
     "grade": "debut",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["さくらみこ", "櫻巫女", "Sakura Miko"],
     "versions": ["_C.png"]
   },
@@ -281,7 +281,7 @@
     "imageFolder": "hBP03/",
     "color": ["red"],
     "grade": "debut",
-    "series": "hBP03",
+    "series": ["hBP03", "hPR"],
     "searchKeywords": ["さくらみこ", "櫻巫女", "Sakura Miko"],
     "versions": ["_U.png", "_P.png", "_S.png"]
   },
@@ -292,7 +292,7 @@
     "imageFolder": "hBP03/",
     "color": ["red"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["さくらみこ", "櫻巫女", "Sakura Miko"],
     "versions": ["_C.png", "_S.png"]
   },
@@ -303,7 +303,7 @@
     "imageFolder": "hBP03/",
     "color": ["red"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["さくらみこ", "櫻巫女", "Sakura Miko"],
     "versions": ["_U.png", "_S.png"]
   },
@@ -314,7 +314,7 @@
     "imageFolder": "hBP03/",
     "color": ["red"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["さくらみこ", "櫻巫女", "Sakura Miko"],
     "versions": ["_R.png", "_SR.png"]
   },
@@ -325,7 +325,7 @@
     "imageFolder": "hBP03/",
     "color": ["red"],
     "grade": "2nd",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["さくらみこ", "櫻巫女", "Sakura Miko"],
     "versions": ["_RR.png", "_SR.png", "_UR.png"]
   },
@@ -336,7 +336,7 @@
     "imageFolder": "hBP03/",
     "color": ["red"],
     "grade": "debut",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["赤井はあと", "赤井心", "Akai Haato"],
     "versions": ["_C.png"]
   },
@@ -347,7 +347,7 @@
     "imageFolder": "hBP03/",
     "color": ["red"],
     "grade": "debut",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["赤井はあと", "赤井心", "Akai Haato"],
     "versions": ["_C.png", "_S.png"]
   },
@@ -358,7 +358,7 @@
     "imageFolder": "hBP03/",
     "color": ["red"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["赤井はあと", "赤井心", "Akai Haato"],
     "versions": ["_U.png", "_S.png"]
   },
@@ -369,7 +369,7 @@
     "imageFolder": "hBP03/",
     "color": ["red"],
     "grade": "buzz",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["赤井はあと", "赤井心", "Akai Haato"],
     "versions": ["_RR.png", "_SR.png", "_UR.png"]
   },
@@ -380,7 +380,7 @@
     "imageFolder": "hBP03/",
     "color": ["red"],
     "grade": "buzz",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["鷹嶺ルイ", "鷹嶺琉依", "Takane Rui"],
     "versions": ["_R.png", "_SR.png"]
   },
@@ -391,7 +391,7 @@
     "imageFolder": "hBP03/",
     "color": ["red"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["小鳥遊キアラ", "小鳥遊琪亞拉", "Takanashi Kiara"],
     "versions": ["_R.png", "_SR.png"]
   },
@@ -402,7 +402,7 @@
     "imageFolder": "hBP03/",
     "color": ["red"],
     "grade": "debut",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["モココ・アビスガード", "茸茸·阿比斯加德", "Mococo Abyssgard"],
     "versions": ["_C.png"]
   },
@@ -413,7 +413,7 @@
     "imageFolder": "hBP03/",
     "color": ["red"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["モココ・アビスガード", "茸茸·阿比斯加德", "Mococo Abyssgard"],
     "versions": ["_C.png", "_S.png"]
   },
@@ -424,7 +424,7 @@
     "imageFolder": "hBP03/",
     "color": ["red"],
     "grade": "buzz",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["モココ・アビスガード", "茸茸·阿比斯加德", "Mococo Abyssgard"],
     "versions": ["_R.png", "_SR.png"]
   },
@@ -435,7 +435,7 @@
     "imageFolder": "hBP03/",
     "color": ["red"],
     "grade": "debut",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["フワワ・アビスガード", "軟軟·阿比斯加德", "Fuwawa Abyssgard"],
     "versions": ["_C.png"]
   },
@@ -446,7 +446,7 @@
     "imageFolder": "hBP03/",
     "color": ["blue"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["フワワ・アビスガード", "軟軟·阿比斯加德", "Fuwawa Abyssgard"],
     "versions": ["_C.png", "_S.png"]
   },
@@ -457,7 +457,7 @@
     "imageFolder": "hBP03/",
     "color": ["blue"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["フワワ・アビスガード", "軟軟·阿比斯加德", "Fuwawa Abyssgard"],
     "versions": ["_U.png", "_S.png"]
   },
@@ -468,7 +468,7 @@
     "imageFolder": "hBP03/",
     "color": ["blue"],
     "grade": "2nd",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["フワワ・アビスガード", "軟軟·阿比斯加德", "Fuwawa Abyssgard"],
     "versions": ["_RR.png", "_SR.png", "_UR.png"]
   },
@@ -479,7 +479,7 @@
     "imageFolder": "hBP03/",
     "color": ["blue"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["星街すいせい", "星街彗星", "Hoshimachi Suisei"],
     "versions": ["_R.png", "_SR.png"]
   },
@@ -490,7 +490,7 @@
     "imageFolder": "hBP03/",
     "color": ["blue"],
     "grade": "buzz",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["こぼ・かなえる", "果波·卡娜埃露", "Kobo Kanaeru"],
     "versions": ["_R.png", "_SR.png"]
   },
@@ -501,7 +501,7 @@
     "imageFolder": "hBP03/",
     "color": ["blue"],
     "grade": "debut",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["火威青", "火威青", "Hiodoshi Ao"],
     "versions": ["_C.png"]
   },
@@ -512,7 +512,7 @@
     "imageFolder": "hBP03/",
     "color": ["blue"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["火威青", "火威青", "Hiodoshi Ao"],
     "versions": ["_C.png", "_S.png"]
   },
@@ -523,7 +523,7 @@
     "imageFolder": "hBP03/",
     "color": ["blue"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["火威青", "火威青", "Hiodoshi Ao"],
     "versions": ["_U.png", "_S.png"]
   },
@@ -534,7 +534,7 @@
     "imageFolder": "hBP03/",
     "color": ["blue"],
     "grade": "buzz",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["火威青", "火威青", "Hiodoshi Ao"],
     "versions": ["_R.png", "_SR.png"]
   },
@@ -545,7 +545,7 @@
     "imageFolder": "hBP03/",
     "color": ["red", "blue"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["FUWAMOCO", "FUWAMOCO", "FUWAMOCO"],
     "versions": ["_R.png", "_SR.png"]
   },
@@ -556,7 +556,7 @@
     "imageFolder": "hBP03/",
     "color": ["purple"],
     "grade": "debut",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["常闇トワ", "常闇永遠", "Tokoyami Towa"],
     "versions": ["_C.png"]
   },
@@ -567,7 +567,7 @@
     "imageFolder": "hBP03/",
     "color": ["purple"],
     "grade": "debut",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["常闇トワ", "常闇永遠", "Tokoyami Towa"],
     "versions": ["_U.png", "_S.png"]
   },
@@ -578,7 +578,7 @@
     "imageFolder": "hBP03/",
     "color": ["purple"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["常闇トワ", "常闇永遠", "Tokoyami Towa"],
     "versions": ["_C.png", "_S.png"]
   },
@@ -589,7 +589,7 @@
     "imageFolder": "hBP03/",
     "color": ["purple"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["常闇トワ", "常闇永遠", "Tokoyami Towa"],
     "versions": ["_U.png", "_S.png"]
   },
@@ -600,7 +600,7 @@
     "imageFolder": "hBP03/",
     "color": ["purple"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["常闇トワ", "常闇永遠", "Tokoyami Towa"],
     "versions": ["_R.png", "_SR.png"]
   },
@@ -611,7 +611,7 @@
     "imageFolder": "hBP03/",
     "color": ["purple"],
     "grade": "2nd",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["常闇トワ", "常闇永遠", "Tokoyami Towa"],
     "versions": ["_RR.png", "_SR.png", "_UR.png"]
   },
@@ -622,7 +622,7 @@
     "imageFolder": "hBP03/",
     "color": ["purple"],
     "grade": "debut",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["ロボ子さん", "蘿蔔子", "Roboco-san"],
     "versions": ["_C.png"]
   },
@@ -633,7 +633,7 @@
     "imageFolder": "hBP03/",
     "color": ["purple"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["ロボ子さん", "蘿蔔子", "Roboco-san"],
     "versions": ["_C.png", "_S.png"]
   },
@@ -644,7 +644,7 @@
     "imageFolder": "hBP03/",
     "color": ["purple"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["ロボ子さん", "蘿蔔子", "Roboco-san"],
     "versions": ["_U.png", "_S.png"]
   },
@@ -655,7 +655,7 @@
     "imageFolder": "hBP03/",
     "color": ["purple"],
     "grade": "2nd",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["ロボ子さん", "蘿蔔子", "Roboco-san"],
     "versions": ["_R.png", "_SR.png"]
   },
@@ -666,7 +666,7 @@
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "debut",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["戌神ころね", "戌神沁音", "Inugami Korone"],
     "versions": ["_C.png"]
   },
@@ -677,7 +677,7 @@
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "debut",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["戌神ころね", "戌神沁音", "Inugami Korone"],
     "versions": ["_U.png", "_S.png"]
   },
@@ -688,7 +688,7 @@
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["戌神ころね", "戌神沁音", "Inugami Korone"],
     "versions": ["_C.png", "_S.png"]
   },
@@ -699,7 +699,7 @@
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["戌神ころね", "戌神沁音", "Inugami Korone"],
     "versions": ["_U.png", "_S.png"]
   },
@@ -710,7 +710,7 @@
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["戌神ころね", "戌神沁音", "Inugami Korone"],
     "versions": ["_R.png", "_SR.png"]
   },
@@ -721,7 +721,7 @@
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "2nd",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["戌神ころね", "戌神沁音", "Inugami Korone"],
     "versions": ["_RR.png", "_SR.png", "_UR.png"]
   },
@@ -732,7 +732,7 @@
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "debut",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["角巻わため", "角卷綿芽", "Tsunomaki Watame"],
     "versions": ["_C.png"]
   },
@@ -743,7 +743,7 @@
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "debut",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["角巻わため", "角卷綿芽", "Tsunomaki Watame"],
     "versions": ["_U.png", "_S.png"]
   },
@@ -754,7 +754,7 @@
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["角巻わため", "角卷綿芽", "Tsunomaki Watame"],
     "versions": ["_C.png", "_S.png"]
   },
@@ -765,7 +765,7 @@
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["角巻わため", "角卷綿芽", "Tsunomaki Watame"],
     "versions": ["_U.png", "_S.png"]
   },
@@ -776,7 +776,7 @@
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["角巻わため", "角卷綿芽", "Tsunomaki Watame"],
     "versions": ["_R.png", "_SR.png"]
   },
@@ -787,7 +787,7 @@
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "2nd",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["角巻わため", "角卷綿芽", "Tsunomaki Watame"],
     "versions": ["_RR.png", "_SR.png", "_UR.png"]
   },
@@ -798,7 +798,7 @@
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "debut",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["アユンダ・リス", "阿芸達·栗絲", "Ayunda Risu"],
     "versions": ["_C.png"]
   },
@@ -809,7 +809,7 @@
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "debut",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["アユンダ・リス", "阿芸達·栗絲", "Ayunda Risu"],
     "versions": ["_U.png", "_S.png"]
   },
@@ -820,7 +820,7 @@
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["アユンダ・リス", "阿芸達·栗絲", "Ayunda Risu"],
     "versions": ["_C.png", "_S.png"]
   },
@@ -831,7 +831,7 @@
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["アユンダ・リス", "阿芸達·栗絲", "Ayunda Risu"],
     "versions": ["_U.png", "_S.png"]
   },
@@ -842,7 +842,7 @@
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["アユンダ・リス", "阿芸達·栗絲", "Ayunda Risu"],
     "versions": ["_R.png", "_SR.png"]
   },
@@ -853,7 +853,7 @@
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "2nd",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["アユンダ・リス", "阿芸達·栗絲", "Ayunda Risu"],
     "versions": ["_RR.png", "_SR.png", "_UR.png"]
   },
@@ -864,7 +864,7 @@
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "buzz",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["不知火フレア", "不知火芙蕾雅", "Shiranui Flare"],
     "versions": ["_RR.png", "_SR.png", "_UR.png"]
   },
@@ -875,7 +875,7 @@
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "debut",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["音乃瀨奏", "音乃瀨奏", "Otonose Kanade"],
     "versions": ["_C.png"]
   },
@@ -886,7 +886,7 @@
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["音乃瀨奏", "音乃瀨奏", "Otonose Kanade"],
     "versions": ["_C.png", "_S.png"]
   },
@@ -897,7 +897,7 @@
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "1st",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["音乃瀨奏", "音乃瀨奏", "Otonose Kanade"],
     "versions": ["_U.png", "_S.png"]
   },
@@ -908,7 +908,7 @@
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "buzz",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["音乃瀨奏", "音乃瀨奏", "Otonose Kanade"],
     "versions": ["_R.png", "_SR.png"]
   },
@@ -919,7 +919,7 @@
     "imageFolder": "hBP03/",
     "color": "",
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["item", "アイテム", "ゴージャスパソコン"],
     "versions": ["_S.png", "_U.png"]
   },
@@ -930,7 +930,7 @@
     "imageFolder": "hBP03/",
     "color": "",
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["item", "アイテム", "スーパーパソコン"],
     "versions": ["_S.png", "_U.png"]
   },
@@ -941,7 +941,7 @@
     "imageFolder": "hBP03/",
     "color": "",
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["item", "アイテム", "デュアルモニターパソコン"],
     "versions": ["_S.png", "_C.png"]
   },
@@ -952,7 +952,7 @@
     "imageFolder": "hBP03/",
     "color": "",
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["event", "イベント", "コールアンドレスポンス"],
     "versions": ["_S.png", "_C.png"]
   },
@@ -963,7 +963,7 @@
     "imageFolder": "hBP03/",
     "color": "",
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["event", "イベント", "凸待ち"],
     "versions": ["_S.png", "_U.png"]
   },
@@ -974,7 +974,7 @@
     "imageFolder": "hBP03/",
     "color": "",
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["event", "イベント", "ファンミーティング"],
     "versions": ["_S.png", "_U.png"]
   },
@@ -985,7 +985,7 @@
     "imageFolder": "hBP03/",
     "color": "",
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["event", "イベント", "ホロライブ言えるかな？"],
     "versions": ["_U.png", "_S.png"]
   },
@@ -996,7 +996,7 @@
     "imageFolder": "hBP03/",
     "color": "",
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["event", "イベント", "ホロライブインドネシア1期生"],
     "versions": ["_U.png", "_S.png"]
   },
@@ -1007,7 +1007,7 @@
     "imageFolder": "hBP03/",
     "color": "",
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["event", "イベント", "ホロライブ0期生"],
     "versions": ["_U.png", "_S.png"]
   },
@@ -1018,7 +1018,7 @@
     "imageFolder": "hBP03/",
     "color": "",
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["event", "イベント", "ホロライブ4期生"],
     "versions": ["_U.png", "_S.png"]
   },
@@ -1029,7 +1029,7 @@
     "imageFolder": "hBP03/",
     "color": "",
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["event", "イベント", "FPS配信"],
     "versions": ["_U.png", "_S.png"]
   },
@@ -1040,7 +1040,7 @@
     "imageFolder": "hBP03/",
     "color": "",
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["tool", "ツール", "ホロキャップ"],
     "versions": ["_C.png", "_S.png"]
   },
@@ -1051,7 +1051,7 @@
     "imageFolder": "hBP03/",
     "color": "",
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["tool", "ツール", "ライフル"],
     "versions": ["_U.png", "_S.png"]
   },
@@ -1062,7 +1062,7 @@
     "imageFolder": "hBP03/",
     "color": "",
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["tool", "ツール", "リコーダー"],
     "versions": ["_C.png", "_S.png"]
   },
@@ -1073,7 +1073,7 @@
     "imageFolder": "hBP03/",
     "color": "",
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["mascot", "マスコット", "金時"],
     "versions": ["_U.png", "_S.png"]
   },
@@ -1084,7 +1084,7 @@
     "imageFolder": "hBP03/",
     "color": "",
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["mascot", "マスコット", "マグチ"],
     "versions": ["_C.png", "_S.png"]
   },
@@ -1095,7 +1095,7 @@
     "imageFolder": "hBP03/",
     "color": "",
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["mascot", "マスコット", "ペロ"],
     "versions": ["_C.png", "_S.png"]
   },
@@ -1106,7 +1106,7 @@
     "imageFolder": "hBP03/",
     "color": "",
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["mascot", "マスコット", "ビビ"],
     "versions": ["_C.png", "_S.png"]
   },
@@ -1117,7 +1117,7 @@
     "imageFolder": "hBP03/",
     "color": "",
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["mascot", "マスコット", "フトイヌ"],
     "versions": ["_U.png", "_S.png"]
   },
@@ -1128,7 +1128,7 @@
     "imageFolder": "hBP03/",
     "color": "",
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["mascot", "マスコット", "ホソイヌ"],
     "versions": ["_C.png", "_S.png"]
   },
@@ -1139,7 +1139,7 @@
     "imageFolder": "hBP03/",
     "color": "",
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["mascot", "マスコット", "Riscot"],
     "versions": ["_C.png", "_S.png"]
   },
@@ -1150,7 +1150,7 @@
     "imageFolder": "hBP03/",
     "color": "",
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["fan", "ファン", "ルーナイト"],
     "versions": ["_U.png", "_S.png"]
   },
@@ -1161,7 +1161,7 @@
     "imageFolder": "hBP03/",
     "color": "",
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["fan", "ファン", "SSRB"],
     "versions": ["_C.png", "_S.png"]
   },
@@ -1172,7 +1172,7 @@
     "imageFolder": "hBP03/",
     "color": "",
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["fan", "ファン", "35P"],
     "versions": ["_U.png", "_S.png"]
   },
@@ -1183,7 +1183,7 @@
     "imageFolder": "hBP03/",
     "color": "",
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["fan", "ファン", "はあとん"],
     "versions": ["_C.png", "_S.png"]
   },
@@ -1194,7 +1194,7 @@
     "imageFolder": "hBP03/",
     "color": "",
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["fan", "ファン", "Ruffians"],
     "versions": ["_C.png", "_S.png"]
   },
@@ -1205,7 +1205,7 @@
     "imageFolder": "hBP03/",
     "color": "",
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["fan", "ファン", "ろぼさー"],
     "versions": ["_U.png", "_S.png"]
   },
@@ -1216,7 +1216,7 @@
     "imageFolder": "hBP03/",
     "color": "",
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["fan", "ファン", "ころねすきー"],
     "versions": ["_C.png", "_S.png"]
   },
@@ -1227,7 +1227,7 @@
     "imageFolder": "hBP03/",
     "color": "",
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["fan", "ファン", "わためいと"],
     "versions": ["_U.png", "_S.png"]
   },
@@ -1238,7 +1238,7 @@
     "imageFolder": "hBP03/",
     "color": "",
     "grade": "",
-    "series": "hBP03",
+    "series": ["hBP03"],
     "searchKeywords": ["fan", "ファン", "Risuners"],
     "versions": ["_C.png", "_S.png"]
   }
