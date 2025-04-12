@@ -20,7 +20,9 @@ import html2canvas from "html2canvas";
 
 const CardImage = ({ card, version, className, style, onZoom, onClick }) => {
   const basePath = import.meta.env.BASE_URL || "/";
-  const imgSrc = `${basePath}webpcards/${card.imageFolder}${card.id}${version.replace(".png", ".webp")}`;
+  const safeVersion = version || "_C.png"; // 預設值
+  const imgSrc = `${basePath}webpcards/${card.imageFolder}${card.id}${safeVersion.replace(".png", ".webp")}`;
+
 
   // ✅ 預載入翻譯圖
   //React.useEffect(() => {
@@ -194,7 +196,9 @@ function DeckBuilder() {
       let data;
       if (shareCode.length === 5 && !shareCode.includes("-")) {
         // 👇 是 decklog 的代碼
-        const res = await fetch(`https://deck-api-server.onrender.com/import-decklog/${shareCode}`);
+        const res = await fetch(`http://localhost:3001/import-decklog/${shareCode}`);
+
+        //const res = await fetch(`https://deck-api-server.onrender.com/import-decklog/${shareCode}`);
         if (!res.ok) throw new Error();
         data = await res.json();
       } else {
@@ -203,10 +207,25 @@ function DeckBuilder() {
         if (!res.ok) throw new Error();
         data = await res.json();
       }
+
+      // 🔧 將簡單格式轉為完整卡片資料
+      const allCardsMap = {};
+      allCards.forEach((c) => allCardsMap[c.id] = c);
+
+      const attachCardData = (list) =>
+        list.flatMap(({ id, count }) => {
+          const baseCard = allCards.find((c) => c.id === id);
+          if (!baseCard) return [];
+          return Array.from({ length: count }, () => ({
+            ...baseCard,
+            version: baseCard.versions?.[0] || "_C.png",
+          }));
+        });
+           
   
-      setOshiCards(data.oshi || []);
-      setDeckCards(data.deck || []);
-      setEnergyCards(data.energy || []);
+        setOshiCards(attachCardData(data.oshi || []));
+        setDeckCards(attachCardData(data.main || data.deck || []));
+        setEnergyCards(attachCardData(data.energy || []));        
       alert("✅ 成功讀取代碼");
     } catch (error) {
       alert(`❌ 無法讀取該代碼：${error.message || "不明錯誤"}`);

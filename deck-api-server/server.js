@@ -1,5 +1,5 @@
 //server.js
-import { fetchDecklogData } from './decklog-scraper.cjs';
+const { fetchDecklogData } = require('./decklog-scraper.cjs');
 const express = require("express");
 const cors = require("cors");
 const fs = require("fs");
