@@ -52,8 +52,26 @@ const CardImage = ({ card, version, className, style, onZoom, onClick }) => {
       >
         <ZoomIn size={20} />
       </button>
+      {warningMap[card.id] && (
+        <div className="absolute top-0 right-0 m-0.5 group">
+          <div
+            className="w-5 h-5 bg-yellow-400 text-white text-xs font-bold rounded-tr-md rounded-bl-md flex items-center justify-center shadow"
+            title={warningMap[card.id]}
+          >
+            !
+          </div>
+        </div>
+      )}
     </div>
   );
+};
+
+const warningMap = {
+  "hBP01-010": "限制卡（一副牌中只能有一張）",
+  "hBP01-014": "限制卡（一副牌中只能有一張）",
+  "hBP01-030": "限制卡（一副牌中只能有一張）",
+  "hBP02-094": "限制卡（一副牌中只能有一張）"
+  // 更多卡片...
 };
 
 function DeckBuilder() {
@@ -63,6 +81,7 @@ function DeckBuilder() {
   const [deckCards, setDeckCards] = useState([]);
   const [energyCards, setEnergyCards] = useState([]);
   const [shareCode, setShareCode] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const [searchTerm, setSearchTerm] = useState("");
   const [filterType, setFilterType] = useState("全部");
@@ -72,7 +91,14 @@ function DeckBuilder() {
   const [supportSubtype, setSupportSubtype] = useState("全部");
   const [filterVersion, setFilterVersion] = useState("全部版本");
   const [showWelcome, setShowWelcome] = useState(true);
-
+  const [selectedTag, setSelectedTag] = useState("全部標籤");
+  const allTags = [
+    "0期生", "1期生", "2期生", "3期生", "4期生", "5期生",
+    "EN", "ID", "ID1期生", "ID2期生", "ID3期生", "JP",
+    "Myth", "Promise", "colorless", "半精靈", "獸耳", "海",
+    "畫", "歌", "酒", "鳥", "祕密結社holoX"
+  ];
+  
 
   const deckRef = useRef();
   const allCards = [...cardList, ...cardListBP02, ...cardListBP03, ...cardListSD01, ...cardListSD02, ...cardListSD03, ...cardListSD04, 
@@ -100,9 +126,14 @@ function DeckBuilder() {
       (Array.isArray(card.series) && card.series.includes(filterSeries)) ||
       (typeof card.series === "string" && card.series === filterSeries);
     const subtypeMatch = supportSubtype === "全部" || (Array.isArray(card.searchKeywords) && card.searchKeywords.includes(supportSubtype));
+    const tagMatch =
+      !selectedTag || selectedTag === "全部標籤" ||
+      (Array.isArray(card.tags) && card.tags.includes(selectedTag));
 
-    return matchType && matchSearch && colorMatch && gradeMatch && seriesMatch && subtypeMatch;
+
+    return matchType && matchSearch && colorMatch && gradeMatch && seriesMatch && subtypeMatch && tagMatch;
   });
+
 
   const handleAddCard = (card, version) => {
     if (filterVersion !== "全部版本" && version.replace(".png", "") !== filterVersion) return;
@@ -158,18 +189,32 @@ function DeckBuilder() {
   };
 
   const handleImportCode = async () => {
+    setLoading(true); // 開始 loading
     try {
-      const res = await fetch(`https://deck-api-server.onrender.com/load/${shareCode}`);
-      if (!res.ok) throw new Error();
-      const data = await res.json();
+      let data;
+      if (shareCode.length === 5 && !shareCode.includes("-")) {
+        // 👇 是 decklog 的代碼
+        const res = await fetch(`https://deck-api-server.onrender.com/import-decklog/${shareCode}`);
+        if (!res.ok) throw new Error();
+        data = await res.json();
+      } else {
+        // 👇 是你自己儲存的代碼
+        const res = await fetch(`https://deck-api-server.onrender.com/load/${shareCode}`);
+        if (!res.ok) throw new Error();
+        data = await res.json();
+      }
+  
       setOshiCards(data.oshi || []);
-      setDeckCards(data.deck);
-      setEnergyCards(data.energy);
+      setDeckCards(data.deck || []);
+      setEnergyCards(data.energy || []);
       alert("✅ 成功讀取代碼");
-    } catch {
-      alert("❌ 無法讀取該代碼");
-    }
+    } catch (error) {
+      alert(`❌ 無法讀取該代碼：${error.message || "不明錯誤"}`);
+    }finally {
+      setLoading(false); // 無論成功或失敗都結束 loading
+    }  
   };
+  
 
   const handleExportImage = () => {
     const grouped = {};
@@ -184,7 +229,7 @@ function DeckBuilder() {
         body { font-family: sans-serif; padding: 20px; background:rgb(206, 240, 239); }
         h1 { margin-bottom: 12px; }
         .grid { display: flex; flex-wrap: wrap; gap: 10px; cursor: pointer; }
-        .card { position: relative; width: 140px; height: 210px; }
+        .card { position: relative; width: 200px; height: 280px; }
         .card img { width: 100%; height: 100%; object-fit: contain; }
         .count {
           position: absolute;
@@ -307,12 +352,16 @@ function DeckBuilder() {
         onExportCode={handleExportCode}
         onImportCode={handleImportCode}
         onClearDeck={handleClearDeck}
+        selectedTag={selectedTag}
+        setSelectedTag={setSelectedTag}
+        allTags={allTags}
+        loading={loading}
         />
         
         {/* 左側卡片清單容器 */}
         <div className="flex flex-1">
 
-          <div className="w-1/2 h-full">
+          <div style={{ width: "53%" }} className="h-full">
             <div className="overflow-y-auto px-2 pt-6 pb-2" style={{ maxHeight: "calc(100vh - 160px)" }}>
             <div
               className="flex flex-wrap gap-0.5"
@@ -357,7 +406,7 @@ function DeckBuilder() {
             </div>
           </div>
   
-          <div className="w-1/2 border-l px-4 py-4 bg-zinc-100" ref={deckRef}>
+          <div style={{ width: "47%" }} className="border-l px-4 py-4 bg-zinc-100" ref={deckRef}>
             <h3 className="text-lg font-bold mb-2">🗂 我的牌組</h3>
   
             <div className="mb-4">
@@ -450,6 +499,10 @@ function DeckBuilder() {
                 <br />
                 <br />
                 4/9更新內容 : PR卡分類&以出貨生日卡補齊；增加清空搜尋按鈕
+                <br />
+                4/10更新內容 : 限制卡標示；階級和支援卡子分類統一放入"卡片種類"
+                <br />
+                4/11更新內容 : 增加hBP01標籤搜尋功能，以及部分關鍵字搜尋
               </p>
               <p className="text-xs text-gray-400">點擊任意處以開始使用</p>
             </div>

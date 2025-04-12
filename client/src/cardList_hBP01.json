@@ -95,8 +95,10 @@
     "color": ["white"],
     "grade": "debut",
     "series": ["hBP01"],
-    "searchKeywords": ["天音かなた", "天音彼方", "Amane Kanata"],
-    "versions": ["_C.png"]
+    "searchKeywords": ["天音かなた", "天音彼方", "Amane Kanata", "這個藝能，僅能選擇對手的中央成員"],
+    "versions": ["_C.png"],
+    "tags": ["JP", "4期生", "歌"],
+    "effectType": ""  
   },
   {
     "id": "hBP01-010",
@@ -106,8 +108,10 @@
     "color": ["white"],
     "grade": "debut",
     "series": ["hBP01"],
-    "searchKeywords": ["天音かなた", "天音彼方", "Amane Kanata"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["天音かなた", "天音彼方", "Amane Kanata", "這個回合中，自己中央成員的傷害+10。自己的中央成員持有#4期生時，自己中央成員的藝能傷害再+20"],
+    "versions": ["_U.png"],
+    "tags": ["JP", "4期生", "歌"],
+    "effectType": "Collaboration"  
   },
   {
     "id": "hBP01-011",
@@ -118,7 +122,9 @@
     "grade": "1st",
     "series": ["hBP01"],
     "searchKeywords": ["天音かなた", "天音彼方", "Amane Kanata"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ["JP", "4期生", "歌"],
+    "effectType": ""  
   },
   {
     "id": "hBP01-012",
@@ -128,8 +134,10 @@
     "color": ["white"],
     "grade": "1st",
     "series": ["hBP01"],
-    "searchKeywords": ["天音かなた", "天音彼方", "Amane Kanata"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["天音かなた", "天音彼方", "Amane Kanata", "丟擲1次骰子:3或以下時，從自己的牌組公開一張吉祥物，附於自己的成員，接著牌組洗牌"],
+    "versions": ["_U.png"],
+    "tags": ["JP", "4期生", "歌"],
+    "effectType": "Bloom"  
   },
   {
     "id": "hBP01-013",
@@ -139,8 +147,10 @@
     "color": ["white"],
     "grade": "1st",
     "series": ["hBP01"],
-    "searchKeywords": ["天音かなた", "天音彼方", "Amane Kanata"],
-    "versions": ["_R.png"]
+    "searchKeywords": ["天音かなた", "天音彼方", "Amane Kanata", "給予對手中央成員30點的特殊傷害(即使擊倒對手也不會減少生命)"],
+    "versions": ["_R.png"],
+    "tags": ["JP", "4期生", "歌"],
+    "effectType": "Bloom" 
   },
   {
     "id": "hBP01-014",
@@ -150,8 +160,10 @@
     "color": ["white"],
     "grade": "2nd",
     "series": ["hBP01"],
-    "searchKeywords": ["天音かなた", "天音彼方", "Amane Kanata"],
-    "versions": ["_RR.png", "_UR.png"]
+    "searchKeywords": ["天音かなた", "天音彼方", "Amane Kanata", "給予對手中央成員50點的特殊傷害", "這個藝能將對手的成員擊倒時，給予的傷害超過剩餘HP50或以上的話，對手的生命值-1"],
+    "versions": ["_RR.png", "_UR.png"],
+    "tags": ["JP", "4期生", "歌"],
+    "effectType": "Collaboration" 
   },
   {
     "id": "hBP01-015",
@@ -161,8 +173,10 @@
     "color": ["white"],
     "grade": "debut",
     "series": ["hBP01"],
-    "searchKeywords": ["七詩ムメイ", "七詩無名", "Nanashi Mumei"],
-    "versions": ["_C.png"]
+    "searchKeywords": ["七詩ムメイ", "七詩無名", "Nanashi Mumei", "這個回合自己使用過支援卡的話，這個藝能傷害+20"],
+    "versions": ["_C.png"],
+    "tags": ["EN", "Promise", "鳥", "畫"],
+    "effectType": "" 
   },
   {
     "id": "hBP01-016",
@@ -172,8 +186,10 @@
     "color": ["white"],
     "grade": "debut",
     "series": ["hBP01"],
-    "searchKeywords": ["七詩ムメイ", "七詩無名", "Nanashi Mumei"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["七詩ムメイ", "七詩無名", "Nanashi Mumei", "當自己的中央成員持有#Promise時，從自己的牌組抽1張"],
+    "versions": ["_U.png"],
+    "tags": ["EN", "Promise", "鳥", "畫"],
+    "effectType": "Collaboration" 
   },
   {
     "id": "hBP01-017",
@@ -184,7 +200,9 @@
     "grade": "1st",
     "series": ["hBP01"],
     "searchKeywords": ["七詩ムメイ", "七詩無名", "Nanashi Mumei"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ["EN", "Promise", "鳥", "畫"],
+    "effectType": ""
   },
   {
     "id": "hBP01-018",
@@ -194,8 +212,10 @@
     "color": ["white"],
     "grade": "1st",
     "series": ["hBP01"],
-    "searchKeywords": ["七詩ムメイ", "七詩無名", "Nanashi Mumei"],
-    "versions": ["_C.png"]
+    "searchKeywords": ["七詩ムメイ", "七詩無名", "Nanashi Mumei", "可以公開自己牌組上1張卡:被公開的卡持有#Promise時，這個藝能傷害+20。接著將公開的卡加入手牌。"],
+    "versions": ["_C.png"],
+    "tags": ["EN", "Promise", "鳥", "畫"],
+    "effectType": ""
   },
   {
     "id": "hBP01-019",
@@ -205,8 +225,10 @@
     "color": ["white"],
     "grade": "1st",
     "series": ["hBP01"],
-    "searchKeywords": ["七詩ムメイ", "七詩無名", "Nanashi Mumei"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["七詩ムメイ", "七詩無名", "Nanashi Mumei", "從debut開花的時候，從自己的牌組公開1張除了buzz以外並持有#Promise的debut成員或1st成員加入手牌，接著牌組洗牌"],
+    "versions": ["_U.png"],
+    "tags": ["EN", "Promise", "鳥", "畫"],
+    "effectType": "Bloom"
   },
   {
     "id": "hBP01-020",
@@ -216,8 +238,10 @@
     "color": ["white"],
     "grade": "2nd",
     "series": ["hBP01"],
-    "searchKeywords": ["七詩ムメイ", "七詩無名", "Nanashi Mumei"],
-    "versions": ["_R.png"]
+    "searchKeywords": ["七詩ムメイ", "七詩無名", "Nanashi Mumei", "從自己的牌組公開1張持有#Promise的成員，加入手牌。接著牌組洗牌", "這個回合中，你的後備成員每有1人，自己的中央成員與聯動成員的藝能傷害+10"],
+    "versions": ["_R.png"],
+    "tags": ["EN", "Promise", "鳥", "畫"],
+    "effectType": "Collaboration"
   },
   {
     "id": "hBP01-021",
@@ -228,7 +252,9 @@
     "grade": "debut",
     "series": ["hBP01"],
     "searchKeywords": ["ときのそら", "時乃空", "Tokino Sora"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ["JP", "0期生", "歌"],
+    "effectType": ""
   },
   {
     "id": "hBP01-022",
@@ -238,8 +264,10 @@
     "color": ["white"],
     "grade": "1st",
     "series": ["hBP01"],
-    "searchKeywords": ["ときのそら", "時乃空", "Tokino Sora"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["ときのそら", "時乃空", "Tokino Sora", "從自己的牌組抽1張卡"],
+    "versions": ["_U.png"],
+    "tags": ["JP", "0期生", "歌"],
+    "effectType": "Bloom"
   },
   {
     "id": "hBP01-023",
@@ -249,8 +277,10 @@
     "color": ["white"],
     "grade": "2nd",
     "series": ["hBP01"],
-    "searchKeywords": ["ときのそら", "時乃空", "Tokino Sora"],
-    "versions": ["_RR.png", "_UR.png"]
+    "searchKeywords": ["ときのそら", "時乃空", "Tokino Sora", "從自己的牌組抽2張卡", "丟擲1次骰子:奇數時，對同樣的成員再使用1次這個藝能"],
+    "versions": ["_RR.png", "_UR.png"],
+    "tags": ["JP", "0期生", "歌"],
+    "effectType": "Collaboration"
   },
   {
     "id": "hBP01-024",
@@ -261,7 +291,9 @@
     "grade": "debut",
     "series": ["hBP01"],
     "searchKeywords": ["ベスティア・ゼータ", "維斯提亞·澤塔", "Vestia Zeta"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ["ID", "ID3期生"],
+    "effectType": ""
   },
   {
     "id": "hBP01-025",
@@ -272,7 +304,9 @@
     "grade": "1st",
     "series": ["hBP01"],
     "searchKeywords": ["ベスティア・ゼータ", "維斯提亞·澤塔", "Vestia Zeta"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ["ID", "ID3期生"],
+    "effectType": ""
   },
   {
     "id": "hBP01-026",
@@ -282,8 +316,10 @@
     "color": ["white"],
     "grade": "1st",
     "series": ["hBP01"],
-    "searchKeywords": ["ベスティア・ゼータ", "維斯提亞·澤塔", "Vestia Zeta"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["ベスティア・ゼータ", "維斯提亞·澤塔", "Vestia Zeta", "從debut開花的時候，從自己的牌組公開1張除了buzz以外並持有#ID3期生的debut成員或1st成員加入手牌，接著牌組洗牌"],
+    "versions": ["_U.png"],
+    "tags": ["ID", "ID3期生"],
+    "effectType": "Bloom"
   },
   {
     "id": "hBP01-027",
@@ -293,8 +329,10 @@
     "color": ["white"],
     "grade": "buzz",
     "series": ["hBP01"],
-    "searchKeywords": ["ベスティア・ゼータ", "維斯提亞·澤塔", "Vestia Zeta"],
-    "versions": ["_RR.png", "_UR.png"]
+    "searchKeywords": ["ベスティア・ゼータ", "維斯提亞·澤塔", "Vestia Zeta", "聯動位置限定", "回合中1次", "自己的中央成員持有#ID時，這個藝能傷害+50", "自己的成員受到來自對手的傷害時，丟擲1次骰子:奇數時，不會受到該傷害"],
+    "versions": ["_RR.png", "_UR.png"],
+    "tags": ["ID", "ID3期生"],
+    "effectType": "Gift"
   },
   {
     "id": "hBP01-028",
@@ -305,7 +343,9 @@
     "grade": "debut",
     "series": ["hBP01"],
     "searchKeywords": ["IRyS", "IRyS", "IRyS"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ["EN", "Promise", "歌"],
+    "effectType": ""
   },
   {
     "id": "hBP01-029",
@@ -316,7 +356,9 @@
     "grade": "1st",
     "series": ["hBP01"],
     "searchKeywords": ["IRyS", "IRyS", "IRyS"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ["EN", "Promise", "歌"],
+    "effectType": ""
   },
   {
     "id": "hBP01-030",
@@ -326,8 +368,10 @@
     "color": ["white"],
     "grade": "1st",
     "series": ["hBP01"],
-    "searchKeywords": ["IRyS", "IRyS", "IRyS"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["IRyS", "IRyS", "IRyS", "這個回合中，自己持有#Promise的中央成員與聯動成員藝能傷害+30"],
+    "versions": ["_U.png"],
+    "tags": ["EN", "Promise", "歌"],
+    "effectType": "Bloom"
   },
   {
     "id": "hBP01-031",
@@ -337,8 +381,10 @@
     "color": ["white"],
     "grade": "2nd",
     "series": ["hBP01"],
-    "searchKeywords": ["IRyS", "IRyS", "IRyS"],
-    "versions": ["_R.png"]
+    "searchKeywords": ["IRyS", "IRyS", "IRyS", "檢視自己的holo之力。從當中公開1張，加入手牌，接著從自己牌組上方1張化為holo之力", "自己持有#Promise的成員每有1張，這個藝能傷害+20"],
+    "versions": ["_R.png"],
+    "tags": ["EN", "Promise", "歌"],
+    "effectType": "Collaboration"
   },
   {
     "id": "hBP01-032",
@@ -349,7 +395,9 @@
     "grade": "debut",
     "series": ["hBP01"],
     "searchKeywords": ["アキ・ローゼンタール", "亞綺·羅森塔爾", "Aki Rosenthal"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ["JP", "1期生", "半精靈", "酒"],
+    "effectType": ""
   },
   {
     "id": "hBP01-033",
@@ -359,8 +407,10 @@
     "color": ["green"],
     "grade": "debut",
     "series": ["hBP01"],
-    "searchKeywords": ["アキ・ローゼンタール", "亞綺·羅森塔爾", "Aki Rosenthal"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["アキ・ローゼンタール", "亞綺·羅森塔爾", "Aki Rosenthal", "丟擲1次骰子:奇數時，自己的1名綠色成員的HP回復10"],
+    "versions": ["_U.png"],
+    "tags": ["JP", "1期生", "半精靈", "酒"],
+    "effectType": "Collaboration"
   },
   {
     "id": "hBP01-034",
@@ -371,7 +421,9 @@
     "grade": "1st",
     "series": ["hBP01"],
     "searchKeywords": ["アキ・ローゼンタール", "亞綺·羅森塔爾", "Aki Rosenthal"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ["JP", "1期生", "半精靈", "酒"],
+    "effectType": ""
   },
   {
     "id": "hBP01-035",
@@ -381,8 +433,10 @@
     "color": ["green"],
     "grade": "1st",
     "series": ["hBP01"],
-    "searchKeywords": ["アキ・ローゼンタール", "亞綺·羅森塔爾", "Aki Rosenthal"],
-    "versions": ["_C.png"]
+    "searchKeywords": ["アキ・ローゼンタール", "亞綺·羅森塔爾", "Aki Rosenthal", "從自己存檔的1張工具附於自己的成員", "這個成員有附著工具時，從自己的聲援牌組上方1張，送進自己的成員裡"],
+    "versions": ["_C.png"],
+    "tags": ["JP", "1期生", "半精靈", "酒"],
+    "effectType": "Bloom"
   },
   {
     "id": "hBP01-036",
@@ -392,8 +446,10 @@
     "color": ["green"],
     "grade": "1st",
     "series": ["hBP01"],
-    "searchKeywords": ["アキ・ローゼンタール", "亞綺·羅森塔爾", "Aki Rosenthal"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["アキ・ローゼンタール", "亞綺·羅森塔爾", "Aki Rosenthal", "自己的1名成員HP回復20"],
+    "versions": ["_U.png"],
+    "tags": ["JP", "1期生", "半精靈", "酒"],
+    "effectType": "Collaboration"
   },
   {
     "id": "hBP01-037",
@@ -403,8 +459,10 @@
     "color": ["green"],
     "grade": "2nd",
     "series": ["hBP01"],
-    "searchKeywords": ["アキ・ローゼンタール", "亞綺·羅森塔爾", "Aki Rosenthal"],
-    "versions": ["_R.png"]
+    "searchKeywords": ["アキ・ローゼンタール", "亞綺·羅森塔爾", "Aki Rosenthal", "這個成員有附著工具時，這個藝能傷害+50", "從自己的聲援牌組上方的1張卡，送進自己的成員裡，之後，這個成員有附著工具時，這個成員的HP回復40"],
+    "versions": ["_R.png"],
+    "tags": ["JP", "1期生", "半精靈", "酒"],
+    "effectType": "Bloom"
   },
   {
     "id": "hBP01-038",
@@ -414,8 +472,10 @@
     "color": ["green"],
     "grade": "debut",
     "series": ["hBP01"],
-    "searchKeywords": ["兔田ぺこら", "兔田佩可拉", "Usada Pekora"],
-    "versions": ["_C.png"]
+    "searchKeywords": ["兔田ぺこら", "兔田佩可拉", "Usada Pekora", "丟擲1次骰子:偶數時，這個藝能傷害+20"],
+    "versions": ["_C.png"],
+    "tags": ["JP", "3期生", "獸耳"],
+    "effectType": ""
   },
   {
     "id": "hBP01-039",
@@ -425,8 +485,10 @@
     "color": ["green"],
     "grade": "debut",
     "series": ["hBP01"],
-    "searchKeywords": ["兔田ぺこら", "兔田佩可拉", "Usada Pekora"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["兔田ぺこら", "兔田佩可拉", "Usada Pekora", "自己的主推成員是<兔田佩可拉>時，丟擲1次骰子:偶數時，從自己聲援牌組上方的1張，送進自己的成員裡"],
+    "versions": ["_U.png"],
+    "tags": ["JP", "3期生", "獸耳"],
+    "effectType": "Collaboration"
   },
   {
     "id": "hBP01-040",
@@ -437,7 +499,9 @@
     "grade": "1st",
     "series": ["hBP01"],
     "searchKeywords": ["兔田ぺこら", "兔田佩可拉", "Usada Pekora"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ["JP", "3期生", "獸耳"],
+    "effectType": ""
   },
   {
     "id": "hBP01-041",
@@ -447,8 +511,10 @@
     "color": ["green"],
     "grade": "1st",
     "series": ["hBP01"],
-    "searchKeywords": ["兔田ぺこら", "兔田佩可拉", "Usada Pekora"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["兔田ぺこら", "兔田佩可拉", "Usada Pekora", "從自己聲援牌組上方的1張卡，送進中央成員或聯動成員裡"],
+    "versions": ["_U.png"],
+    "tags": ["JP", "3期生", "獸耳"],
+    "effectType": "Bloom"
   },
   {
     "id": "hBP01-042",
@@ -458,8 +524,10 @@
     "color": ["green"],
     "grade": "1st",
     "series": ["hBP01"],
-    "searchKeywords": ["兔田ぺこら", "兔田佩可拉", "Usada Pekora"],
-    "versions": ["_R.png"]
+    "searchKeywords": ["兔田ぺこら", "兔田佩可拉", "Usada Pekora", "丟擲1次骰子:出現的點數每有1點，這個藝能傷害+10"],
+    "versions": ["_R.png"],
+    "tags": ["JP", "3期生", "獸耳"],
+    "effectType": ""
   },
   {
     "id": "hBP01-043",
@@ -469,8 +537,10 @@
     "color": ["green"],
     "grade": "2nd",
     "series": ["hBP01"],
-    "searchKeywords": ["兔田ぺこら", "兔田佩可拉", "Usada Pekora"],
-    "versions": ["_RR.png", "_UR.png"]
+    "searchKeywords": ["兔田ぺこら", "兔田佩可拉", "Usada Pekora", "這個成員的生命回復50", "丟擲3次骰子:出現的點數合計每有1點，這個藝能傷害+10"],
+    "versions": ["_RR.png", "_UR.png"],
+    "tags": ["JP", "3期生", "獸耳"],
+    "effectType": "Bloom"
   },
   {
     "id": "hBP01-044",
@@ -481,7 +551,9 @@
     "grade": "debut",
     "series": ["hBP01"],
     "searchKeywords": ["AZKi", "AZKi", "AZKi"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ["JP", "0期生", "歌"],
+    "effectType": ""
   },
   {
     "id": "hBP01-045",
@@ -491,8 +563,10 @@
     "color": ["green"],
     "grade": "debut",
     "series": ["hBP01"],
-    "searchKeywords": ["AZKi", "AZKi", "AZKi"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["AZKi", "AZKi", "AZKi", "自己的生命在3或以下時，這個成員可以無視開花等級，開花成手牌的2nd<AZKi>"],
+    "versions": ["_U.png"],
+    "tags": ["JP", "0期生", "歌"],
+    "effectType": "Gift"
   },
   {
     "id": "hBP01-046",
@@ -502,8 +576,10 @@
     "color": ["green"],
     "grade": "1st",
     "series": ["hBP01"],
-    "searchKeywords": ["AZKi", "AZKi", "AZKi"],
-    "versions": ["_C.png"]
+    "searchKeywords": ["AZKi", "AZKi", "AZKi", "選擇自己舞台上1~3張聲援，重新分配至自己的成員"],
+    "versions": ["_C.png"],
+    "tags": ["JP", "0期生", "歌"],
+    "effectType": "Bloom"
   },
   {
     "id": "hBP01-047",
@@ -513,8 +589,10 @@
     "color": ["green"],
     "grade": "2nd",
     "series": ["hBP01"],
-    "searchKeywords": ["AZKi", "AZKi", "AZKi"],
-    "versions": ["_RR.png","_UR.png"]
+    "searchKeywords": ["AZKi", "AZKi", "AZKi", "這個成員HP回復40。接著，丟擲1次骰子:奇數時，從自己存檔的1~3張綠聲援送進這個成員裡"],
+    "versions": ["_RR.png","_UR.png"],
+    "tags": ["JP", "0期生", "歌"],
+    "effectType": "Bloom"
   },
   {
     "id": "hBP01-048",
@@ -525,7 +603,9 @@
     "grade": "debut",
     "series": ["hBP01", "hSD06"],
     "searchKeywords": ["風真いろは", "風真伊呂波", "Kazama Iroha"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ["JP", "祕密結社holoX"],
+    "effectType": ""
   },
   {
     "id": "hBP01-049",
@@ -536,7 +616,9 @@
     "grade": "1st",
     "series": ["hBP01"],
     "searchKeywords": ["風真いろは", "風真伊呂波", "Kazama Iroha"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ["JP", "祕密結社holoX"],
+    "effectType": ""
   },
   {
     "id": "hBP01-050",
@@ -546,8 +628,10 @@
     "color": ["green"],
     "grade": "1st",
     "series": ["hBP01", "hSD06"],
-    "searchKeywords": ["風真いろは", "風真伊呂波", "Kazama Iroha"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["風真いろは", "風真伊呂波", "Kazama Iroha", "聯動位置限定", "對手成員的藝能，僅能選我方的聯動成員為對象(特殊傷害例外)", "從自己聲援牌組上方的1張卡，送進<風真伊呂波>以外持有#祕密結社holoX的成員裡"],
+    "versions": ["_U.png"],
+    "tags": ["JP", "祕密結社holoX"],
+    "effectType": "Gift"
   },
   {
     "id": "hBP01-051",
@@ -557,8 +641,10 @@
     "color": ["green"],
     "grade": "buzz",
     "series": ["hBP01"],
-    "searchKeywords": ["風真いろは", "風真伊呂波", "Kazama Iroha"],
-    "versions": ["_RR.png", "_UR.png"]
+    "searchKeywords": ["風真いろは", "風真伊呂波", "Kazama Iroha", "聯動位置限定", "這個成員每持有1張聲援，這個藝能傷害+20(最多5張)"],
+    "versions": ["_RR.png", "_UR.png"],
+    "tags": ["JP", "祕密結社holoX"],
+    "effectType": ""
   },
   {
     "id": "hBP01-052",
@@ -568,8 +654,10 @@
     "color": ["green"],
     "grade": "debut",
     "series": ["hBP01"],
-    "searchKeywords": ["アイラニ・イオフィフティーン", "艾拉妮·伊歐菲芙婷", "Airani Iofifteen"],
-    "versions": ["_C.png"]
+    "searchKeywords": ["アイラニ・イオフィフティーン", "艾拉妮·伊歐菲芙婷", "Airani Iofifteen", "從自己舞台的1張聲援，重新替換至自己持有#ID的成員裡"],
+    "versions": ["_C.png"],
+    "tags": ["ID", "ID1期生", "畫"],
+    "effectType": ""
   },
   {
     "id": "hBP01-053",
@@ -580,7 +668,9 @@
     "grade": "1st",
     "series": ["hBP01"],
     "searchKeywords": ["アイラニ・イオフィフティーン", "艾拉妮·伊歐菲芙婷", "Airani Iofifteen"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ["ID", "ID1期生", "畫"],
+    "effectType": ""
   },
   {
     "id": "hBP01-054",
@@ -590,8 +680,10 @@
     "color": ["green"],
     "grade": "1st",
     "series": ["hBP01"],
-    "searchKeywords": ["アイラニ・イオフィフティーン", "艾拉妮·伊歐菲芙婷", "Airani Iofifteen"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["アイラニ・イオフィフティーン", "艾拉妮·伊歐菲芙婷", "Airani Iofifteen", "從自己的聲援牌組上方的1張卡，送進自己的<艾拉妮·伊歐菲芙婷>以外持有#ID的成員裡"],
+    "versions": ["_U.png"],
+    "tags": ["ID", "ID1期生", "畫"],
+    "effectType": "Bloom"
   },
   {
     "id": "hBP01-055",
@@ -601,8 +693,10 @@
     "color": ["green"],
     "grade": "2nd",
     "series": ["hBP01"],
-    "searchKeywords": ["アイラニ・イオフィフティーン", "艾拉妮·伊歐菲芙婷", "Airani Iofifteen"],
-    "versions": ["_R.png"]
+    "searchKeywords": ["アイラニ・イオフィフティーン", "艾拉妮·伊歐菲芙婷", "Airani Iofifteen", "從自己存檔的聲援卡各1張，送進自己1~3名持有#ID的成員裡", "自己的舞台有<艾拉妮·伊歐菲芙婷>以外的#ID成員時，這個藝能傷害+50"],
+    "versions": ["_R.png"],
+    "tags": ["ID", "ID1期生", "畫"],
+    "effectType": "Collaboration"
   },
   {
     "id": "hBP01-056",
@@ -613,7 +707,9 @@
     "grade": "debut",
     "series": ["hBP01"],
     "searchKeywords": ["鷹嶺ルイ", "鷹嶺琉依", "Takane Rui"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ["JP", "祕密結社holoX", "鳥", "酒"],
+    "effectType": ""
   },
   {
     "id": "hBP01-057",
@@ -623,8 +719,10 @@
     "color": ["red"],
     "grade": "debut",
     "series": ["hBP01"],
-    "searchKeywords": ["鷹嶺ルイ", "鷹嶺琉依", "Takane Rui"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["鷹嶺ルイ", "鷹嶺琉依", "Takane Rui", "給予對手的聯動成員10點的特殊傷害"],
+    "versions": ["_U.png"],
+    "tags": ["JP", "祕密結社holoX", "鳥", "酒"],
+    "effectType": "Collaboration"
   },
   {
     "id": "hBP01-058",
@@ -635,7 +733,9 @@
     "grade": "1st",
     "series": ["hBP01"],
     "searchKeywords": ["鷹嶺ルイ", "鷹嶺琉依", "Takane Rui"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ["JP", "祕密結社holoX", "鳥", "酒"],
+    "effectType": ""
   },
   {
     "id": "hBP01-059",
@@ -645,8 +745,10 @@
     "color": ["red"],
     "grade": "1st",
     "series": ["hBP01"],
-    "searchKeywords": ["鷹嶺ルイ", "鷹嶺琉依", "Takane Rui"],
-    "versions": ["_C.png"]
+    "searchKeywords": ["鷹嶺ルイ", "鷹嶺琉依", "Takane Rui", "可以從自己的1張手牌存檔:從自己的牌組中，公開1張除buzz以外的1st成員，加入手牌。接著牌組洗牌"],
+    "versions": ["_C.png"],
+    "tags": ["JP", "祕密結社holoX", "鳥", "酒"],
+    "effectType": ""
   },
   {
     "id": "hBP01-060",
@@ -656,8 +758,10 @@
     "color": ["red"],
     "grade": "1st",
     "series": ["hBP01"],
-    "searchKeywords": ["鷹嶺ルイ", "鷹嶺琉依", "Takane Rui"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["鷹嶺ルイ", "鷹嶺琉依", "Takane Rui", "從debut開花的時候，可以從自己1張手牌存檔:從自己的牌組抽2張"],
+    "versions": ["_U.png"],
+    "tags": ["JP", "祕密結社holoX", "鳥", "酒"],
+    "effectType": "Bloom"
   },
   {
     "id": "hBP01-061",
@@ -667,8 +771,10 @@
     "color": ["red"],
     "grade": "2nd",
     "series": ["hBP01"],
-    "searchKeywords": ["鷹嶺ルイ", "鷹嶺琉依", "Takane Rui"],
-    "versions": ["_R.png"]
+    "searchKeywords": ["鷹嶺ルイ", "鷹嶺琉依", "Takane Rui", "將存檔裡持有#祕密結社holoX的成員1~2張返回手牌", "可以從自己手牌1~5張進行存檔:每存檔1張手牌，對手的中央成員或聯動成員當中的一名，造成20點的特殊傷害"],
+    "versions": ["_R.png"],
+    "tags": ["JP", "祕密結社holoX", "鳥", "酒"],
+    "effectType": "Bloom"
   },
   {
     "id": "hBP01-062",
@@ -678,8 +784,10 @@
     "color": ["red"],
     "grade": "debut",
     "series": ["hBP01"],
-    "searchKeywords": ["小鳥遊キアラ", "小鳥遊琪亞拉", "Takanashi Kiara"],
-    "versions": ["_C.png"]
+    "searchKeywords": ["小鳥遊キアラ", "小鳥遊琪亞拉", "Takanashi Kiara", "可以從自己的1張手牌存檔:這個藝能傷害+20"],
+    "versions": ["_C.png"],
+    "tags": ["EN", "Myth", "鳥"],
+    "effectType": ""
   },
   {
     "id": "hBP01-063",
@@ -689,8 +797,10 @@
     "color": ["red"],
     "grade": "debut",
     "series": ["hBP01"],
-    "searchKeywords": ["小鳥遊キアラ", "小鳥遊琪亞拉", "Takanashi Kiara"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["小鳥遊キアラ", "小鳥遊琪亞拉", "Takanashi Kiara", "自己的中央成員持有#鳥時，可以存檔自己的1張手牌:從自己的牌組，公開1張吉祥物，加入手牌。接著牌組洗牌。"],
+    "versions": ["_U.png"],
+    "tags": ["EN", "Myth", "鳥"],
+    "effectType": "Collaboration"
   },
   {
     "id": "hBP01-064",
@@ -701,7 +811,9 @@
     "grade": "1st",
     "series": ["hBP01"],
     "searchKeywords": ["小鳥遊キアラ", "小鳥遊琪亞拉", "Takanashi Kiara"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ["EN", "Myth", "鳥"],
+    "effectType": ""
   },
   {
     "id": "hBP01-065",
@@ -711,8 +823,10 @@
     "color": ["red"],
     "grade": "1st",
     "series": ["hBP01"],
-    "searchKeywords": ["小鳥遊キアラ", "小鳥遊琪亞拉", "Takanashi Kiara"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["小鳥遊キアラ", "小鳥遊琪亞拉", "Takanashi Kiara", "從自己的牌組上方看3張。將其中的1張成員公開，加入手牌。接著將剩餘的卡存檔。"],
+    "versions": ["_U.png"],
+    "tags": ["EN", "Myth", "鳥"],
+    "effectType": "Bloom"
   },
   {
     "id": "hBP01-066",
@@ -722,8 +836,10 @@
     "color": ["red"],
     "grade": "1st",
     "series": ["hBP01"],
-    "searchKeywords": ["小鳥遊キアラ", "小鳥遊琪亞拉", "Takanashi Kiara"],
-    "versions": ["_R.png"]
+    "searchKeywords": ["小鳥遊キアラ", "小鳥遊琪亞拉", "Takanashi Kiara", "可以存檔1張這個成員所重疊的成員卡:給予對手的聯動成員40點特殊傷害"],
+    "versions": ["_R.png"],
+    "tags": ["EN", "Myth", "鳥"],
+    "effectType": ""
   },
   {
     "id": "hBP01-067",
@@ -733,8 +849,10 @@
     "color": ["red"],
     "grade": "2nd",
     "series": ["hBP01"],
-    "searchKeywords": ["小鳥遊キアラ", "小鳥遊琪亞拉", "Takanashi Kiara"],
-    "versions": ["_RR.png", "_UR.png"]
+    "searchKeywords": ["小鳥遊キアラ", "小鳥遊琪亞拉", "Takanashi Kiara", "自己存檔的成員每有1張，這個藝能傷害+10，接著將自己存檔的6張成員回到牌組並洗牌。"],
+    "versions": ["_RR.png", "_UR.png"],
+    "tags": ["EN", "Myth", "鳥"],
+    "effectType": ""
   },
   {
     "id": "hBP01-068",
@@ -745,7 +863,9 @@
     "grade": "debut",
     "series": ["hBP01"],
     "searchKeywords": ["尾丸ポルカ", "尾丸波爾卡", "Omaru Polka"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ["JP", "5期生", "獸耳"],
+    "effectType": ""
   },
   {
     "id": "hBP01-069",
@@ -756,7 +876,9 @@
     "grade": "1st",
     "series": ["hBP01"],
     "searchKeywords": ["尾丸ポルカ", "尾丸波爾卡", "Omaru Polka"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ["JP", "5期生", "獸耳"],
+    "effectType": ""
   },
   {
     "id": "hBP01-070",
@@ -766,8 +888,10 @@
     "color": ["red"],
     "grade": "1st",
     "series": ["hBP01"],
-    "searchKeywords": ["尾丸ポルカ", "尾丸波爾卡", "Omaru Polka"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["尾丸ポルカ", "尾丸波爾卡", "Omaru Polka", "從自己的牌組公開1張粉絲，加入手牌。接著牌組洗牌", "這個成員沒有附上<座員>的話，不能使用這個藝能"],
+    "versions": ["_U.png"],
+    "tags": ["JP", "5期生", "獸耳"],
+    "effectType": "Bloom"
   },
   {
     "id": "hBP01-071",
@@ -777,8 +901,10 @@
     "color": ["red"],
     "grade": "buzz",
     "series": ["hBP01"],
-    "searchKeywords": ["尾丸ポルカ", "尾丸波爾卡", "Omaru Polka"],
-    "versions": ["_RR.png", "_UR.png"]
+    "searchKeywords": ["尾丸ポルカ", "尾丸波爾卡", "Omaru Polka", "將自己存檔的1張<座員>返回手牌", "自己全部的成員每附上1張粉絲，這個藝能傷害+20"],
+    "versions": ["_RR.png", "_UR.png"],
+    "tags": ["JP", "5期生", "獸耳"],
+    "effectType": "Bloom"
   },
   {
     "id": "hBP01-072",
@@ -788,8 +914,10 @@
     "color": ["red"],
     "grade": "debut",
     "series": ["hBP01"],
-    "searchKeywords": ["ハコス・ベールズ", "哈珂斯·貝爾絲", "Hakos Baelz"],
-    "versions": ["_C.png"]
+    "searchKeywords": ["ハコス・ベールズ", "哈珂斯·貝爾絲", "Hakos Baelz", "這個成員有紅聲援時，丟擲1次骰子:奇數時，給予對手的聯動成員20點的特殊傷害"],
+    "versions": ["_C.png"],
+    "tags": ["EN", "Promise", "獸耳"],
+    "effectType": ""
   },
   {
     "id": "hBP01-073",
@@ -800,7 +928,9 @@
     "grade": "1st",
     "series": ["hBP01"],
     "searchKeywords": ["ハコス・ベールズ", "哈珂斯·貝爾絲", "Hakos Baelz"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ["EN", "Promise", "獸耳"],
+    "effectType": ""
   },
   {
     "id": "hBP01-074",
@@ -810,8 +940,10 @@
     "color": ["red"],
     "grade": "1st",
     "series": ["hBP01"],
-    "searchKeywords": ["ハコス・ベールズ", "哈珂斯·貝爾絲", "Hakos Baelz"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["ハコス・ベールズ", "哈珂斯·貝爾絲", "Hakos Baelz", "從debut開花的時候，從自己存檔的1張debut成員或1st成員返回手牌:返回的卡持有#EN時，給予對手的聯動成員20點的特殊傷害。"],
+    "versions": ["_U.png"],
+    "tags": ["EN", "Promise", "獸耳"],
+    "effectType": "Bloom"
   },
   {
     "id": "hBP01-075",
@@ -821,8 +953,10 @@
     "color": ["red"],
     "grade": "2nd",
     "series": ["hBP01"],
-    "searchKeywords": ["ハコス・ベールズ", "哈珂斯·貝爾絲", "Hakos Baelz"],
-    "versions": ["_R.png"]
+    "searchKeywords": ["ハコス・ベールズ", "哈珂斯·貝爾絲", "Hakos Baelz", "雙方玩家將自己的手牌依喜好順序放回牌組底下，接著，雙方玩家分別依據放回的張數，從牌組抽牌。"],
+    "versions": ["_R.png"],
+    "tags": ["EN", "Promise", "獸耳"],
+    "effectType": "Collaboration"
   },
   {
     "id": "hBP01-076",
@@ -832,8 +966,10 @@
     "color": ["blue"],
     "grade": "debut",
     "series": ["hBP01"],
-    "searchKeywords": ["星街すいせい", "星街彗星", "Hoshimachi Suisei"],
-    "versions": ["_C.png"]
+    "searchKeywords": ["星街すいせい", "星街彗星", "Hoshimachi Suisei", "給予對手的1名後備成員10點的特殊傷害"],
+    "versions": ["_C.png"],
+    "tags": ["JP", "0期生", "歌"],
+    "effectType": ""
   },
   {
     "id": "hBP01-077",
@@ -843,8 +979,10 @@
     "color": ["blue"],
     "grade": "debut",
     "series": ["hBP01"],
-    "searchKeywords": ["星街すいせい", "星街彗星", "Hoshimachi Suisei"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["星街すいせい", "星街彗星", "Hoshimachi Suisei", "自己的主推成員是<星街彗星>時，可以將這個成員的1張藍聲援存檔:從自己的牌組抽2張。"],
+    "versions": ["_U.png"],
+    "tags": ["JP", "0期生", "歌"],
+    "effectType": "Collaboration"
   },
   {
     "id": "hBP01-078",
@@ -855,7 +993,9 @@
     "grade": "1st",
     "series": ["hBP01"],
     "searchKeywords": ["星街すいせい", "星街彗星", "Hoshimachi Suisei"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ["JP", "0期生", "歌"],
+    "effectType": ""
   },
   {
     "id": "hBP01-079",
@@ -865,8 +1005,10 @@
     "color": ["blue"],
     "grade": "1st",
     "series": ["hBP01"],
-    "searchKeywords": ["星街すいせい", "星街彗星", "Hoshimachi Suisei"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["星街すいせい", "星街彗星", "Hoshimachi Suisei", "給予對手的1名後備成員20點的特殊傷害"],
+    "versions": ["_U.png"],
+    "tags": ["JP", "0期生", "歌"],
+    "effectType": "Bloom"
   },
   {
     "id": "hBP01-080",
@@ -876,8 +1018,10 @@
     "color": ["blue"],
     "grade": "1st",
     "series": ["hBP01"],
-    "searchKeywords": ["星街すいせい", "星街彗星", "Hoshimachi Suisei"],
-    "versions": ["_R.png"]
+    "searchKeywords": ["星街すいせい", "星街彗星", "Hoshimachi Suisei", "丟擲1次骰子:奇數時，擊倒對手的1名HP減少40或以上的後備成員。"],
+    "versions": ["_R.png"],
+    "tags": ["JP", "0期生", "歌"],
+    "effectType": "Collaboration"
   },
   {
     "id": "hBP01-081",
@@ -887,8 +1031,10 @@
     "color": ["blue"],
     "grade": "2nd",
     "series": ["hBP01"],
-    "searchKeywords": ["星街すいせい", "星街彗星", "Hoshimachi Suisei"],
-    "versions": ["_RR.png", "_UR.png"]
+    "searchKeywords": ["星街すいせい", "星街彗星", "Hoshimachi Suisei", "從自己的聲援牌組上方的1張卡，送進自己的藍色成員裡", "可以將這個成員的2張藍聲援存檔:這個成員每重疊一張成員卡，這個藝能傷害+60(這個藝能也可以選擇對手的後備成員作為對象)"],
+    "versions": ["_RR.png", "_UR.png"],
+    "tags": ["JP", "0期生", "歌"],
+    "effectType": "Collaboration"
   },
   {
     "id": "hBP01-082",
@@ -899,7 +1045,9 @@
     "grade": "debut",
     "series": ["hBP01"],
     "searchKeywords": ["こぼ・かなえる", "果波·卡娜埃露", "Kobo Kanaeru"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ["ID", "ID3期生"],
+    "effectType": ""
   },
   {
     "id": "hBP01-083",
@@ -909,8 +1057,10 @@
     "color": ["blue"],
     "grade": "debut",
     "series": ["hBP01"],
-    "searchKeywords": ["こぼ・かなえる", "果波·卡娜埃露", "Kobo Kanaeru"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["こぼ・かなえる", "果波·卡娜埃露", "Kobo Kanaeru", "當自己的中央成員持有#ID時，丟擲一次骰子:3或以上時，從自己的聲援牌組上方1張，送進自己的成員裡。"],
+    "versions": ["_U.png"],
+    "tags": ["ID", "ID3期生"],
+    "effectType": "Collaboration"
   },
   {
     "id": "hBP01-084",
@@ -921,7 +1071,9 @@
     "grade": "1st",
     "series": ["hBP01"],
     "searchKeywords": ["こぼ・かなえる", "果波·卡娜埃露", "Kobo Kanaeru"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ["ID", "ID3期生"],
+    "effectType": ""
   },
   {
     "id": "hBP01-085",
@@ -931,8 +1083,10 @@
     "color": ["blue"],
     "grade": "1st",
     "series": ["hBP01"],
-    "searchKeywords": ["こぼ・かなえる", "果波·卡娜埃露", "Kobo Kanaeru"],
-    "versions": ["_C.png"]
+    "searchKeywords": ["こぼ・かなえる", "果波·卡娜埃露", "Kobo Kanaeru", "給予對手的3名後備成員10點的特殊傷害"],
+    "versions": ["_C.png"],
+    "tags": ["ID", "ID3期生"],
+    "effectType": ""
   },
   {
     "id": "hBP01-086",
@@ -942,8 +1096,10 @@
     "color": ["blue"],
     "grade": "1st",
     "series": ["hBP01"],
-    "searchKeywords": ["こぼ・かなえる", "果波·卡娜埃露", "Kobo Kanaeru"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["こぼ・かなえる", "果波·卡娜埃露", "Kobo Kanaeru", "可以將自己的持有#ID成員的1張聲援卡存檔:給予對手全部的後備成員10點特殊傷害"],
+    "versions": ["_U.png"],
+    "tags": ["ID", "ID3期生"],
+    "effectType": "Bloom"
   },
   {
     "id": "hBP01-087",
@@ -953,8 +1109,10 @@
     "color": ["blue"],
     "grade": "2nd",
     "series": ["hBP01"],
-    "searchKeywords": ["こぼ・かなえる", "果波·卡娜埃露", "Kobo Kanaeru"],
-    "versions": ["_R.png"]
+    "searchKeywords": ["こぼ・かなえる", "果波·卡娜埃露", "Kobo Kanaeru", "可以將這個成員的1張聲援存檔:給予對手全部的後備成員20點特殊傷害", "可以將這個成員的2張聲援存檔:給予對手的中央成員，對手後備成員承受傷害合計數相同的特殊傷害"],
+    "versions": ["_R.png"],
+    "tags": ["ID", "ID3期生"],
+    "effectType": ""
   },
   {
     "id": "hBP01-088",
@@ -964,8 +1122,10 @@
     "color": ["blue"],
     "grade": "debut",
     "series": ["hBP01"],
-    "searchKeywords": ["ムーナ・ホシノヴァ", "暮娜·惑星諾瓦", "Moona Hoshinova"],
-    "versions": ["_C.png"]
+    "searchKeywords": ["ムーナ・ホシノヴァ", "暮娜·惑星諾瓦", "Moona Hoshinova", "丟擲1次骰子:偶數時，給予對手1名後備成員20點特殊傷害"],
+    "versions": ["_C.png"],
+    "tags": ["ID", "ID1期生", "歌"],
+    "effectType": ""
   },
   {
     "id": "hBP01-089",
@@ -976,7 +1136,9 @@
     "grade": "1st",
     "series": ["hBP01"],
     "searchKeywords": ["ムーナ・ホシノヴァ", "暮娜·惑星諾瓦", "Moona Hoshinova"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ["ID", "ID1期生", "歌"],
+    "effectType": ""
   },
   {
     "id": "hBP01-090",
@@ -986,8 +1148,10 @@
     "color": ["blue"],
     "grade": "1st",
     "series": ["hBP01"],
-    "searchKeywords": ["ムーナ・ホシノヴァ", "暮娜·惑星諾瓦", "Moona Hoshinova"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["ムーナ・ホシノヴァ", "暮娜·惑星諾瓦", "Moona Hoshinova", "從自己的聲援牌組公開1張綠聲援或藍聲援，送進自己的成員裡，接著將聲援牌組洗牌"],
+    "versions": ["_U.png"],
+    "tags": ["ID", "ID1期生", "歌"],
+    "effectType": "Bloom"
   },
   {
     "id": "hBP01-091",
@@ -997,8 +1161,10 @@
     "color": ["blue"],
     "grade": "buzz",
     "series": ["hBP01"],
-    "searchKeywords": ["ムーナ・ホシノヴァ", "暮娜·惑星諾瓦", "Moona Hoshinova"],
-    "versions": ["_RR.png", "_UR.png"]
+    "searchKeywords": ["ムーナ・ホシノヴァ", "暮娜·惑星諾瓦", "Moona Hoshinova", "可以將這個成員的1張綠聲援或藍聲援存檔:給予1名對手的後備成員30點特殊傷害"],
+    "versions": ["_RR.png", "_UR.png"],
+    "tags": ["ID", "ID1期生", "歌"],
+    "effectType": ""
   },
   {
     "id": "hBP01-092",
@@ -1008,8 +1174,10 @@
     "color": ["blue"],
     "grade": "debut",
     "series": ["hBP01"],
-    "searchKeywords": ["オーロ・クロニー", "奧羅·克洛尼", "Ouro Kronii"],
-    "versions": ["_C.png"]
+    "searchKeywords": ["オーロ・クロニー", "奧羅·克洛尼", "Ouro Kronii", "將這個成員的1張聲援，重新替換至自己其他持有#promise的成員上"],
+    "versions": ["_C.png"],
+    "tags": ["EN", "Promise"],
+    "effectType": ""
   },
   {
     "id": "hBP01-093",
@@ -1020,7 +1188,9 @@
     "grade": "1st",
     "series": ["hBP01"],
     "searchKeywords": ["オーロ・クロニー", "奧羅·克洛尼", "Ouro Kronii"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ["EN", "Promise"],
+    "effectType": ""
   },
   {
     "id": "hBP01-094",
@@ -1030,8 +1200,10 @@
     "color": ["blue"],
     "grade": "1st",
     "series": ["hBP01"],
-    "searchKeywords": ["オーロ・クロニー", "奧羅·克洛尼", "Ouro Kronii"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["オーロ・クロニー", "奧羅·克洛尼", "Ouro Kronii", "從自己的聲援牌組公開1張與自己持有#promise成員相同顏色的聲援卡，送進自己持有#promise的成員裡，接著將聲援牌組洗牌"],
+    "versions": ["_U.png"],
+    "tags": ["EN", "Promise"],
+    "effectType": "Bloom"
   },
   {
     "id": "hBP01-095",
@@ -1041,8 +1213,10 @@
     "color": ["blue"],
     "grade": "2nd",
     "series": ["hBP01"],
-    "searchKeywords": ["オーロ・クロニー", "奧羅·克洛尼", "Ouro Kronii"],
-    "versions": ["_R.png"]
+    "searchKeywords": ["オーロ・クロニー", "奧羅·克洛尼", "Ouro Kronii", "將對手的1名後備成員，變回debut成員。(移除傷害，保留1名debut成員和所有聲援卡，其他的卡全部返回手牌)", "可以將自己這個回合出場的1名debut後輩成員，從手牌開花成1st成員"],
+    "versions": ["_R.png"],
+    "tags": ["EN", "Promise"],
+    "effectType": "Collaboration"
   },
   {
     "id": "hBP01-096",
@@ -1052,8 +1226,10 @@
     "color": ["colorless"],
     "grade": "spot",
     "series": ["hBP01"],
-    "searchKeywords": ["兔田ぺこら", "兔田佩可拉", "Usada Pekora"],
-    "versions": ["_R.png"]
+    "searchKeywords": ["兔田ぺこら", "兔田佩可拉", "Usada Pekora", "丟擲1次骰子:偶數時，從自己的牌組公開1張buzz成員，加入手牌。接著牌組洗牌"],
+    "versions": ["_R.png"],
+    "tags": ["JP", "3期生", "獸耳"],
+    "effectType": "Collaboration"
   },
   {
     "id": "hBP01-097",
@@ -1063,8 +1239,10 @@
     "color": ["colorless"],
     "grade": "spot",
     "series": ["hBP01"],
-    "searchKeywords": ["不知火フレア", "不知火芙蕾雅", "Shiranui Flare"],
-    "versions": ["_R.png"]
+    "searchKeywords": ["不知火フレア", "不知火芙蕾雅", "Shiranui Flare", "將自己的中央成員與1名未休息的後備成員交換"],
+    "versions": ["_R.png"],
+    "tags": ["JP", "3期生", "半精靈"],
+    "effectType": "Collaboration"
   },
   {
     "id": "hBP01-098",
@@ -1074,8 +1252,10 @@
     "color": ["colorless"],
     "grade": "spot",
     "series": ["hBP01"],
-    "searchKeywords": ["白銀ノエル", "白銀諾艾爾", "Shirogane Noel"],
-    "versions": ["_R.png"]
+    "searchKeywords": ["白銀ノエル", "白銀諾艾爾", "Shirogane Noel", "將自己存檔的1張聲援卡送進自己的成員裡"],
+    "versions": ["_R.png"],
+    "tags": ["JP", "3期生", "酒"],
+    "effectType": "Collaboration"
   },
   {
     "id": "hBP01-099",
@@ -1085,8 +1265,10 @@
     "color": ["colorless"],
     "grade": "spot",
     "series": ["hBP01"],
-    "searchKeywords": ["宝鐘マリン", "寶鐘瑪琳", "Houshou Marin"],
-    "versions": ["_R.png"]
+    "searchKeywords": ["宝鐘マリン", "寶鐘瑪琳", "Houshou Marin", "丟擲1次骰子:奇數時，將對手的中央成員與1名後備成員交換"],
+    "versions": ["_R.png"],
+    "tags": ["JP", "3期生", "畫", "海"],
+    "effectType": "Collaboration"
   },
   {
     "id": "hBP01-100",
@@ -1096,8 +1278,10 @@
     "color": ["colorless"],
     "grade": "spot",
     "series": ["hBP01"],
-    "searchKeywords": ["森カリオペ", "森美聲", "Mori Calliope"],
-    "versions": ["_C.png"]
+    "searchKeywords": ["森カリオペ", "森美聲", "Mori Calliope" ,"將自己存檔的1~3張聲援卡返回聲援牌組。接著將聲援牌組洗牌"],
+    "versions": ["_C.png"],
+    "tags": ["EN", "Myth", "歌"],
+    "effectType": "Collaboration"
   },
   {
     "id": "hBP01-101",
@@ -1107,10 +1291,11 @@
     "color": ["colorless"],
     "grade": "spot",
     "series": ["hBP01"],
-    "searchKeywords": ["ワトソン・アメリア", "華生·阿米莉亞", "Watson Amelia"],
-    "versions": ["_C.png"]
+    "searchKeywords": ["ワトソン・アメリア", "華生·阿米莉亞", "Watson Amelia", "將自己存檔的1張道具返回手牌"],
+    "versions": ["_C.png"],
+    "tags": ["EN", "Myth"],
+    "effectType": "Collaboration"
   },
-
   {
     "id": "hBP01-102",
     "type": "Support",
@@ -1119,8 +1304,9 @@
     "color": "",
     "grade": "",
     "series": ["hBP01"],
-    "searchKeywords": ["item", "アイテム", "アイドルマイク"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["item", "アイテム", "アイドルマイク", "偶像麥克風", "加入手牌"],
+    "versions": ["_U.png"],
+    "tags": ["歌", "LIMITED"]
   },
   {
     "id": "hBP01-103",
@@ -1130,8 +1316,9 @@
     "color": "",
     "grade": "",
     "series": ["hBP01"],
-    "searchKeywords": ["item", "アイテム", "ゲーミングパソコン"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["item", "アイテム", "ゲーミングパソコン", "電競電腦", "加入手牌"],
+    "versions": ["_U.png"],
+    "tags": ["LIMITED"]
   },
   {
     "id": "hBP01-104",
@@ -1141,8 +1328,9 @@
     "color": "",
     "grade": "",
     "series": ["hBP01"],
-    "searchKeywords": ["item", "アイテム", "ふつうのパソコン"],
-    "versions": ["_C.png"]
+    "searchKeywords": ["item", "アイテム", "ふつうのパソコン", "普通的電腦", "出場至舞台"],
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hBP01-105",
@@ -1152,8 +1340,9 @@
     "color": "",
     "grade": "",
     "series": ["hBP01"],
-    "searchKeywords": ["item", "アイテム", "ペンライト"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["item", "アイテム", "ペンライト", "應援棒", "聲援"],
+    "versions": ["_U.png"],
+    "tags": ["LIMITED"]
   },
   {
     "id": "hBP01-106",
@@ -1163,8 +1352,9 @@
     "color": "",
     "grade": "",
     "series": ["hBP01"],
-    "searchKeywords": ["event", "イベント", "あとは任せた！"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["event", "イベント", "あとは任せた！", "接下來拜託了!", "交替"],
+    "versions": ["_U.png"],
+    "tags": ""
   },
   {
     "id": "hBP01-107",
@@ -1174,8 +1364,9 @@
     "color": "",
     "grade": "",
     "series": ["hBP01"],
-    "searchKeywords": ["event", "イベント", "アンコール"],
-    "versions": ["_C.png"]
+    "searchKeywords": ["event", "イベント", "アンコール", "安可", "聲援"],
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hBP01-108",
@@ -1185,8 +1376,9 @@
     "color": "",
     "grade": "",
     "series": ["hBP01"],
-    "searchKeywords": ["event", "イベント", "じゃあ敵だね"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["event", "イベント", "じゃあ敵だね", "那就是敵人了", "交替"],
+    "versions": ["_U.png"],
+    "tags": ["LIMITED"]
   },
   {
     "id": "hBP01-109",
@@ -1196,8 +1388,9 @@
     "color": "",
     "grade": "",
     "series": ["hBP01"],
-    "searchKeywords": ["event", "イベント", "月と兎の物語"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["event", "イベント", "月と兎の物語", "月與兔的物語", "加入手牌", "兔田ぺこら", "兔田佩可拉", "Usada Pekora", "ムーナ・ホシノヴァ", "暮娜·惑星諾瓦", "Moona Hoshinova"],
+    "versions": ["_U.png"],
+    "tags": ["LIMITED"]
   },
   {
     "id": "hBP01-110",
@@ -1207,8 +1400,9 @@
     "color": "",
     "grade": "",
     "series": ["hBP01"],
-    "searchKeywords": ["event", "イベント", "鈍器でぶっ叩くわよ！"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["event", "イベント", "鈍器でぶっ叩くわよ！", "用鐵棒打爆啦!", "丟擲", "骰子", "聲援", "七詩ムメイ", "七詩無名", "Nanashi Mumei" ],
+    "versions": ["_U.png"],
+    "tags": ["LIMITED"]
   },
   {
     "id": "hBP01-111",
@@ -1218,8 +1412,9 @@
     "color": "",
     "grade": "",
     "series": ["hBP01"],
-    "searchKeywords": ["event", "イベント", "ホロライブインドネシア3期生"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["event", "イベント", "ホロライブインドネシア3期生", "Hololive印尼3期生", "加入手牌"],
+    "versions": ["_U.png"],
+    "tags": ["ID3期生", "LIMITED"]
   },
   {
     "id": "hBP01-112",
@@ -1229,8 +1424,9 @@
     "color": "",
     "grade": "",
     "series": ["hBP01"],
-    "searchKeywords": ["event", "イベント", "わくわくいたずらタイム"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["event", "イベント", "わくわくいたずらタイム", "令人興奮的惡作劇時間", "丟擲", "骰子", "特殊傷害"],
+    "versions": ["_U.png"],
+    "tags": ""
   },
   {
     "id": "hBP01-113",
@@ -1240,8 +1436,9 @@
     "color": "",
     "grade": "",
     "series": ["hBP01"],
-    "searchKeywords": ["event", "イベント", "Promise"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["event", "イベント", "Promise", "加入手牌"],
+    "versions": ["_U.png"],
+    "tags": ["Promise", "LIMITED"]
   },
   {
     "id": "hBP01-114",
@@ -1251,8 +1448,9 @@
     "color": "",
     "grade": "",
     "series": ["hBP01"],
-    "searchKeywords": ["tool", "ツール", "石の斧"],
-    "versions": ["_C.png"]
+    "searchKeywords": ["tool", "ツール", "石の斧", "石斧", "藝能傷害+", "特殊傷害", "アキ・ローゼンタール", "亞綺·羅森塔爾", "Aki Rosenthal"],
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hBP01-115",
@@ -1262,8 +1460,9 @@
     "color": "",
     "grade": "",
     "series": ["hBP01"],
-    "searchKeywords": ["tool", "ツール", "星街すいせいのマイク"],
-    "versions": ["_U.png"]
+    "searchKeywords": ["tool", "ツール", "星街すいせいのマイク", "星街彗星的麥克風", "藝能傷害+", "聲援", "星街すいせい", "星街彗星", "Hoshimachi Suisei"],
+    "versions": ["_U.png"],
+    "tags": ""
   },
   {
     "id": "hBP01-116",
@@ -1273,8 +1472,9 @@
     "color": "",
     "grade": "",
     "series": ["hBP01"],
-    "searchKeywords": ["mascot", "マスコット", "うぱお"],
-    "versions": ["_C.png"]
+    "searchKeywords": ["mascot", "マスコット", "うぱお", "藝能傷害+", "特殊傷害", "天音かなた", "天音彼方", "Amane Kanata"],
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hBP01-117",
@@ -1284,8 +1484,9 @@
     "color": "",
     "grade": "",
     "series": ["hBP01"],
-    "searchKeywords": ["mascot", "マスコット", "フレンド"],
-    "versions": ["_C.png"]
+    "searchKeywords": ["mascot", "マスコット", "フレンド", "藝能傷害+", "受到的傷害-", "七詩ムメイ", "七詩無名", "Nanashi Mumei"],
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hBP01-118",
@@ -1295,8 +1496,9 @@
     "color": "",
     "grade": "",
     "series": ["hBP01"],
-    "searchKeywords": ["mascot", "マスコット", "あん肝"],
-    "versions": ["_C.png"]
+    "searchKeywords": ["mascot", "マスコット", "あん肝", "安康肝", "HP+", "ときのそら", "時乃空", "Tokino Sora"],
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hBP01-119",
@@ -1306,8 +1508,9 @@
     "color": "",
     "grade": "",
     "series": ["hBP01"],
-    "searchKeywords": ["mascot", "マスコット", "ジョブズ"],
-    "versions": ["_C.png"]
+    "searchKeywords": ["mascot", "マスコット", "ジョブズ", "HP+", "HP回復", "アキ・ローゼンタール", "亞綺·羅森塔爾", "Aki Rosenthal"],
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hBP01-120",
@@ -1317,8 +1520,9 @@
     "color": "",
     "grade": "",
     "series": ["hBP01"],
-    "searchKeywords": ["mascot", "マスコット", "がんも"],
-    "versions": ["_C.png"]
+    "searchKeywords": ["mascot", "マスコット", "がんも", "藝能傷害+", "鷹嶺ルイ", "鷹嶺琉依", "Takane Rui"],
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hBP01-121",
@@ -1328,8 +1532,9 @@
     "color": "",
     "grade": "",
     "series": ["hBP01"],
-    "searchKeywords": ["mascot", "マスコット", "Kotori"],
-    "versions": ["_C.png"]
+    "searchKeywords": ["mascot", "マスコット", "Kotori", "受到的傷害-", "小鳥遊キアラ", "小鳥遊琪亞拉", "Takanashi Kiara" ],
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hBP01-122",
@@ -1339,8 +1544,9 @@
     "color": "",
     "grade": "",
     "series": ["hBP01"],
-    "searchKeywords": ["fan", "ファン", "ロゼ隊"],
-    "versions": ["_C.png"]
+    "searchKeywords": ["fan", "ファン", "ロゼ隊", "羅森隊", "聲援", "アキ・ローゼンタール", "亞綺·羅森塔爾", "Aki Rosenthal"],
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hBP01-123",
@@ -1350,8 +1556,9 @@
     "color": "",
     "grade": "",
     "series": ["hBP01"],
-    "searchKeywords": ["fan", "ファン", "野うさぎ同盟"],
-    "versions": ["_C.png"]
+    "searchKeywords": ["fan", "ファン", "野うさぎ同盟", "野兔同盟", "丟擲", "骰子", "兔田ぺこら", "兔田佩可拉", "Usada Pekora"],
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hBP01-124",
@@ -1361,8 +1568,9 @@
     "color": "",
     "grade": "",
     "series": ["hBP01"],
-    "searchKeywords": ["fan", "ファン", "開拓者"],
-    "versions": ["_C.png"]
+    "searchKeywords": ["fan", "ファン", "開拓者", "AZKi", "聲援"],
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hBP01-125",
@@ -1372,8 +1580,9 @@
     "color": "",
     "grade": "",
     "series": ["hBP01"],
-    "searchKeywords": ["fan", "ファン", "KFP"],
-    "versions": ["_C.png"]
+    "searchKeywords": ["fan", "ファン", "KFP", "小鳥遊キアラ", "小鳥遊琪亞拉", "Takanashi Kiara"],
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hBP01-126",
@@ -1383,7 +1592,8 @@
     "color": "",
     "grade": "",
     "series": ["hBP01"],
-    "searchKeywords": ["fan", "ファン", "座員"],
-    "versions": ["_C.png"]
+    "searchKeywords": ["fan", "ファン", "座員", "受到的傷害+", "尾丸ポルカ", "尾丸波爾卡", "Omaru Polka"],
+    "versions": ["_C.png"],
+    "tags": ""
   }
 ]

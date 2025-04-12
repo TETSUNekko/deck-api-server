@@ -1,8 +1,8 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import path from 'path';
 
-// https://vite.dev/config/
 export default defineConfig({
-  base: "/holotcgtw/",
+  base: "/holotcgtw/", // 👈 這是你的 GitHub Pages 專案路徑
   plugins: [react()],
-})
+});

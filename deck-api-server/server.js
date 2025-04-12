@@ -1,3 +1,5 @@
+//server.js
+import { fetchDecklogData } from './decklog-scraper.cjs';
 const express = require("express");
 const cors = require("cors");
 const fs = require("fs");
@@ -29,6 +31,18 @@ function cleanExpiredData() {
   fs.writeFileSync(DATA_FILE, JSON.stringify(filteredData, null, 2));
 }
 
+// ✅ 正確的版本
+app.get('/import-decklog/:code', async (req, res) => {
+  const deckCode = req.params.code;
+  try {
+    const data = await fetchDecklogData(deckCode); // 執行 puppeteer
+    res.json(data);
+  } catch (error) {
+    console.error("❌ 匯入 decklog 失敗：", error);
+    res.status(500).json({ error: 'Decklog import failed' });
+  }
+});
+
 // 儲存代碼與牌組
 app.post("/save", (req, res) => {
   const { code, payload } = req.body;
@@ -44,7 +58,6 @@ app.post("/save", (req, res) => {
     ...payload,
     timestamp: Date.now()
   };
-
   fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2));
   cleanExpiredData(); // 每次儲存時也清一次
   res.status(200).send("Saved");
@@ -71,3 +84,6 @@ app.listen(PORT, () => {
   cleanExpiredData(); // 🧼 啟動時清理一次
   console.log(`Deck server running on http://localhost:${PORT}`);
 });
+
+
+
