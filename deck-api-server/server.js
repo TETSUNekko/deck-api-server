@@ -1,4 +1,5 @@
 //server.js
+process.env["DEBUG"] = "puppeteer:*";
 const { fetchDecklogData } = require('./decklog-scraper.cjs');
 const express = require("express");
 const cors = require("cors");

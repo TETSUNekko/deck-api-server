@@ -25,5 +25,1559 @@
     ],
     "deck": [],
     "energy": []
+  },
+  "VIQNDI": {
+    "oshi": [
+      {
+        "id": "hBP01-001",
+        "type": "Oshi",
+        "name": "天音かなた",
+        "imageFolder": "hBP01/",
+        "color": [
+          "white"
+        ],
+        "grade": "",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "天音かなた",
+          "天音彼方",
+          "Amane Kanata"
+        ],
+        "versions": [
+          "_OSR.png",
+          "_OUR.png"
+        ],
+        "version": "_OSR.png"
+      }
+    ],
+    "deck": [
+      {
+        "id": "hBP01-009",
+        "type": "Member",
+        "name": "天音かなた",
+        "imageFolder": "hBP01/",
+        "color": [
+          "white"
+        ],
+        "grade": "debut",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "天音かなた",
+          "天音彼方",
+          "Amane Kanata",
+          "這個藝能，僅能選擇對手的中央成員"
+        ],
+        "versions": [
+          "_C.png"
+        ],
+        "tags": [
+          "JP",
+          "4期生",
+          "歌"
+        ],
+        "effectType": "",
+        "version": "_C.png"
+      },
+      {
+        "id": "hBP01-009",
+        "type": "Member",
+        "name": "天音かなた",
+        "imageFolder": "hBP01/",
+        "color": [
+          "white"
+        ],
+        "grade": "debut",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "天音かなた",
+          "天音彼方",
+          "Amane Kanata",
+          "這個藝能，僅能選擇對手的中央成員"
+        ],
+        "versions": [
+          "_C.png"
+        ],
+        "tags": [
+          "JP",
+          "4期生",
+          "歌"
+        ],
+        "effectType": "",
+        "version": "_C.png"
+      },
+      {
+        "id": "hBP01-009",
+        "type": "Member",
+        "name": "天音かなた",
+        "imageFolder": "hBP01/",
+        "color": [
+          "white"
+        ],
+        "grade": "debut",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "天音かなた",
+          "天音彼方",
+          "Amane Kanata",
+          "這個藝能，僅能選擇對手的中央成員"
+        ],
+        "versions": [
+          "_C.png"
+        ],
+        "tags": [
+          "JP",
+          "4期生",
+          "歌"
+        ],
+        "effectType": "",
+        "version": "_C.png"
+      },
+      {
+        "id": "hBP01-009",
+        "type": "Member",
+        "name": "天音かなた",
+        "imageFolder": "hBP01/",
+        "color": [
+          "white"
+        ],
+        "grade": "debut",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "天音かなた",
+          "天音彼方",
+          "Amane Kanata",
+          "這個藝能，僅能選擇對手的中央成員"
+        ],
+        "versions": [
+          "_C.png"
+        ],
+        "tags": [
+          "JP",
+          "4期生",
+          "歌"
+        ],
+        "effectType": "",
+        "version": "_C.png"
+      },
+      {
+        "id": "hBP01-009",
+        "type": "Member",
+        "name": "天音かなた",
+        "imageFolder": "hBP01/",
+        "color": [
+          "white"
+        ],
+        "grade": "debut",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "天音かなた",
+          "天音彼方",
+          "Amane Kanata",
+          "這個藝能，僅能選擇對手的中央成員"
+        ],
+        "versions": [
+          "_C.png"
+        ],
+        "tags": [
+          "JP",
+          "4期生",
+          "歌"
+        ],
+        "effectType": "",
+        "version": "_C.png"
+      },
+      {
+        "id": "hBP01-009",
+        "type": "Member",
+        "name": "天音かなた",
+        "imageFolder": "hBP01/",
+        "color": [
+          "white"
+        ],
+        "grade": "debut",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "天音かなた",
+          "天音彼方",
+          "Amane Kanata",
+          "這個藝能，僅能選擇對手的中央成員"
+        ],
+        "versions": [
+          "_C.png"
+        ],
+        "tags": [
+          "JP",
+          "4期生",
+          "歌"
+        ],
+        "effectType": "",
+        "version": "_C.png"
+      },
+      {
+        "id": "hBP01-009",
+        "type": "Member",
+        "name": "天音かなた",
+        "imageFolder": "hBP01/",
+        "color": [
+          "white"
+        ],
+        "grade": "debut",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "天音かなた",
+          "天音彼方",
+          "Amane Kanata",
+          "這個藝能，僅能選擇對手的中央成員"
+        ],
+        "versions": [
+          "_C.png"
+        ],
+        "tags": [
+          "JP",
+          "4期生",
+          "歌"
+        ],
+        "effectType": "",
+        "version": "_C.png"
+      },
+      {
+        "id": "hBP01-009",
+        "type": "Member",
+        "name": "天音かなた",
+        "imageFolder": "hBP01/",
+        "color": [
+          "white"
+        ],
+        "grade": "debut",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "天音かなた",
+          "天音彼方",
+          "Amane Kanata",
+          "這個藝能，僅能選擇對手的中央成員"
+        ],
+        "versions": [
+          "_C.png"
+        ],
+        "tags": [
+          "JP",
+          "4期生",
+          "歌"
+        ],
+        "effectType": "",
+        "version": "_C.png"
+      },
+      {
+        "id": "hBP01-009",
+        "type": "Member",
+        "name": "天音かなた",
+        "imageFolder": "hBP01/",
+        "color": [
+          "white"
+        ],
+        "grade": "debut",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "天音かなた",
+          "天音彼方",
+          "Amane Kanata",
+          "這個藝能，僅能選擇對手的中央成員"
+        ],
+        "versions": [
+          "_C.png"
+        ],
+        "tags": [
+          "JP",
+          "4期生",
+          "歌"
+        ],
+        "effectType": "",
+        "version": "_C.png"
+      },
+      {
+        "id": "hBP01-009",
+        "type": "Member",
+        "name": "天音かなた",
+        "imageFolder": "hBP01/",
+        "color": [
+          "white"
+        ],
+        "grade": "debut",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "天音かなた",
+          "天音彼方",
+          "Amane Kanata",
+          "這個藝能，僅能選擇對手的中央成員"
+        ],
+        "versions": [
+          "_C.png"
+        ],
+        "tags": [
+          "JP",
+          "4期生",
+          "歌"
+        ],
+        "effectType": "",
+        "version": "_C.png"
+      },
+      {
+        "id": "hBP01-009",
+        "type": "Member",
+        "name": "天音かなた",
+        "imageFolder": "hBP01/",
+        "color": [
+          "white"
+        ],
+        "grade": "debut",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "天音かなた",
+          "天音彼方",
+          "Amane Kanata",
+          "這個藝能，僅能選擇對手的中央成員"
+        ],
+        "versions": [
+          "_C.png"
+        ],
+        "tags": [
+          "JP",
+          "4期生",
+          "歌"
+        ],
+        "effectType": "",
+        "version": "_C.png"
+      },
+      {
+        "id": "hBP01-009",
+        "type": "Member",
+        "name": "天音かなた",
+        "imageFolder": "hBP01/",
+        "color": [
+          "white"
+        ],
+        "grade": "debut",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "天音かなた",
+          "天音彼方",
+          "Amane Kanata",
+          "這個藝能，僅能選擇對手的中央成員"
+        ],
+        "versions": [
+          "_C.png"
+        ],
+        "tags": [
+          "JP",
+          "4期生",
+          "歌"
+        ],
+        "effectType": "",
+        "version": "_C.png"
+      },
+      {
+        "id": "hBP01-010",
+        "type": "Member",
+        "name": "天音かなた",
+        "imageFolder": "hBP01/",
+        "color": [
+          "white"
+        ],
+        "grade": "debut",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "天音かなた",
+          "天音彼方",
+          "Amane Kanata",
+          "這個回合中，自己中央成員的傷害+10。自己的中央成員持有#4期生時，自己中央成員的藝能傷害再+20"
+        ],
+        "versions": [
+          "_U.png"
+        ],
+        "tags": [
+          "JP",
+          "4期生",
+          "歌"
+        ],
+        "effectType": "Collaboration",
+        "version": "_U.png"
+      },
+      {
+        "id": "hBP01-011",
+        "type": "Member",
+        "name": "天音かなた",
+        "imageFolder": "hBP01/",
+        "color": [
+          "white"
+        ],
+        "grade": "1st",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "天音かなた",
+          "天音彼方",
+          "Amane Kanata"
+        ],
+        "versions": [
+          "_C.png"
+        ],
+        "tags": [
+          "JP",
+          "4期生",
+          "歌"
+        ],
+        "effectType": "",
+        "version": "_C.png"
+      },
+      {
+        "id": "hBP01-012",
+        "type": "Member",
+        "name": "天音かなた",
+        "imageFolder": "hBP01/",
+        "color": [
+          "white"
+        ],
+        "grade": "1st",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "天音かなた",
+          "天音彼方",
+          "Amane Kanata",
+          "丟擲1次骰子:3或以下時，從自己的牌組公開一張吉祥物，附於自己的成員，接著牌組洗牌"
+        ],
+        "versions": [
+          "_U.png"
+        ],
+        "tags": [
+          "JP",
+          "4期生",
+          "歌"
+        ],
+        "effectType": "Bloom",
+        "version": "_U.png"
+      },
+      {
+        "id": "hBP01-012",
+        "type": "Member",
+        "name": "天音かなた",
+        "imageFolder": "hBP01/",
+        "color": [
+          "white"
+        ],
+        "grade": "1st",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "天音かなた",
+          "天音彼方",
+          "Amane Kanata",
+          "丟擲1次骰子:3或以下時，從自己的牌組公開一張吉祥物，附於自己的成員，接著牌組洗牌"
+        ],
+        "versions": [
+          "_U.png"
+        ],
+        "tags": [
+          "JP",
+          "4期生",
+          "歌"
+        ],
+        "effectType": "Bloom",
+        "version": "_U.png"
+      },
+      {
+        "id": "hBP01-012",
+        "type": "Member",
+        "name": "天音かなた",
+        "imageFolder": "hBP01/",
+        "color": [
+          "white"
+        ],
+        "grade": "1st",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "天音かなた",
+          "天音彼方",
+          "Amane Kanata",
+          "丟擲1次骰子:3或以下時，從自己的牌組公開一張吉祥物，附於自己的成員，接著牌組洗牌"
+        ],
+        "versions": [
+          "_U.png"
+        ],
+        "tags": [
+          "JP",
+          "4期生",
+          "歌"
+        ],
+        "effectType": "Bloom",
+        "version": "_U.png"
+      },
+      {
+        "id": "hBP01-012",
+        "type": "Member",
+        "name": "天音かなた",
+        "imageFolder": "hBP01/",
+        "color": [
+          "white"
+        ],
+        "grade": "1st",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "天音かなた",
+          "天音彼方",
+          "Amane Kanata",
+          "丟擲1次骰子:3或以下時，從自己的牌組公開一張吉祥物，附於自己的成員，接著牌組洗牌"
+        ],
+        "versions": [
+          "_U.png"
+        ],
+        "tags": [
+          "JP",
+          "4期生",
+          "歌"
+        ],
+        "effectType": "Bloom",
+        "version": "_U.png"
+      },
+      {
+        "id": "hBP01-013",
+        "type": "Member",
+        "name": "天音かなた",
+        "imageFolder": "hBP01/",
+        "color": [
+          "white"
+        ],
+        "grade": "1st",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "天音かなた",
+          "天音彼方",
+          "Amane Kanata",
+          "給予對手中央成員30點的特殊傷害(即使擊倒對手也不會減少生命)"
+        ],
+        "versions": [
+          "_R.png"
+        ],
+        "tags": [
+          "JP",
+          "4期生",
+          "歌"
+        ],
+        "effectType": "Bloom",
+        "version": "_R.png"
+      },
+      {
+        "id": "hBP01-013",
+        "type": "Member",
+        "name": "天音かなた",
+        "imageFolder": "hBP01/",
+        "color": [
+          "white"
+        ],
+        "grade": "1st",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "天音かなた",
+          "天音彼方",
+          "Amane Kanata",
+          "給予對手中央成員30點的特殊傷害(即使擊倒對手也不會減少生命)"
+        ],
+        "versions": [
+          "_R.png"
+        ],
+        "tags": [
+          "JP",
+          "4期生",
+          "歌"
+        ],
+        "effectType": "Bloom",
+        "version": "_R.png"
+      },
+      {
+        "id": "hBP01-013",
+        "type": "Member",
+        "name": "天音かなた",
+        "imageFolder": "hBP01/",
+        "color": [
+          "white"
+        ],
+        "grade": "1st",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "天音かなた",
+          "天音彼方",
+          "Amane Kanata",
+          "給予對手中央成員30點的特殊傷害(即使擊倒對手也不會減少生命)"
+        ],
+        "versions": [
+          "_R.png"
+        ],
+        "tags": [
+          "JP",
+          "4期生",
+          "歌"
+        ],
+        "effectType": "Bloom",
+        "version": "_R.png"
+      },
+      {
+        "id": "hBP01-013",
+        "type": "Member",
+        "name": "天音かなた",
+        "imageFolder": "hBP01/",
+        "color": [
+          "white"
+        ],
+        "grade": "1st",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "天音かなた",
+          "天音彼方",
+          "Amane Kanata",
+          "給予對手中央成員30點的特殊傷害(即使擊倒對手也不會減少生命)"
+        ],
+        "versions": [
+          "_R.png"
+        ],
+        "tags": [
+          "JP",
+          "4期生",
+          "歌"
+        ],
+        "effectType": "Bloom",
+        "version": "_R.png"
+      },
+      {
+        "id": "hBP01-014",
+        "type": "Member",
+        "name": "天音かなた",
+        "imageFolder": "hBP01/",
+        "color": [
+          "white"
+        ],
+        "grade": "2nd",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "天音かなた",
+          "天音彼方",
+          "Amane Kanata",
+          "給予對手中央成員50點的特殊傷害",
+          "這個藝能將對手的成員擊倒時，給予的傷害超過剩餘HP50或以上的話，對手的生命值-1"
+        ],
+        "versions": [
+          "_RR.png",
+          "_UR.png"
+        ],
+        "tags": [
+          "JP",
+          "4期生",
+          "歌"
+        ],
+        "effectType": "Collaboration",
+        "version": "_RR.png"
+      },
+      {
+        "id": "hBP01-014",
+        "type": "Member",
+        "name": "天音かなた",
+        "imageFolder": "hBP01/",
+        "color": [
+          "white"
+        ],
+        "grade": "2nd",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "天音かなた",
+          "天音彼方",
+          "Amane Kanata",
+          "給予對手中央成員50點的特殊傷害",
+          "這個藝能將對手的成員擊倒時，給予的傷害超過剩餘HP50或以上的話，對手的生命值-1"
+        ],
+        "versions": [
+          "_RR.png",
+          "_UR.png"
+        ],
+        "tags": [
+          "JP",
+          "4期生",
+          "歌"
+        ],
+        "effectType": "Collaboration",
+        "version": "_RR.png"
+      },
+      {
+        "id": "hBP01-014",
+        "type": "Member",
+        "name": "天音かなた",
+        "imageFolder": "hBP01/",
+        "color": [
+          "white"
+        ],
+        "grade": "2nd",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "天音かなた",
+          "天音彼方",
+          "Amane Kanata",
+          "給予對手中央成員50點的特殊傷害",
+          "這個藝能將對手的成員擊倒時，給予的傷害超過剩餘HP50或以上的話，對手的生命值-1"
+        ],
+        "versions": [
+          "_RR.png",
+          "_UR.png"
+        ],
+        "tags": [
+          "JP",
+          "4期生",
+          "歌"
+        ],
+        "effectType": "Collaboration",
+        "version": "_RR.png"
+      },
+      {
+        "id": "hBP01-014",
+        "type": "Member",
+        "name": "天音かなた",
+        "imageFolder": "hBP01/",
+        "color": [
+          "white"
+        ],
+        "grade": "2nd",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "天音かなた",
+          "天音彼方",
+          "Amane Kanata",
+          "給予對手中央成員50點的特殊傷害",
+          "這個藝能將對手的成員擊倒時，給予的傷害超過剩餘HP50或以上的話，對手的生命值-1"
+        ],
+        "versions": [
+          "_RR.png",
+          "_UR.png"
+        ],
+        "tags": [
+          "JP",
+          "4期生",
+          "歌"
+        ],
+        "effectType": "Collaboration",
+        "version": "_RR.png"
+      },
+      {
+        "id": "hBP02-084",
+        "type": "Support",
+        "name": "みっころね24",
+        "imageFolder": "hBP02/",
+        "color": "",
+        "grade": "",
+        "series": [
+          "hBP02"
+        ],
+        "searchKeywords": [
+          "event",
+          "イベント",
+          "みっころね24"
+        ],
+        "versions": [
+          "_SEC.png",
+          "_S.png",
+          "_U.png"
+        ],
+        "version": "_SEC.png"
+      },
+      {
+        "id": "hBP02-084",
+        "type": "Support",
+        "name": "みっころね24",
+        "imageFolder": "hBP02/",
+        "color": "",
+        "grade": "",
+        "series": [
+          "hBP02"
+        ],
+        "searchKeywords": [
+          "event",
+          "イベント",
+          "みっころね24"
+        ],
+        "versions": [
+          "_SEC.png",
+          "_S.png",
+          "_U.png"
+        ],
+        "version": "_SEC.png"
+      },
+      {
+        "id": "hBP02-084",
+        "type": "Support",
+        "name": "みっころね24",
+        "imageFolder": "hBP02/",
+        "color": "",
+        "grade": "",
+        "series": [
+          "hBP02"
+        ],
+        "searchKeywords": [
+          "event",
+          "イベント",
+          "みっころね24"
+        ],
+        "versions": [
+          "_SEC.png",
+          "_S.png",
+          "_U.png"
+        ],
+        "version": "_SEC.png"
+      },
+      {
+        "id": "hSD01-016",
+        "type": "Support",
+        "name": "春先のどか",
+        "imageFolder": "hSD01/",
+        "color": "",
+        "grade": "",
+        "series": [
+          "hSD01",
+          "hPR"
+        ],
+        "searchKeywords": [
+          "staff",
+          "スタッフ",
+          "春先のどか"
+        ],
+        "versions": [
+          "_C.png",
+          "_P.png"
+        ],
+        "version": "_C.png"
+      },
+      {
+        "id": "hSD01-016",
+        "type": "Support",
+        "name": "春先のどか",
+        "imageFolder": "hSD01/",
+        "color": "",
+        "grade": "",
+        "series": [
+          "hSD01",
+          "hPR"
+        ],
+        "searchKeywords": [
+          "staff",
+          "スタッフ",
+          "春先のどか"
+        ],
+        "versions": [
+          "_C.png",
+          "_P.png"
+        ],
+        "version": "_C.png"
+      },
+      {
+        "id": "hSD01-016",
+        "type": "Support",
+        "name": "春先のどか",
+        "imageFolder": "hSD01/",
+        "color": "",
+        "grade": "",
+        "series": [
+          "hSD01",
+          "hPR"
+        ],
+        "searchKeywords": [
+          "staff",
+          "スタッフ",
+          "春先のどか"
+        ],
+        "versions": [
+          "_C.png",
+          "_P.png"
+        ],
+        "version": "_C.png"
+      },
+      {
+        "id": "hSD01-016",
+        "type": "Support",
+        "name": "春先のどか",
+        "imageFolder": "hSD01/",
+        "color": "",
+        "grade": "",
+        "series": [
+          "hSD01",
+          "hPR"
+        ],
+        "searchKeywords": [
+          "staff",
+          "スタッフ",
+          "春先のどか"
+        ],
+        "versions": [
+          "_C.png",
+          "_P.png"
+        ],
+        "version": "_C.png"
+      },
+      {
+        "id": "hSD01-017",
+        "type": "Support",
+        "name": "マネちゃん",
+        "imageFolder": "hSD01/",
+        "color": "",
+        "grade": "",
+        "series": [
+          "hSD01",
+          "hPR"
+        ],
+        "searchKeywords": [
+          "staff",
+          "スタッフ",
+          "マネちゃん"
+        ],
+        "versions": [
+          "_C.png",
+          "_P.png"
+        ],
+        "version": "_C.png"
+      },
+      {
+        "id": "hSD01-017",
+        "type": "Support",
+        "name": "マネちゃん",
+        "imageFolder": "hSD01/",
+        "color": "",
+        "grade": "",
+        "series": [
+          "hSD01",
+          "hPR"
+        ],
+        "searchKeywords": [
+          "staff",
+          "スタッフ",
+          "マネちゃん"
+        ],
+        "versions": [
+          "_C.png",
+          "_P.png"
+        ],
+        "version": "_C.png"
+      },
+      {
+        "id": "hSD01-017",
+        "type": "Support",
+        "name": "マネちゃん",
+        "imageFolder": "hSD01/",
+        "color": "",
+        "grade": "",
+        "series": [
+          "hSD01",
+          "hPR"
+        ],
+        "searchKeywords": [
+          "staff",
+          "スタッフ",
+          "マネちゃん"
+        ],
+        "versions": [
+          "_C.png",
+          "_P.png"
+        ],
+        "version": "_C.png"
+      },
+      {
+        "id": "hSD01-017",
+        "type": "Support",
+        "name": "マネちゃん",
+        "imageFolder": "hSD01/",
+        "color": "",
+        "grade": "",
+        "series": [
+          "hSD01",
+          "hPR"
+        ],
+        "searchKeywords": [
+          "staff",
+          "スタッフ",
+          "マネちゃん"
+        ],
+        "versions": [
+          "_C.png",
+          "_P.png"
+        ],
+        "version": "_C.png"
+      },
+      {
+        "id": "hBP01-104",
+        "type": "Support",
+        "name": "ふつうのパソコン",
+        "imageFolder": "hBP01/",
+        "color": "",
+        "grade": "",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "item",
+          "アイテム",
+          "ふつうのパソコン",
+          "普通的電腦",
+          "出場至舞台"
+        ],
+        "versions": [
+          "_C.png"
+        ],
+        "tags": "",
+        "version": "_C.png"
+      },
+      {
+        "id": "hBP01-104",
+        "type": "Support",
+        "name": "ふつうのパソコン",
+        "imageFolder": "hBP01/",
+        "color": "",
+        "grade": "",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "item",
+          "アイテム",
+          "ふつうのパソコン",
+          "普通的電腦",
+          "出場至舞台"
+        ],
+        "versions": [
+          "_C.png"
+        ],
+        "tags": "",
+        "version": "_C.png"
+      },
+      {
+        "id": "hBP01-104",
+        "type": "Support",
+        "name": "ふつうのパソコン",
+        "imageFolder": "hBP01/",
+        "color": "",
+        "grade": "",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "item",
+          "アイテム",
+          "ふつうのパソコン",
+          "普通的電腦",
+          "出場至舞台"
+        ],
+        "versions": [
+          "_C.png"
+        ],
+        "tags": "",
+        "version": "_C.png"
+      },
+      {
+        "id": "hBP01-104",
+        "type": "Support",
+        "name": "ふつうのパソコン",
+        "imageFolder": "hBP01/",
+        "color": "",
+        "grade": "",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "item",
+          "アイテム",
+          "ふつうのパソコン",
+          "普通的電腦",
+          "出場至舞台"
+        ],
+        "versions": [
+          "_C.png"
+        ],
+        "tags": "",
+        "version": "_C.png"
+      },
+      {
+        "id": "hBP01-114",
+        "type": "Support",
+        "name": "石の斧",
+        "imageFolder": "hBP01/",
+        "color": "",
+        "grade": "",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "tool",
+          "ツール",
+          "石の斧",
+          "石斧",
+          "藝能傷害+",
+          "特殊傷害",
+          "アキ・ローゼンタール",
+          "亞綺·羅森塔爾",
+          "Aki Rosenthal"
+        ],
+        "versions": [
+          "_C.png"
+        ],
+        "tags": "",
+        "version": "_C.png"
+      },
+      {
+        "id": "hBP01-114",
+        "type": "Support",
+        "name": "石の斧",
+        "imageFolder": "hBP01/",
+        "color": "",
+        "grade": "",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "tool",
+          "ツール",
+          "石の斧",
+          "石斧",
+          "藝能傷害+",
+          "特殊傷害",
+          "アキ・ローゼンタール",
+          "亞綺·羅森塔爾",
+          "Aki Rosenthal"
+        ],
+        "versions": [
+          "_C.png"
+        ],
+        "tags": "",
+        "version": "_C.png"
+      },
+      {
+        "id": "hBP01-114",
+        "type": "Support",
+        "name": "石の斧",
+        "imageFolder": "hBP01/",
+        "color": "",
+        "grade": "",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "tool",
+          "ツール",
+          "石の斧",
+          "石斧",
+          "藝能傷害+",
+          "特殊傷害",
+          "アキ・ローゼンタール",
+          "亞綺·羅森塔爾",
+          "Aki Rosenthal"
+        ],
+        "versions": [
+          "_C.png"
+        ],
+        "tags": "",
+        "version": "_C.png"
+      },
+      {
+        "id": "hBP01-116",
+        "type": "Support",
+        "name": "うぱお",
+        "imageFolder": "hBP01/",
+        "color": "",
+        "grade": "",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "mascot",
+          "マスコット",
+          "うぱお",
+          "藝能傷害+",
+          "特殊傷害",
+          "天音かなた",
+          "天音彼方",
+          "Amane Kanata"
+        ],
+        "versions": [
+          "_C.png"
+        ],
+        "tags": "",
+        "version": "_C.png"
+      },
+      {
+        "id": "hBP01-116",
+        "type": "Support",
+        "name": "うぱお",
+        "imageFolder": "hBP01/",
+        "color": "",
+        "grade": "",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "mascot",
+          "マスコット",
+          "うぱお",
+          "藝能傷害+",
+          "特殊傷害",
+          "天音かなた",
+          "天音彼方",
+          "Amane Kanata"
+        ],
+        "versions": [
+          "_C.png"
+        ],
+        "tags": "",
+        "version": "_C.png"
+      },
+      {
+        "id": "hBP01-116",
+        "type": "Support",
+        "name": "うぱお",
+        "imageFolder": "hBP01/",
+        "color": "",
+        "grade": "",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "mascot",
+          "マスコット",
+          "うぱお",
+          "藝能傷害+",
+          "特殊傷害",
+          "天音かなた",
+          "天音彼方",
+          "Amane Kanata"
+        ],
+        "versions": [
+          "_C.png"
+        ],
+        "tags": "",
+        "version": "_C.png"
+      },
+      {
+        "id": "hBP01-116",
+        "type": "Support",
+        "name": "うぱお",
+        "imageFolder": "hBP01/",
+        "color": "",
+        "grade": "",
+        "series": [
+          "hBP01"
+        ],
+        "searchKeywords": [
+          "mascot",
+          "マスコット",
+          "うぱお",
+          "藝能傷害+",
+          "特殊傷害",
+          "天音かなた",
+          "天音彼方",
+          "Amane Kanata"
+        ],
+        "versions": [
+          "_C.png"
+        ],
+        "tags": "",
+        "version": "_C.png"
+      },
+      {
+        "id": "hBP02-079",
+        "type": "Support",
+        "name": "爆発の魔法",
+        "imageFolder": "hBP02/",
+        "color": "",
+        "grade": "",
+        "series": [
+          "hBP02"
+        ],
+        "searchKeywords": [
+          "event",
+          "イベント",
+          "爆発の魔法"
+        ],
+        "versions": [
+          "_U.png",
+          "_S.png"
+        ],
+        "version": "_U.png"
+      },
+      {
+        "id": "hBP02-079",
+        "type": "Support",
+        "name": "爆発の魔法",
+        "imageFolder": "hBP02/",
+        "color": "",
+        "grade": "",
+        "series": [
+          "hBP02"
+        ],
+        "searchKeywords": [
+          "event",
+          "イベント",
+          "爆発の魔法"
+        ],
+        "versions": [
+          "_U.png",
+          "_S.png"
+        ],
+        "version": "_U.png"
+      }
+    ],
+    "energy": [
+      {
+        "id": "hY01-001",
+        "type": "Energy",
+        "color": "white",
+        "imageFolder": "energy/",
+        "versions": [
+          "_C.png"
+        ],
+        "version": "_C.png"
+      },
+      {
+        "id": "hY01-001",
+        "type": "Energy",
+        "color": "white",
+        "imageFolder": "energy/",
+        "versions": [
+          "_C.png"
+        ],
+        "version": "_C.png"
+      },
+      {
+        "id": "hY01-001",
+        "type": "Energy",
+        "color": "white",
+        "imageFolder": "energy/",
+        "versions": [
+          "_C.png"
+        ],
+        "version": "_C.png"
+      },
+      {
+        "id": "hY01-001",
+        "type": "Energy",
+        "color": "white",
+        "imageFolder": "energy/",
+        "versions": [
+          "_C.png"
+        ],
+        "version": "_C.png"
+      },
+      {
+        "id": "hY01-001",
+        "type": "Energy",
+        "color": "white",
+        "imageFolder": "energy/",
+        "versions": [
+          "_C.png"
+        ],
+        "version": "_C.png"
+      },
+      {
+        "id": "hY01-001",
+        "type": "Energy",
+        "color": "white",
+        "imageFolder": "energy/",
+        "versions": [
+          "_C.png"
+        ],
+        "version": "_C.png"
+      },
+      {
+        "id": "hY01-001",
+        "type": "Energy",
+        "color": "white",
+        "imageFolder": "energy/",
+        "versions": [
+          "_C.png"
+        ],
+        "version": "_C.png"
+      },
+      {
+        "id": "hY01-001",
+        "type": "Energy",
+        "color": "white",
+        "imageFolder": "energy/",
+        "versions": [
+          "_C.png"
+        ],
+        "version": "_C.png"
+      },
+      {
+        "id": "hY01-001",
+        "type": "Energy",
+        "color": "white",
+        "imageFolder": "energy/",
+        "versions": [
+          "_C.png"
+        ],
+        "version": "_C.png"
+      },
+      {
+        "id": "hY01-001",
+        "type": "Energy",
+        "color": "white",
+        "imageFolder": "energy/",
+        "versions": [
+          "_C.png"
+        ],
+        "version": "_C.png"
+      },
+      {
+        "id": "hY01-001",
+        "type": "Energy",
+        "color": "white",
+        "imageFolder": "energy/",
+        "versions": [
+          "_C.png"
+        ],
+        "version": "_C.png"
+      },
+      {
+        "id": "hY01-001",
+        "type": "Energy",
+        "color": "white",
+        "imageFolder": "energy/",
+        "versions": [
+          "_C.png"
+        ],
+        "version": "_C.png"
+      },
+      {
+        "id": "hY01-001",
+        "type": "Energy",
+        "color": "white",
+        "imageFolder": "energy/",
+        "versions": [
+          "_C.png"
+        ],
+        "version": "_C.png"
+      },
+      {
+        "id": "hY01-001",
+        "type": "Energy",
+        "color": "white",
+        "imageFolder": "energy/",
+        "versions": [
+          "_C.png"
+        ],
+        "version": "_C.png"
+      },
+      {
+        "id": "hY01-001",
+        "type": "Energy",
+        "color": "white",
+        "imageFolder": "energy/",
+        "versions": [
+          "_C.png"
+        ],
+        "version": "_C.png"
+      },
+      {
+        "id": "hY01-001",
+        "type": "Energy",
+        "color": "white",
+        "imageFolder": "energy/",
+        "versions": [
+          "_C.png"
+        ],
+        "version": "_C.png"
+      },
+      {
+        "id": "hY01-001",
+        "type": "Energy",
+        "color": "white",
+        "imageFolder": "energy/",
+        "versions": [
+          "_C.png"
+        ],
+        "version": "_C.png"
+      },
+      {
+        "id": "hY01-001",
+        "type": "Energy",
+        "color": "white",
+        "imageFolder": "energy/",
+        "versions": [
+          "_C.png"
+        ],
+        "version": "_C.png"
+      },
+      {
+        "id": "hY01-001",
+        "type": "Energy",
+        "color": "white",
+        "imageFolder": "energy/",
+        "versions": [
+          "_C.png"
+        ],
+        "version": "_C.png"
+      },
+      {
+        "id": "hY01-001",
+        "type": "Energy",
+        "color": "white",
+        "imageFolder": "energy/",
+        "versions": [
+          "_C.png"
+        ],
+        "version": "_C.png"
+      }
+    ],
+    "timestamp": 1744699393176
   }
 }
