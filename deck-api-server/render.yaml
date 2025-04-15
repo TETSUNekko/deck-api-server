@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: deck-api-server
+    env: node
+    plan: free
+    branch: main
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 18
+    buildFilter:
+      paths:
+        - server.js
+        - decklog-scraper.cjs
+        - package.json
+    autoDeploy: true
