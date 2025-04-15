@@ -18,11 +18,14 @@ import SearchBar from "./SearchBar";
 import { FixedSizeGrid as Grid } from "react-window";
 import html2canvas from "html2canvas";
 
+const API_BASE = window.location.hostname === "localhost"
+  ? "http://localhost:3001"
+  : "https://deck-api-server.onrender.com";
+
 const CardImage = ({ card, version, className, style, onZoom, onClick }) => {
   const basePath = import.meta.env.BASE_URL || "/";
   const safeVersion = version || "_C.png"; // 預設值
   const imgSrc = `${basePath}webpcards/${card.imageFolder}${card.id}${safeVersion.replace(".png", ".webp")}`;
-
 
   // ✅ 預載入翻譯圖
   //React.useEffect(() => {
@@ -177,11 +180,11 @@ function DeckBuilder() {
     ).join("");
 
     try {
-      await fetch("https://deck-api-server.onrender.com/save", { 
+      await fetch(`${API_BASE}/save`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ code, payload })
-      });
+      });      
       setShareCode(code);
       return code;
     } catch (e) {
@@ -196,14 +199,12 @@ function DeckBuilder() {
       let data;
       if (shareCode.length === 5 && !shareCode.includes("-")) {
         // 👇 是 decklog 的代碼
-        const res = await fetch(`http://localhost:3001/import-decklog/${shareCode}`);
-
-        //const res = await fetch(`https://deck-api-server.onrender.com/import-decklog/${shareCode}`);
+        const res = await fetch(`${API_BASE}/import-decklog/${shareCode}`);
         if (!res.ok) throw new Error();
         data = await res.json();
       } else {
         // 👇 是你自己儲存的代碼
-        const res = await fetch(`https://deck-api-server.onrender.com/load/${shareCode}`);
+        const res = await fetch(`${API_BASE}/import-decklog/${shareCode}`);
         if (!res.ok) throw new Error();
         data = await res.json();
       }
