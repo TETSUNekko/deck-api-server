@@ -1,3 +1,4 @@
+//decklog-scraper.cjs
 const puppeteer = require("puppeteer");
 
 async function fetchDecklogData(deckCode) {
@@ -5,6 +6,7 @@ async function fetchDecklogData(deckCode) {
   let browser;
 
   try {
+    console.log("🔍 Launching Puppeteer...");
     browser = await puppeteer.launch({
       headless: true,
       args: ["--no-sandbox", "--disable-setuid-sandbox"],
@@ -12,7 +14,9 @@ async function fetchDecklogData(deckCode) {
     });
 
     const page = await browser.newPage();
+    console.log("📄 Opening decklog page:", DECK_URL);
     await page.goto(DECK_URL, { waitUntil: "networkidle2" });
+    console.log("✅ Page loaded successfully, starting data extraction...");
 
     const result = await page.evaluate(() => {
       const sections = Array.from(document.querySelectorAll("h3"));

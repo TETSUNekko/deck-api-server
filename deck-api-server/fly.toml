@@ -1,0 +1,27 @@
+# fly.toml app configuration file generated for deck-api-server on 2025-04-15T18:45:30+08:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'deck-api-server'
+primary_region = 'hkg'
+
+[env]
+  NODE_ENV = 'production'
+
+[[services]]
+  protocol = 'tcp'
+  internal_port = 3001
+
+  [[services.ports]]
+    port = 80
+    handlers = ['http']
+
+  [[services.ports]]
+    port = 443
+    handlers = ['tls', 'http']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
