@@ -20,7 +20,7 @@ import html2canvas from "html2canvas";
 
 const API_BASE = window.location.hostname === "localhost"
   ? "http://localhost:3001"
-  : "https://deck-api-server.onrender.com";
+  : 'https://deck-api-server.fly.dev'
 
 const CardImage = ({ card, version, className, style, onZoom, onClick }) => {
   const basePath = import.meta.env.BASE_URL || "/";
@@ -180,10 +180,10 @@ function DeckBuilder() {
     ).join("");
 
     try {
-      await fetch(`${API_BASE}/save`, {
+      await fetch(`${API_BASE}/save/${code}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ code, payload })
+        body: JSON.stringify(payload)
       });      
       setShareCode(code);
       return code;
@@ -200,26 +200,31 @@ function DeckBuilder() {
       if (shareCode.length === 5 && !shareCode.includes("-")) {
         // 👇 是 decklog 的代碼
         const res = await fetch(`${API_BASE}/import-decklog/${shareCode}`);
-        if (!res.ok) throw new Error();
+        if (!res.ok) throw new Error("decklog 載入失敗");
         data = await res.json();
       } else {
-        // 👇 是你自己儲存的代碼
-        const res = await fetch(`${API_BASE}/import-decklog/${shareCode}`);
-        if (!res.ok) throw new Error();
+        // 👇 是自己分享儲存的代碼
+        const res = await fetch(`${API_BASE}/load/${shareCode}`);
+        if (!res.ok) throw new Error("自訂代碼載入失敗");
         data = await res.json();
       }
 
       // 🔧 將簡單格式轉為完整卡片資料
       const allCardsMap = {};
       allCards.forEach((c) => allCardsMap[c.id] = c);
+      
 
       const attachCardData = (list) =>
         list.flatMap(({ id, count }) => {
           const baseCard = allCards.find((c) => c.id === id);
-          if (!baseCard) return [];
+          if (!baseCard) {
+            console.warn("⚠️ 找不到卡片 ID：", id);
+            return [];
+          }
           return Array.from({ length: count }, () => ({
             ...baseCard,
             version: baseCard.versions?.[0] || "_C.png",
+            imageFolder: baseCard.imageFolder || "",
           }));
         });
            
@@ -518,11 +523,11 @@ function DeckBuilder() {
                 ※本工具所生成之卡表，不得作為官方比賽用。參加比賽請使用官方 decklog 製作卡表。https://decklog.bushiroad.com/create?c=9
                 <br />
                 <br />
-                4/9更新內容 : PR卡分類&以出貨生日卡補齊；增加清空搜尋按鈕
-                <br />
                 4/10更新內容 : 限制卡標示；階級和支援卡子分類統一放入"卡片種類"
                 <br />
                 4/11更新內容 : 增加hBP01標籤搜尋功能，以及部分關鍵字搜尋
+                <br />
+                4/17更新內容 : 新增讀取代碼位置可讀取官方五碼代碼的功能，例如輸入4BTEY會跳出天音牌組
               </p>
               <p className="text-xs text-gray-400">點擊任意處以開始使用</p>
             </div>

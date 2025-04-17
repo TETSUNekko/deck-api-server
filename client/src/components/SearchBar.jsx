@@ -49,7 +49,7 @@ function SearchBar({
     const data = await onExportCode();
     if (data) {
       navigator.clipboard.writeText(data).then(() => {
-        alert(`📋 已複製代碼 ${data} '到剪貼簿！`);
+        alert(`📋 已複製代碼 ${data} 到剪貼簿！`);
       }).catch(() => {
         alert("❌ 無法複製代碼");
       });
@@ -82,7 +82,7 @@ function SearchBar({
             setFilterSeries("全部彈數");
             setSupportSubtype("全部");
             setFilterVersion("全部版本");
-            setSelectedTag("");
+            setSelectedTag("全部標籤");
             setTagSearchInput("");
           }}
           className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded"
@@ -230,7 +230,7 @@ function SearchBar({
               {/* ➕ 固定的「全部標籤」選項 */}
               <div
                 onClick={() => {
-                  setSelectedTag("");
+                  setSelectedTag("全部標籤");
                   setTagDropdownOpen(false);
                   setTagSearchInput("");
                 }}

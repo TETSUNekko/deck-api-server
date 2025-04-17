@@ -22,8 +22,10 @@ async function fetchDecklogData(deckCode) {
 
       const result = await page.evaluate(() => {
         const sections = Array.from(document.querySelectorAll("h3"));
-        const parseCardsFromSection = (title) => {
-          const h3 = sections.find((el) => el.textContent.includes(title));
+        const parseCardsFromSection = (sectionTitles) => {
+          const h3 = sections.find((el) =>
+            sectionTitles.some((title) => el.textContent.includes(title))
+          );
           if (!h3) return [];
           const cardDivs = h3.nextElementSibling?.querySelectorAll(".card-view-item") || [];
           const cards = [];
@@ -38,12 +40,12 @@ async function fetchDecklogData(deckCode) {
           });
           return cards;
         };
-
-        const oshi = parseCardsFromSection("推しホロメン");
-        const deck = parseCardsFromSection("メインデッキ");
-        const energy = parseCardsFromSection("エールデッキ");
-
-        return { oshi, deck, energy };
+      
+        return {
+          oshi: parseCardsFromSection(["推しホロメン"]),
+          deck: parseCardsFromSection(["メインデッキ", "Main deck"]),
+          energy: parseCardsFromSection(["エールデッキ", `"エール" Deck`]),
+        };
       });
 
       await browser.close();
