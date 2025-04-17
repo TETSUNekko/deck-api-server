@@ -1,8 +1,8 @@
 import express from 'express'
 import cors from 'cors'
 import { readFileSync, writeFileSync, existsSync } from 'fs'
-import { join } from 'path'
-import puppeteer from 'puppeteer-core'
+import puppeteer from 'puppeteer'
+import { fetchDecklogData } from './decklog-scraper.cjs'
 
 const app = express()
 const PORT = process.env.PORT || 3001
@@ -12,7 +12,7 @@ app.use(express.json())
 
 const DB_FILE = 'deckCodes.json'
 
-// 輔助函數：讀取資料庫
+// ✅ 資料庫操作
 const readDB = () => {
   try {
     if (!existsSync(DB_FILE)) return {}
@@ -23,7 +23,6 @@ const readDB = () => {
   }
 }
 
-// 輔助函數：寫入資料庫
 const writeDB = (data) => {
   try {
     writeFileSync(DB_FILE, JSON.stringify(data, null, 2))
@@ -32,62 +31,34 @@ const writeDB = (data) => {
   }
 }
 
+// ✅ 匯入 decklog
 app.get('/import-decklog/:code', async (req, res) => {
-  const decklogCode = req.params.code
-  const url = `https://decklog.bushiroad.com/view/${decklogCode}`
-
   try {
-    const browser = await puppeteer.launch({
-      executablePath: '/usr/bin/google-chrome',
-      args: ['--no-sandbox', '--disable-setuid-sandbox'],
-    })
-    const page = await browser.newPage()
-    await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 0 })
-
-    const result = await page.evaluate(() => {
-      const parseCard = (el) => {
-        const count = Number(el.querySelector('.number').textContent.trim())
-        const name = el.querySelector('img').getAttribute('alt')
-        const idMatch = el.querySelector('img').getAttribute('src').match(/\/([\w-]+)\.(?:png|webp)/)
-        const id = idMatch ? idMatch[1] : null
-        return id && name ? { id, name, count } : null
-      }
-
-      const leaderEl = document.querySelector('.deck-leader .card')
-      const mainEls = document.querySelectorAll('.main-deck .card')
-      const donEls = document.querySelectorAll('.don-deck .card')
-
-      const leader = leaderEl ? parseCard(leaderEl) : null
-      const main = Array.from(mainEls).map(parseCard).filter(Boolean)
-      const don = Array.from(donEls).map(parseCard).filter(Boolean)
-
-      return { leader, main, don }
-    })
-
-    await browser.close()
-    res.json(result)
+    const data = await fetchDecklogData(req.params.code)
+    res.json(data)
   } catch (err) {
     console.error('Puppeteer error:', err)
     res.status(500).json({ error: 'Failed to fetch decklog data' })
   }
 })
 
+// ✅ 載入六碼代碼
 app.get('/load/:code', (req, res) => {
   const { code } = req.params
-  const db = readDB()
-  if (db[code]) {
-    res.json(db[code])
+  const dbData = readDB()
+  if (dbData[code]) {
+    res.json(dbData[code])
   } else {
     res.status(404).json({ error: 'Code not found' })
   }
 })
 
+// ✅ 儲存六碼代碼
 app.post('/save/:code', (req, res) => {
   const { code } = req.params
-  const deckData = req.body
-  const db = readDB()
-  db[code] = deckData
-  writeDB(db)
+  const dbData = readDB()
+  dbData[code] = req.body
+  writeDB(dbData)
   res.json({ success: true })
 })
 

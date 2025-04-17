@@ -4,21 +4,19 @@ FROM ghcr.io/puppeteer/puppeteer:latest
 # 設定工作目錄
 WORKDIR /app
 
-# 複製 package 檔案
+# 複製 package 檔案並安裝依賴
 COPY package*.json ./
-
-# 🔧 修正權限，避免 EACCES 錯誤
 USER root
-RUN chown -R pptruser:pptruser /app
-
-# 🔽 切換回 puppeteer 的使用者
-USER pptruser
-
-# 安裝依賴
 RUN npm install
 
 # 複製剩下的專案檔案
 COPY . .
+
+# ✅ 建立並設定 deckCodes.json 權限
+RUN touch deckCodes.json && chmod 666 deckCodes.json
+
+# ✅ 切換回 puppeteer 預設使用者
+USER pptruser
 
 # 開放埠
 EXPOSE 3001
