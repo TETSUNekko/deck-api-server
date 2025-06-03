@@ -1,0 +1,29 @@
+{
+  "ZT4DRE": {
+    "oshi": [
+      {
+        "id": "hBP01-002",
+        "type": "Oshi",
+        "name": "七詩ムメイ",
+        "imageFolder": "hBP01/",
+        "color": [
+          "white"
+        ],
+        "grade": "",
+        "series": "hBP01",
+        "searchKeywords": [
+          "七詩ムメイ",
+          "七詩無名",
+          "Nanashi Mumei"
+        ],
+        "versions": [
+          "_OSR.png",
+          "_OUR.png"
+        ],
+        "version": "_OUR.png"
+      }
+    ],
+    "deck": [],
+    "energy": []
+  }
+}

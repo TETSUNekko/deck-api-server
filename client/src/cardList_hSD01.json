@@ -30,7 +30,9 @@
     "grade": "debut",
     "series": ["hSD01"],
     "searchKeywords": ["ときのそら", "時乃空", "Tokino Sora"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ["JP", "0期生", "歌"],
+    "effectType": ""
   },
   {
     "id": "hSD01-004",
@@ -41,7 +43,9 @@
     "grade": "debut",
     "series": ["hSD01", "hPR"],
     "searchKeywords": ["ときのそら", "時乃空", "Tokino Sora"],
-    "versions": ["_P.png", "_R.png"]
+    "versions": ["_P.png", "_R.png"],
+    "tags": ["JP", "0期生", "歌"],
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD01-005",
@@ -52,7 +56,9 @@
     "grade": "1st",
     "series": ["hSD01"],
     "searchKeywords": ["ときのそら", "時乃空", "Tokino Sora"],
-    "versions": ["_U.png"]
+    "versions": ["_U.png"],
+    "tags": ["JP", "0期生", "歌"],
+    "effectType": ""
   },
   {
     "id": "hSD01-006",
@@ -63,7 +69,9 @@
     "grade": "buzz",
     "series": ["hSD01", "hPR"],
     "searchKeywords": ["ときのそら", "時乃空", "Tokino Sora"],
-    "versions": ["_P.png", "_RR.png"]
+    "versions": ["_P.png", "_RR.png"],
+    "tags": ["JP", "0期生", "歌"],
+    "effectType": ""
   },
   {
     "id": "hSD01-007",
@@ -74,7 +82,9 @@
     "grade": "debut",
     "series": ["hSD01", "hPR"],
     "searchKeywords": ["IRyS", "IRyS", "IRyS"],
-    "versions": ["_C.png", "_P.png"]
+    "versions": ["_C.png", "_P.png"],
+    "tags": ["EN", "Promise", "歌"],
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD01-008",
@@ -85,7 +95,9 @@
     "grade": "debut",
     "series": ["hSD01"],
     "searchKeywords": ["AZKi", "AZKi", "AZKi"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ["JP", "0期生", "歌"],
+    "effectType": ""
   },
   {
     "id": "hSD01-009",
@@ -96,7 +108,9 @@
     "grade": "debut",
     "series": ["hSD01", "hPR"],
     "searchKeywords": ["AZKi", "AZKi", "AZKi"],
-    "versions": ["_R.png", "_P.png"]
+    "versions": ["_R.png", "_P.png"],
+    "tags": ["JP", "0期生", "歌"],
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD01-010",
@@ -107,7 +121,9 @@
     "grade": "1st",
     "series": ["hSD01"],
     "searchKeywords": ["AZKi", "AZKi", "AZKi"],
-    "versions": ["_U.png"]
+    "versions": ["_U.png"],
+    "tags": ["JP", "0期生", "歌"],
+    "effectType": ""
   },
   {
     "id": "hSD01-011",
@@ -118,7 +134,9 @@
     "grade": "2nd",
     "series": ["hSD01", "hPR"],
     "searchKeywords": ["AZKi", "AZKi", "AZKi"],
-    "versions": ["_RR.png", "_P.png"]
+    "versions": ["_RR.png", "_P.png"],
+    "tags": ["JP", "0期生", "歌"],
+    "effectType": ""
   },
   {
     "id": "hSD01-012",
@@ -129,7 +147,9 @@
     "grade": "debut",
     "series": ["hSD01", "hPR"],
     "searchKeywords": ["アイラニ・イオフィフティーン", "艾拉妮·伊歐菲芙婷", "Airani Iofifteen"],
-    "versions": ["_C.png", "_P.png"]
+    "versions": ["_C.png", "_P.png"],
+    "tags": ["ID", "ID1期生", "畫"],
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD01-013",
@@ -140,7 +160,9 @@
     "grade": "1st",
     "series": ["hSD01"],
     "searchKeywords": ["AZKi", "ときのそら", "時乃空", "Tokino Sora", "SorAZ"],
-    "versions": ["_R.png"]
+    "versions": ["_R.png"],
+    "tags": ["JP", "0期生", "歌"],
+    "effectType": ""
   },
   {
     "id": "hSD01-014",
@@ -151,7 +173,9 @@
     "grade": "spot",
     "series": ["hSD01"],
     "searchKeywords": ["天音かなた", "天音彼方", "Amane Kanata"],
-    "versions": ["_U.png"]
+    "versions": ["_U.png"],
+    "tags": ["JP", "4期生", "歌"],
+    "effectType": ""
   },
   {
     "id": "hSD01-015",
@@ -162,7 +186,9 @@
     "grade": "spot",
     "series": ["hSD01"],
     "searchKeywords": ["博衣こより", "博衣小夜璃", "Hakui Koyori"],
-    "versions": ["_U.png"]
+    "versions": ["_U.png"],
+    "tags": ["JP", "秘密結社holoX", "獸耳"],
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD01-016",
@@ -193,9 +219,9 @@
     "imageFolder": "hSD01/",
     "color": "",
     "grade": "",
-    "series": ["hSD01", "hPR"],
+    "series": ["hSD01", "hPR", "PC_Set"],
     "searchKeywords": ["item", "アイテム", "サブパソコン"],
-    "versions": ["_C.png", "_P.png"]
+    "versions": ["_C.png", "_P.png", "_SR.png"]
   },
   {
     "id": "hSD01-019",
@@ -204,9 +230,9 @@
     "imageFolder": "hSD01/",
     "color": "",
     "grade": "",
-    "series": ["hSD01"],
+    "series": ["hSD01", "PC_Set"],
     "searchKeywords": ["item", "アイテム", "スゴイパソコン"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png", "_SR.png"]
   },
   {
     "id": "hSD01-020",

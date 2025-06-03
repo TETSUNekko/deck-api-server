@@ -19,7 +19,9 @@
     "grade": "debut",
     "series": ["hSD06"],
     "searchKeywords": ["風真いろは", "風真伊呂波", "Kazama Iroha"],
-    "versions": ["_C.png"]  
+    "versions": ["_C.png"],
+    "tags": ["JP", "秘密結社holoX"],
+    "effectType": "Collaboration"  
   },
   {
     "id": "hSD06-003",
@@ -30,7 +32,9 @@
     "grade": "debut",
     "series": ["hSD06"],
     "searchKeywords": ["風真いろは", "風真伊呂波", "Kazama Iroha"],
-    "versions": ["_U.png"]  
+    "versions": ["_U.png"],
+    "tags": ["JP", "秘密結社holoX"],
+    "effectType": ""  
   },
   {
     "id": "hSD06-004",
@@ -41,7 +45,9 @@
     "grade": "1st",
     "series": ["hSD06"],
     "searchKeywords": ["風真いろは", "風真伊呂波", "Kazama Iroha"],
-    "versions": ["_C.png"]  
+    "versions": ["_C.png"],
+    "tags": ["JP", "秘密結社holoX"],
+    "effectType": ""  
   },
   {
     "id": "hSD06-005",
@@ -52,7 +58,9 @@
     "grade": "1st",
     "series": ["hSD06"],
     "searchKeywords": ["風真いろは", "風真伊呂波", "Kazama Iroha"],
-    "versions": ["_C.png"]  
+    "versions": ["_C.png"],
+    "tags": ["JP", "秘密結社holoX"],
+    "effectType": "Bloom"  
   },
   {
     "id": "hSD06-006",
@@ -63,7 +71,9 @@
     "grade": "buzz",
     "series": ["hSD06"],
     "searchKeywords": ["風真いろは", "風真伊呂波", "Kazama Iroha"],
-    "versions": ["_R.png"]  
+    "versions": ["_R.png"],
+    "tags": ["JP", "秘密結社holoX"],
+    "effectType": "Bloom"  
   },
   {
     "id": "hSD06-007",
@@ -74,7 +84,9 @@
     "grade": "2nd",
     "series": ["hSD06"],
     "searchKeywords": ["風真いろは", "風真伊呂波", "Kazama Iroha"],
-    "versions": ["_RR.png", "_SR.png"]   
+    "versions": ["_RR.png", "_SR.png"],
+    "tags": ["JP", "秘密結社holoX"],
+    "effectType": "Bloom"   
   },
   {
     "id": "hSD06-008",
@@ -85,7 +97,9 @@
     "grade": "debut",
     "series": ["hSD06"],
     "searchKeywords": ["博衣こより", "博衣小夜璃", "Hakui Koyori"],
-    "versions": ["_U.png"]  
+    "versions": ["_U.png"],
+    "tags": ["JP", "秘密結社holoX", "獸耳"],
+    "effectType": "Collaboration"  
   },
   {
     "id": "hSD06-009",
@@ -96,7 +110,9 @@
     "grade": "debut",
     "series": ["hSD06"],
     "searchKeywords": ["鷹嶺ルイ", "鷹嶺琉依", "Takane Rui"],
-    "versions": ["_U.png"]  
+    "versions": ["_U.png"],
+    "tags": ["JP", "秘密結社holoX", "鳥", "酒"],
+    "effectType": ""  
   },
   {
     "id": "hSD06-010",
@@ -107,7 +123,9 @@
     "grade": "debut",
     "series": ["hSD06"],
     "searchKeywords": ["ラプラス・ダークネス", "拉普拉斯·達克尼斯", "Laplus Darknesss"],
-    "versions": ["_U.png"]  
+    "versions": ["_U.png"],
+    "tags": ["JP", "秘密結社holoX", "射手"],
+    "effectType": ""  
   },
   {
     "id": "hSD06-011",

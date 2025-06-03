@@ -44,6 +44,17 @@
     "versions": ["_P.png"]
   },
   {
+    "id": "hBD24-005",
+    "type": "Oshi",
+    "name": "姫森ルーナ",
+    "imageFolder": "hBD24/",
+    "color": ["white"],
+    "grade": "",
+    "series": ["hPR", "hBD24"],
+    "searchKeywords": ["姫森ルーナ", "姬森璐娜", "Himemori Luna"],
+    "versions": ["_P.png"]
+  },
+  {
     "id": "hBD24-006",
     "type": "Oshi",
     "name": "クレイジー・オリー",
@@ -63,6 +74,72 @@
     "grade": "",
     "series": ["hPR", "hBD24"],
     "searchKeywords": ["ジジ・ムリン", "琪琪·沐林", "Gigi Murin"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-008",
+    "type": "Oshi",
+    "name": "ベスティア・ゼータ",
+    "imageFolder": "hBD24/",
+    "color": ["white"],
+    "grade": "",
+    "series": ["hPR", "hBD24"],
+    "searchKeywords": ["ベスティア・ゼータ", "維斯提亞·澤塔", "Vestia Zeta"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-009",
+    "type": "Oshi",
+    "name": "セシリア・イマーグリーン",
+    "imageFolder": "hBD24/",
+    "color": ["green"],
+    "grade": "",
+    "series": ["hPR", "hBD24"],
+    "searchKeywords": ["セシリア・イマーグリーン", "塞西莉亞·伊默格林", "Cecilia Immergreen"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-010",
+    "type": "Oshi",
+    "name": "雪花ラミィ",
+    "imageFolder": "hBD24/",
+    "color": ["blue"],
+    "grade": "",
+    "series": ["hPR", "hBD24"],
+    "searchKeywords": ["雪花ラミィ", "雪花菈米", "Yukihana Lamy"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-011",
+    "type": "Oshi",
+    "name": "ネリッサ・レイヴンクロフト",
+    "imageFolder": "hBD24/",
+    "color": ["purple"],
+    "grade": "",
+    "series": ["hPR", "hBD24"],
+    "searchKeywords": ["ネリッサ・レイヴンクロフト", "納瑞莎·雷文克羅夫特", "Nerissa Ravencroft"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-013",
+    "type": "Oshi",
+    "name": "紫咲シオン",
+    "imageFolder": "hBD24/",
+    "color": ["purple"],
+    "grade": "",
+    "series": ["hPR", "hBD24"],
+    "searchKeywords": ["紫咲シオン", "紫咲詩音", "Murasaki Shion"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-014",
+    "type": "Oshi",
+    "name": "こぼ・かなえる",
+    "imageFolder": "hBD24/",
+    "color": ["blue"],
+    "grade": "",
+    "series": ["hPR", "hBD24"],
+    "searchKeywords": ["こぼ・かなえる", "果波·卡娜埃露", "Kobo Kanaeru"],
     "versions": ["_P.png"]
   }
 ] 

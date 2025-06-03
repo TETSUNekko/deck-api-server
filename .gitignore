@@ -7,18 +7,39 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# Runtime data
 *.local
 
-# Editor directories and files
+# Dependencies
+node_modules
+
+# Build output
+dist
+dist-ssr
+client/dist/
+deck-api-server/dist/
+
+# Vite
+.vite/
+.tailwind/
+
+# Deck API data
+deck-api-server/deckCodes.json
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor folders
 .vscode/*
 !.vscode/extensions.json
 .idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# Temporary or backup files
+*.txt
+*.ps1~

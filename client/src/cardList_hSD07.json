@@ -19,7 +19,9 @@
     "grade": "debut",
     "series": ["hSD07"],
     "searchKeywords": ["不知火フレア", "不知火芙蕾雅", "Shiranui Flare"],
-    "versions": ["_C.png"]  
+    "versions": ["_C.png"],
+    "tags": ["JP", "3期生", "半精靈"],
+    "effectType": ""  
   },
   {
     "id": "hSD07-003",
@@ -30,7 +32,9 @@
     "grade": "debut",
     "series": ["hSD07"],
     "searchKeywords": ["不知火フレア", "不知火芙蕾雅", "Shiranui Flare"],
-    "versions": ["_C.png"]  
+    "versions": ["_C.png"],
+    "tags": ["JP", "3期生", "半精靈"],
+    "effectType": "Collaboration"  
   },
   {
     "id": "hSD07-004",
@@ -41,7 +45,9 @@
     "grade": "debut",
     "series": ["hSD07"],
     "searchKeywords": ["不知火フレア", "不知火芙蕾雅", "Shiranui Flare"],
-    "versions": ["_U.png"]  
+    "versions": ["_U.png"],
+    "tags": ["JP", "3期生", "半精靈"],
+    "effectType": ""  
   },
   {
     "id": "hSD07-005",
@@ -52,7 +58,9 @@
     "grade": "1st",
     "series": ["hSD07"],
     "searchKeywords": ["不知火フレア", "不知火芙蕾雅", "Shiranui Flare"],
-    "versions": ["_C.png"]  
+    "versions": ["_C.png"],
+    "tags": ["JP", "3期生", "半精靈"],
+    "effectType": ""  
   },
   {
     "id": "hSD07-006",
@@ -63,7 +71,9 @@
     "grade": "1st",
     "series": ["hSD07"],
     "searchKeywords": ["不知火フレア", "不知火芙蕾雅", "Shiranui Flare"],
-    "versions": ["_C.png"]  
+    "versions": ["_C.png"],
+    "tags": ["JP", "3期生", "半精靈"],
+    "effectType": "Bloom"  
   },
   {
     "id": "hSD07-007",
@@ -74,7 +84,9 @@
     "grade": "1st",
     "series": ["hSD07"],
     "searchKeywords": ["不知火フレア", "不知火芙蕾雅", "Shiranui Flare"],
-    "versions": ["_U.png"]   
+    "versions": ["_U.png"],
+    "tags": ["JP", "3期生", "半精靈"],
+    "effectType": "Bloom"   
   },
   {
     "id": "hSD07-008",
@@ -85,7 +97,9 @@
     "grade": "buzz",
     "series": ["hSD07"],
     "searchKeywords": ["不知火フレア", "不知火芙蕾雅", "Shiranui Flare"],
-    "versions": ["_R.png"]  
+    "versions": ["_R.png"],
+    "tags": ["JP", "3期生", "半精靈"],
+    "effectType": ""  
   },
   {
     "id": "hSD07-009",
@@ -96,7 +110,9 @@
     "grade": "2nd",
     "series": ["hSD07"],
     "searchKeywords": ["不知火フレア", "不知火芙蕾雅", "Shiranui Flare"],
-    "versions": ["_RR.png", "_SR.png"]  
+    "versions": ["_RR.png", "_SR.png"],
+    "tags": ["JP", "3期生", "半精靈"],
+    "effectType": "Gift"  
   },
   {
     "id": "hSD07-010",
@@ -107,7 +123,9 @@
     "grade": "debut",
     "series": ["hSD07"],
     "searchKeywords": ["白銀ノエル", "白銀諾艾爾", "Shirogane Noel"],
-    "versions": ["_U.png"]  
+    "versions": ["_U.png"],
+    "tags": ["JP", "3期生", "酒"],
+    "effectType": "Collaboration"  
   },
   {
     "id": "hSD07-011",
@@ -118,7 +136,9 @@
     "grade": "debut",
     "series": ["hSD07"],
     "searchKeywords": ["さくらみこ", "櫻巫女", "Sakura Miko"],
-    "versions": ["_U.png"]  
+    "versions": ["_U.png"],
+    "tags": ["JP", "0期生", "嬰兒"],
+    "effectType": "Collaboration"  
   },
   {
     "id": "hSD07-012",
@@ -129,7 +149,9 @@
     "grade": "debut",
     "series": ["hSD07"],
     "searchKeywords": ["尾丸ポルカ", "尾丸波爾卡", "Omaru Polka"],
-    "versions": ["_U.png"]  
+    "versions": ["_U.png"],
+    "tags": ["JP", "5期生", "獸耳"],
+    "effectType": "Collaboration"  
   },
   {
     "id": "hSD07-013",
@@ -140,7 +162,9 @@
     "grade": "debut",
     "series": ["hSD07"],
     "searchKeywords": ["星街すいせい", "星街彗星", "Hoshimachi Suisei"],
-    "versions": ["_U.png"]  
+    "versions": ["_U.png"],
+    "tags": ["JP", "0期生", "歌"],
+    "effectType": "Collaboration"  
   },
   {
     "id": "hSD07-014",

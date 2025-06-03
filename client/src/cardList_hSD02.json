@@ -19,7 +19,9 @@
     "grade": "debut",
     "series": ["hSD02"],
     "searchKeywords": ["百鬼あやめ", "百鬼綾目", "Nakiri Ayame"],
-    "versions": ["_C.png"]  
+    "versions": ["_C.png"],
+    "tags": ["JP", "2期生", "射手"],
+    "effectType": ""
   },
   {
     "id": "hSD02-003",
@@ -30,7 +32,9 @@
     "grade": "debut",
     "series": ["hSD02"],
     "searchKeywords": ["百鬼あやめ", "百鬼綾目", "Nakiri Ayame"],
-    "versions": ["_C.png"]  
+    "versions": ["_C.png"],
+    "tags": ["JP", "2期生", "射手"],
+    "effectType": "Collaboration"  
   },
   {
     "id": "hSD02-004",
@@ -41,7 +45,9 @@
     "grade": "debut",
     "series": ["hSD02"],
     "searchKeywords": ["百鬼あやめ", "百鬼綾目", "Nakiri Ayame"],
-    "versions": ["_U.png"]  
+    "versions": ["_U.png"],
+    "tags": ["JP", "2期生", "射手"],
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD02-005",
@@ -52,7 +58,9 @@
     "grade": "1st",
     "series": ["hSD02"],
     "searchKeywords": ["百鬼あやめ", "百鬼綾目", "Nakiri Ayame"],
-    "versions": ["_C.png"]  
+    "versions": ["_C.png"],
+    "tags": ["JP", "2期生", "射手"],
+    "effectType": ""  
   },
   {
     "id": "hSD02-006",
@@ -63,7 +71,9 @@
     "grade": "1st",
     "series": ["hSD02"],
     "searchKeywords": ["百鬼あやめ", "百鬼綾目", "Nakiri Ayame"],
-    "versions": ["_C.png"]  
+    "versions": ["_C.png"],
+    "tags": ["JP", "2期生", "射手"],
+    "effectType": "Bloom"  
   },
   {
     "id": "hSD02-007",
@@ -74,7 +84,9 @@
     "grade": "1st",
     "series": ["hSD02", "hPR"],
     "searchKeywords": ["百鬼あやめ", "百鬼綾目", "Nakiri Ayame"],
-    "versions": ["_P.png", "_U.png"]  
+    "versions": ["_P.png", "_U.png"],
+    "tags": ["JP", "2期生", "射手"],
+    "effectType": "Bloom"  
   },
   {
     "id": "hSD02-008",
@@ -85,7 +97,9 @@
     "grade": "buzz",
     "series": ["hSD02"],
     "searchKeywords": ["百鬼あやめ", "百鬼綾目", "Nakiri Ayame"],
-    "versions": ["_R.png"]  
+    "versions": ["_R.png"],
+    "tags": ["JP", "2期生", "射手"],
+    "effectType": ""  
   },
   {
     "id": "hSD02-009",
@@ -96,7 +110,9 @@
     "grade": "2nd",
     "series": ["hSD02"],
     "searchKeywords": ["百鬼あやめ", "百鬼綾目", "Nakiri Ayame"],
-    "versions": ["_RR.png", "_SR.png"]  
+    "versions": ["_RR.png", "_SR.png"],
+    "tags": ["JP", "2期生", "射手"],
+    "effectType": ""  
   },
   {
     "id": "hSD02-010",
@@ -107,7 +123,9 @@
     "grade": "spot",
     "series": ["hSD02"],
     "searchKeywords": ["白上フブキ", "白上吹雪", "Shirakami Fubuki"],
-    "versions": ["_U.png"]  
+    "versions": ["_U.png"],
+    "tags": ["JP", "1期生", "Gamers", "獸耳", "畫"],
+    "effectType": "Collaboration"  
   },
   {
     "id": "hSD02-011",
@@ -118,7 +136,9 @@
     "grade": "spot",
     "series": ["hSD02"],
     "searchKeywords": ["大神ミオ", "大神澪", "Ookami Mio"],
-    "versions": ["_U.png"]  
+    "versions": ["_U.png"],
+    "tags": ["JP", "Gamers", "獸耳", "料理"],
+    "effectType": "Collaboration" 
   },
   {
     "id": "hSD02-012",

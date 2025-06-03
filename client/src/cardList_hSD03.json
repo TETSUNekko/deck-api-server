@@ -19,7 +19,9 @@
     "grade": "debut",
     "series": ["hSD03", "hPR"],
     "searchKeywords": ["猫又おかゆ", "貓又小粥", "Nekomata Okayu"],
-    "versions": ["_C.png", "_P_2.png"]  
+    "versions": ["_C.png", "_P_2.png"],
+    "tags": ["JP", "Gamers", "獸耳"],
+    "effectType": ""  
   },
   {
     "id": "hSD03-003",
@@ -30,7 +32,9 @@
     "grade": "debut",
     "series": ["hSD03", "hPR"],
     "searchKeywords": ["猫又おかゆ", "貓又小粥", "Nekomata Okayu"],
-    "versions": ["_C.png", "_P.png"]  
+    "versions": ["_C.png", "_P.png"],
+    "tags": ["JP", "Gamers", "獸耳"],
+    "effectType": "Collaboration"  
   },
   {
     "id": "hSD03-004",
@@ -41,7 +45,9 @@
     "grade": "debut",
     "series": ["hSD03"],
     "searchKeywords": ["猫又おかゆ", "貓又小粥", "Nekomata Okayu"],
-    "versions": ["_U.png"]  
+    "versions": ["_U.png"],
+    "tags": ["JP", "Gamers", "獸耳"],
+    "effectType": "Collaboration"  
   },
   {
     "id": "hSD03-005",
@@ -52,7 +58,9 @@
     "grade": "1st",
     "series": ["hSD03"],
     "searchKeywords": ["猫又おかゆ", "貓又小粥", "Nekomata Okayu"],
-    "versions": ["_C.png"]  
+    "versions": ["_C.png"],
+    "tags": ["JP", "Gamers", "獸耳"],
+    "effectType": ""  
   },
   {
     "id": "hSD03-006",
@@ -63,7 +71,9 @@
     "grade": "1st",
     "series": ["hSD03"],
     "searchKeywords": ["猫又おかゆ", "貓又小粥", "Nekomata Okayu"],
-    "versions": ["_C.png"]  
+    "versions": ["_C.png"],
+    "tags": ["JP", "Gamers", "獸耳", "歌"],
+    "effectType": ""  
   },
   {
     "id": "hSD03-007",
@@ -74,7 +84,9 @@
     "grade": "1st",
     "series": ["hSD03", "hPR"],
     "searchKeywords": ["猫又おかゆ", "貓又小粥", "Nekomata Okayu"],
-    "versions": ["_U.png", "_P.png"]  
+    "versions": ["_U.png", "_P.png"],
+    "tags": ["JP", "Gamers", "獸耳"],
+    "effectType": "Bloom"  
   },
   {
     "id": "hSD03-008",
@@ -85,7 +97,9 @@
     "grade": "buzz",
     "series": ["hSD03"],
     "searchKeywords": ["猫又おかゆ", "貓又小粥", "Nekomata Okayu"],
-    "versions": ["_R.png"]  
+    "versions": ["_R.png"],
+    "tags": ["JP", "Gamers", "獸耳"],
+    "effectType": "Gift"  
   },
   {
     "id": "hSD03-009",
@@ -96,7 +110,9 @@
     "grade": "2nd",
     "series": ["hSD03"],
     "searchKeywords": ["猫又おかゆ", "貓又小粥", "Nekomata Okayu"],
-    "versions": ["_RR.png", "_SR.png"]  
+    "versions": ["_RR.png", "_SR.png"],
+    "tags": ["JP", "Gamers", "獸耳"],
+    "effectType": ""  
   },
   {
     "id": "hSD03-010",
@@ -107,7 +123,9 @@
     "grade": "spot",
     "series": ["hSD03"],
     "searchKeywords": ["戌神ころね", "戌神沁音", "Inugami Korone"],
-    "versions": ["_U.png"]  
+    "versions": ["_U.png"],
+    "tags": ["JP", "Gamers", "獸耳"],
+    "effectType": "Collaboration"  
   },
   {
     "id": "hSD03-011",
@@ -118,7 +136,9 @@
     "grade": "spot",
     "series": ["hSD03"],
     "searchKeywords": ["ラプラス・ダークネス", "拉普拉斯·達克尼斯", "Laplus Darknesss"],
-    "versions": ["_U.png"] 
+    "versions": ["_U.png"],
+    "tags": ["JP", "秘密結社holoX", "射手"],
+    "effectType": "" 
   },
   {
     "id": "hSD03-012",

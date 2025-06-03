@@ -3,6 +3,7 @@ import React, { useState, useRef } from "react";
 import cardList from "../cardList_hBP01.json";
 import cardListBP02 from "../cardList_hBP02.json";
 import cardListBP03 from "../cardList_hBP03.json";
+import cardListBP04 from "../cardList_hBP04.json";
 import cardListSD01 from "../cardList_hSD01.json";
 import cardListSD02 from "../cardList_hSD02.json";
 import cardListSD03 from "../cardList_hSD03.json";
@@ -18,9 +19,26 @@ import SearchBar from "./SearchBar";
 import { FixedSizeGrid as Grid } from "react-window";
 import html2canvas from "html2canvas";
 
+const TYPE_ORDER = ["debut", "1st", "buzz", "2nd", "spot", "staff", "item", "event", "tool", "mascot", "fan"];
+// ✅ 排序函式：依照卡片類型排序，並保持同類型卡片新增順序
+const sortDeckByType = (deck) => {
+  return deck.slice().sort((a, b) => {
+    const indexA = TYPE_ORDER.indexOf(a.sortType) !== -1 ? TYPE_ORDER.indexOf(a.sortType) : TYPE_ORDER.length;
+    const indexB = TYPE_ORDER.indexOf(b.sortType) !== -1 ? TYPE_ORDER.indexOf(b.sortType) : TYPE_ORDER.length;
+
+    // 1. 依照 TYPE_ORDER 中的順序進行排序
+    if (indexA !== indexB) return indexA - indexB;
+
+    // 2. 如果 sortType 相同，依照 `id` 進行排序，確保穩定排序
+    return a.id.localeCompare(b.id);
+  });
+};
+
+
+
 const API_BASE = window.location.hostname === "localhost"
   ? "http://localhost:3001"
-  : 'https://deck-api-server.fly.dev'
+  : 'https://web-production-d1a14.up.railway.app'
 
 const CardImage = ({ card, version, className, style, onZoom, onClick }) => {
   const basePath = import.meta.env.BASE_URL || "/";
@@ -87,6 +105,7 @@ function DeckBuilder() {
   const [energyCards, setEnergyCards] = useState([]);
   const [shareCode, setShareCode] = useState("");
   const [loading, setLoading] = useState(false);
+  const [zoomIndex, setZoomIndex] = useState(null);
 
   const [searchTerm, setSearchTerm] = useState("");
   const [filterType, setFilterType] = useState("全部");
@@ -101,13 +120,18 @@ function DeckBuilder() {
     "0期生", "1期生", "2期生", "3期生", "4期生", "5期生",
     "EN", "ID", "ID1期生", "ID2期生", "ID3期生", "JP",
     "Myth", "Promise", "colorless", "半精靈", "獸耳", "海",
-    "畫", "歌", "酒", "鳥", "祕密結社holoX"
+    "畫", "歌", "酒", "鳥", "秘密結社holoX", "Gamers", "料理",
+    "射手", "語言學", "Advent", "HoloWitch", "魔法", "白上的角色",
+    "嬰兒", "DEV_IS", "ReGLOSS", "Advent"
   ];
   
 
   const deckRef = useRef();
-  const allCards = [...cardList, ...cardListBP02, ...cardListBP03, ...cardListSD01, ...cardListSD02, ...cardListSD03, ...cardListSD04, 
-                    ...cardListSD05, ...cardListSD06, ...cardListSD07, ...cardListPR, ...cardListBD24, ...energyCardList];
+  const allCards = [...cardList, ...cardListBP02, ...cardListBP03, ...cardListBP04, ...cardListSD01, ...cardListSD02, ...cardListSD03, ...cardListSD04, 
+                    ...cardListSD05, ...cardListSD06, ...cardListSD07, ...cardListPR, ...cardListBD24, ...energyCardList].map(card => ({
+                    ...card,
+                    sortType: TYPE_ORDER.includes(card.grade) ? card.grade : card.type
+                  }));
 
   const filteredCards = allCards.filter((card) => {
     const isEnergyCard = card.imageFolder.includes("energy") || card.type === "Energy";
@@ -145,10 +169,10 @@ function DeckBuilder() {
 
     if (card.type === "Oshi") {
       setOshiCards((prev) => [...prev, { ...card, version }]);
-    }else if (card.type === "Energy") {
+    } else if (card.type === "Energy") {
       setEnergyCards((prev) => [...prev, { ...card, version }]);
     } else {
-      setDeckCards((prev) => [...prev, { ...card, version }]);
+      setDeckCards((prev) => sortDeckByType([...prev, { ...card, version }]));
     }
   };
 
@@ -298,6 +322,29 @@ function DeckBuilder() {
     w.document.close();
   };
   
+  React.useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!zoomCard) return;
+      if (e.key === 'ArrowLeft') showAdjacentCard(-1);
+      if (e.key === 'ArrowRight') showAdjacentCard(1);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [zoomCard, zoomIndex, filteredCards]);
+
+  const showAdjacentCard = (direction) => {
+    if (zoomIndex == null) return;
+    const newIndex = zoomIndex + direction;
+    if (newIndex >= 0 && newIndex < filteredCards.length) {
+      const nextCard = filteredCards[newIndex];
+      const version = nextCard.versions?.[0] || "_C.png";
+      const basePath = import.meta.env.BASE_URL || "/";
+      const imgSrc = `${basePath}webpcards/${nextCard.imageFolder}${nextCard.id}${version.replace(".png", ".webp")}`;
+      setZoomImageUrl(imgSrc);
+      setZoomCard(nextCard);
+      setZoomIndex(newIndex);
+    }
+  };  
 
   const renderZoomCard = () => {
     if (!zoomImageUrl || !zoomCard) return null;
@@ -338,6 +385,21 @@ function DeckBuilder() {
             onError={(e) => (e.target.style.display = "none")}
           />
           )}
+          {/* ← 左按鈕 */}
+          <button
+            onClick={(e) => { e.stopPropagation(); showAdjacentCard(-1); }}
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 text-3xl text-white bg-black bg-opacity-40 hover:bg-opacity-70 px-2 py-1 rounded"
+          >
+            ←
+          </button>
+
+          {/* → 右按鈕 */}
+          <button
+            onClick={(e) => { e.stopPropagation(); showAdjacentCard(1); }}
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 text-3xl text-white bg-black bg-opacity-40 hover:bg-opacity-70 px-2 py-1 rounded"
+          >
+            →
+          </button>
           <button
             onClick={() => {
               setZoomImageUrl("");
@@ -417,6 +479,8 @@ function DeckBuilder() {
                         version={version}
                         style={{ width: "100%", height: "100%" }}
                         onZoom={(url, cardData) => {
+                          const index = filteredCards.findIndex(c => c.id === cardData.id);
+                          setZoomIndex(index);
                           setZoomImageUrl(url);
                           setZoomCard(cardData);
                         }}
@@ -445,6 +509,8 @@ function DeckBuilder() {
                         version={card.version}
                         style={{ width: "clamp(45px, 6vw, 63px)", height: "clamp(65px, 8.5vw, 88px)" }}
                         onZoom={(url, cardData) => {
+                          const index = filteredCards.findIndex(c => c.id === cardData.id);
+                          setZoomIndex(index);
                           setZoomImageUrl(url);
                           setZoomCard(cardData);
                         }}
@@ -469,6 +535,8 @@ function DeckBuilder() {
                     version={card.version}
                     style={{ width: "clamp(45px, 6vw, 63px)", height: "clamp(65px, 8.5vw, 88px)" }}
                     onZoom={(url, cardData) => {
+                      const index = filteredCards.findIndex(c => c.id === cardData.id);
+                      setZoomIndex(index);
                       setZoomImageUrl(url);
                       setZoomCard(cardData);
                     }}
@@ -488,6 +556,8 @@ function DeckBuilder() {
                     version={card.version}
                     style={{ width: "clamp(45px, 6vw, 63px)", height: "clamp(65px, 8.5vw, 88px)" }}
                     onZoom={(url, cardData) => {
+                      const index = filteredCards.findIndex(c => c.id === cardData.id);
+                      setZoomIndex(index);
                       setZoomImageUrl(url);
                       setZoomCard(cardData);
                     }}
@@ -520,14 +590,18 @@ function DeckBuilder() {
                 <br />
                 嚴禁將本工具所生成之內容用於任何形式之商業用途。
                 <br />
-                ※本工具所生成之卡表，不得作為官方比賽用。參加比賽請使用官方 decklog 製作卡表。https://decklog.bushiroad.com/create?c=9
+                ※本工具所生成之卡表，不得作為官方比賽用。參加比賽請使用官方 decklog 製作卡表。https://decklog-en.bushiroad.com/ja/create?c=108
                 <br />
-                <br />
-                4/10更新內容 : 限制卡標示；階級和支援卡子分類統一放入"卡片種類"
-                <br />
-                4/11更新內容 : 增加hBP01標籤搜尋功能，以及部分關鍵字搜尋
                 <br />
                 4/17更新內容 : 新增讀取代碼位置可讀取官方五碼代碼的功能，例如輸入4BTEY會跳出天音牌組
+                <br />
+                4/19更新內容 : 新增放大鏡中可以左右換圖
+                <br />
+                4/30更新內容 : 增加全卡標籤搜尋功能，以及部分關鍵字搜尋
+                <br />
+                5/7更新內容 : 增加部分P卡(生日卡 & hBP01(含書卡))
+                <br />
+                5/16更新內容 : 卡組區域卡片能夠自動排序了
               </p>
               <p className="text-xs text-gray-400">點擊任意處以開始使用</p>
             </div>

@@ -199,6 +199,7 @@ function SearchBar({
           <option value="hBP01">hBP01ブースターパック「ブルーミングレディアンス」</option>
           <option value="hBP02">hBP02ブースターパック「クインテットスペクトラム」</option>
           <option value="hBP03">hBP03ブースターパック「エリートスパーク」</option>
+          <option value="hBP04">hBP04ブースターパック「キュリアスユニバース」</option>
           <option value="hSD01">hSD01スタートデッキ「ときのそら＆AZKi」</option>
           <option value="hSD02">hSD02スタートデッキ 赤 百鬼あやめ</option>
           <option value="hSD03">hSD03スタートデッキ 青 猫又おかゆ</option>
@@ -207,6 +208,7 @@ function SearchBar({
           <option value="hSD06">hSD06スタートデッキ 緑 風真いろは</option>
           <option value="hSD07">hSD07スタートデッキ 黄 不知火フレア</option>
           <option value="hPR">PRカード</option>
+          <option value="PC_Set">【イベント物販／hololive production OFFICIAL SHOP限定商品】オフィシャルホロカコレクション-PCセット-</option>
         </select>
 
         <div className="relative" ref={tagInputRef}>
