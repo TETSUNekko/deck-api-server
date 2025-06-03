@@ -43,8 +43,8 @@ async function fetchDecklogData(deckCode) {
       
         return {
           oshi: parseCardsFromSection(["推しホロメン"]),
-          deck: parseCardsFromSection(["メインデッキ", "Main deck"]),
-          energy: parseCardsFromSection(["エールデッキ", `"エール" Deck`]),
+          deck: parseCardsFromSection(["メインデッキ", "Main Deck"]),
+          energy: parseCardsFromSection(["エールデッキ", `“エール” Deck`]),
         };
       });
 
