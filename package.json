@@ -5,7 +5,6 @@
   "type": "module",
   "homepage": "https://tetsunekko.github.io/holotcgtw",
   "scripts": {
-    "start": "node server.js",
     "dev": "vite",
     "build": "npx vite build",
     "preview": "vite preview",
