@@ -35,6 +35,13 @@
     "versions": ["_P.png"]
   },
   {
+    "id": "hY01-006",
+    "type": "Energy",
+    "color": "white",
+    "imageFolder": "energy/",
+    "versions": ["_SY.png"]
+  },
+  {
     "id": "hY02-001",
     "type": "Energy",
     "color": "green",
@@ -63,6 +70,13 @@
     "versions": ["_P.png"]
   },
   {
+    "id": "hY02-005",
+    "type": "Energy",
+    "color": "green",
+    "imageFolder": "energy/",
+    "versions": ["_SY.png"]
+  },
+  {
     "id": "hY03-001",
     "type": "Energy",
     "color": "red",
@@ -82,6 +96,41 @@
     "color": "red",
     "imageFolder": "energy/",
     "versions": ["_SY.png"]
+  },
+  {
+    "id": "hY03-004",
+    "type": "Energy",
+    "color": "red",
+    "imageFolder": "energy/",
+    "versions": ["_SY.png"]
+  },
+  {
+    "id": "hY03-005",
+    "type": "Energy",
+    "color": "red",
+    "imageFolder": "energy/",
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hY03-006",
+    "type": "Energy",
+    "color": "red",
+    "imageFolder": "energy/",
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hY03-007",
+    "type": "Energy",
+    "color": "red",
+    "imageFolder": "energy/",
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hY03-008",
+    "type": "Energy",
+    "color": "red",
+    "imageFolder": "energy/",
+    "versions": ["_P.png"]
   },
   {
     "id": "hY04-001",
@@ -112,6 +161,13 @@
     "versions": ["_P.png"]
   },
   {
+    "id": "hY04-005",
+    "type": "Energy",
+    "color": "blue",
+    "imageFolder": "energy/",
+    "versions": ["_SY.png"]
+  },
+  {
     "id": "hY05-001",
     "type": "Energy",
     "color": "purple",
@@ -127,6 +183,13 @@
   },
   {
     "id": "hY05-003",
+    "type": "Energy",
+    "color": "purple",
+    "imageFolder": "energy/",
+    "versions": ["_SY.png"]
+  },
+  {
+    "id": "hY05-004",
     "type": "Energy",
     "color": "purple",
     "imageFolder": "energy/",
@@ -152,6 +215,13 @@
     "color": "yellow",
     "imageFolder": "energy/",
     "versions": ["_P.png"]
+  },
+  {
+    "id": "hY06-004",
+    "type": "Energy",
+    "color": "yellow",
+    "imageFolder": "energy/",
+    "versions": ["_SY.png"]
   }
 
 ]

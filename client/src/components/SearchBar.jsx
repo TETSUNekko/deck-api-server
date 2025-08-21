@@ -2,7 +2,6 @@
 import React, { useState, useRef, useEffect } from "react";
 
 function SearchBar({
-  playerName,
   filterType,
   setFilterType,
   searchTerm,
@@ -28,21 +27,28 @@ function SearchBar({
   allTags,
   loading
 }) {
-  const [showDropdown, setShowDropdown] = useState(false);
+  
   const [tagSearchInput, setTagSearchInput] = useState("");
   const [tagDropdownOpen, setTagDropdownOpen] = useState(false);
-  const tagInputRef = useRef();
+  const [activeDropdown, setActiveDropdown] = useState(null); // 'main' | 'member' | 'support'
+  const [mainDropdownOpen, setMainDropdownOpen] = useState(false);
+  const [memberSubOpen, setMemberSubOpen] = useState(false);
+  const [supportSubOpen, setSupportSubOpen] = useState(false);
+
+  const dropdownRefs = useRef([]);
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (tagInputRef.current && !tagInputRef.current.contains(event.target)) {
-        setTagDropdownOpen(false);
+    const handleClickOutside = (e) => {
+      if (!dropdownRefs.current.some(ref => ref && ref.contains(e.target))) {
+        setActiveDropdown(null);      // 關閉卡片種類選單
+        setTagDropdownOpen(false);    // 關閉標籤選單
+        setMainDropdownOpen(false);
+        setMemberSubOpen(false);
+        setSupportSubOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   const handleCopyCode = async () => {
@@ -71,8 +77,8 @@ function SearchBar({
       : "";
 
   return (
-    <div className="sticky top-0 z-10 bg-amber-50 p-3 border-b border-yellow-300 shadow-sm">
-      <div className="flex flex-wrap items-center gap-2 overflow-visible">
+    <div className="sticky top-0 z-40 bg-amber-50 p-3 border-b border-yellow-300 shadow-sm">
+      <div className="flex flex-wrap items-center gap-2 overflow-x-visible relative z-10">
         <button
           onClick={() => {
             setSearchTerm("");
@@ -85,20 +91,24 @@ function SearchBar({
             setSelectedTag("全部標籤");
             setTagSearchInput("");
           }}
-          className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded"
+          className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded max-w-[150px] w-full text-sm truncate"
         >
           🔄 清空搜尋
         </button>
 
-        <div className="relative">
+        <div className="relative" ref={el => dropdownRefs.current[0] = el}>  
           <button
-            onClick={() => setShowDropdown(!showDropdown)}
-            className="border rounded px-2 py-1 bg-white"
+            onClick={() => {
+              setMainDropdownOpen(!mainDropdownOpen);
+              setMemberSubOpen(false);
+              setSupportSubOpen(false);
+            }}
+            className="border rounded px-2 py-1 bg-white max-w-[160px] w-full text-sm truncate"
           >
             {typeDisplayName[filterType] || "卡片種類"}{extraLabel} ▾
           </button>
 
-          {showDropdown && (
+          {mainDropdownOpen && (
             <div className="absolute bg-white border rounded shadow z-10 w-32 mt-1">
               <div
                 className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
@@ -106,7 +116,7 @@ function SearchBar({
                   setFilterType("全部");
                   setFilterGrade("全部階級");
                   setSupportSubtype("全部");
-                  setShowDropdown(false);
+                  setMainDropdownOpen(false);
                 }}
               >
                 全部卡片
@@ -117,56 +127,83 @@ function SearchBar({
                   setFilterType("Oshi");
                   setFilterGrade("全部階級");
                   setSupportSubtype("全部");
-                  setShowDropdown(false);
+                  setMainDropdownOpen(false);
                 }}
               >
                 主推卡
               </div>
-              <div className="group relative">
-                <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">成員卡 ▸</div>
-                <div className="absolute left-full top-0 bg-white border rounded shadow hidden group-hover:block w-28">
-                  {["全部階級", "debut", "1st", "2nd", "buzz", "spot"].map((grade) => (
-                    <div
-                      key={grade}
-                      className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                      onClick={() => {
-                        setFilterType("Member");
-                        setFilterGrade(grade);
-                        setSupportSubtype("全部");
-                        setShowDropdown(false);
-                      }}
-                    >
-                      {grade}
-                    </div>
-                  ))}
+
+              {/* 成員卡（有子選單） */}
+              <div className="relative">
+                <div
+                  className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                  onClick={() => {
+                    setMemberSubOpen(!memberSubOpen);
+                    setSupportSubOpen(false);
+                  }}
+                >
+                  成員卡 ▸
                 </div>
+                {memberSubOpen && (
+                  <div className="absolute left-full top-0 bg-white border rounded shadow w-40 z-30">
+                    {["全部階級", "debut", "1st", "2nd", "buzz", "spot"].map((grade) => (
+                      <div
+                        key={grade}
+                        className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                        onClick={() => {
+                          setFilterType("Member");
+                          setFilterGrade(grade);
+                          setSupportSubtype("全部");
+                          setMainDropdownOpen(false);
+                          setMemberSubOpen(false);
+                        }}
+                      >
+                        {grade}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
-              <div className="group relative">
-                <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">支援卡 ▸</div>
-                <div className="absolute left-full top-0 bg-white border rounded shadow hidden group-hover:block w-28">
-                  {["全部", "item", "event", "tool", "mascot", "fan", "staff"].map((subtype) => (
-                    <div
-                      key={subtype}
-                      className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                      onClick={() => {
-                        setFilterType("Support");
-                        setSupportSubtype(subtype);
-                        setFilterGrade("全部階級");
-                        setShowDropdown(false);
-                      }}
-                    >
-                      {subtype}
-                    </div>
-                  ))}
+
+              {/* 支援卡（有子選單） */}
+              <div className="relative">
+                <div
+                  className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                  onClick={() => {
+                    setSupportSubOpen(!supportSubOpen);
+                    setMemberSubOpen(false);
+                  }}
+                >
+                  支援卡 ▸
                 </div>
+                {supportSubOpen && (
+                  <div className="absolute left-full top-0 bg-white border rounded shadow w-40 z-30">
+                    {["全部", "item", "event", "tool", "mascot", "fan", "staff"].map((subtype) => (
+                      <div
+                        key={subtype}
+                        className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                        onClick={() => {
+                          setFilterType("Support");
+                          setSupportSubtype(subtype);
+                          setFilterGrade("全部階級");
+                          setMainDropdownOpen(false);
+                          setSupportSubOpen(false);
+                        }}
+                      >
+                        {subtype}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
+
               <div
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
                 onClick={() => {
                   setFilterType("Energy");
                   setFilterGrade("全部階級");
                   setSupportSubtype("全部");
-                  setShowDropdown(false);
+                  setMainDropdownOpen(false);
                 }}
               >
                 能量卡
@@ -174,16 +211,15 @@ function SearchBar({
             </div>
           )}
         </div>
-
         <input
           type="text"
           placeholder="搜尋卡片編號或名稱..."
-          className="border px-2 py-1 rounded"
+          className="border rounded px-2 py-1 bg-white max-w-[150px] w-full text-sm truncate"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
 
-        <select className="border rounded px-2 py-1" value={filterColor} onChange={(e) => setFilterColor(e.target.value)}>
+        <select className="border rounded px-2 py-1 max-w-[150px] w-full text-sm truncate" value={filterColor} onChange={(e) => setFilterColor(e.target.value)}>
           <option value="全部顏色">全部顏色</option>
           <option value="red">紅</option>
           <option value="white">白</option>
@@ -194,7 +230,7 @@ function SearchBar({
           <option value="colorless">無</option>
         </select>
 
-        <select className="border rounded px-2 py-1" value={filterSeries} onChange={(e) => setFilterSeries(e.target.value)}>
+        <select className="border rounded px-2 py-1 max-w-[200px] w-full text-sm truncate" value={filterSeries} onChange={(e) => setFilterSeries(e.target.value)}>
           <option value="全部彈數">全部彈數</option>
           <option value="hBP01">hBP01ブースターパック「ブルーミングレディアンス」</option>
           <option value="hBP02">hBP02ブースターパック「クインテットスペクトラム」</option>
@@ -207,14 +243,16 @@ function SearchBar({
           <option value="hSD05">hSD05スタートデッキ 白 轟はじめ</option>
           <option value="hSD06">hSD06スタートデッキ 緑 風真いろは</option>
           <option value="hSD07">hSD07スタートデッキ 黄 不知火フレア</option>
+          <option value="hSD08">hSD08スタートデッキ 白 天音かなた</option>
+          <option value="hSD09">hSD09スタートデッキ 赤 宝鐘マリン</option>
           <option value="hPR">PRカード</option>
           <option value="PC_Set">【イベント物販／hololive production OFFICIAL SHOP限定商品】オフィシャルホロカコレクション-PCセット-</option>
         </select>
 
-        <div className="relative" ref={tagInputRef}>
+        <div className="relative" ref={el => dropdownRefs.current[1] = el}>  
           <button
             onClick={() => setTagDropdownOpen(!tagDropdownOpen)}
-            className="border rounded px-2 py-1 bg-white min-w-[180px] text-left"
+            className="border rounded px-2 py-1 bg-white min-w-[150px] max-w-[200px] text-left truncate"
           >
             {selectedTag ? `#${selectedTag}` : "搜尋卡片標籤..."} ▾
           </button>
@@ -262,7 +300,7 @@ function SearchBar({
         </div>
 
         <select
-          className="border rounded px-2 py-1"
+          className="border rounded px-2 py-1 max-w-[150px] w-full text-sm truncate"
           value={filterVersion}
           onChange={(e) => setFilterVersion(e.target.value)}
         >
@@ -335,7 +373,7 @@ function SearchBar({
         </a>
       </div>
 
-      <div className="mt text-right text-[12px] text-gray-500 pr-1">
+      <div className="mt-2 text-right text-[12px] text-gray-500 pr-1">
         翻譯圖來源：<a
           href="https://www.facebook.com/HoONeko"
           target="_blank"

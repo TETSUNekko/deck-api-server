@@ -106,9 +106,9 @@
     "type": "Member",
     "name": "猫又おかゆ",
     "imageFolder": "hSD03/",
-    "color": ["red"],
+    "color": ["blue"],
     "grade": "2nd",
-    "series": ["hSD03"],
+                                                                                  
     "searchKeywords": ["猫又おかゆ", "貓又小粥", "Nekomata Okayu"],
     "versions": ["_RR.png", "_SR.png"],
     "tags": ["JP", "Gamers", "獸耳"],
