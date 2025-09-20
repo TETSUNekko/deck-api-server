@@ -30,12 +30,17 @@ async function fetchDecklogData(deckCode) {
           const cardDivs = h3.nextElementSibling?.querySelectorAll(".card-view-item") || [];
           const cards = [];
           cardDivs.forEach((img) => {
-            const title = img.getAttribute("title");
+            const title = img.getAttribute("title"); // hBP02-003 : 寶鐘マリン
+            const src = img.getAttribute("data-src") || img.getAttribute("src"); 
+            const filename = src ? src.split("/").pop().replace(".png", "") : ""; 
+            // filename = "hBP02-003_OSR"
+
+            const [id, version] = filename.split("_"); 
             const countEl = img.closest(".card-container")?.querySelector(".card-controller-inner .num");
-            if (title && countEl) {
-              const [id] = title.split(" : ");
+
+            if (id && countEl) {
               const count = parseInt(countEl.textContent.trim(), 10);
-              cards.push({ id, count });
+              cards.push({ id, count, version: version ? `_${version}` : "_C" });
             }
           });
           return cards;

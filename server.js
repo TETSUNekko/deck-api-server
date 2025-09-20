@@ -34,8 +34,9 @@ const writeDB = (data) => {
 // ✅ 匯入 decklog
 app.get('/import-decklog/:code', async (req, res) => {
   try {
-    const data = await fetchDecklogData(req.params.code)
-    res.json(data)
+    const data = await fetchDecklogData(req.params.code);
+    console.log("📦 Scraper 抓到的結果：", JSON.stringify(data, null, 2));
+    res.json(data);
   } catch (err) {
     console.error('Puppeteer error:', err)
     res.status(500).json({ error: 'Failed to fetch decklog data' })
