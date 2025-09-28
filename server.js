@@ -193,9 +193,9 @@ app.post("/export-deck", async (req, res) => {
       y += calcHeight(cards.length) + sectionGap - 10;
     };
 
-    await drawSection("🌟 主推卡", oshi);
-    await drawSection("📦 主卡組", deck);
-    await drawSection("⚡ 能量卡", energy);
+    await drawSection("OSHI", oshi);
+    await drawSection("MAIN", deck);
+    await drawSection("ENERGY", energy);
 
     res.setHeader("Content-Type", "image/png");
     canvas.pngStream().pipe(res);
