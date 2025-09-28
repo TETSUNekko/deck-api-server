@@ -3,29 +3,53 @@ FROM node:18-bullseye
 
 # 安裝 Puppeteer 與 node-canvas 需要的系統依賴
 RUN apt-get update && apt-get install -y \
-  python3 \
-  make \
-  g++ \
-  libcairo2-dev \
-  libpango1.0-dev \
-  libjpeg-dev \
-  libgif-dev \
-  librsvg2-dev \
-  libnss3 \
-  libatk1.0-0 \
-  libatk-bridge2.0-0 \
-  libcups2 \
-  libdrm2 \
-  libxkbcommon0 \
-  libxcomposite1 \
-  libxrandr2 \
-  libgbm1 \
-  libasound2 \
-  libpangocairo-1.0-0 \
-  libxss1 \
-  libgtk-3-0 \
-  libxshmfence1 \
-  libglu1 \
+  # node-canvas 依賴
+    python3 \
+    make \
+    g++ \
+    libcairo2-dev \
+    libpango1.0-dev \
+    libjpeg-dev \
+    libgif-dev \
+    librsvg2-dev \
+    # puppeteer/Chromium 依賴
+    chromium \
+    ca-certificates \
+    fonts-liberation \
+    libasound2 \
+    libatk-bridge2.0-0 \
+    libatk1.0-0 \
+    libc6 \
+    libcairo2 \
+    libcups2 \
+    libdbus-1-3 \
+    libexpat1 \
+    libfontconfig1 \
+    libgbm1 \
+    libgcc1 \
+    libglib2.0-0 \
+    libgtk-3-0 \
+    libnspr4 \
+    libnss3 \
+    libpango-1.0-0 \
+    libpangocairo-1.0-0 \
+    libstdc++6 \
+    libx11-6 \
+    libx11-xcb1 \
+    libxcb1 \
+    libxcomposite1 \
+    libxcursor1 \
+    libxdamage1 \
+    libxext6 \
+    libxfixes3 \
+    libxi6 \
+    libxrandr2 \
+    libxrender1 \
+    libxss1 \
+    libxtst6 \
+    lsb-release \
+    wget \
+    xdg-utils \
   fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst fonts-freefont-ttf \
   --no-install-recommends \
   && rm -rf /var/lib/apt/lists/*
