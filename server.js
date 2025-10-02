@@ -117,64 +117,33 @@ app.post("/export-deck", async (req, res) => {
   try {
     const { oshi = [], deck = [], energy = [] } = req.body;
 
-    // --- utils ---------------------------------------------------
-    function parseKey(key) {
-      if (!key) return null;
-      const [idver, folder] = key.split("@");
-      if (!idver || !folder) return null;
-      const m = idver.match(/^(h[A-Za-z]+\d*-\d{3})(.*)$/);
-      if (!m) return null;
-      return { id: m[1], version: m[2] || "_C", folder };
-    }
-
-    async function drawCard(ctx, filePath, x, y, w, h, count) {
-      try {
-        const img = await loadImage(filePath);
-        ctx.drawImage(img, x, y, w, h);
-        if (count > 1) {
-          const boxW = 40, boxH = 24;
-          const boxX = x + w - boxW - 4, boxY = y + h - boxH - 4;
-          ctx.fillStyle = "rgba(0,0,0,.72)";
-          ctx.fillRect(boxX, boxY, boxW, boxH);
-          ctx.fillStyle = "#fff";
-          ctx.font = "bold 16px Arial";
-          ctx.textAlign = "center";
-          ctx.textBaseline = "middle";
-          ctx.fillText(`x${count}`, boxX + boxW / 2, boxY + boxH / 2);
-        }
-      } catch {
-        ctx.fillStyle = "red";
-        ctx.fillRect(x, y, w, h);
-        ctx.fillStyle = "#fff";
-        ctx.font = "bold 18px Arial";
-        ctx.textAlign = "center";
-        ctx.textBaseline = "middle";
-        ctx.fillText("❌", x + w / 2, y + h / 2);
-      }
-    }
-
-    // --- layout config -------------------------------------------
     const canvasW = 1400;
     const cardW = 140, cardH = 196, gap = 12;
-
-    const mainCols = 7; // MAIN 一列 7 張
+    const mainCols = 7;
     const mainRows = Math.ceil((deck.length || 0) / mainCols);
-    const energyCols = 2; // ENERGY 每列 2 張
+    const energyCols = 2;
     const energyRows = Math.ceil((energy.length || 0) / energyCols);
 
     const canvasH = Math.max(
-      400 + energyRows * (cardH + gap),   // 左邊大概高度
-      200 + mainRows * (cardH + gap)      // 右邊大概高度
+      400 + energyRows * (cardH * 0.75 + gap),
+      200 + mainRows * (cardH + gap)
     );
 
     const canvas = createCanvas(canvasW, canvasH);
     const ctx = canvas.getContext("2d");
-    const gradient = ctx.createLinearGradient(0, 0, canvasW, canvasH);
-    gradient.addColorStop(0, "#f0f0f0");  // 上灰
-    gradient.addColorStop(1, "#ffffff");  // 下白
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, canvasW, canvasH);
-    ctx.fillStyle = "#000";
+
+    // ⬇️ 使用木頭材質圖（建議放在 /cards/backgrounds/wood.jpg）
+    const bgPath = path.join(CARDS_DIR, "backgrounds", "wood.jpg");
+    try {
+      const bgImg = await loadImage(bgPath);
+      ctx.drawImage(bgImg, 0, 0, canvasW, canvasH);
+    } catch (e) {
+      console.warn("⚠️ 背景載入失敗，改用灰色背景");
+      ctx.fillStyle = "#f5f5f5";
+      ctx.fillRect(0, 0, canvasW, canvasH);
+    }
+
+    ctx.fillStyle = "#000"; // 標題字固定黑色
     ctx.font = "20px Arial";
     ctx.textBaseline = "alphabetic";
     ctx.textAlign = "left";
@@ -220,17 +189,18 @@ app.post("/export-deck", async (req, res) => {
       const titleY = 40 + cardH + 50; // OSHI 下方再空一段
       ctx.fillText(`ENERGY (${total})`, titleX, titleY);
 
+      const smallW = 110, smallH = 155; // 能量卡縮小版比例
       for (let i = 0; i < energy.length; i++) {
         const col = i % energyCols;
         const row = Math.floor(i / energyCols);
-        const x = 40 + col * (100 + gap);
-        const y = cardH + 140 + row * (142 + gap);
+        const x = 40 + col * (smallW + gap);
+        const y = cardH + 140 + row * (smallH + gap);
 
         const entry = parseKey(energy[i].key);
         if (!entry) continue;
         const filename = `${entry.id}${entry.version}.png`;
         const filePath = path.join(CARDS_DIR, entry.folder || "MISSING", filename);
-        await drawCard(ctx, filePath, x, y, 100, 142, energy[i].count || 1); //100 和 142 就是 能量卡的寬、高。
+        await drawCard(ctx, filePath, x, y, smallW, smallH, energy[i].count || 1);
       }
     }
 
