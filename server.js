@@ -44,15 +44,6 @@ const writeDB = (data) => {
   }
 };
 
-// 驗證相對路徑安全性（避免 .. 跳目錄、只允許 png）
-function toSafeRelPath(p) {
-  if (typeof p !== "string") return null;
-  if (p.includes("..")) return null;
-  const normalized = p.replace(/\\/g, "/"); // 轉成 /，避免 Windows 路徑問題
-  if (!/^[A-Za-z0-9_\-\/]+\.png$/.test(normalized)) return null;
-  return normalized;
-}
-
 // ✅ 匯入 decklog
 app.get('/import-decklog/:code', async (req, res) => {
   try {
@@ -79,11 +70,47 @@ app.get('/load/:code', (req, res) => {
 // ✅ 儲存六碼代碼
 app.post('/save/:code', (req, res) => {
   const { code } = req.params;
+  const { oshi = [], deck = [], energy = [] } = req.body;
+
+  // 🔑 把每張卡壓縮成 {key, count}
+  const simplify = (cards) => {
+    const map = new Map();
+    for (const c of cards) {
+      if (!c.key) continue; // 沒 key 的跳過
+      if (!map.has(c.key)) {
+        map.set(c.key, { key: c.key, count: 0 });
+      }
+      map.get(c.key).count++;
+    }
+    return Array.from(map.values());
+  };
+
+  const payload = {
+    oshi: simplify(oshi),
+    deck: simplify(deck),
+    energy: simplify(energy),
+  };
+
   const dbData = readDB();
-  dbData[code] = req.body;
+  dbData[code] = payload;  // ✅ 存的就是乾淨的 key-based 結構
   writeDB(dbData);
+
   res.json({ success: true });
 });
+
+// ✅ 後端專用 parseKey（和前端一致）
+function parseKey(key) {
+  if (!key) return null;
+  const [idver, folder] = key.split("@");
+  if (!idver || !folder) return null;
+
+  const m = idver.match(/^(h[A-Za-z]+\d*-\d{3})(_[A-Za-z0-9_]+)?$/);
+  if (!m) return null;
+
+  const id = m[1];
+  const version = m[2] || "_C";
+  return { id, version, folder };
+}
 
 // 匯出圖片
 app.post("/export-deck", async (req, res) => {
@@ -108,17 +135,18 @@ app.post("/export-deck", async (req, res) => {
 
       for (let i=0;i<cards.length;i++) {
         const c = cards[i];
+        const entry = parseKey(c.key); // 🔑 從 key 解析
+        if (!entry) continue;
+
         const col = i % maxCols;
         const row = Math.floor(i / maxCols);
         const x = 40 + col * (cardW + gap);
         const posY = y + row * (cardH + gap);
 
-        // ✅ 不再猜，直接用 folder + filename
-        const folder = c.folder;
-        const filename = c.filename || `${c.id}${c.version || "_C"}.png`;
-        const filePath = path.join(CARDS_DIR, folder || "MISSING", filename);
+        const filename = `${entry.id}${entry.version}.png`;
+        const filePath = path.join(CARDS_DIR, entry.folder, filename);
 
-        console.log("🖼 匯出圖片:", { folder, filename, filePath });
+        console.log("🖼 匯出圖片:", { filePath });
 
         try {
           const img = await loadImage(filePath);
@@ -128,7 +156,7 @@ app.post("/export-deck", async (req, res) => {
             const boxX = x + cardW - boxW - 4, boxY = posY + cardH - boxH - 4;
             ctx.fillStyle = "rgba(0,0,0,.7)";
             ctx.fillRect(boxX, boxY, boxW, boxH);
-            ctx.fillStyle = "#fff";
+            ctx.fillStyle = "white";
             ctx.font = "bold 16px Arial";
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
@@ -156,8 +184,7 @@ app.post("/export-deck", async (req, res) => {
   }
 });
 
-
-// ✅ 啟動伺服器 (只留一個 listen)
+// ✅ 啟動伺服器
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Deck server running on http://0.0.0.0:${PORT}`);
 });
