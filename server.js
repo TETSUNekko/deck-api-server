@@ -132,13 +132,15 @@ app.post("/export-deck", async (req, res) => {
     const canvas = createCanvas(canvasW, canvasH);
     const ctx = canvas.getContext("2d");
 
-    // ⬇️ 使用木頭材質圖（建議放在 /cards/backgrounds/wood.jpg）
-    const bgPath = path.join(CARDS_DIR, "backgrounds", "wood.jpg");
+    // 背景處理
+    let bgLoaded = false;
     try {
+      const bgPath = path.join(CARDS_DIR, "backgrounds", "wood.jpg");
       const bgImg = await loadImage(bgPath);
       ctx.drawImage(bgImg, 0, 0, canvasW, canvasH);
+      bgLoaded = true;
     } catch (e) {
-      console.warn("⚠️ 背景載入失敗，改用灰色背景");
+      console.warn("⚠️ 背景載入失敗:", e.message, "→ 改用灰色背景");
       ctx.fillStyle = "#f5f5f5";
       ctx.fillRect(0, 0, canvasW, canvasH);
     }
@@ -147,6 +149,35 @@ app.post("/export-deck", async (req, res) => {
     ctx.font = "20px Arial";
     ctx.textBaseline = "alphabetic";
     ctx.textAlign = "left";
+
+    // --- utils ---------------------------------------------------
+    async function drawCard(ctx, filePath, x, y, w, h, count) {
+      try {
+        const img = await loadImage(filePath);
+        ctx.drawImage(img, x, y, w, h);
+        if (count > 1) {
+          const boxW = 40, boxH = 24;
+          const boxX = x + w - boxW - 4, boxY = y + h - boxH - 4;
+          ctx.fillStyle = "rgba(0,0,0,.72)";
+          ctx.fillRect(boxX, boxY, boxW, boxH);
+          ctx.fillStyle = "#fff";
+          ctx.font = "bold 16px Arial";
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          ctx.fillText(`x${count}`, boxX + boxW / 2, boxY + boxH / 2);
+        }
+      } catch (err) {
+        console.error("❌ 載入卡片失敗:", filePath, err.message);
+        ctx.fillStyle = "red";
+        ctx.fillRect(x, y, w, h);
+        ctx.fillStyle = "#fff";
+        ctx.font = "bold 18px Arial";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText("❌", x + w / 2, y + h / 2);
+      }
+    }
+
 
     // --- OSHI（左上） --------------------------------------------
     {
