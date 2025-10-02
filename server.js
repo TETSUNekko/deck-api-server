@@ -117,67 +117,138 @@ app.post("/export-deck", async (req, res) => {
   try {
     const { oshi = [], deck = [], energy = [] } = req.body;
 
-    const cardW = 90, cardH = 126, gap = 10, sectionGap = 60, maxCols = 10;
-    const calcHeight = (count) => Math.ceil(count / maxCols) * (cardH + gap);
-    const height = sectionGap * 4 + calcHeight(oshi.length) + calcHeight(deck.length) + calcHeight(energy.length);
+    // --- utils ---------------------------------------------------
+    function parseKey(key) {
+      if (!key) return null;
+      const [idver, folder] = key.split("@");
+      if (!idver || !folder) return null;
+      const m = idver.match(/^(h[A-Za-z]+\d*-\d{3})(.*)$/);
+      if (!m) return null;
+      return { id: m[1], version: m[2] || "_C", folder };
+    }
 
-    const canvas = createCanvas(1200, height);
+    async function drawCard(ctx, filePath, x, y, w, h, count) {
+      try {
+        const img = await loadImage(filePath);
+        ctx.drawImage(img, x, y, w, h);
+        if (count > 1) {
+          const boxW = 40, boxH = 24;
+          const boxX = x + w - boxW - 4, boxY = y + h - boxH - 4;
+          ctx.fillStyle = "rgba(0,0,0,.72)";
+          ctx.fillRect(boxX, boxY, boxW, boxH);
+          ctx.fillStyle = "#fff";
+          ctx.font = "bold 16px Arial";
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          ctx.fillText(`x${count}`, boxX + boxW / 2, boxY + boxH / 2);
+        }
+      } catch (err) {
+        console.error("❌ 載入失敗：", filePath, err.message);
+        ctx.fillStyle = "red";
+        ctx.fillRect(x, y, w, h);
+        ctx.fillStyle = "#fff";
+        ctx.font = "bold 18px Arial";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText("❌", x + w / 2, y + h / 2);
+      }
+    }
+
+    // --- layout config -------------------------------------------
+    const canvasW = 1400;
+
+    const cardW = 140;                 // 放大
+    const cardH = 196;                 // 約 2:3 比例
+    const gap   = 12;
+
+    const leftColW = cardW + gap * 2 + 8; // 左欄寬：一張卡 + 邊距
+    const rightStartX = leftColW + 40;    // 右欄起點
+    const maxMainCols = 8;                // MAIN 一列 8 張
+    const maxEnergyCols = 2;              // ENERGY 左欄一列 2 張（較窄）
+
+    // 計算行數（唯一卡張數 = 陣列長度）
+    const mainRows   = Math.ceil((deck?.length || 0) / maxMainCols);
+    const energyRows = Math.ceil((energy?.length || 0) / maxEnergyCols);
+
+    // 高度估算：上方有標題、間距，底部預留 40 padding
+    const oshiAreaH    = 30 /*標題*/ + gap + cardH;
+    const energyAreaH  = 30 /*標題*/ + energyRows * (cardH + gap);
+    const leftColH     = 40 /*上邊距*/ + oshiAreaH + 20 /*間隔*/ + energyAreaH + 40;
+    const rightColH    = 40 /*上邊距*/ + 30 /*標題*/ + (mainRows * (cardH + gap)) + 40;
+    const canvasH      = Math.max(leftColH, rightColH);
+
+    const canvas = createCanvas(canvasW, canvasH);
     const ctx = canvas.getContext("2d");
-    ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, 1200, height);
-    ctx.font = "20px Arial"; ctx.fillStyle = "#000";
+    ctx.fillStyle = "#fff";
+    ctx.fillRect(0, 0, canvasW, canvasH);
+    ctx.fillStyle = "#000";
+    ctx.font = "20px Arial";
+    ctx.textBaseline = "alphabetic";
+    ctx.textAlign = "left";
 
-    let y = 40;
+    // --- OSHI（左上） --------------------------------------------
+    {
+      const total = oshi.reduce((a, c) => a + (c.count || 1), 0);
+      const titleX = 40, titleY = 40;
+      ctx.fillText(`OSHI (${total})`, titleX, titleY);
 
-    const drawSection = async (title, cards) => {
-      const total = cards.reduce((a,c)=>a+(c.count||1),0);
-      ctx.fillText(`${title} (${total})`, 40, y);
-      y += 26;
-
-      for (let i=0;i<cards.length;i++) {
-        const c = cards[i];
-        const entry = parseKey(c.key); // 🔑 從 key 解析
-        if (!entry) continue;
-
-        const col = i % maxCols;
-        const row = Math.floor(i / maxCols);
-        const x = 40 + col * (cardW + gap);
-        const posY = y + row * (cardH + gap);
-
-        const filename = `${entry.id}${entry.version}.png`;
-        const filePath = path.join(CARDS_DIR, entry.folder, filename);
-
-        console.log("🖼 匯出圖片:", { filePath });
-
-        try {
-          const img = await loadImage(filePath);
-          ctx.drawImage(img, x, posY, cardW, cardH);
-          if (c.count > 1) {
-            const boxW = 36, boxH = 22;
-            const boxX = x + cardW - boxW - 4, boxY = posY + cardH - boxH - 4;
-            ctx.fillStyle = "rgba(0,0,0,.7)";
-            ctx.fillRect(boxX, boxY, boxW, boxH);
-            ctx.fillStyle = "white";
-            ctx.font = "bold 16px Arial";
-            ctx.textAlign = "center";
-            ctx.textBaseline = "middle";
-            ctx.fillText(`x${c.count}`, boxX + boxW/2, boxY + boxH/2);
-          }
-        } catch (err) {
-          console.error("❌ 載入失敗：", filePath, err.message);
-          ctx.fillStyle = "red"; ctx.fillRect(x, posY, cardW, cardH);
-          ctx.fillStyle = "white"; ctx.fillText("❌", x + cardW/2 - 8, posY + cardH/2 + 6);
+      const imgX = 40;              // 左欄內縮
+      const imgY = titleY + 10;     // 標題下方
+      if (oshi[0]) {
+        const entry = parseKey(oshi[0].key);
+        if (entry) {
+          const filename = `${entry.id}${entry.version}.png`;
+          const filePath = path.join(CARDS_DIR, entry.folder || "MISSING", filename);
+          await drawCard(ctx, filePath, imgX, imgY, cardW, cardH, oshi[0].count || 1);
         }
       }
-      y += calcHeight(cards.length) + sectionGap - 10;
-    };
+    }
 
-    await drawSection("OSHI",   oshi);
-    await drawSection("MAIN",   deck);
-    await drawSection("ENERGY", energy);
+    // --- MAIN（右側整塊） ----------------------------------------
+    {
+      const total = deck.reduce((a, c) => a + (c.count || 1), 0);
+      const titleX = rightStartX, titleY = 40;
+      ctx.fillText(`MAIN (${total})`, titleX, titleY);
+
+      let yStart = titleY + 10;
+      for (let i = 0; i < deck.length; i++) {
+        const col = i % maxMainCols;
+        const row = Math.floor(i / maxMainCols);
+        const x = rightStartX + col * (cardW + gap);
+        const y = yStart + row * (cardH + gap);
+
+        const entry = parseKey(deck[i].key);
+        if (!entry) continue;
+        const filename = `${entry.id}${entry.version}.png`;
+        const filePath = path.join(CARDS_DIR, entry.folder || "MISSING", filename);
+        await drawCard(ctx, filePath, x, y, cardW, cardH, deck[i].count || 1);
+      }
+    }
+
+    // --- ENERGY（左下，位於 OSHI 下方） --------------------------
+    {
+      const total = energy.reduce((a, c) => a + (c.count || 1), 0);
+      // 標題位置：在 OSHI 卡片下方 20px 再加一點距離
+      const titleX = 40, titleY = 40 + (10 + cardH) + 30;
+      ctx.fillText(`ENERGY (${total})`, titleX, titleY);
+
+      const yStart = titleY + 10;
+      for (let i = 0; i < energy.length; i++) {
+        const col = i % maxEnergyCols;
+        const row = Math.floor(i / maxEnergyCols);
+        const x = 40 + col * (cardW + gap);         // 左欄起始
+        const y = yStart + row * (cardH + gap);
+
+        const entry = parseKey(energy[i].key);
+        if (!entry) continue;
+        const filename = `${entry.id}${entry.version}.png`;
+        const filePath = path.join(CARDS_DIR, entry.folder || "MISSING", filename);
+        await drawCard(ctx, filePath, x, y, cardW, cardH, energy[i].count || 1);
+      }
+    }
 
     res.setHeader("Content-Type", "image/png");
     canvas.pngStream().pipe(res);
-
   } catch (err) {
     console.error(err);
     res.status(500).send("Server error");
