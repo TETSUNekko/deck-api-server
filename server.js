@@ -133,21 +133,18 @@ app.post("/export-deck", async (req, res) => {
     const ctx = canvas.getContext("2d");
 
     // 背景處理
-    let bgLoaded = false;
     try {
       const bgPath = path.join(CARDS_DIR, "backgrounds", "wood.jpg");
       const bgImg = await loadImage(bgPath);
       ctx.drawImage(bgImg, 0, 0, canvasW, canvasH);
-      bgLoaded = true;
     } catch (e) {
       console.warn("⚠️ 背景載入失敗:", e.message, "→ 改用灰色背景");
       ctx.fillStyle = "#f5f5f5";
       ctx.fillRect(0, 0, canvasW, canvasH);
     }
 
-    ctx.fillStyle = "#000"; // 標題字固定黑色
     ctx.font = "20px Arial";
-    ctx.textBaseline = "alphabetic";
+    ctx.textBaseline = "top";
     ctx.textAlign = "left";
 
     // --- utils ---------------------------------------------------
@@ -178,11 +175,26 @@ app.post("/export-deck", async (req, res) => {
       }
     }
 
+    // ✅ 統一的標題繪製：黑字＋白描邊
+    function drawTitle(ctx, text, x, y) {
+      ctx.font = "bold 22px Arial";
+      ctx.textAlign = "left";
+      ctx.textBaseline = "top";
+
+      // 白色描邊
+      ctx.lineWidth = 4;
+      ctx.strokeStyle = "white";
+      ctx.strokeText(text, x, y);
+
+      // 黑色文字
+      ctx.fillStyle = "black";
+      ctx.fillText(text, x, y);
+    }
 
     // --- OSHI（左上） --------------------------------------------
     {
       const total = oshi.reduce((a, c) => a + (c.count || 1), 0);
-      ctx.fillText(`OSHI (${total})`, 40, 40);
+      drawTitle(ctx, `OSHI (${total})`, 40, 20);
 
       if (oshi[0]) {
         const entry = parseKey(oshi[0].key);
@@ -197,7 +209,7 @@ app.post("/export-deck", async (req, res) => {
     // --- MAIN（右側） --------------------------------------------
     {
       const total = deck.reduce((a, c) => a + (c.count || 1), 0);
-      ctx.fillText(`MAIN (${total})`, 300, 40);
+      drawTitle(ctx, `MAIN (${total})`, 300, 20);
 
       for (let i = 0; i < deck.length; i++) {
         const col = i % mainCols;
@@ -216,16 +228,15 @@ app.post("/export-deck", async (req, res) => {
     // --- ENERGY（左下） ------------------------------------------
     {
       const total = energy.reduce((a, c) => a + (c.count || 1), 0);
-      const titleX = 40;
-      const titleY = 40 + cardH + 50; // OSHI 下方再空一段
-      ctx.fillText(`ENERGY (${total})`, titleX, titleY);
+      const energyBaseY = 60 + cardH + 60; // OSHI 下方再留空間
+      drawTitle(ctx, `ENERGY (${total})`, 40, energyBaseY);
 
-      const smallW = 110, smallH = 155; // 能量卡縮小版比例
+      const smallW = 110, smallH = 155;
       for (let i = 0; i < energy.length; i++) {
         const col = i % energyCols;
         const row = Math.floor(i / energyCols);
         const x = 40 + col * (smallW + gap);
-        const y = cardH + 140 + row * (smallH + gap);
+        const y = energyBaseY + 30 + row * (smallH + gap); // 標題下方排卡
 
         const entry = parseKey(energy[i].key);
         if (!entry) continue;
