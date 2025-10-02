@@ -169,7 +169,10 @@ app.post("/export-deck", async (req, res) => {
 
     const canvas = createCanvas(canvasW, canvasH);
     const ctx = canvas.getContext("2d");
-    ctx.fillStyle = "#fff";
+    const gradient = ctx.createLinearGradient(0, 0, canvasW, canvasH);
+    gradient.addColorStop(0, "#f0f0f0");  // 上灰
+    gradient.addColorStop(1, "#ffffff");  // 下白
+    ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, canvasW, canvasH);
     ctx.fillStyle = "#000";
     ctx.font = "20px Arial";
@@ -213,7 +216,9 @@ app.post("/export-deck", async (req, res) => {
     // --- ENERGY（左下） ------------------------------------------
     {
       const total = energy.reduce((a, c) => a + (c.count || 1), 0);
-      ctx.fillText(`ENERGY (${total})`, 40, cardH + 120);
+      const titleX = 40;
+      const titleY = 40 + cardH + 50; // OSHI 下方再空一段
+      ctx.fillText(`ENERGY (${total})`, titleX, titleY);
 
       for (let i = 0; i < energy.length; i++) {
         const col = i % energyCols;
@@ -225,7 +230,7 @@ app.post("/export-deck", async (req, res) => {
         if (!entry) continue;
         const filename = `${entry.id}${entry.version}.png`;
         const filePath = path.join(CARDS_DIR, entry.folder || "MISSING", filename);
-        await drawCard(ctx, filePath, x, y, 100, 142, energy[i].count || 1);
+        await drawCard(ctx, filePath, x, y, 100, 142, energy[i].count || 1); //100 和 142 就是 能量卡的寬、高。
       }
     }
 
