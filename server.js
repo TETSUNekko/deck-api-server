@@ -181,6 +181,9 @@ app.post("/export-deck", async (req, res) => {
       ctx.textAlign = "left";
       ctx.textBaseline = "top";
 
+      // ⬇️ 新增這行，避免尖角
+      ctx.lineJoin = "round"; // 或 "bevel" 也可以
+
       // 白色描邊
       ctx.lineWidth = 4;
       ctx.strokeStyle = "white";
