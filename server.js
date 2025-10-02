@@ -142,8 +142,7 @@ app.post("/export-deck", async (req, res) => {
           ctx.textBaseline = "middle";
           ctx.fillText(`x${count}`, boxX + boxW / 2, boxY + boxH / 2);
         }
-      } catch (err) {
-        console.error("❌ 載入失敗：", filePath, err.message);
+      } catch {
         ctx.fillStyle = "red";
         ctx.fillRect(x, y, w, h);
         ctx.fillStyle = "#fff";
@@ -156,26 +155,17 @@ app.post("/export-deck", async (req, res) => {
 
     // --- layout config -------------------------------------------
     const canvasW = 1400;
+    const cardW = 140, cardH = 196, gap = 12;
 
-    const cardW = 140;                 // 放大
-    const cardH = 196;                 // 約 2:3 比例
-    const gap   = 12;
+    const mainCols = 7; // MAIN 一列 7 張
+    const mainRows = Math.ceil((deck.length || 0) / mainCols);
+    const energyCols = 2; // ENERGY 每列 2 張
+    const energyRows = Math.ceil((energy.length || 0) / energyCols);
 
-    const leftColW = cardW + gap * 2 + 8; // 左欄寬：一張卡 + 邊距
-    const rightStartX = leftColW + 40;    // 右欄起點
-    const maxMainCols = 8;                // MAIN 一列 8 張
-    const maxEnergyCols = 2;              // ENERGY 左欄一列 2 張（較窄）
-
-    // 計算行數（唯一卡張數 = 陣列長度）
-    const mainRows   = Math.ceil((deck?.length || 0) / maxMainCols);
-    const energyRows = Math.ceil((energy?.length || 0) / maxEnergyCols);
-
-    // 高度估算：上方有標題、間距，底部預留 40 padding
-    const oshiAreaH    = 30 /*標題*/ + gap + cardH;
-    const energyAreaH  = 30 /*標題*/ + energyRows * (cardH + gap);
-    const leftColH     = 40 /*上邊距*/ + oshiAreaH + 20 /*間隔*/ + energyAreaH + 40;
-    const rightColH    = 40 /*上邊距*/ + 30 /*標題*/ + (mainRows * (cardH + gap)) + 40;
-    const canvasH      = Math.max(leftColH, rightColH);
+    const canvasH = Math.max(
+      400 + energyRows * (cardH + gap),   // 左邊大概高度
+      200 + mainRows * (cardH + gap)      // 右邊大概高度
+    );
 
     const canvas = createCanvas(canvasW, canvasH);
     const ctx = canvas.getContext("2d");
@@ -189,33 +179,28 @@ app.post("/export-deck", async (req, res) => {
     // --- OSHI（左上） --------------------------------------------
     {
       const total = oshi.reduce((a, c) => a + (c.count || 1), 0);
-      const titleX = 40, titleY = 40;
-      ctx.fillText(`OSHI (${total})`, titleX, titleY);
+      ctx.fillText(`OSHI (${total})`, 40, 40);
 
-      const imgX = 40;              // 左欄內縮
-      const imgY = titleY + 10;     // 標題下方
       if (oshi[0]) {
         const entry = parseKey(oshi[0].key);
         if (entry) {
           const filename = `${entry.id}${entry.version}.png`;
           const filePath = path.join(CARDS_DIR, entry.folder || "MISSING", filename);
-          await drawCard(ctx, filePath, imgX, imgY, cardW, cardH, oshi[0].count || 1);
+          await drawCard(ctx, filePath, 40, 60, cardW, cardH, oshi[0].count || 1);
         }
       }
     }
 
-    // --- MAIN（右側整塊） ----------------------------------------
+    // --- MAIN（右側） --------------------------------------------
     {
       const total = deck.reduce((a, c) => a + (c.count || 1), 0);
-      const titleX = rightStartX, titleY = 40;
-      ctx.fillText(`MAIN (${total})`, titleX, titleY);
+      ctx.fillText(`MAIN (${total})`, 300, 40);
 
-      let yStart = titleY + 10;
       for (let i = 0; i < deck.length; i++) {
-        const col = i % maxMainCols;
-        const row = Math.floor(i / maxMainCols);
-        const x = rightStartX + col * (cardW + gap);
-        const y = yStart + row * (cardH + gap);
+        const col = i % mainCols;
+        const row = Math.floor(i / mainCols);
+        const x = 300 + col * (cardW + gap);
+        const y = 60 + row * (cardH + gap);
 
         const entry = parseKey(deck[i].key);
         if (!entry) continue;
@@ -225,25 +210,22 @@ app.post("/export-deck", async (req, res) => {
       }
     }
 
-    // --- ENERGY（左下，位於 OSHI 下方） --------------------------
+    // --- ENERGY（左下） ------------------------------------------
     {
       const total = energy.reduce((a, c) => a + (c.count || 1), 0);
-      // 標題位置：在 OSHI 卡片下方 20px 再加一點距離
-      const titleX = 40, titleY = 40 + (10 + cardH) + 30;
-      ctx.fillText(`ENERGY (${total})`, titleX, titleY);
+      ctx.fillText(`ENERGY (${total})`, 40, cardH + 120);
 
-      const yStart = titleY + 10;
       for (let i = 0; i < energy.length; i++) {
-        const col = i % maxEnergyCols;
-        const row = Math.floor(i / maxEnergyCols);
-        const x = 40 + col * (cardW + gap);         // 左欄起始
-        const y = yStart + row * (cardH + gap);
+        const col = i % energyCols;
+        const row = Math.floor(i / energyCols);
+        const x = 40 + col * (100 + gap);
+        const y = cardH + 140 + row * (142 + gap);
 
         const entry = parseKey(energy[i].key);
         if (!entry) continue;
         const filename = `${entry.id}${entry.version}.png`;
         const filePath = path.join(CARDS_DIR, entry.folder || "MISSING", filename);
-        await drawCard(ctx, filePath, x, y, cardW, cardH, energy[i].count || 1);
+        await drawCard(ctx, filePath, x, y, 100, 142, energy[i].count || 1);
       }
     }
 
@@ -254,6 +236,7 @@ app.post("/export-deck", async (req, res) => {
     res.status(500).send("Server error");
   }
 });
+
 
 // ✅ 啟動伺服器
 app.listen(PORT, '0.0.0.0', () => {
