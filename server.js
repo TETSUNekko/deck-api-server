@@ -140,6 +140,12 @@ app.post("/export-deck", async (req, res) => {
     const canvas = createCanvas(canvasW, canvasH);
     const ctx = canvas.getContext("2d");
 
+    // Debug 輸出尺寸 & 區塊位置
+    console.log("🎨 Canvas Size:", canvasW, canvasH);
+    console.log("🟦 OSHI start Y:", 60);
+    console.log("🟦 MAIN start Y:", 60);
+    console.log("🟦 ENERGY base Y:", 60 + cardH + 60);
+
     // 背景處理
     try {
       const bgPath = path.join(CARDS_DIR, "backgrounds", "wood.jpg");
