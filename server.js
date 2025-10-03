@@ -124,9 +124,17 @@ app.post("/export-deck", async (req, res) => {
     const energyCols = 2;
     const energyRows = Math.ceil((energy.length || 0) / energyCols);
 
+    // 🔹 計算 OSHI 底部位置
+    const oshiTop = 60;
+    const oshiBottom = oshiTop + cardH;
+
+    // 🔹 計算 Energy 區域開始位置（OSHI 底部再留 80px）
+    const energyBaseY = oshiBottom + 80;
+
+    // 🔹 計算 canvas 高度（考慮 OSHI + ENERGY 與 MAIN）
     const canvasH = Math.max(
-      400 + energyRows * (cardH * 0.75 + gap),
-      200 + mainRows * (cardH + gap)
+      energyBaseY + energyRows * (cardH * 0.75 + gap) + 100, // OSHI + ENERGY
+      200 + mainRows * (cardH + gap)                         // MAIN
     );
 
     const canvas = createCanvas(canvasW, canvasH);
@@ -180,9 +188,7 @@ app.post("/export-deck", async (req, res) => {
       ctx.font = "bold 22px Arial";
       ctx.textAlign = "left";
       ctx.textBaseline = "top";
-
-      // ⬇️ 新增這行，避免尖角
-      ctx.lineJoin = "round"; // 或 "bevel" 也可以
+      ctx.lineJoin = "round"; // 🔹 避免尖角
 
       // 白色描邊
       ctx.lineWidth = 4;
@@ -204,7 +210,7 @@ app.post("/export-deck", async (req, res) => {
         if (entry) {
           const filename = `${entry.id}${entry.version}.png`;
           const filePath = path.join(CARDS_DIR, entry.folder || "MISSING", filename);
-          await drawCard(ctx, filePath, 40, 60, cardW, cardH, oshi[0].count || 1);
+          await drawCard(ctx, filePath, 40, oshiTop, cardW, cardH, oshi[0].count || 1);
         }
       }
     }
@@ -231,7 +237,6 @@ app.post("/export-deck", async (req, res) => {
     // --- ENERGY（左下） ------------------------------------------
     {
       const total = energy.reduce((a, c) => a + (c.count || 1), 0);
-      const energyBaseY = 60 + cardH + 60; // OSHI 下方再留空間
       drawTitle(ctx, `ENERGY (${total})`, 40, energyBaseY);
 
       const smallW = 110, smallH = 155;
@@ -239,7 +244,7 @@ app.post("/export-deck", async (req, res) => {
         const col = i % energyCols;
         const row = Math.floor(i / energyCols);
         const x = 40 + col * (smallW + gap);
-        const y = energyBaseY + 30 + row * (smallH + gap); // 標題下方排卡
+        const y = energyBaseY + 40 + row * (smallH + gap); // 標題下方排卡
 
         const entry = parseKey(energy[i].key);
         if (!entry) continue;
@@ -256,6 +261,7 @@ app.post("/export-deck", async (req, res) => {
     res.status(500).send("Server error");
   }
 });
+
 
 
 // ✅ 啟動伺服器
