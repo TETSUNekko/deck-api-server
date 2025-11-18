@@ -1,0 +1,14 @@
+[phases.setup]
+aptPkgs = [
+  # ✅ canvas 需要的編譯環境
+  "python3", "make", "g++", "pkg-config",
+  "libcairo2-dev", "libpango1.0-dev", "libjpeg-dev", "libgif-dev", "librsvg2-dev",
+
+  # ✅ puppeteer 需要的圖形函式庫（你原本已經有這些）
+  "libnss3", "libatk1.0-0", "libatk-bridge2.0-0", "libcups2", "libgbm1",
+  "libasound2t64", "libpangocairo-1.0-0", "libxss1", "libgtk-3-0",
+  "libxshmfence1", "libglu1", "chromium"
+]
+
+[variables]
+PYTHON = "/usr/bin/python3"
