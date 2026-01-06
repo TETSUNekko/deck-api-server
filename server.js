@@ -13,6 +13,12 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
+// ⬇️ 請求追蹤
+app.use((req, res, next) => {
+  console.log(`[REQ] ${req.method} ${req.url}`);
+  next();
+});
+
 // ⬇️ 讓 __dirname 在 ES module 可以用
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -33,6 +39,12 @@ console.log("[Export] Using CARDS_DIR:", CARDS_DIR);
 // 健康檢查
 app.get("/", (req, res) => res.type("text").send("OK"));
 app.get("/healthz", (req, res) => res.json({ ok: true, uptime: process.uptime() }));
+
+// debug
+app.get("/debug/ping", (req, res) => {
+  console.log("[DEBUG] ping");
+  res.json({ ok: true, ts: Date.now() });
+});
 
 // DB I/O
 const readDB = () => {
