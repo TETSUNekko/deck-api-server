@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { readFileSync, writeFileSync, existsSync } from 'fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs'; // ⬅ 合併 mkdirSync
 import puppeteer from 'puppeteer';
 import { fetchDecklogData } from './decklog-scraper.cjs';
 import path from "path";
@@ -17,32 +17,83 @@ app.use(express.json());
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const DB_FILE = 'deckCodes.json';
+// ⬇️ 可持久化 DB 位置（若 Railway 有掛 Volume→在環境變數 DB_DIR= /data）
+//    若沒有，預設就寫在專案資料夾
+const DB_DIR = process.env.DB_DIR || path.join(__dirname);
+try { mkdirSync(DB_DIR, { recursive: true }); } catch {}
+const DB_FILE = path.join(DB_DIR, "deckCodes.json"); // ⬅ 只保留這個版本
 
+
+// ⬇️ 卡圖根目錄
 const CARDS_DIR = process.env.CARDS_DIR
   ? path.resolve(process.env.CARDS_DIR)
   : path.join(__dirname, "cards");
-
 console.log("[Export] Using CARDS_DIR:", CARDS_DIR);
 
-// ✅ 資料庫操作
+// 健康檢查
+app.get("/", (req, res) => res.type("text").send("OK"));
+app.get("/healthz", (req, res) => res.json({ ok: true, uptime: process.uptime() }));
+
+// DB I/O
 const readDB = () => {
   try {
     if (!existsSync(DB_FILE)) return {};
     return JSON.parse(readFileSync(DB_FILE, 'utf8'));
-  } catch (error) {
-    console.error('Error reading DB:', error);
+  } catch (e) {
+    console.error('Error reading DB:', e);
     return {};
   }
 };
-
 const writeDB = (data) => {
   try {
     writeFileSync(DB_FILE, JSON.stringify(data, null, 2));
-  } catch (error) {
-    console.error('Error writing DB:', error);
+  } catch (e) {
+    console.error('Error writing DB:', e);
   }
 };
+
+// 產生不易混淆的六碼
+function genShareCode(len = 6) {
+  const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  let s = "";
+  for (let i = 0; i < len; i++) s += alphabet[Math.floor(Math.random() * alphabet.length)];
+  return s;
+}
+// 壓縮成 {key, count}
+function simplifyCards(cards = []) {
+  const map = new Map();
+  for (const c of cards) {
+    if (!c?.key) continue;
+    if (!map.has(c.key)) map.set(c.key, { key: c.key, count: 0 });
+    map.get(c.key).count++;
+  }
+  return Array.from(map.values());
+}
+
+// 新增：POST /save （自動產生六碼）
+app.post("/save", (req, res) => {
+  try {
+    const { oshi = [], deck = [], energy = [] } = req.body || {};
+    const payload = {
+      oshi: simplifyCards(oshi),
+      deck: simplifyCards(deck),
+      energy: simplifyCards(energy),
+    };
+
+    const db = readDB();
+    let code = genShareCode(6), guard = 0;
+    while (db[code] && guard++ < 50) code = genShareCode(6);
+    if (db[code]) return res.status(500).json({ error: "Generate code failed (collision)" });
+
+    db[code] = payload;
+    writeDB(db);
+    console.log("[SAVE] new share code:", code);
+    res.json({ code });
+  } catch (e) {
+    console.error("POST /save error:", e);
+    res.status(500).json({ error: "Save failed" });
+  }
+});
 
 // ✅ 匯入 decklog
 app.get('/import-decklog/:code', async (req, res) => {
