@@ -6,11 +6,56 @@ import { fetchDecklogData } from './decklog-scraper.cjs';
 import path from "path";
 import { createCanvas, loadImage } from "canvas";
 import { fileURLToPath } from "url";
+import cors from "cors";
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(cors());
+// 1) 允許的前端來源（加上你需要的網域）
+const ALLOW_ORIGINS = [
+  "https://tetsunekko.github.io",
+  "http://localhost:5173",
+];
+
+// 2) CORS 設定（含預檢）
+const corsConfig = {
+  origin: (origin, cb) => {
+    // 有些請求（curl/內部呼叫）沒有 origin，直接放行
+    if (!origin) return cb(null, true);
+    if (ALLOW_ORIGINS.includes(origin)) return cb(null, true);
+    return cb(new Error(`CORS blocked for origin: ${origin}`), false);
+  },
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Accept"],
+  credentials: false,
+  maxAge: 86400, // 預檢快取 1 天
+};
+
+// 3) 套用 CORS（一定要在 routes 之前）
+app.use(cors(corsConfig));
+app.options("*", cors(corsConfig)); // ← 預檢很重要
+
+// 4) JSON parser 再上
+app.use(express.json());
+
+// （可選）補強：顯示每次請求的 method / path / origin，方便除錯
+app.use((req, res, next) => {
+  console.log(`[REQ] ${req.method} ${req.path}  Origin=${req.headers.origin || "-"}  UA=${req.headers['user-agent']?.slice(0,40)}`);
+  next();
+});
+
+// （可選）再補一層手動 header（有些 Proxy/平台環境比較嚴格）
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+  if (origin && ALLOW_ORIGINS.includes(origin)) {
+    res.header("Access-Control-Allow-Origin", origin);
+    res.header("Vary", "Origin"); // 避免快取污染
+  }
+  res.header("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type,Accept");
+  if (req.method === "OPTIONS") return res.sendStatus(204);
+  next();
+});
 app.use(express.json());
 
 // ⬇️ 請求追蹤
