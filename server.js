@@ -84,8 +84,9 @@ function simplifyCards(cards = []) {
   const map = new Map();
   for (const c of cards) {
     if (!c?.key) continue;
+    const add = Number.isFinite(c.count) ? Math.max(1, c.count|0) : 1; // 預設 1，避免 0/NaN
     if (!map.has(c.key)) map.set(c.key, { key: c.key, count: 0 });
-    map.get(c.key).count++;
+    map.get(c.key).count += add;
   }
   return Array.from(map.values());
 }
