@@ -1,97 +1,61 @@
 import express from 'express';
 import cors from 'cors';
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs'; // ⬅ 合併 mkdirSync
-import puppeteer from 'puppeteer';
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { fetchDecklogData } from './decklog-scraper.cjs';
 import path from "path";
 import { createCanvas, loadImage } from "canvas";
 import { fileURLToPath } from "url";
-import cors from "cors";
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// 1) 允許的前端來源（加上你需要的網域）
-const ALLOW_ORIGINS = [
+/* ===================== 1) 全域 CORS（最前面） ===================== */
+const ALLOW_ORIGINS = new Set([
   "https://tetsunekko.github.io",
   "http://localhost:5173",
-];
+]);
 
-// 2) CORS 設定（含預檢）
-const corsConfig = {
+app.use(cors({
   origin: (origin, cb) => {
-    // 有些請求（curl/內部呼叫）沒有 origin，直接放行
-    if (!origin) return cb(null, true);
-    if (ALLOW_ORIGINS.includes(origin)) return cb(null, true);
-    return cb(new Error(`CORS blocked for origin: ${origin}`), false);
+    if (!origin) return cb(null, true);               // 允許非瀏覽器（curl/內網）
+    return cb(null, ALLOW_ORIGINS.has(origin));        // 嚴格白名單
   },
   methods: ["GET", "POST", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Accept"],
-  credentials: false,
-  maxAge: 86400, // 預檢快取 1 天
-};
+}));
 
-// 3) 套用 CORS（一定要在 routes 之前）
-app.use(cors(corsConfig));
-app.options("*", cors(corsConfig)); // ← 預檢很重要
+// 確保所有預檢都過（避免被瀏覽器擋）
+app.options("*", cors());
 
-// 4) JSON parser 再上
+/* ===================== 2) 基本中介層 ===================== */
 app.use(express.json());
 
-// （可選）補強：顯示每次請求的 method / path / origin，方便除錯
+// 請求追蹤（方便看 Railway 的 hit 狀況）
 app.use((req, res, next) => {
-  console.log(`[REQ] ${req.method} ${req.path}  Origin=${req.headers.origin || "-"}  UA=${req.headers['user-agent']?.slice(0,40)}`);
+  console.log(`[REQ] ${req.method} ${req.url} Origin=${req.headers.origin || "-"}`);
   next();
 });
 
-// （可選）再補一層手動 header（有些 Proxy/平台環境比較嚴格）
-app.use((req, res, next) => {
-  const origin = req.headers.origin;
-  if (origin && ALLOW_ORIGINS.includes(origin)) {
-    res.header("Access-Control-Allow-Origin", origin);
-    res.header("Vary", "Origin"); // 避免快取污染
-  }
-  res.header("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
-  res.header("Access-Control-Allow-Headers", "Content-Type,Accept");
-  if (req.method === "OPTIONS") return res.sendStatus(204);
-  next();
-});
-app.use(express.json());
-
-// ⬇️ 請求追蹤
-app.use((req, res, next) => {
-  console.log(`[REQ] ${req.method} ${req.url}`);
-  next();
-});
-
-// ⬇️ 讓 __dirname 在 ES module 可以用
+/* ===================== 3) 基礎變數與路徑 ===================== */
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// ⬇️ 可持久化 DB 位置（若 Railway 有掛 Volume→在環境變數 DB_DIR= /data）
-//    若沒有，預設就寫在專案資料夾
+// 若 Railway 有掛 Volume，請在 Railway 的環境變數設 DB_DIR=/data
 const DB_DIR = process.env.DB_DIR || path.join(__dirname);
 try { mkdirSync(DB_DIR, { recursive: true }); } catch {}
-const DB_FILE = path.join(DB_DIR, "deckCodes.json"); // ⬅ 只保留這個版本
+const DB_FILE = path.join(DB_DIR, "deckCodes.json");
 
-
-// ⬇️ 卡圖根目錄
+// 卡圖根目錄（用於 export-deck）
 const CARDS_DIR = process.env.CARDS_DIR
   ? path.resolve(process.env.CARDS_DIR)
   : path.join(__dirname, "cards");
 console.log("[Export] Using CARDS_DIR:", CARDS_DIR);
 
-// 健康檢查
+/* ===================== 4) 健康檢查 ===================== */
 app.get("/", (req, res) => res.type("text").send("OK"));
 app.get("/healthz", (req, res) => res.json({ ok: true, uptime: process.uptime() }));
+app.get("/debug/ping", (req, res) => res.json({ ok: true, ts: Date.now() }));
 
-// debug
-app.get("/debug/ping", (req, res) => {
-  console.log("[DEBUG] ping");
-  res.json({ ok: true, ts: Date.now() });
-});
-
-// DB I/O
+/* ===================== 5) 小型「DB」工具 ===================== */
 const readDB = () => {
   try {
     if (!existsSync(DB_FILE)) return {};
@@ -109,14 +73,13 @@ const writeDB = (data) => {
   }
 };
 
-// 產生不易混淆的六碼
+/* ===================== 6) 工具函式 ===================== */
 function genShareCode(len = 6) {
   const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
   let s = "";
   for (let i = 0; i < len; i++) s += alphabet[Math.floor(Math.random() * alphabet.length)];
   return s;
 }
-// 壓縮成 {key, count}
 function simplifyCards(cards = []) {
   const map = new Map();
   for (const c of cards) {
@@ -126,8 +89,21 @@ function simplifyCards(cards = []) {
   }
   return Array.from(map.values());
 }
+function parseKey(key) {
+  if (!key) return null;
+  const [idver, folder] = key.split("@");
+  if (!idver || !folder) return null;
 
-// 新增：POST /save （自動產生六碼）
+  const m = idver.match(/^(h[A-Za-z]+\d*-\d{3})(_[A-Za-z0-9_]+)?$/);
+  if (!m) return null;
+
+  const id = m[1];
+  const version = m[2] || "_C";
+  return { id, version, folder };
+}
+
+/* ===================== 7) 路由：六碼分享 ===================== */
+// 自動產生六碼（POST /save）
 app.post("/save", (req, res) => {
   try {
     const { oshi = [], deck = [], energy = [] } = req.body || {};
@@ -152,76 +128,55 @@ app.post("/save", (req, res) => {
   }
 });
 
-// ✅ 匯入 decklog
-app.get('/import-decklog/:code', async (req, res) => {
-  try {
-    const data = await fetchDecklogData(req.params.code);
-    console.log("📦 Scraper 抓到的結果：", JSON.stringify(data, null, 2));
-    res.json(data);
-  } catch (err) {
-    console.error('Puppeteer error:', err);
-    res.status(500).json({ error: 'Failed to fetch decklog data' });
-  }
-});
-
-// ✅ 載入六碼代碼
-app.get('/load/:code', (req, res) => {
-  const { code } = req.params;
-  const dbData = readDB();
-  if (dbData[code]) {
-    res.json(dbData[code]);
-  } else {
-    res.status(404).json({ error: 'Code not found' });
-  }
-});
-
-// ✅ 儲存六碼代碼
+// 指定六碼（POST /save/:code）
 app.post('/save/:code', (req, res) => {
   const { code } = req.params;
-  const { oshi = [], deck = [], energy = [] } = req.body;
-
-  // 🔑 把每張卡壓縮成 {key, count}
-  const simplify = (cards) => {
-    const map = new Map();
-    for (const c of cards) {
-      if (!c.key) continue; // 沒 key 的跳過
-      if (!map.has(c.key)) {
-        map.set(c.key, { key: c.key, count: 0 });
-      }
-      map.get(c.key).count++;
-    }
-    return Array.from(map.values());
-  };
-
+  const { oshi = [], deck = [], energy = [] } = req.body || {};
   const payload = {
-    oshi: simplify(oshi),
-    deck: simplify(deck),
-    energy: simplify(energy),
+    oshi: simplifyCards(oshi),
+    deck: simplifyCards(deck),
+    energy: simplifyCards(energy),
   };
-
   const dbData = readDB();
-  dbData[code] = payload;  // ✅ 存的就是乾淨的 key-based 結構
+  dbData[code] = payload;
   writeDB(dbData);
-
   res.json({ success: true });
 });
 
-// ✅ 後端專用 parseKey（和前端一致）
-function parseKey(key) {
-  if (!key) return null;
-  const [idver, folder] = key.split("@");
-  if (!idver || !folder) return null;
+// 讀取六碼（GET /load/:code）
+app.get('/load/:code', (req, res) => {
+  const { code } = req.params;
+  const dbData = readDB();
+  if (dbData[code]) return res.json(dbData[code]);
+  return res.status(404).json({ error: 'Code not found' });
+});
 
-  const m = idver.match(/^(h[A-Za-z]+\d*-\d{3})(_[A-Za-z0-9_]+)?$/);
-  if (!m) return null;
+/* ===================== 8) 路由：五碼 decklog 匯入 ===================== */
+app.get("/import-decklog/:code", async (req, res, next) => {
+  try {
+    const code = (req.params.code || "").trim().toUpperCase();
+    console.log("[/import-decklog] hit:", code, "Origin:", req.headers.origin || "-");
 
-  const id = m[1];
-  const version = m[2] || "_C";
-  return { id, version, folder };
-}
+    // 乾跑：用來驗證 CORS/路由/部署
+    if (req.query.dry === "1") {
+      return res.json({ oshi: [], deck: [], energy: [], _dry: true, code });
+    }
 
-// 匯出圖片
-app.post("/export-deck", async (req, res) => {
+    const data = await fetchDecklogData(code);
+    console.log("[/import-decklog] ok", {
+      oshi: data.oshi?.length || 0,
+      deck: data.deck?.length || 0,
+      energy: data.energy?.length || 0,
+    });
+    return res.json(data);
+  } catch (err) {
+    console.error("[/import-decklog] fail:", err?.message || err);
+    return next(err); // 交給全域錯誤處理器（會帶 CORS）
+  }
+});
+
+/* ===================== 9) 路由：牌組圖輸出（export-deck） ===================== */
+app.post("/export-deck", async (req, res, next) => {
   try {
     const { oshi = [], deck = [], energy = [] } = req.body;
 
@@ -232,29 +187,18 @@ app.post("/export-deck", async (req, res) => {
     const energyCols = 2;
     const energyRows = Math.ceil((energy.length || 0) / energyCols);
 
-    // 🔹 計算 OSHI 底部位置
     const oshiTop = 60;
     const oshiBottom = oshiTop + cardH;
-
-    // 🔹 計算 Energy 區域開始位置（OSHI 底部再留 80px）
     const energyBaseY = oshiBottom + 80;
 
-    // 🔹 計算 canvas 高度（考慮 OSHI + ENERGY 與 MAIN）
     const canvasH = Math.max(
-      energyBaseY + energyRows * (cardH * 0.75 + gap) + 100, // OSHI + ENERGY
-      200 + mainRows * (cardH + gap)                         // MAIN
+      energyBaseY + energyRows * (cardH * 0.75 + gap) + 100,
+      200 + mainRows * (cardH + gap)
     );
 
     const canvas = createCanvas(canvasW, canvasH);
     const ctx = canvas.getContext("2d");
 
-    // Debug 輸出尺寸 & 區塊位置
-    console.log("🎨 Canvas Size:", canvasW, canvasH);
-    console.log("🟦 OSHI start Y:", 60);
-    console.log("🟦 MAIN start Y:", 60);
-    console.log("🟦 ENERGY base Y:", 60 + cardH + 60);
-
-    // 背景處理
     try {
       const bgPath = path.join(CARDS_DIR, "backgrounds", "wood.jpg");
       const bgImg = await loadImage(bgPath);
@@ -269,7 +213,6 @@ app.post("/export-deck", async (req, res) => {
     ctx.textBaseline = "top";
     ctx.textAlign = "left";
 
-    // --- utils ---------------------------------------------------
     async function drawCard(ctx, filePath, x, y, w, h, count) {
       try {
         const img = await loadImage(filePath);
@@ -297,24 +240,19 @@ app.post("/export-deck", async (req, res) => {
       }
     }
 
-    // ✅ 統一的標題繪製：黑字＋白描邊
     function drawTitle(ctx, text, x, y) {
       ctx.font = "bold 22px Arial";
       ctx.textAlign = "left";
       ctx.textBaseline = "top";
-      ctx.lineJoin = "round"; // 🔹 避免尖角
-
-      // 白色描邊
+      ctx.lineJoin = "round";
       ctx.lineWidth = 4;
       ctx.strokeStyle = "white";
       ctx.strokeText(text, x, y);
-
-      // 黑色文字
       ctx.fillStyle = "black";
       ctx.fillText(text, x, y);
     }
 
-    // --- OSHI（左上） --------------------------------------------
+    // OSHI
     {
       const total = oshi.reduce((a, c) => a + (c.count || 1), 0);
       drawTitle(ctx, `OSHI (${total})`, 40, 20);
@@ -329,7 +267,7 @@ app.post("/export-deck", async (req, res) => {
       }
     }
 
-    // --- MAIN（右側） --------------------------------------------
+    // MAIN
     {
       const total = deck.reduce((a, c) => a + (c.count || 1), 0);
       drawTitle(ctx, `MAIN (${total})`, 300, 20);
@@ -348,17 +286,17 @@ app.post("/export-deck", async (req, res) => {
       }
     }
 
-    // --- ENERGY（左下） ------------------------------------------
+    // ENERGY
     {
       const total = energy.reduce((a, c) => a + (c.count || 1), 0);
       drawTitle(ctx, `ENERGY (${total})`, 40, energyBaseY);
 
       const smallW = 110, smallH = 155;
       for (let i = 0; i < energy.length; i++) {
-        const col = i % energyCols;
-        const row = Math.floor(i / energyCols);
+        const col = i % 2;
+        const row = Math.floor(i / 2);
         const x = 40 + col * (smallW + gap);
-        const y = energyBaseY + 40 + row * (smallH + gap); // 標題下方排卡
+        const y = energyBaseY + 40 + row * (smallH + gap);
 
         const entry = parseKey(energy[i].key);
         if (!entry) continue;
@@ -369,16 +307,20 @@ app.post("/export-deck", async (req, res) => {
     }
 
     res.setHeader("Content-Type", "image/png");
-    canvas.pngStream().pipe(res);
+    return canvas.pngStream().pipe(res);
   } catch (err) {
-    console.error(err);
-    res.status(500).send("Server error");
+    return next(err);
   }
 });
 
+/* ===================== 10) 全域錯誤處理（也會帶 CORS） ===================== */
+app.use((err, req, res, next) => {
+  console.error("[ERR]", err?.stack || err?.message || err);
+  // 若需要可根據 ALLOW_ORIGINS 手動補 header，但 cors() 通常已處理
+  res.status(500).json({ error: "Server error" });
+});
 
-
-// ✅ 啟動伺服器
+/* ===================== 11) 啟動 ===================== */
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Deck server running on http://0.0.0.0:${PORT}`);
 });
