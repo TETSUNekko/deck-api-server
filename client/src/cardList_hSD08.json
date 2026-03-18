@@ -6,7 +6,6 @@
     "imageFolder": "hSD08/",
     "color": ["white"],
     "grade": "",
-    "series": ["hSD08"],
     "searchKeywords": ["天音かなた", "天音彼方", "Amane Kanata"],
     "versions": ["_OC.png"]  
   },
@@ -17,7 +16,6 @@
     "imageFolder": "hSD08/",
     "color": ["white"],
     "grade": "debut",
-    "series": ["hSD08"],
     "searchKeywords": ["天音かなた", "天音彼方", "Amane Kanata"],
     "versions": ["_U.png"],
     "tags": ["JP", "4期生", "歌", "夏季"],
@@ -30,7 +28,6 @@
     "imageFolder": "hSD08/",
     "color": ["white"],
     "grade": "2nd",
-    "series": ["hSD08"],
     "searchKeywords": ["天音かなた", "天音彼方", "Amane Kanata"],
     "versions": ["_R.png"],
     "tags": ["JP", "4期生", "歌"],
@@ -43,7 +40,6 @@
     "imageFolder": "hSD08/",
     "color": ["white"],
     "grade": "2nd",
-    "series": ["hSD08"],
     "searchKeywords": ["天音かなた", "天音彼方", "Amane Kanata"],
     "versions": ["_RR.png"],
     "tags": ["JP", "4期生", "歌"],
@@ -56,7 +52,6 @@
     "imageFolder": "hSD08/",
     "color": ["white"],
     "grade": "debut",
-    "series": ["hSD08"],
     "searchKeywords": ["姫森ルーナ", "姬森璐娜", "Himemori Luna"],
     "versions": ["_C.png"],
     "tags": ["JP", "4期生", "嬰兒", "夏季"],
@@ -69,7 +64,6 @@
     "imageFolder": "hSD08/",
     "color": ["purple"],
     "grade": "debut",
-    "series": ["hSD08"],
     "searchKeywords": ["常闇トワ", "常闇永遠", "Tokoyami Towa"],
     "versions": ["_C.png"],
     "tags": ["JP", "4期生", "歌", "射手", "夏季"],
@@ -81,8 +75,7 @@
     "name": "角巻わため",
     "imageFolder": "hSD08/",
     "color": ["yellow"],
-    "grade": "1st",
-    "series": ["hSD08"],
+    "grade": "debut",
     "searchKeywords": ["角巻わため", "角卷綿芽", "Tsunomaki Watame"],
     "versions": ["_C.png"],
     "tags": ["JP", "4期生", "獸耳", "歌", "夏季"],
@@ -95,7 +88,6 @@
     "imageFolder": "hSD08/",
     "color": ["white"],
     "grade": "debut",
-    "series": ["hSD08"],
     "searchKeywords": ["天音かなた", "天音彼方", "Amane Kanata"],
     "versions": ["_C.png"],
     "tags": ["JP", "4期生", "歌"],
@@ -108,7 +100,6 @@
     "imageFolder": "hSD08/",
     "color": ["white"],
     "grade": "1st",
-    "series": ["hSD08"],
     "searchKeywords": ["天音かなた", "天音彼方", "Amane Kanata"],
     "versions": ["_C.png"],
     "tags": ["JP", "4期生", "歌"],
@@ -121,9 +112,8 @@
     "imageFolder": "hSD08/",
     "color": ["white"],
     "grade": "1st",
-    "series": ["hSD08"],
     "searchKeywords": ["天音かなた", "天音彼方", "Amane Kanata"],
-    "versions": ["_R.png"],
+    "versions": ["_R_02.png"],
     "tags": ["JP", "4期生", "歌"],
     "effectType": "Bloom"    
   },
@@ -134,7 +124,6 @@
     "imageFolder": "hSD08/",
     "color": "",
     "grade": "",
-    "series": ["hSD08"],
     "searchKeywords": ["event", "イベント", "じゃあ敵だね", "那就是敵人了", "交替"],
     "versions": ["_U.png"],
     "tags": ["LIMITED"]  
@@ -146,7 +135,6 @@
     "imageFolder": "hSD08/",
     "color": "",
     "grade": "",
-    "series": ["hSD08"],
     "searchKeywords": ["mascot", "マスコット", "うぱお", "藝能傷害+", "特殊傷害", "天音かなた", "天音彼方", "Amane Kanata"],
     "versions": ["_C.png"],
     "tags": ""
@@ -158,7 +146,6 @@
     "imageFolder": "hSD08/",
     "color": "",
     "grade": "",
-    "series": ["hSD08"],
     "searchKeywords": ["event", "イベント", "みっころね24", "mikorone24", "丟擲", "骰子", "加入手牌"],
     "versions": ["_U.png"],
     "tags" : ["LIMITED"]
@@ -170,9 +157,8 @@
     "imageFolder": "hSD08/",
     "color": "",
     "grade": "",
-    "series": ["hSD08"],
     "searchKeywords": ["event", "イベント", "ホロライブ4期生"],
-    "versions": ["_U.png"]
+    "versions": ["_U_02.png"]
   },
   {
     "id": "hSD01-016",
@@ -181,9 +167,8 @@
     "imageFolder": "hSD08/",
     "color": "",
     "grade": "",
-    "series": ["hSD08"],
     "searchKeywords": ["staff", "スタッフ", "春先のどか"],
-    "versions": ["_C.png"]
+    "versions": ["_02_C.png"]
   },
   {
     "id": "hSD01-017",
@@ -192,7 +177,6 @@
     "imageFolder": "hSD08/",
     "color": "",
     "grade": "",
-    "series": ["hSD08"],
     "searchKeywords": ["staff", "スタッフ", "マネちゃん"],
     "versions": ["_C.png"]
   }

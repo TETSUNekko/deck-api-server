@@ -42,6 +42,20 @@
     "versions": ["_SY.png"]
   },
   {
+    "id": "hY01-007",
+    "type": "Energy",
+    "color": "white",
+    "imageFolder": "energy/",
+    "versions": ["_SY.png"]
+  },
+  {
+    "id": "hY01-009",
+    "type": "Energy",
+    "color": "white",
+    "imageFolder": "energy/",
+    "versions": ["_P.png"]
+  },
+  {
     "id": "hY02-001",
     "type": "Energy",
     "color": "green",
@@ -75,6 +89,20 @@
     "color": "green",
     "imageFolder": "energy/",
     "versions": ["_SY.png"]
+  },
+  {
+    "id": "hY02-006",
+    "type": "Energy",
+    "color": "green",
+    "imageFolder": "energy/",
+    "versions": ["_SY.png"]
+  },
+  {
+    "id": "hY02-007",
+    "type": "Energy",
+    "color": "green",
+    "imageFolder": "energy/",
+    "versions": ["_P.png"]
   },
   {
     "id": "hY03-001",
@@ -133,6 +161,27 @@
     "versions": ["_P.png"]
   },
   {
+    "id": "hY03-009",
+    "type": "Energy",
+    "color": "red",
+    "imageFolder": "energy/",
+    "versions": ["_SY.png"]
+  },
+  {
+    "id": "hY03-011",
+    "type": "Energy",
+    "color": "red",
+    "imageFolder": "energy/",
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hY03-012",
+    "type": "Energy",
+    "color": "red",
+    "imageFolder": "energy/",
+    "versions": ["_P.png"]
+  },
+  {
     "id": "hY04-001",
     "type": "Energy",
     "color": "blue",
@@ -168,6 +217,27 @@
     "versions": ["_SY.png"]
   },
   {
+    "id": "hY04-006",
+    "type": "Energy",
+    "color": "blue",
+    "imageFolder": "energy/",
+    "versions": ["_SY.png"]
+  },
+  {
+    "id": "hY04-007",
+    "type": "Energy",
+    "color": "blue",
+    "imageFolder": "energy/",
+    "versions": ["_S.png"]
+  },
+  {
+    "id": "hY04-009",
+    "type": "Energy",
+    "color": "blue",
+    "imageFolder": "energy/",
+    "versions": ["_P.png"]
+  },
+  {
     "id": "hY05-001",
     "type": "Energy",
     "color": "purple",
@@ -196,6 +266,20 @@
     "versions": ["_SY.png"]
   },
   {
+    "id": "hY05-005",
+    "type": "Energy",
+    "color": "purple",
+    "imageFolder": "energy/",
+    "versions": ["_SY.png"]
+  },
+  {
+    "id": "hY05-007",
+    "type": "Energy",
+    "color": "purple",
+    "imageFolder": "energy/",
+    "versions": ["_P.png"]
+  },
+  {
     "id": "hY06-001",
     "type": "Energy",
     "color": "yellow",
@@ -222,6 +306,20 @@
     "color": "yellow",
     "imageFolder": "energy/",
     "versions": ["_SY.png"]
+  },
+  {
+    "id": "hY06-005",
+    "type": "Energy",
+    "color": "yellow",
+    "imageFolder": "energy/",
+    "versions": ["_SY.png"]
+  },
+  {
+    "id": "hY06-006",
+    "type": "Energy",
+    "color": "yellow",
+    "imageFolder": "energy/",
+    "versions": ["_P.png"]
   }
 
 ]

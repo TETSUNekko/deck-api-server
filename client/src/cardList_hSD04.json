@@ -6,9 +6,10 @@
     "imageFolder": "hSD04/",
     "color": ["purple"],
     "grade": "",
-    "series": ["hSD04"],
     "searchKeywords": ["癒月ちょこ", "癒月巧可", "Yuzuki Choco"],
-    "versions": ["_OC.png"]  
+    "versions": ["_OC.png"],
+    "tags":"",
+    "hp":"5"
   },
   {
     "id": "hSD04-002",
@@ -17,7 +18,6 @@
     "imageFolder": "hSD04/",
     "color": ["purple"],
     "grade": "debut",
-    "series": ["hSD04"],
     "searchKeywords": ["癒月ちょこ", "癒月巧可", "Yuzuki Choco"],
     "versions": ["_C.png"],
     "tags": ["JP", "2期生", "料理"],
@@ -30,7 +30,6 @@
     "imageFolder": "hSD04/",
     "color": ["purple"],
     "grade": "debut",
-    "series": ["hSD04"],
     "searchKeywords": ["癒月ちょこ", "癒月巧可", "Yuzuki Choco"],
     "versions": ["_C.png"],
     "tags": ["JP", "2期生", "料理"],
@@ -43,7 +42,6 @@
     "imageFolder": "hSD04/",
     "color": ["purple"],
     "grade": "debut",
-    "series": ["hSD04"],
     "searchKeywords": ["癒月ちょこ", "癒月巧可", "Yuzuki Choco"],
     "versions": ["_U.png"],
     "tags": ["JP", "2期生", "料理"],
@@ -56,7 +54,6 @@
     "imageFolder": "hSD04/",
     "color": ["purple"],
     "grade": "1st",
-    "series": ["hSD04"],
     "searchKeywords": ["癒月ちょこ", "癒月巧可", "Yuzuki Choco"],
     "versions": ["_C.png"],
     "tags": ["JP", "2期生", "料理"],
@@ -69,7 +66,6 @@
     "imageFolder": "hSD04/",
     "color": ["purple"],
     "grade": "1st",
-    "series": ["hSD04"],
     "searchKeywords": ["癒月ちょこ", "癒月巧可", "Yuzuki Choco"],
     "versions": ["_C.png"],
     "tags": ["JP", "2期生", "料理"],
@@ -82,9 +78,8 @@
     "imageFolder": "hSD04/",
     "color": ["purple"],
     "grade": "1st",
-    "series": ["hSD04", "hPR"],
     "searchKeywords": ["癒月ちょこ", "癒月巧可", "Yuzuki Choco"],
-    "versions": ["_P.png", "_U.png"],
+    "versions": ["_U.png"],
     "tags": ["JP", "2期生", "料理"],
     "effectType": "Bloom"  
   },
@@ -95,7 +90,6 @@
     "imageFolder": "hSD04/",
     "color": ["purple"],
     "grade": "buzz",
-    "series": ["hSD04"],
     "searchKeywords": ["癒月ちょこ", "癒月巧可", "Yuzuki Choco"],
     "versions": ["_R.png"],
     "tags": ["JP", "2期生", "料理"],
@@ -108,9 +102,8 @@
     "imageFolder": "hSD04/",
     "color": ["purple"],
     "grade": "2nd",
-    "series": ["hSD04"],
     "searchKeywords": ["癒月ちょこ", "癒月巧可", "Yuzuki Choco"],
-    "versions": ["_RR.png", "_SR.png"],
+    "versions": ["_RR.png"],
     "tags": ["JP", "2期生", "料理"],
     "effectType": ""  
   },
@@ -121,7 +114,6 @@
     "imageFolder": "hSD04/",
     "color": ["colorless"],
     "grade": "spot",
-    "series": ["hSD04"],
     "searchKeywords": ["大空スバル", "大空昴", "Ozora Subaru"],
     "versions": ["_U.png"],
     "tags": ["JP", "2期生"],
@@ -134,7 +126,6 @@
     "imageFolder": "hSD04/",
     "color": ["colorless"],
     "grade": "spot",
-    "series": ["hSD04"],
     "searchKeywords": ["姫森ルーナ", "姬森璐娜", "Himemori Luna"],
     "versions": ["_U.png"],
     "tags": ["JP", "4期生"],
@@ -147,7 +138,6 @@
     "imageFolder": "hSD04/",
     "color": "",
     "grade": "",
-    "series": ["hSD04"],
     "searchKeywords": ["event", "イベント", "スバちょこルーナ"],
     "versions": ["_U.png"]
   },
@@ -158,9 +148,9 @@
     "imageFolder": "hSD04/",
     "color": "",
     "grade": "",
-    "series": ["hSD04"],
     "searchKeywords": ["event", "イベント", "ちょこのオムライス"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ["食物"]
   },
   {
     "id": "hSD04-014",
@@ -169,8 +159,59 @@
     "imageFolder": "hSD04/",
     "color": "",
     "grade": "",
-    "series": ["hSD04"],
     "searchKeywords": ["mascot", "マスコット", "しょこら"],
     "versions": ["_C.png"]
+  },
+  {
+    "id": "hBP01-104",
+    "type": "Support",
+    "name": "ふつうのパソコン",
+    "imageFolder": "hSD04/",
+    "color": "",
+    "grade": "",
+    "searchKeywords": ["item", "アイテム", "ふつうのパソコン", "普通的電腦", "出場至舞台"],
+    "versions": ["_C.png"],
+    "tags": ""
+  },
+  {
+    "id": "hSD01-016",
+    "type": "Support",
+    "name": "春先のどか",
+    "imageFolder": "hSD04/",
+    "color": "",
+    "grade": "",
+    "searchKeywords": ["staff", "スタッフ", "春先のどか"],
+    "versions": ["_C.png"]
+  },
+  {
+    "id": "hSD01-017",
+    "type": "Support",
+    "name": "マネちゃん",
+    "imageFolder": "hSD04/",
+    "color": "",
+    "grade": "",
+    "searchKeywords": ["staff", "スタッフ", "マネちゃん"],
+    "versions": ["_C.png"]
+  },
+  {
+    "id": "hBP01-106",
+    "type": "Support",
+    "name": "あとは任せた！",
+    "imageFolder": "hSD04/",
+    "color": "",
+    "grade": "",
+    "searchKeywords": ["event", "イベント", "あとは任せた！", "接下來拜託了!", "交替"],
+    "versions": ["_U.png"],
+    "tags": ""
+  },
+  {
+    "id": "hSD01-019",
+    "type": "Support",
+    "name": "スゴイパソコン",
+    "imageFolder": "hSD04/",
+    "color": "",
+    "grade": "",
+    "searchKeywords": ["item", "アイテム", "スゴイパソコン", "厲害電腦"],
+    "versions": ["_C_02.png"]
   }
 ] 

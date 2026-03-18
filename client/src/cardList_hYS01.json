@@ -1,0 +1,42 @@
+[
+  {
+    "id": "hYS01-001",
+    "type": "Oshi",
+    "name": "七詩ムメイ",
+    "imageFolder": "hYS01/",
+    "color": ["white"],
+    "grade": "",
+    "searchKeywords": ["七詩ムメイ", "七詩無名", "Nanashi Mumei"],
+    "versions": ["_OC.png"]
+  },
+  {
+    "id": "hYS01-002",
+    "type": "Oshi",
+    "name": "兔田ぺこら",
+    "imageFolder": "hYS01/",
+    "color": ["green"],
+    "grade": "",
+    "searchKeywords": ["兔田ぺこら", "兔田佩可拉", "Usada Pekora"],
+    "versions": ["_OC.png"]
+  },
+  {
+    "id": "hYS01-003",
+    "type": "Oshi",
+    "name": "小鳥遊キアラ",
+    "imageFolder": "hYS01/",
+    "color": ["red"],
+    "grade": "",
+    "searchKeywords": ["小鳥遊キアラ", "小鳥遊琪亞拉", "Takanashi Kiara"],
+    "versions": ["_OC.png"]
+  },
+  {
+    "id": "hYS01-004",
+    "type": "Oshi",
+    "name": "星街すいせい",
+    "imageFolder": "hYS01/",
+    "color": ["blue"],
+    "grade": "",
+    "searchKeywords": ["星街すいせい", "星街彗星", "Hoshimachi Suisei"],
+    "versions": ["_OC.png"]
+  }
+]

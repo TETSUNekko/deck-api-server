@@ -1,4 +1,5 @@
 [
+  
   {
     "id": "hSD01-001",
     "type": "Oshi",
@@ -6,7 +7,6 @@
     "imageFolder": "hSD01/",
     "color": ["white"],
     "grade": "",
-    "series": ["hSD01"],
     "searchKeywords": ["ときのそら", "時乃空", "Tokino Sora"],
     "versions": ["_OSR.png"]  
   },
@@ -17,7 +17,6 @@
     "imageFolder": "hSD01/",
     "color": ["green"],
     "grade": "",
-    "series": ["hSD01"],
     "searchKeywords": ["AZKi", "AZKi", "AZKi"],
     "versions": ["_OSR.png"]
   },
@@ -28,7 +27,6 @@
     "imageFolder": "hSD01/",
     "color": ["white"],
     "grade": "debut",
-    "series": ["hSD01"],
     "searchKeywords": ["ときのそら", "時乃空", "Tokino Sora"],
     "versions": ["_C.png"],
     "tags": ["JP", "0期生", "歌"],
@@ -41,9 +39,8 @@
     "imageFolder": "hSD01/",
     "color": ["white"],
     "grade": "debut",
-    "series": ["hSD01", "hPR"],
     "searchKeywords": ["ときのそら", "時乃空", "Tokino Sora"],
-    "versions": ["_P.png", "_R.png"],
+    "versions": ["_R.png"],
     "tags": ["JP", "0期生", "歌"],
     "effectType": "Collaboration"
   },
@@ -54,7 +51,6 @@
     "imageFolder": "hSD01/",
     "color": ["white"],
     "grade": "1st",
-    "series": ["hSD01"],
     "searchKeywords": ["ときのそら", "時乃空", "Tokino Sora"],
     "versions": ["_U.png"],
     "tags": ["JP", "0期生", "歌"],
@@ -67,10 +63,21 @@
     "imageFolder": "hSD01/",
     "color": ["white"],
     "grade": "buzz",
-    "series": ["hSD01", "hPR"],
     "searchKeywords": ["ときのそら", "時乃空", "Tokino Sora"],
-    "versions": ["_P.png", "_RR.png"],
+    "versions": ["_RR.png"],
     "tags": ["JP", "0期生", "歌"],
+    "effectType": ""
+  },
+  {
+    "id": "hBP01-028",
+    "type": "Member",
+    "name": "IRyS",
+    "imageFolder": "hSD01/",
+    "color": ["white"],
+    "grade": "debut",
+    "searchKeywords": ["IRyS", "IRyS", "IRyS"],
+    "versions": ["_C.png"],
+    "tags": ["EN", "Promise", "歌"],
     "effectType": ""
   },
   {
@@ -80,9 +87,8 @@
     "imageFolder": "hSD01/",
     "color": ["white"],
     "grade": "debut",
-    "series": ["hSD01", "hPR"],
     "searchKeywords": ["IRyS", "IRyS", "IRyS"],
-    "versions": ["_C.png", "_P.png"],
+    "versions": ["_C.png"],
     "tags": ["EN", "Promise", "歌"],
     "effectType": "Collaboration"
   },
@@ -93,7 +99,6 @@
     "imageFolder": "hSD01/",
     "color": ["green"],
     "grade": "debut",
-    "series": ["hSD01"],
     "searchKeywords": ["AZKi", "AZKi", "AZKi"],
     "versions": ["_C.png"],
     "tags": ["JP", "0期生", "歌"],
@@ -106,9 +111,8 @@
     "imageFolder": "hSD01/",
     "color": ["green"],
     "grade": "debut",
-    "series": ["hSD01", "hPR"],
     "searchKeywords": ["AZKi", "AZKi", "AZKi"],
-    "versions": ["_R.png", "_P.png"],
+    "versions": ["_R.png"],
     "tags": ["JP", "0期生", "歌"],
     "effectType": "Collaboration"
   },
@@ -119,7 +123,6 @@
     "imageFolder": "hSD01/",
     "color": ["green"],
     "grade": "1st",
-    "series": ["hSD01"],
     "searchKeywords": ["AZKi", "AZKi", "AZKi"],
     "versions": ["_U.png"],
     "tags": ["JP", "0期生", "歌"],
@@ -132,9 +135,8 @@
     "imageFolder": "hSD01/",
     "color": ["green"],
     "grade": "2nd",
-    "series": ["hSD01", "hPR"],
     "searchKeywords": ["AZKi", "AZKi", "AZKi"],
-    "versions": ["_RR.png", "_P.png"],
+    "versions": ["_RR.png"],
     "tags": ["JP", "0期生", "歌"],
     "effectType": ""
   },
@@ -145,9 +147,8 @@
     "imageFolder": "hSD01/",
     "color": ["green"],
     "grade": "debut",
-    "series": ["hSD01", "hPR"],
     "searchKeywords": ["アイラニ・イオフィフティーン", "艾拉妮·伊歐菲芙婷", "Airani Iofifteen"],
-    "versions": ["_C.png", "_P.png"],
+    "versions": ["_C.png"],
     "tags": ["ID", "ID1期生", "畫"],
     "effectType": "Collaboration"
   },
@@ -158,7 +159,6 @@
     "imageFolder": "hSD01/",
     "color": ["green", "white"],
     "grade": "1st",
-    "series": ["hSD01"],
     "searchKeywords": ["AZKi", "ときのそら", "時乃空", "Tokino Sora", "SorAZ"],
     "versions": ["_R.png"],
     "tags": ["JP", "0期生", "歌"],
@@ -171,7 +171,6 @@
     "imageFolder": "hSD01/",
     "color": ["colorless"],
     "grade": "spot",
-    "series": ["hSD01"],
     "searchKeywords": ["天音かなた", "天音彼方", "Amane Kanata"],
     "versions": ["_U.png"],
     "tags": ["JP", "4期生", "歌"],
@@ -184,7 +183,6 @@
     "imageFolder": "hSD01/",
     "color": ["colorless"],
     "grade": "spot",
-    "series": ["hSD01"],
     "searchKeywords": ["博衣こより", "博衣小夜璃", "Hakui Koyori"],
     "versions": ["_U.png"],
     "tags": ["JP", "秘密結社holoX", "獸耳"],
@@ -197,9 +195,8 @@
     "imageFolder": "hSD01/",
     "color": "",
     "grade": "",
-    "series": ["hSD01", "hPR"],
     "searchKeywords": ["staff", "スタッフ", "春先のどか"],
-    "versions": ["_C.png", "_P.png"]
+    "versions": ["_C.png"]
   },
   {
     "id": "hSD01-017",
@@ -208,9 +205,8 @@
     "imageFolder": "hSD01/",
     "color": "",
     "grade": "",
-    "series": ["hSD01", "hPR"],
     "searchKeywords": ["staff", "スタッフ", "マネちゃん"],
-    "versions": ["_C.png", "_P.png"]
+    "versions": ["_C.png"]
   },
   {
     "id": "hSD01-018",
@@ -219,9 +215,8 @@
     "imageFolder": "hSD01/",
     "color": "",
     "grade": "",
-    "series": ["hSD01", "hPR", "PC_Set"],
-    "searchKeywords": ["item", "アイテム", "サブパソコン"],
-    "versions": ["_C.png", "_P.png", "_SR.png"]
+    "searchKeywords": ["item", "アイテム", "サブパソコン", "備用電腦"],
+    "versions": ["_C.png"]
   },
   {
     "id": "hSD01-019",
@@ -230,9 +225,9 @@
     "imageFolder": "hSD01/",
     "color": "",
     "grade": "",
-    "series": ["hSD01", "PC_Set"],
-    "searchKeywords": ["item", "アイテム", "スゴイパソコン"],
-    "versions": ["_C.png", "_SR.png"]
+    "searchKeywords": ["item", "アイテム", "スゴイパソコン", "厲害電腦"],
+    "versions": ["_C.png"],
+    "tags" : ["LIMITED"]
   },
   {
     "id": "hSD01-020",
@@ -241,7 +236,6 @@
     "imageFolder": "hSD01/",
     "color": "",
     "grade": "",
-    "series": ["hSD01"],
     "searchKeywords": ["event", "イベント", "ホロリスの輪"],
     "versions": ["_C.png"]
   },
@@ -252,7 +246,6 @@
     "imageFolder": "hSD01/",
     "color": "",
     "grade": "",
-    "series": ["hSD01"],
     "searchKeywords": ["event", "イベント", "First Gravity"],
     "versions": ["_C.png"]
   }

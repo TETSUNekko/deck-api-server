@@ -1,0 +1,55 @@
+[
+  {
+    "id": "hBP01-104",
+    "type": "Support",
+    "name": "ふつうのパソコン",
+    "imageFolder": "PC_Set/",
+    "color": "",
+    "grade": "",
+    "searchKeywords": ["item", "アイテム", "ふつうのパソコン", "普通的電腦", "出場至舞台"],
+    "versions": ["_SR.png"],
+    "tags": ""
+  },
+  {
+    "id": "hBP02-076",
+    "type": "Support",
+    "name": "カスタムパソコン",
+    "imageFolder": "PC_Set/",
+    "color": "",
+    "grade": "",
+    "searchKeywords": ["item", "アイテム", "カスタムパソコン", "改造電腦", "加入手牌"],
+    "versions": ["_SR.png"],
+    "tags" : ""
+  },
+  {
+    "id": "hBP02-077",
+    "type": "Support",
+    "name": "レトロパソコン",
+    "imageFolder": "PC_Set/",
+    "color": "",
+    "grade": "",
+    "searchKeywords": ["item", "アイテム", "レトロパソコン", "復古電腦", "返回手牌"],
+    "versions": ["_SR.png"],
+    "tags" : ["LIMITED"]
+  },
+  {
+    "id": "hSD01-018",
+    "type": "Support",
+    "name": "サブパソコン",
+    "imageFolder": "PC_Set/",
+    "color": "",
+    "grade": "",
+    "searchKeywords": ["item", "アイテム", "サブパソコン", "備用電腦"],
+    "versions": ["_SR.png"]
+  },
+  {
+    "id": "hSD01-019",
+    "type": "Support",
+    "name": "スゴイパソコン",
+    "imageFolder": "PC_Set/",
+    "color": "",
+    "grade": "",
+    "searchKeywords": ["item", "アイテム", "スゴイパソコン", "厲害電腦"],
+    "versions": ["_SR.png"]
+  }
+]

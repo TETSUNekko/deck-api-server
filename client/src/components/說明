@@ -1,0 +1,20 @@
+src/
+ ├─ assets/                     # 靜態資源
+ ├─ components/
+ │   ├─ DeckBuilder/            # DeckBuilder 主模組
+ │   │   ├─ DeckBuilder.jsx     # 主容器，組合 SearchArea / CardArea / DeckArea
+ │   │   ├─ SearchArea.jsx      # 上方搜尋工具區（篩選、搜尋、匯入匯出）
+ │   │   ├─ CardArea.jsx        # 左下卡片清單（點擊加入牌組）
+ │   │   ├─ DeckArea.jsx        # 右下我的牌組（顯示主推卡、主卡組、能量卡）
+ │   │   ├─ ZoomModal.jsx       # 放大圖彈窗（原圖 + 翻譯圖，支援左右切換）
+ │   │   ├─ WelcomeModal.jsx    # 歡迎訊息彈窗（專案警語 & 更新紀錄）
+ │   │   └─ CardImage.jsx       # 單張卡片顯示元件（含 Zoom 按鈕、限制卡提示）
+ │   │
+ │   ├─ cardsConfig.jsx         # 集中管理卡表 import、allTags、changelog
+ │   └─ SearchBar.jsx           # 搜尋工具列（下拉 + 輸入框）
+ │
+ ├─ utils/
+ │   └─ sort.js                 # 排序工具：sortDeckByType
+ │
+ ├─ App.jsx                     # React 主入口，掛載 DeckBuilder
+ └─ App.css                     # 全域樣式

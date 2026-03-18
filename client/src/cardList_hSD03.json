@@ -6,7 +6,6 @@
     "imageFolder": "hSD03/",
     "color": ["blue"],
     "grade": "",
-    "series": ["hSD03"],
     "searchKeywords": ["猫又おかゆ", "貓又小粥", "Nekomata Okayu"],
     "versions": ["_OC.png"]  
   },
@@ -17,9 +16,8 @@
     "imageFolder": "hSD03/",
     "color": ["blue"],
     "grade": "debut",
-    "series": ["hSD03", "hPR"],
     "searchKeywords": ["猫又おかゆ", "貓又小粥", "Nekomata Okayu"],
-    "versions": ["_C.png", "_P_2.png"],
+    "versions": ["_C.png"],
     "tags": ["JP", "Gamers", "獸耳"],
     "effectType": ""  
   },
@@ -30,9 +28,8 @@
     "imageFolder": "hSD03/",
     "color": ["blue"],
     "grade": "debut",
-    "series": ["hSD03", "hPR"],
     "searchKeywords": ["猫又おかゆ", "貓又小粥", "Nekomata Okayu"],
-    "versions": ["_C.png", "_P.png"],
+    "versions": ["_C.png"],
     "tags": ["JP", "Gamers", "獸耳"],
     "effectType": "Collaboration"  
   },
@@ -43,7 +40,6 @@
     "imageFolder": "hSD03/",
     "color": ["blue"],
     "grade": "debut",
-    "series": ["hSD03"],
     "searchKeywords": ["猫又おかゆ", "貓又小粥", "Nekomata Okayu"],
     "versions": ["_U.png"],
     "tags": ["JP", "Gamers", "獸耳"],
@@ -56,7 +52,6 @@
     "imageFolder": "hSD03/",
     "color": ["blue"],
     "grade": "1st",
-    "series": ["hSD03"],
     "searchKeywords": ["猫又おかゆ", "貓又小粥", "Nekomata Okayu"],
     "versions": ["_C.png"],
     "tags": ["JP", "Gamers", "獸耳"],
@@ -69,7 +64,6 @@
     "imageFolder": "hSD03/",
     "color": ["blue"],
     "grade": "1st",
-    "series": ["hSD03"],
     "searchKeywords": ["猫又おかゆ", "貓又小粥", "Nekomata Okayu"],
     "versions": ["_C.png"],
     "tags": ["JP", "Gamers", "獸耳", "歌"],
@@ -82,9 +76,8 @@
     "imageFolder": "hSD03/",
     "color": ["blue"],
     "grade": "1st",
-    "series": ["hSD03", "hPR"],
     "searchKeywords": ["猫又おかゆ", "貓又小粥", "Nekomata Okayu"],
-    "versions": ["_U.png", "_P.png"],
+    "versions": ["_U.png"],
     "tags": ["JP", "Gamers", "獸耳"],
     "effectType": "Bloom"  
   },
@@ -95,7 +88,6 @@
     "imageFolder": "hSD03/",
     "color": ["blue"],
     "grade": "buzz",
-    "series": ["hSD03"],
     "searchKeywords": ["猫又おかゆ", "貓又小粥", "Nekomata Okayu"],
     "versions": ["_R.png"],
     "tags": ["JP", "Gamers", "獸耳"],
@@ -107,10 +99,9 @@
     "name": "猫又おかゆ",
     "imageFolder": "hSD03/",
     "color": ["blue"],
-    "grade": "2nd",
-                                                                                  
+    "grade": "2nd",                                                                              
     "searchKeywords": ["猫又おかゆ", "貓又小粥", "Nekomata Okayu"],
-    "versions": ["_RR.png", "_SR.png"],
+    "versions": ["_RR.png"],
     "tags": ["JP", "Gamers", "獸耳"],
     "effectType": ""  
   },
@@ -121,7 +112,6 @@
     "imageFolder": "hSD03/",
     "color": ["colorless"],
     "grade": "spot",
-    "series": ["hSD03"],
     "searchKeywords": ["戌神ころね", "戌神沁音", "Inugami Korone"],
     "versions": ["_U.png"],
     "tags": ["JP", "Gamers", "獸耳"],
@@ -134,7 +124,6 @@
     "imageFolder": "hSD03/",
     "color": ["colorless"],
     "grade": "spot",
-    "series": ["hSD03"],
     "searchKeywords": ["ラプラス・ダークネス", "拉普拉斯·達克尼斯", "Laplus Darknesss"],
     "versions": ["_U.png"],
     "tags": ["JP", "秘密結社holoX", "射手"],
@@ -147,7 +136,6 @@
     "imageFolder": "hSD03/",
     "color": "",
     "grade": "",
-    "series": ["hSD03"],
     "searchKeywords": ["event", "イベント", "泥棒建設"],
     "versions": ["_U.png"]
   },
@@ -158,7 +146,6 @@
     "imageFolder": "hSD03/",
     "color": "",
     "grade": "",
-    "series": ["hSD03"],
     "searchKeywords": ["mascot", "マスコット", "おかにゃん"],
     "versions": ["_C.png"]
   },
@@ -169,8 +156,59 @@
     "imageFolder": "hSD03/",
     "color": "",
     "grade": "",
-    "series": ["hSD03"],
     "searchKeywords": ["fan", "ファン", "おにぎりゃー"],
     "versions": ["_C.png"]
+  },
+  {
+    "id": "hBP01-108",
+    "type": "Support",
+    "name": "じゃあ敵だね",
+    "imageFolder": "hSD03/",
+    "color": "",
+    "grade": "",
+    "searchKeywords": ["event", "イベント", "じゃあ敵だね", "那就是敵人了", "交替"],
+    "versions": ["_U.png"],
+    "tags": ["LIMITED"]
+  },
+  {
+    "id": "hSD01-016",
+    "type": "Support",
+    "name": "春先のどか",
+    "imageFolder": "hSD03/",
+    "color": "",
+    "grade": "",
+    "searchKeywords": ["staff", "スタッフ", "春先のどか"],
+    "versions": ["_C.png"]
+  },
+  {
+    "id": "hSD01-017",
+    "type": "Support",
+    "name": "マネちゃん",
+    "imageFolder": "hSD03/",
+    "color": "",
+    "grade": "",
+    "searchKeywords": ["staff", "スタッフ", "マネちゃん"],
+    "versions": ["_C.png"]
+  },
+  {
+    "id": "hBP01-105",
+    "type": "Support",
+    "name": "ペンライト",
+    "imageFolder": "hSD03/",
+    "color": "",
+    "grade": "",
+    "searchKeywords": ["item", "アイテム", "ペンライト", "應援棒", "聲援"],
+    "versions": ["_U.png"],
+    "tags": ["LIMITED"]
+  },
+  {
+    "id": "hSD01-019",
+    "type": "Support",
+    "name": "スゴイパソコン",
+    "imageFolder": "hSD03/",
+    "color": "",
+    "grade": "",
+    "searchKeywords": ["item", "アイテム", "スゴイパソコン", "厲害電腦"],
+    "versions": ["_C_02.png"]
   }
 ] 

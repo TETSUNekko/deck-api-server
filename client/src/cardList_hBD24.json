@@ -6,7 +6,6 @@
     "imageFolder": "hBD24/",
     "color": ["green"],
     "grade": "",
-    "series": ["hPR", "hBD24"],
     "searchKeywords": ["パヴォリア・レイネ", "帕沃莉亞·蕾內", "Pavolia Reine"],
     "versions": ["_P.png"]
   },
@@ -17,7 +16,6 @@
     "imageFolder": "hBD24/",
     "color": ["green"],
     "grade": "",
-    "series": ["hPR", "hBD24"],
     "searchKeywords": ["獅白ぼたん", "獅白牡丹", "Shishiro Botan"],
     "versions": ["_P.png"]
   },
@@ -28,7 +26,6 @@
     "imageFolder": "hBD24/",
     "color": ["yellow"],
     "grade": "",
-    "series": ["hPR", "hBD24"],
     "searchKeywords": ["戌神ころね", "戌神沁音", "Inugami Korone"],
     "versions": ["_P.png"]
   },
@@ -39,7 +36,6 @@
     "imageFolder": "hBD24/",
     "color": ["white"],
     "grade": "",
-    "series": ["hPR", "hBD24"],
     "searchKeywords": ["白上フブキ", "白上吹雪", "Shirakami Fubuki"],
     "versions": ["_P.png"]
   },
@@ -50,7 +46,6 @@
     "imageFolder": "hBD24/",
     "color": ["white"],
     "grade": "",
-    "series": ["hPR", "hBD24"],
     "searchKeywords": ["姫森ルーナ", "姬森璐娜", "Himemori Luna"],
     "versions": ["_P.png"]
   },
@@ -61,7 +56,6 @@
     "imageFolder": "hBD24/",
     "color": ["purple"],
     "grade": "",
-    "series": ["hPR", "hBD24"],
     "searchKeywords": ["クレイジー・オリー", "克蕾西·奧莉", "Kureiji Ollie"],
     "versions": ["_P.png"]
   },
@@ -72,7 +66,6 @@
     "imageFolder": "hBD24/",
     "color": ["yellow"],
     "grade": "",
-    "series": ["hPR", "hBD24"],
     "searchKeywords": ["ジジ・ムリン", "琪琪·沐林", "Gigi Murin"],
     "versions": ["_P.png"]
   },
@@ -83,7 +76,6 @@
     "imageFolder": "hBD24/",
     "color": ["white"],
     "grade": "",
-    "series": ["hPR", "hBD24"],
     "searchKeywords": ["ベスティア・ゼータ", "維斯提亞·澤塔", "Vestia Zeta"],
     "versions": ["_P.png"]
   },
@@ -94,7 +86,6 @@
     "imageFolder": "hBD24/",
     "color": ["green"],
     "grade": "",
-    "series": ["hPR", "hBD24"],
     "searchKeywords": ["セシリア・イマーグリーン", "塞西莉亞·伊默格林", "Cecilia Immergreen"],
     "versions": ["_P.png"]
   },
@@ -105,7 +96,6 @@
     "imageFolder": "hBD24/",
     "color": ["blue"],
     "grade": "",
-    "series": ["hPR", "hBD24"],
     "searchKeywords": ["雪花ラミィ", "雪花菈米", "Yukihana Lamy"],
     "versions": ["_P.png"]
   },
@@ -116,8 +106,17 @@
     "imageFolder": "hBD24/",
     "color": ["purple"],
     "grade": "",
-    "series": ["hPR", "hBD24"],
     "searchKeywords": ["ネリッサ・レイヴンクロフト", "納瑞莎·雷文克羅夫特", "Nerissa Ravencroft"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-012",
+    "type": "Oshi",
+    "name": "白銀ノエル",
+    "imageFolder": "hBD24/",
+    "color": ["white"],
+    "grade": "",
+    "searchKeywords": ["白銀ノエル", "白銀諾艾爾", "Shirogane Noel"],
     "versions": ["_P.png"]
   },
   {
@@ -127,7 +126,6 @@
     "imageFolder": "hBD24/",
     "color": ["purple"],
     "grade": "",
-    "series": ["hPR", "hBD24"],
     "searchKeywords": ["紫咲シオン", "紫咲詩音", "Murasaki Shion"],
     "versions": ["_P.png"]
   },
@@ -138,8 +136,267 @@
     "imageFolder": "hBD24/",
     "color": ["blue"],
     "grade": "",
-    "series": ["hPR", "hBD24"],
     "searchKeywords": ["こぼ・かなえる", "果波·卡娜埃露", "Kobo Kanaeru"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-015",
+    "type": "Oshi",
+    "name": "百鬼あやめ",
+    "imageFolder": "hBD24/",
+    "color": ["red"],
+    "grade": "",
+    "searchKeywords": ["百鬼あやめ", "百鬼綾目", "Nakiri Ayame"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-016",
+    "type": "Oshi",
+    "name": "沙花叉クロヱ",
+    "imageFolder": "hBD24/",
+    "color": ["blue"],
+    "grade": "",
+    "searchKeywords": ["沙花叉クロヱ", "沙花叉克蘿伊", "Sakamata Kuroe"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-017",
+    "type": "Oshi",
+    "name": "兔田ぺこら",
+    "imageFolder": "hBD24/",
+    "color": ["green"],
+    "grade": "",
+    "searchKeywords": ["兔田ぺこら", "兔田佩可拉", "Usada Pekora"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-018",
+    "type": "Oshi",
+    "name": "アユンダ・リス",
+    "imageFolder": "hBD24/",
+    "color": ["yellow"],
+    "grade": "",
+    "searchKeywords": ["アユンダ・リス", "阿芸達·栗絲", "Ayunda Risu"],
+    "versions": ["_P_02.png"]
+  },
+  {
+    "id": "hBD24-019",
+    "type": "Oshi",
+    "name": "尾丸ポルカ",
+    "imageFolder": "hBD24/",
+    "color": ["red"],
+    "grade": "",
+    "searchKeywords": ["尾丸ポルカ", "尾丸波爾卡", "Omaru Polka"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-020",
+    "type": "Oshi",
+    "name": "フワワ・アビスガード",
+    "imageFolder": "hBD24/",
+    "color": ["blue"],
+    "grade": "",
+    "searchKeywords": ["フワワ・アビスガード", "軟軟·阿比斯加德", "Fuwawa Abyssgard"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-021",
+    "type": "Oshi",
+    "name": "モココ・アビスガード",
+    "imageFolder": "hBD24/",
+    "color": ["red"],
+    "grade": "",
+    "searchKeywords": ["モココ・アビスガード", "茸茸·阿比斯加德", "Mococo Abyssgard"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-022",
+    "type": "Oshi",
+    "name": "儒烏風亭らでん",
+    "imageFolder": "hBD24/",
+    "color": ["green"],
+    "grade": "",
+    "searchKeywords": ["儒烏風亭らでん", "儒烏風亭螺鈿", "Juufuutei Raden"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-023",
+    "type": "Oshi",
+    "name": "癒月ちょこ",
+    "imageFolder": "hBD24/",
+    "color": ["purple"],
+    "grade": "",
+    "searchKeywords": ["癒月ちょこ", "癒月巧可", "Yuzuki Choco"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-024",
+    "type": "Oshi",
+    "name": "ムーナ・ホシノヴァ",
+    "imageFolder": "hBD24/",
+    "color": ["blue"],
+    "grade": "",
+    "searchKeywords": ["ムーナ・ホシノヴァ", "暮娜·惑星諾瓦", "Moona Hoshinova"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-025",
+    "type": "Oshi",
+    "name": "アキ・ローゼンタール",
+    "imageFolder": "hBD24/",
+    "color": ["green"],
+    "grade": "",
+    "searchKeywords": ["アキ・ローゼンタール", "亞綺·羅森塔爾", "Aki Rosenthal"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-026",
+    "type": "Oshi",
+    "name": "猫又おかゆ",
+    "imageFolder": "hBD24/",
+    "color": ["blue"],
+    "grade": "",
+    "searchKeywords": ["猫又おかゆ", "貓又小粥", "Nekomata Okayu"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-027",
+    "type": "Oshi",
+    "name": "火威青",
+    "imageFolder": "hBD24/",
+    "color": ["blue"],
+    "grade": "",
+    "searchKeywords": ["火威青", "火威青", "Hiodoshi Ao"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-028",
+    "type": "Oshi",
+    "name": "ハコス・ベールズ",
+    "imageFolder": "hBD24/",
+    "color": ["red"],
+    "grade": "",
+    "searchKeywords": ["ハコス・ベールズ", "哈珂斯·貝爾絲", "Hakos Baelz"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-029",
+    "type": "Oshi",
+    "name": "さくらみこ",
+    "imageFolder": "hBD24/",
+    "color": ["red"],
+    "grade": "",
+    "searchKeywords": ["さくらみこ", "櫻巫女", "Sakura Miko"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-030",
+    "type": "Oshi",
+    "name": "アーニャ・メルフィッサ",
+    "imageFolder": "hBD24/",
+    "color": ["yellow"],
+    "grade": "",
+    "searchKeywords": ["アーニャ・メルフィッサ", "阿妮婭·梅爾菲莎", "Anya Melfissa"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-031",
+    "type": "Oshi",
+    "name": "オーロ・クロニー",
+    "imageFolder": "hBD24/",
+    "color": ["blue"],
+    "grade": "",
+    "searchKeywords": ["オーロ・クロニー", "奧羅·克洛尼", "Ouro Kronii"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-032",
+    "type": "Oshi",
+    "name": "博衣こより",
+    "imageFolder": "hBD24/",
+    "color": ["white"],
+    "grade": "",
+    "searchKeywords": ["博衣こより", "博衣可佑理", "Hakui Koyori"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-033",
+    "type": "Oshi",
+    "name": "IRYS",
+    "imageFolder": "hBD24/",
+    "color": ["white"],
+    "grade": "",
+    "searchKeywords": ["IRyS", "IRyS", "IRyS"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-034",
+    "type": "Oshi",
+    "name": "星街すいせい",
+    "imageFolder": "hBD24/",
+    "color": ["blue"],
+    "grade": "",
+    "searchKeywords": ["星街すいせい", "星街彗星", "Hoshimachi Suisei"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-035",
+    "type": "Oshi",
+    "name": "桃鈴ねね",
+    "imageFolder": "hBD24/",
+    "color": ["yellow"],
+    "grade": "",
+    "searchKeywords": ["桃鈴ねね", "桃鈴音音", "Momosuzu Nene"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-036",
+    "type": "Oshi",
+    "name": "不知火フレア",
+    "imageFolder": "hBD24/",
+    "color": ["yellow"],
+    "grade": "",
+    "searchKeywords": ["不知火フレア", "不知火芙蕾雅", "Shiranui Flare"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-037",
+    "type": "Oshi",
+    "name": "森カリオペ",
+    "imageFolder": "hBD24/",
+    "color": ["purple"],
+    "grade": "",
+    "searchKeywords": ["森カリオペ", "森美聲", "Mori Calliope"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-038",
+    "type": "Oshi",
+    "name": "古石ビジュ―",
+    "imageFolder": "hBD24/",
+    "color": ["purple"],
+    "grade": "",
+    "searchKeywords": ["古石ビジュ―", "古石碧珠", "Koseki Bijou"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-039",
+    "type": "Oshi",
+    "name": "音乃瀨奏",
+    "imageFolder": "hBD24/",
+    "color": ["yellow"],
+    "grade": "",
+    "searchKeywords": ["音乃瀨奏", "音乃瀨奏", "Otonose Kanade"],
+    "versions": ["_P.png"]
+  },
+  {
+    "id": "hBD24-040",
+    "type": "Oshi",
+    "name": "天音かなた",
+    "imageFolder": "hBD24/",
+    "color": ["white"],
+    "grade": "",
+    "searchKeywords": ["天音かなた", "天音彼方", "Amane Kanata"],
     "versions": ["_P.png"]
   }
 ] 

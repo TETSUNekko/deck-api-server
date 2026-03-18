@@ -19,6 +19,7 @@ function SearchBar({
   shareCode,
   setShareCode,
   onExportImage,
+  exporting,
   onExportCode,
   onImportCode,
   onClearDeck,
@@ -232,20 +233,30 @@ function SearchBar({
 
         <select className="border rounded px-2 py-1 max-w-[200px] w-full text-sm truncate" value={filterSeries} onChange={(e) => setFilterSeries(e.target.value)}>
           <option value="全部彈數">全部彈數</option>
-          <option value="hBP01">hBP01ブースターパック「ブルーミングレディアンス」</option>
-          <option value="hBP02">hBP02ブースターパック「クインテットスペクトラム」</option>
-          <option value="hBP03">hBP03ブースターパック「エリートスパーク」</option>
-          <option value="hBP04">hBP04ブースターパック「キュリアスユニバース」</option>
-          <option value="hSD01">hSD01スタートデッキ「ときのそら＆AZKi」</option>
-          <option value="hSD02">hSD02スタートデッキ 赤 百鬼あやめ</option>
-          <option value="hSD03">hSD03スタートデッキ 青 猫又おかゆ</option>
-          <option value="hSD04">hSD04スタートデッキ 紫 癒月ちょこ</option>
-          <option value="hSD05">hSD05スタートデッキ 白 轟はじめ</option>
-          <option value="hSD06">hSD06スタートデッキ 緑 風真いろは</option>
-          <option value="hSD07">hSD07スタートデッキ 黄 不知火フレア</option>
-          <option value="hSD08">hSD08スタートデッキ 白 天音かなた</option>
-          <option value="hSD09">hSD09スタートデッキ 赤 宝鐘マリン</option>
+          <option value="hYS01">hYS01 エントリーカップ「ブルーミングレディアンス」スタートエールセット</option>
+          <option value="hBP01">hBP01 ブースターパック「ブルーミングレディアンス」</option>
+          <option value="hBP02">hBP02 ブースターパック「クインテットスペクトラム」</option>
+          <option value="hBP03">hBP03 ブースターパック「エリートスパーク」</option>
+          <option value="hBP04">hBP04 ブースターパック「キュリアスユニバース」</option>
+          <option value="hBP05">hBP05 ブースターパック「エンチャントレガリア」</option>
+          <option value="hBP06">hBP06 ブースターパック「アヤカシヴァーミリオン」</option>
+          <option value="hBP07">hBP07 ブースターパック「ディーヴァフィーバー」</option>
+          <option value="hSD01">hSD01 スタートデッキ「ときのそら＆AZKi」</option>
+          <option value="hSD02">hSD02 スタートデッキ 赤 百鬼あやめ</option>
+          <option value="hSD03">hSD03 スタートデッキ 青 猫又おかゆ</option>
+          <option value="hSD04">hSD04 スタートデッキ 紫 癒月ちょこ</option>
+          <option value="hSD05">hSD05 スタートデッキ 白 轟はじめ</option>
+          <option value="hSD06">hSD06 スタートデッキ 緑 風真いろは</option>
+          <option value="hSD07">hSD07 スタートデッキ 黄 不知火フレア</option>
+          <option value="hSD08">hSD08 スタートデッキ 白 天音かなた</option>
+          <option value="hSD09">hSD09 スタートデッキ 赤 宝鐘マリン</option>
+          <option value="hSD10">hSD10 スタートデッキ FLOW GLOW 推し 輪堂千速</option>
+          <option value="hSD11">hSD11 スタートデッキ FLOW GLOW 推し 虎金妃笑虎</option>
+          <option value="hSD12">hSD12 スタートデッキ 推し Advent</option>
+          <option value="hSD13">hSD13 スタートデッキ 推し Justice</option>
           <option value="hPR">PRカード</option>
+          <option value="hBD24">生日カード</option>
+        　<option value="energy">エールカード</option>
           <option value="PC_Set">【イベント物販／hololive production OFFICIAL SHOP限定商品】オフィシャルホロカコレクション-PCセット-</option>
         </select>
 
@@ -312,6 +323,7 @@ function SearchBar({
           <option value="_RR">RR</option>
           <option value="_SR">SR</option>
           <option value="_UR">UR</option>
+          <option value="_HR">HR</option>
           <option value="_OC">OC</option>
           <option value="_OSR">OSR</option>
           <option value="_OUR">OUR</option>
@@ -328,18 +340,29 @@ function SearchBar({
         >
           🧹 清空牌組
         </button>
-        <button 
+        <button
           onClick={onExportImage}
-          className="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded"
+          className="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded flex items-center gap-2"
         >
-          📊 輸出圖表
+          {exporting ? (
+            <svg className="animate-spin h-4 w-4 text-white" viewBox="0 0 24 24">
+              <circle className="opacity-25" cx="12" cy="12" r="10"
+                stroke="currentColor" strokeWidth="4" fill="none" />
+              <path className="opacity-75" fill="currentColor"
+                d="M4 12a8 8 0 018-8v8z" />
+            </svg>
+          ) : (
+            <>🖼 匯出圖片</>
+          )}
         </button>
-        <button 
+
+        <button
           onClick={handleCopyCode}
           className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded"
         >
           🔗 分享代碼
         </button>
+
         <input
           type="text"
           placeholder="輸入代碼..."
