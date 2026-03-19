@@ -2,7 +2,6 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import ReactDOM from "react-dom";
 
-// ── 共用樣式常數 ──────────────────────────────────────────
 const CHIP = {
   display: "inline-flex", alignItems: "center", gap: "5px",
   padding: "5px 14px", borderRadius: "20px",
@@ -17,8 +16,35 @@ const BTN = {
   whiteSpace: "nowrap", fontFamily: "inherit", lineHeight: 1.4,
 };
 
-// ── Portal Dropdown ────────────────────────────────────────
-// 把 dropdown 掛到 document.body，完全脫離 sticky stacking context
+const SERIES_LIST = [
+  { value: "全部彈數", label: "全部彈數" },
+  { value: "hYS01", label: "hYS01　エントリーカップ「ブルーミングレディアンス」スタートエールセット" },
+  { value: "hBP01", label: "hBP01　ブースターパック「ブルーミングレディアンス」" },
+  { value: "hBP02", label: "hBP02　ブースターパック「クインテットスペクトラム」" },
+  { value: "hBP03", label: "hBP03　ブースターパック「エリートスパーク」" },
+  { value: "hBP04", label: "hBP04　ブースターパック「キュリアスユニバース」" },
+  { value: "hBP05", label: "hBP05　ブースターパック「エンチャントレガリア」" },
+  { value: "hBP06", label: "hBP06　ブースターパック「アヤカシヴァーミリオン」" },
+  { value: "hBP07", label: "hBP07　ブースターパック「ディーヴァフィーバー」" },
+  { value: "hSD01", label: "hSD01　スタートデッキ「ときのそら＆AZKi」" },
+  { value: "hSD02", label: "hSD02　スタートデッキ 赤 百鬼あやめ" },
+  { value: "hSD03", label: "hSD03　スタートデッキ 青 猫又おかゆ" },
+  { value: "hSD04", label: "hSD04　スタートデッキ 紫 癒月ちょこ" },
+  { value: "hSD05", label: "hSD05　スタートデッキ 白 轟はじめ" },
+  { value: "hSD06", label: "hSD06　スタートデッキ 緑 風真いろは" },
+  { value: "hSD07", label: "hSD07　スタートデッキ 黄 不知火フレア" },
+  { value: "hSD08", label: "hSD08　スタートデッキ 白 天音かなた" },
+  { value: "hSD09", label: "hSD09　スタートデッキ 赤 宝鐘マリン" },
+  { value: "hSD10", label: "hSD10　スタートデッキ FLOW GLOW 推し 輪堂千速" },
+  { value: "hSD11", label: "hSD11　スタートデッキ FLOW GLOW 推し 虎金妃笑虎" },
+  { value: "hSD12", label: "hSD12　スタートデッキ 推し Advent" },
+  { value: "hSD13", label: "hSD13　スタートデッキ 推し Justice" },
+  { value: "hPR", label: "hPR　PRカード" },
+  { value: "hBD24", label: "hBD24　生日カード" },
+  { value: "energy", label: "エールカード" },
+  { value: "PC_Set", label: "PC_Set　オフィシャルホロカコレクション" },
+];
+
 function PortalDropdown({ anchorRef, open, children }) {
   const [pos, setPos] = useState({ top: 0, left: 0 });
 
@@ -31,7 +57,7 @@ function PortalDropdown({ anchorRef, open, children }) {
   if (!open) return null;
 
   return ReactDOM.createPortal(
-    <div style={{
+    <div data-searchbar-dropdown style={{
       position: "absolute", top: pos.top, left: pos.left,
       background: "#1e1830", border: "1px solid #3d3155",
       borderRadius: "12px", zIndex: 99999,
@@ -44,7 +70,6 @@ function PortalDropdown({ anchorRef, open, children }) {
   );
 }
 
-// ── Dropdown Item ──────────────────────────────────────────
 function DItem({ onClick, children, active }) {
   const [hover, setHover] = useState(false);
   return (
@@ -56,6 +81,7 @@ function DItem({ onClick, children, active }) {
         padding: "8px 16px", fontSize: "13px", cursor: "pointer",
         color: active ? "#e9d5ff" : "#c9b8e0",
         background: active ? "#3d2d55" : hover ? "#2a2240" : "transparent",
+        whiteSpace: "nowrap",
       }}
     >
       {children}
@@ -63,7 +89,6 @@ function DItem({ onClick, children, active }) {
   );
 }
 
-// ── Main Component ─────────────────────────────────────────
 function SearchBar({
   filterType, setFilterType,
   searchTerm, setSearchTerm,
@@ -78,44 +103,32 @@ function SearchBar({
   selectedTag, setSelectedTag, allTags,
   loading,
 }) {
-  const [open, setOpen] = useState(null); // 目前展開的 dropdown 名稱
+  const [open, setOpen] = useState(null);
   const [memberSub, setMemberSub] = useState(false);
   const [supportSub, setSupportSub] = useState(false);
   const [tagSearch, setTagSearch] = useState("");
 
-  // 每個 chip 的 ref（用來定位 portal）
   const refs = {
-    type: useRef(null),
-    color: useRef(null),
-    series: useRef(null),
-    tag: useRef(null),
-    version: useRef(null),
-    member: useRef(null),
-    support: useRef(null),
+    type: useRef(null), color: useRef(null),
+    series: useRef(null), tag: useRef(null),
+    version: useRef(null), member: useRef(null), support: useRef(null),
   };
 
   const toggle = (name) => {
-    setOpen((p) => (p === name ? null : name));
-    setMemberSub(false);
-    setSupportSub(false);
+    setOpen(p => p === name ? null : name);
+    setMemberSub(false); setSupportSub(false);
   };
 
   const close = useCallback(() => {
-    setOpen(null);
-    setMemberSub(false);
-    setSupportSub(false);
+    setOpen(null); setMemberSub(false); setSupportSub(false);
   }, []);
 
-  // 點外面關閉
   useEffect(() => {
     const handler = (e) => {
       const clickedChip = Object.values(refs).some(r => r.current?.contains(e.target));
-      // portal 的 dropdown 內容直接在 body 下，只排除 chip 本身
-      if (!clickedChip) {
-        const dropdowns = document.querySelectorAll("[data-searchbar-dropdown]");
-        const clickedDropdown = Array.from(dropdowns).some(d => d.contains(e.target));
-        if (!clickedDropdown) close();
-      }
+      const dropdowns = document.querySelectorAll("[data-searchbar-dropdown]");
+      const clickedDropdown = Array.from(dropdowns).some(d => d.contains(e.target));
+      if (!clickedChip && !clickedDropdown) close();
     };
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
@@ -137,24 +150,19 @@ function SearchBar({
     setSelectedTag("全部標籤"); setTagSearch("");
   };
 
-  // Labels
   const typeMap = { "全部": "卡片種類", Oshi: "主推卡", Member: "成員卡", Support: "支援卡", Energy: "能量卡" };
   const extraLabel =
     filterType === "Member" && filterGrade !== "全部階級" ? ` · ${filterGrade}` :
     filterType === "Support" && supportSubtype !== "全部" ? ` · ${supportSubtype}` : "";
   const colorMap = { "全部顏色": "顏色", red: "紅", white: "白", blue: "藍", green: "綠", yellow: "黃", purple: "紫", colorless: "無色" };
-  const seriesLabel = filterSeries === "全部彈數" ? "彈數" : filterSeries;
+
+  // 彈數顯示：chip 上只顯示編號，dropdown 顯示完整名稱
+  const seriesChipLabel = filterSeries === "全部彈數" ? "彈數" : filterSeries;
   const versionLabel = filterVersion === "全部版本" ? "版本" : filterVersion.replace("_", "");
   const tagLabel = (!selectedTag || selectedTag === "全部標籤") ? "標籤" : `#${selectedTag}`;
 
-  const seriesList = [
-    "全部彈數","hYS01","hBP01","hBP02","hBP03","hBP04","hBP05","hBP06","hBP07",
-    "hSD01","hSD02","hSD03","hSD04","hSD05","hSD06","hSD07","hSD08","hSD09",
-    "hSD10","hSD11","hSD12","hSD13","hPR","hBD24","energy","PC_Set",
-  ];
   const versionList = ["全部版本","_C","_U","_S","_R","_RR","_SR","_UR","_HR","_OC","_OSR","_OUR","_SEC","_P","_SY"];
 
-  // ── Render ────────────────────────────────────────────────
   return (
     <div style={{ position: "sticky", top: 0, zIndex: 40 }}>
 
@@ -175,7 +183,7 @@ function SearchBar({
           <span style={{ fontSize: "13px", color: "#4a3f5c" }}>🔍</span>
           <input
             type="text" placeholder="搜尋卡號或名稱..."
-            value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}
+            value={searchTerm} onChange={e => setSearchTerm(e.target.value)}
             style={{
               background: "none", border: "none", outline: "none",
               fontSize: "13px", color: "#c9b8e0", width: "130px", fontFamily: "inherit",
@@ -189,40 +197,29 @@ function SearchBar({
             {typeMap[filterType]}{extraLabel} <span style={{ fontSize: "10px", opacity: 0.6 }}>▾</span>
           </div>
           <PortalDropdown anchorRef={refs.type} open={open === "type"}>
-            <div data-searchbar-dropdown>
-              <DItem onClick={() => { setFilterType("全部"); setFilterGrade("全部階級"); setSupportSubtype("全部"); close(); }} active={filterType === "全部"}>全部卡片</DItem>
-              <DItem onClick={() => { setFilterType("Oshi"); setFilterGrade("全部階級"); setSupportSubtype("全部"); close(); }} active={filterType === "Oshi"}>主推卡</DItem>
-
-              {/* 成員卡 */}
-              <div ref={refs.member} style={{ position: "relative" }}>
-                <DItem onClick={() => { setMemberSub(p => !p); setSupportSub(false); }} active={filterType === "Member"}>
-                  <span style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>成員卡 <span>▸</span></span>
-                </DItem>
-                <PortalDropdown anchorRef={refs.member} open={memberSub}>
-                  <div data-searchbar-dropdown>
-                    {["全部階級","debut","1st","2nd","buzz","spot"].map(g => (
-                      <DItem key={g} onClick={() => { setFilterType("Member"); setFilterGrade(g); setSupportSubtype("全部"); close(); }} active={filterType === "Member" && filterGrade === g}>{g}</DItem>
-                    ))}
-                  </div>
-                </PortalDropdown>
-              </div>
-
-              {/* 支援卡 */}
-              <div ref={refs.support} style={{ position: "relative" }}>
-                <DItem onClick={() => { setSupportSub(p => !p); setMemberSub(false); }} active={filterType === "Support"}>
-                  <span style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>支援卡 <span>▸</span></span>
-                </DItem>
-                <PortalDropdown anchorRef={refs.support} open={supportSub}>
-                  <div data-searchbar-dropdown>
-                    {["全部","item","event","tool","mascot","fan","staff"].map(s => (
-                      <DItem key={s} onClick={() => { setFilterType("Support"); setSupportSubtype(s); setFilterGrade("全部階級"); close(); }} active={filterType === "Support" && supportSubtype === s}>{s}</DItem>
-                    ))}
-                  </div>
-                </PortalDropdown>
-              </div>
-
-              <DItem onClick={() => { setFilterType("Energy"); setFilterGrade("全部階級"); setSupportSubtype("全部"); close(); }} active={filterType === "Energy"}>能量卡</DItem>
+            <DItem onClick={() => { setFilterType("全部"); setFilterGrade("全部階級"); setSupportSubtype("全部"); close(); }} active={filterType === "全部"}>全部卡片</DItem>
+            <DItem onClick={() => { setFilterType("Oshi"); setFilterGrade("全部階級"); setSupportSubtype("全部"); close(); }} active={filterType === "Oshi"}>主推卡</DItem>
+            <div ref={refs.member}>
+              <DItem onClick={() => { setMemberSub(p => !p); setSupportSub(false); }} active={filterType === "Member"}>
+                <span style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>成員卡 <span>▸</span></span>
+              </DItem>
+              <PortalDropdown anchorRef={refs.member} open={memberSub}>
+                {["全部階級","debut","1st","2nd","buzz","spot"].map(g => (
+                  <DItem key={g} onClick={() => { setFilterType("Member"); setFilterGrade(g); setSupportSubtype("全部"); close(); }} active={filterType === "Member" && filterGrade === g}>{g}</DItem>
+                ))}
+              </PortalDropdown>
             </div>
+            <div ref={refs.support}>
+              <DItem onClick={() => { setSupportSub(p => !p); setMemberSub(false); }} active={filterType === "Support"}>
+                <span style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>支援卡 <span>▸</span></span>
+              </DItem>
+              <PortalDropdown anchorRef={refs.support} open={supportSub}>
+                {["全部","item","event","tool","mascot","fan","staff"].map(s => (
+                  <DItem key={s} onClick={() => { setFilterType("Support"); setSupportSubtype(s); setFilterGrade("全部階級"); close(); }} active={filterType === "Support" && supportSubtype === s}>{s}</DItem>
+                ))}
+              </PortalDropdown>
+            </div>
+            <DItem onClick={() => { setFilterType("Energy"); setFilterGrade("全部階級"); setSupportSubtype("全部"); close(); }} active={filterType === "Energy"}>能量卡</DItem>
           </PortalDropdown>
         </div>
 
@@ -232,23 +229,23 @@ function SearchBar({
             {colorMap[filterColor] || filterColor} <span style={{ fontSize: "10px", opacity: 0.6 }}>▾</span>
           </div>
           <PortalDropdown anchorRef={refs.color} open={open === "color"}>
-            <div data-searchbar-dropdown>
-              {[["全部顏色","全部顏色"],["red","紅"],["white","白"],["blue","藍"],["green","綠"],["yellow","黃"],["purple","紫"],["colorless","無色"]].map(([v,l]) => (
-                <DItem key={v} onClick={() => { setFilterColor(v); close(); }} active={filterColor === v}>{l}</DItem>
-              ))}
-            </div>
+            {[["全部顏色","全部顏色"],["red","紅"],["white","白"],["blue","藍"],["green","綠"],["yellow","黃"],["purple","紫"],["colorless","無色"]].map(([v,l]) => (
+              <DItem key={v} onClick={() => { setFilterColor(v); close(); }} active={filterColor === v}>{l}</DItem>
+            ))}
           </PortalDropdown>
         </div>
 
         {/* 彈數 */}
         <div ref={refs.series} style={{ flexShrink: 0 }}>
           <div style={filterSeries !== "全部彈數" ? CHIP_ON : CHIP} onClick={() => toggle("series")}>
-            {seriesLabel} <span style={{ fontSize: "10px", opacity: 0.6 }}>▾</span>
+            {seriesChipLabel} <span style={{ fontSize: "10px", opacity: 0.6 }}>▾</span>
           </div>
           <PortalDropdown anchorRef={refs.series} open={open === "series"}>
-            <div data-searchbar-dropdown style={{ maxHeight: "260px", overflowY: "auto" }}>
-              {seriesList.map(v => (
-                <DItem key={v} onClick={() => { setFilterSeries(v); close(); }} active={filterSeries === v}>{v === "全部彈數" ? "全部彈數" : v}</DItem>
+            <div style={{ maxHeight: "300px", overflowY: "auto" }}>
+              {SERIES_LIST.map(({ value, label }) => (
+                <DItem key={value} onClick={() => { setFilterSeries(value); close(); }} active={filterSeries === value}>
+                  {label}
+                </DItem>
               ))}
             </div>
           </PortalDropdown>
@@ -260,7 +257,7 @@ function SearchBar({
             {tagLabel} <span style={{ fontSize: "10px", opacity: 0.6 }}>▾</span>
           </div>
           <PortalDropdown anchorRef={refs.tag} open={open === "tag"}>
-            <div data-searchbar-dropdown style={{ width: "180px", maxHeight: "260px", overflowY: "auto" }}>
+            <div style={{ width: "180px", maxHeight: "260px", overflowY: "auto" }}>
               <div style={{ padding: "8px 10px", borderBottom: "1px solid #2d2440", position: "sticky", top: 0, background: "#1e1830" }}>
                 <input
                   type="text" value={tagSearch} onChange={e => setTagSearch(e.target.value)}
@@ -286,9 +283,11 @@ function SearchBar({
             {versionLabel} <span style={{ fontSize: "10px", opacity: 0.6 }}>▾</span>
           </div>
           <PortalDropdown anchorRef={refs.version} open={open === "version"}>
-            <div data-searchbar-dropdown style={{ maxHeight: "260px", overflowY: "auto" }}>
+            <div style={{ maxHeight: "260px", overflowY: "auto" }}>
               {versionList.map(v => (
-                <DItem key={v} onClick={() => { setFilterVersion(v); close(); }} active={filterVersion === v}>{v === "全部版本" ? "全部版本" : v.replace("_", "")}</DItem>
+                <DItem key={v} onClick={() => { setFilterVersion(v); close(); }} active={filterVersion === v}>
+                  {v === "全部版本" ? "全部版本" : v.replace("_", "")}
+                </DItem>
               ))}
             </div>
           </PortalDropdown>
@@ -330,7 +329,7 @@ function SearchBar({
         />
         <button style={{ ...BTN, borderColor: "#6b3fa0", color: "#c084fc", background: "#2d1e40" }} onClick={onImportCode}>
           {loading ? "讀取中..." : "📥 讀取代碼"}
-        </button>
+        </button> 
         <div style={{ flex: 1 }} />
         <a href="https://mail.google.com/mail/?view=cm&fs=1&to=holotcgtw.feedback@gmail.com&su=HoloTCG意見回饋&body=請在此填寫你的意見～"
           target="_blank" rel="noopener noreferrer"

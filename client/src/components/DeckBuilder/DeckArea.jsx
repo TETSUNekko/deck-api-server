@@ -1,11 +1,19 @@
 // src/components/DeckBuilder/DeckArea.jsx
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CardImage from "./CardImage";
 
 const DeckArea = React.forwardRef(function DeckArea(
   { oshiCards, deckCards, energyCards, setOshiCards, setDeckCards, setEnergyCards, filteredCards, onZoom, deckVisible },
   ref
 ) {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handler = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handler);
+    return () => window.removeEventListener("resize", handler);
+  }, []);
+
   const handleRemove = (setFn, index) => setFn(prev => prev.filter((_, i) => i !== index));
 
   const getZoomIndex = (cardData) =>
@@ -13,11 +21,11 @@ const DeckArea = React.forwardRef(function DeckArea(
 
   const total = oshiCards.length + deckCards.length + energyCards.length;
 
+  // 手機版隱藏邏輯
+  if (isMobile && !deckVisible) return null;
+
   const sectionTitle = (label, count, max) => (
-    <div style={{
-      display: "flex", alignItems: "center", gap: "8px",
-      marginBottom: "6px",
-    }}>
+    <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "6px" }}>
       <span style={{ fontSize: "12px", color: "#9b8ab0", fontWeight: 500 }}>{label}</span>
       <span style={{
         fontSize: "11px", padding: "1px 8px", borderRadius: "10px",
@@ -30,18 +38,37 @@ const DeckArea = React.forwardRef(function DeckArea(
     </div>
   );
 
+  const miniCardStyle = (hoverColor) => ({
+    width: "clamp(36px, 4vw, 52px)",
+    aspectRatio: "2/3",
+    borderRadius: "4px",
+    overflow: "hidden",
+    border: "1.5px solid #3d3155",
+    cursor: "pointer",
+    flexShrink: 0,
+    transition: "border-color 0.15s",
+  });
+
   return (
     <div
       ref={ref}
       style={{
-        display: deckVisible ? "flex" : undefined,
+        display: "flex",
         flexDirection: "column",
         background: "#1e1830",
         borderLeft: "1px solid #2d2440",
         height: "100%",
         overflow: "hidden",
+        // 手機版固定在底部
+        ...(isMobile ? {
+          position: "fixed",
+          bottom: 0, left: 0, right: 0,
+          height: "60vh",
+          zIndex: 100,
+          borderTop: "1px solid #2d2440",
+          borderLeft: "none",
+        } : {}),
       }}
-      className={`${deckVisible ? "flex" : "hidden"} md:flex flex-col`}
     >
       {/* 標題列 */}
       <div style={{
@@ -66,21 +93,12 @@ const DeckArea = React.forwardRef(function DeckArea(
                 {oshiCards.map((card, index) => (
                   <div
                     key={`oshi-${index}`}
-                    style={{
-                      width: "clamp(40px, 5vw, 56px)",
-                      aspectRatio: "2/3",
-                      borderRadius: "4px",
-                      overflow: "hidden",
-                      border: "1.5px solid #3d3155",
-                      cursor: "pointer",
-                      transition: "border-color 0.15s",
-                    }}
+                    style={miniCardStyle("#e879f9")}
                     onMouseEnter={e => e.currentTarget.style.borderColor = "#e879f9"}
                     onMouseLeave={e => e.currentTarget.style.borderColor = "#3d3155"}
                   >
                     <CardImage
                       card={card} version={card.version}
-                      className="w-full h-full"
                       onZoom={(url, cardData) => onZoom(url, cardData, getZoomIndex(cardData))}
                       onClick={() => handleRemove(setOshiCards, index)}
                     />
@@ -98,21 +116,12 @@ const DeckArea = React.forwardRef(function DeckArea(
             {deckCards.map((card, index) => (
               <div
                 key={`deck-${index}`}
-                style={{
-                  width: "clamp(40px, 5vw, 56px)",
-                  aspectRatio: "2/3",
-                  borderRadius: "4px",
-                  overflow: "hidden",
-                  border: "1.5px solid #3d3155",
-                  cursor: "pointer",
-                  transition: "border-color 0.15s",
-                }}
+                style={miniCardStyle("#c084fc")}
                 onMouseEnter={e => e.currentTarget.style.borderColor = "#c084fc"}
                 onMouseLeave={e => e.currentTarget.style.borderColor = "#3d3155"}
               >
                 <CardImage
                   card={card} version={card.version}
-                  className="w-full h-full"
                   onZoom={(url, cardData) => onZoom(url, cardData, getZoomIndex(cardData))}
                   onClick={() => handleRemove(setDeckCards, index)}
                 />
@@ -128,21 +137,12 @@ const DeckArea = React.forwardRef(function DeckArea(
             {energyCards.map((card, index) => (
               <div
                 key={`energy-${index}`}
-                style={{
-                  width: "clamp(40px, 5vw, 56px)",
-                  aspectRatio: "2/3",
-                  borderRadius: "4px",
-                  overflow: "hidden",
-                  border: "1.5px solid #3d3155",
-                  cursor: "pointer",
-                  transition: "border-color 0.15s",
-                }}
+                style={miniCardStyle("#5dbf94")}
                 onMouseEnter={e => e.currentTarget.style.borderColor = "#5dbf94"}
                 onMouseLeave={e => e.currentTarget.style.borderColor = "#3d3155"}
               >
                 <CardImage
                   card={card} version={card.version}
-                  className="w-full h-full"
                   onZoom={(url, cardData) => onZoom(url, cardData, getZoomIndex(cardData))}
                   onClick={() => handleRemove(setEnergyCards, index)}
                 />
@@ -155,8 +155,7 @@ const DeckArea = React.forwardRef(function DeckArea(
       {/* 底部總計 */}
       <div style={{
         padding: "8px 12px", borderTop: "1px solid #2d2440",
-        display: "flex", justifyContent: "space-between",
-        flexShrink: 0,
+        display: "flex", justifyContent: "space-between", flexShrink: 0,
       }}>
         <span style={{ fontSize: "11px", color: "#4a3f5c" }}>總計</span>
         <span style={{ fontSize: "11px", color: "#c084fc", fontWeight: 500 }}>{total} 張</span>

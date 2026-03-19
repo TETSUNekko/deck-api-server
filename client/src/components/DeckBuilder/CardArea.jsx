@@ -20,25 +20,31 @@ function CardArea({ filteredCards, onAddCard, onZoom }) {
 
       {/* 卡片格 */}
       <div style={{
-        flex: 1, overflowY: "auto", padding: "6px",
-        display: "flex", flexWrap: "wrap",
-        gap: "4px", alignContent: "flex-start",
+        flex: 1,
+        overflowY: "auto",
+        padding: "8px",
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fill, minmax(110px, 1fr))",
+        gridAutoRows: "165px",
+        gap: "6px",
+        alignContent: "flex-start",
       }}>
         {filteredCards.map((card) => (
           <div
             key={card.key}
             style={{
-              position: "relative", cursor: "pointer",
-              width: "clamp(60px, 7vw, 90px)",
-              aspectRatio: "2/3", borderRadius: "5px",
-              overflow: "hidden", border: "1.5px solid #2d2440",
+              position: "relative",
+              cursor: "pointer",
+              borderRadius: "6px",
+              overflow: "hidden",
+              border: "1.5px solid #2d2440",
+              height: "165px",
               transition: "border-color 0.15s, transform 0.1s",
-              flexShrink: 0,
             }}
             onClick={() => onAddCard(card, card.version)}
             onMouseEnter={e => {
               e.currentTarget.style.borderColor = "#6b3fa0";
-              e.currentTarget.style.transform = "scale(1.04)";
+              e.currentTarget.style.transform = "scale(1.03)";
             }}
             onMouseLeave={e => {
               e.currentTarget.style.borderColor = "#2d2440";
@@ -48,7 +54,6 @@ function CardArea({ filteredCards, onAddCard, onZoom }) {
             <CardImage
               card={card}
               version={card.version}
-              className="w-full h-full"
               onZoom={(url, cardData) => {
                 const index = filteredCards.findIndex(c => c.key === cardData.key);
                 onZoom(url, cardData, index);
@@ -57,8 +62,8 @@ function CardArea({ filteredCards, onAddCard, onZoom }) {
             <div style={{
               position: "absolute", bottom: 0, left: 0, right: 0,
               background: "rgba(0,0,0,0.65)", color: "rgba(255,255,255,0.85)",
-              fontSize: "8px", textAlign: "center", padding: "2px 3px",
-              letterSpacing: "0.02em", lineHeight: 1.3,
+              fontSize: "9px", textAlign: "center", padding: "2px 4px",
+              whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
             }}>
               {card.id} {card.version}
             </div>

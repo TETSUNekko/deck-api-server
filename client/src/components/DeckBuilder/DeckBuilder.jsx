@@ -55,17 +55,20 @@ function DeckBuilder() {
   const allCards = useMemo(() => {
     const rawCards = cardSets.flat();
     const uniqueCardMap = new Map();
-    rawCards.forEach((card) => {
+    rawCards.forEach((card, index) => {
       const key = `${card.id}-${(card.versions || []).join(",")}`;
-      if (!uniqueCardMap.has(key)) uniqueCardMap.set(key, card);
+      if (!uniqueCardMap.has(key)) {
+        // 記錄原始順序 index
+        uniqueCardMap.set(key, { ...card, sortType: card.grade || card.type, _order: index });
+      }
     });
-    return Array.from(uniqueCardMap.values()).map((card) => ({
-      ...card,
-      sortType: card.grade || card.type,
-    }));
+    return Array.from(uniqueCardMap.values());
   }, []);
 
   const indexedCards = useMemo(() => {
+    // 建立 id -> _order 的對應表
+    const orderMap = new Map(allCards.map(c => [c.id, c._order]));
+
     return Object.entries(byKey)
       .map(([key, relPath]) => {
         const [idVer, folder] = key.split("@");
@@ -78,8 +81,11 @@ function DeckBuilder() {
       })
       .filter(Boolean)
       .sort((a, b) => {
-        if (a.folder !== b.folder) return folderRank(a.folder) - folderRank(b.folder);
-        if (a.id !== b.id) return a.id.localeCompare(b.id);
+        // 先按照 cardList 原始順序排
+        const orderA = orderMap.get(a.id) ?? 99999;
+        const orderB = orderMap.get(b.id) ?? 99999;
+        if (orderA !== orderB) return orderA - orderB;
+        // 同一張卡不同版本，按版本字母排
         return a.version.localeCompare(b.version);
       });
   }, [allCards]);
@@ -398,7 +404,7 @@ function DeckBuilder() {
       {/* 版權 */}
       <div style={{
         position: "absolute", top: "8px", right: "16px",
-        fontSize: "11px", color: "#3d3155", zIndex: 50,
+        fontSize: "11px", color: "#c9b8e0", zIndex: 50,
       }}>
         © 2016 COVER Corp.
       </div>

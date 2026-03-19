@@ -1,111 +1,148 @@
+// src/components/DeckBuilder/ZoomModal.jsx
 import { parseKey } from "../../utils/imageIndex";
-import React, { useRef } from "react";
+import React, { useEffect, useState } from "react";
 
 function ZoomModal({ card, imageUrl, onClose, onPrev, onNext }) {
-  const zoomImageRef = useRef(null);
-  const translatedRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handler = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handler);
+    return () => window.removeEventListener("resize", handler);
+  }, []);
 
   if (!card || !imageUrl) return null;
 
-  // ✅ 用 key 解析
   const entry = card.key ? parseKey(card.key) : null;
-
   const base = import.meta.env.BASE_URL || "/";
   let primary = null;
   let fallback = null;
 
   if (entry) {
-    // 方案1：依照 folder
     primary = `${base}webpcards/${entry.folder}-trans/${entry.id}.webp`;
-
-    // 方案2：依照 id 前綴 (hSD01-017 → hSD01)
     const prefix = entry.id.split("-")[0];
     fallback = `${base}webpcards/${prefix}-trans/${entry.id}.webp`;
   }
 
+  const [showTranslated, setShowTranslated] = useState(true);
+
   const handleError = (e) => {
-    if (primary && fallback && e.currentTarget.src.endsWith(primary)) {
-      console.warn(`⚠️ 翻譯圖找不到 primary: ${primary}，改用 fallback`);
+    if (primary && fallback && !e.currentTarget.dataset.fallback) {
+      e.currentTarget.dataset.fallback = "true";
       e.currentTarget.src = fallback;
     } else {
-      console.error(`❌ 翻譯圖完全不存在: ${primary} / ${fallback}`);
-      e.currentTarget.style.display = "none";
+      setShowTranslated(false);
     }
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/80 overflow-y-auto" onClick={onClose}>
+    <div
+      style={{
+        position: "fixed", inset: 0, zIndex: 10000,
+        background: "rgba(0,0,0,0.88)",
+        display: "flex", alignItems: "center", justifyContent: "center",
+      }}
+      onClick={onClose}
+    >
+      {/* 圖片容器 */}
       <div
-        className="min-h-screen flex items-start justify-center py-6"
+        style={{
+          display: "flex",
+          flexDirection: isMobile ? "column" : "row",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "16px",
+          padding: isMobile ? "16px 16px 80px" : "24px 80px",
+          width: "100%",
+          height: "100%",
+          boxSizing: "border-box",
+          overflow: "auto",
+        }}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="relative bg-white rounded-xl p-4 w-full md:w-auto max-w-[95vw] md:max-w-[90vw]">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4">
-            {/* 原圖 */}
-            <img
-              src={imageUrl}
-              alt="原圖"
-              ref={zoomImageRef}
-              className="object-contain w-auto max-w-[90%] md:max-w-none md:w-auto md:max-h-[80vh]"
-            />
+        {/* 原圖 */}
+        <img
+          src={imageUrl}
+          alt="原圖"
+          style={{
+            flex: "1 1 0",
+            minWidth: 0,
+            maxHeight: isMobile ? "45vh" : "85vh",
+            width: "100%",
+            height: "auto",
+            objectFit: "contain",
+            borderRadius: "8px",
+          }}
+        />
 
-            {/* 翻譯圖 */}
-            {primary && (
-              <img
-                src={primary}
-                alt="翻譯圖"
-                ref={translatedRef}
-                className="object-contain w-auto max-w-[90%] md:max-w-none md:w-auto md:max-h-[80vh]"
-                onError={handleError}
-              />
-            )}
-          </div>
-
-          {/* 桌機右上角關閉 */}
-          <button
-            onClick={onClose}
-            className="hidden md:block absolute top-3 right-3 text-3xl leading-none text-black"
-            aria-label="close"
-          >
-            ✕
-          </button>
-        </div>
+        {/* 翻譯圖 */}
+        {primary && showTranslated && (
+          <img
+            src={primary}
+            alt="翻譯圖"
+            style={{
+              flex: "1 1 0",
+              minWidth: 0,
+              maxHeight: isMobile ? "45vh" : "85vh",
+              width: "100%",
+              height: "auto",
+              objectFit: "contain",
+              borderRadius: "8px",
+            }}
+            onError={handleError}
+          />
+        )}
       </div>
 
-      {/* 左右箭頭 */}
+      {/* 左箭頭 */}
       {onPrev && (
         <button
-          onClick={(e) => {
-            e.stopPropagation();
-            onPrev();
+          onClick={(e) => { e.stopPropagation(); onPrev(); }}
+          style={{
+            position: "fixed", left: "12px", top: "50%",
+            transform: "translateY(-50%)",
+            fontSize: "26px", color: "white",
+            background: "rgba(0,0,0,0.45)", border: "none",
+            borderRadius: "8px", padding: "8px 12px",
+            cursor: "pointer", zIndex: 10001,
           }}
-          className="fixed left-4 top-1/2 -translate-y-1/2 text-3xl text-white bg-black/40 hover:bg-black/70 px-2 py-1 rounded"
-        >
-          ←
-        </button>
-      )}
-      {onNext && (
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            onNext();
-          }}
-          className="fixed right-4 top-1/2 -translate-y-1/2 text-3xl text-white bg-black/40 hover:bg-black/70 px-2 py-1 rounded"
-        >
-          →
-        </button>
+          onMouseEnter={e => e.currentTarget.style.background = "rgba(0,0,0,0.75)"}
+          onMouseLeave={e => e.currentTarget.style.background = "rgba(0,0,0,0.45)"}
+        >←</button>
       )}
 
-      {/* 手機右下角關閉 */}
+      {/* 右箭頭 */}
+      {onNext && (
+        <button
+          onClick={(e) => { e.stopPropagation(); onNext(); }}
+          style={{
+            position: "fixed", right: "12px", top: "50%",
+            transform: "translateY(-50%)",
+            fontSize: "26px", color: "white",
+            background: "rgba(0,0,0,0.45)", border: "none",
+            borderRadius: "8px", padding: "8px 12px",
+            cursor: "pointer", zIndex: 10001,
+          }}
+          onMouseEnter={e => e.currentTarget.style.background = "rgba(0,0,0,0.75)"}
+          onMouseLeave={e => e.currentTarget.style.background = "rgba(0,0,0,0.45)"}
+        >→</button>
+      )}
+
+      {/* 關閉按鈕 */}
       <button
-        onClick={(e) => {
-          e.stopPropagation();
-          onClose();
+        onClick={(e) => { e.stopPropagation(); onClose(); }}
+        style={{
+          position: "fixed", top: "16px", right: "16px",
+          zIndex: 10001, background: "rgba(0,0,0,0.5)",
+          border: "1px solid rgba(255,255,255,0.2)",
+          color: "white", borderRadius: "50%",
+          width: "40px", height: "40px",
+          fontSize: "18px", cursor: "pointer",
+          display: "flex", alignItems: "center", justifyContent: "center",
         }}
-        className="md:hidden fixed bottom-6 right-6 z-[60] bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg"
-      >
-        ✕
-      </button>
+        onMouseEnter={e => e.currentTarget.style.background = "rgba(0,0,0,0.8)"}
+        onMouseLeave={e => e.currentTarget.style.background = "rgba(0,0,0,0.5)"}
+      >✕</button>
     </div>
   );
 }
