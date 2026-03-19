@@ -1,410 +1,344 @@
 // SearchBar.jsx
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
+import ReactDOM from "react-dom";
 
-function SearchBar({
-  filterType,
-  setFilterType,
-  searchTerm,
-  setSearchTerm,
-  filterColor,
-  setFilterColor,
-  filterGrade,
-  setFilterGrade,
-  filterSeries,
-  setFilterSeries,
-  supportSubtype,
-  setSupportSubtype,
-  filterVersion,
-  setFilterVersion,
-  shareCode,
-  setShareCode,
-  onExportImage,
-  exporting,
-  onExportCode,
-  onImportCode,
-  onClearDeck,
-  selectedTag,
-  setSelectedTag,
-  allTags,
-  loading
-}) {
-  
-  const [tagSearchInput, setTagSearchInput] = useState("");
-  const [tagDropdownOpen, setTagDropdownOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState(null); // 'main' | 'member' | 'support'
-  const [mainDropdownOpen, setMainDropdownOpen] = useState(false);
-  const [memberSubOpen, setMemberSubOpen] = useState(false);
-  const [supportSubOpen, setSupportSubOpen] = useState(false);
+// ── 共用樣式常數 ──────────────────────────────────────────
+const CHIP = {
+  display: "inline-flex", alignItems: "center", gap: "5px",
+  padding: "5px 14px", borderRadius: "20px",
+  border: "1px solid #3d3155", background: "#2a2240",
+  color: "#c9b8e0", fontSize: "13px", cursor: "pointer",
+  whiteSpace: "nowrap", flexShrink: 0, userSelect: "none",
+};
+const CHIP_ON = { ...CHIP, border: "1px solid #c084fc", background: "#3d2d55", color: "#e9d5ff" };
+const BTN = {
+  fontSize: "13px", padding: "6px 16px", borderRadius: "20px",
+  border: "1px solid", cursor: "pointer", fontWeight: 500,
+  whiteSpace: "nowrap", fontFamily: "inherit", lineHeight: 1.4,
+};
 
-  const dropdownRefs = useRef([]);
+// ── Portal Dropdown ────────────────────────────────────────
+// 把 dropdown 掛到 document.body，完全脫離 sticky stacking context
+function PortalDropdown({ anchorRef, open, children }) {
+  const [pos, setPos] = useState({ top: 0, left: 0 });
 
   useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (!dropdownRefs.current.some(ref => ref && ref.contains(e.target))) {
-        setActiveDropdown(null);      // 關閉卡片種類選單
-        setTagDropdownOpen(false);    // 關閉標籤選單
-        setMainDropdownOpen(false);
-        setMemberSubOpen(false);
-        setSupportSubOpen(false);
+    if (!open || !anchorRef.current) return;
+    const r = anchorRef.current.getBoundingClientRect();
+    setPos({ top: r.bottom + window.scrollY + 4, left: r.left + window.scrollX });
+  }, [open, anchorRef]);
+
+  if (!open) return null;
+
+  return ReactDOM.createPortal(
+    <div style={{
+      position: "absolute", top: pos.top, left: pos.left,
+      background: "#1e1830", border: "1px solid #3d3155",
+      borderRadius: "12px", zIndex: 99999,
+      minWidth: "140px", boxShadow: "0 12px 32px rgba(0,0,0,0.6)",
+      overflow: "hidden",
+    }}>
+      {children}
+    </div>,
+    document.body
+  );
+}
+
+// ── Dropdown Item ──────────────────────────────────────────
+function DItem({ onClick, children, active }) {
+  const [hover, setHover] = useState(false);
+  return (
+    <div
+      onClick={onClick}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      style={{
+        padding: "8px 16px", fontSize: "13px", cursor: "pointer",
+        color: active ? "#e9d5ff" : "#c9b8e0",
+        background: active ? "#3d2d55" : hover ? "#2a2240" : "transparent",
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
+// ── Main Component ─────────────────────────────────────────
+function SearchBar({
+  filterType, setFilterType,
+  searchTerm, setSearchTerm,
+  filterColor, setFilterColor,
+  filterGrade, setFilterGrade,
+  filterSeries, setFilterSeries,
+  supportSubtype, setSupportSubtype,
+  filterVersion, setFilterVersion,
+  shareCode, setShareCode,
+  onExportImage, exporting,
+  onExportCode, onImportCode, onClearDeck,
+  selectedTag, setSelectedTag, allTags,
+  loading,
+}) {
+  const [open, setOpen] = useState(null); // 目前展開的 dropdown 名稱
+  const [memberSub, setMemberSub] = useState(false);
+  const [supportSub, setSupportSub] = useState(false);
+  const [tagSearch, setTagSearch] = useState("");
+
+  // 每個 chip 的 ref（用來定位 portal）
+  const refs = {
+    type: useRef(null),
+    color: useRef(null),
+    series: useRef(null),
+    tag: useRef(null),
+    version: useRef(null),
+    member: useRef(null),
+    support: useRef(null),
+  };
+
+  const toggle = (name) => {
+    setOpen((p) => (p === name ? null : name));
+    setMemberSub(false);
+    setSupportSub(false);
+  };
+
+  const close = useCallback(() => {
+    setOpen(null);
+    setMemberSub(false);
+    setSupportSub(false);
+  }, []);
+
+  // 點外面關閉
+  useEffect(() => {
+    const handler = (e) => {
+      const clickedChip = Object.values(refs).some(r => r.current?.contains(e.target));
+      // portal 的 dropdown 內容直接在 body 下，只排除 chip 本身
+      if (!clickedChip) {
+        const dropdowns = document.querySelectorAll("[data-searchbar-dropdown]");
+        const clickedDropdown = Array.from(dropdowns).some(d => d.contains(e.target));
+        if (!clickedDropdown) close();
       }
     };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, [close]);
 
   const handleCopyCode = async () => {
     const data = await onExportCode();
     if (data) {
-      navigator.clipboard.writeText(data).then(() => {
-        alert(`📋 已複製代碼 ${data} 到剪貼簿！`);
-      }).catch(() => {
-        alert("❌ 無法複製代碼");
-      });
+      navigator.clipboard.writeText(data)
+        .then(() => alert(`📋 已複製代碼 ${data} 到剪貼簿！`))
+        .catch(() => alert("❌ 無法複製代碼"));
     }
   };
 
-  const typeDisplayName = {
-    "全部": "卡片種類",
-    "Oshi": "主推卡",
-    "Member": "成員卡",
-    "Support": "支援卡",
-    "Energy": "能量卡"
+  const clearAll = () => {
+    setSearchTerm(""); setFilterType("全部"); setFilterColor("全部顏色");
+    setFilterGrade("全部階級"); setFilterSeries("全部彈數");
+    setSupportSubtype("全部"); setFilterVersion("全部版本");
+    setSelectedTag("全部標籤"); setTagSearch("");
   };
+
+  // Labels
+  const typeMap = { "全部": "卡片種類", Oshi: "主推卡", Member: "成員卡", Support: "支援卡", Energy: "能量卡" };
   const extraLabel =
-    filterType === "Member" && filterGrade !== "全部階級"
-      ? ` - ${filterGrade}`
-      : filterType === "Support" && supportSubtype !== "全部"
-      ? ` - ${supportSubtype}`
-      : "";
+    filterType === "Member" && filterGrade !== "全部階級" ? ` · ${filterGrade}` :
+    filterType === "Support" && supportSubtype !== "全部" ? ` · ${supportSubtype}` : "";
+  const colorMap = { "全部顏色": "顏色", red: "紅", white: "白", blue: "藍", green: "綠", yellow: "黃", purple: "紫", colorless: "無色" };
+  const seriesLabel = filterSeries === "全部彈數" ? "彈數" : filterSeries;
+  const versionLabel = filterVersion === "全部版本" ? "版本" : filterVersion.replace("_", "");
+  const tagLabel = (!selectedTag || selectedTag === "全部標籤") ? "標籤" : `#${selectedTag}`;
 
+  const seriesList = [
+    "全部彈數","hYS01","hBP01","hBP02","hBP03","hBP04","hBP05","hBP06","hBP07",
+    "hSD01","hSD02","hSD03","hSD04","hSD05","hSD06","hSD07","hSD08","hSD09",
+    "hSD10","hSD11","hSD12","hSD13","hPR","hBD24","energy","PC_Set",
+  ];
+  const versionList = ["全部版本","_C","_U","_S","_R","_RR","_SR","_UR","_HR","_OC","_OSR","_OUR","_SEC","_P","_SY"];
+
+  // ── Render ────────────────────────────────────────────────
   return (
-    <div className="sticky top-0 z-40 bg-amber-50 p-3 border-b border-yellow-300 shadow-sm">
-      <div className="flex flex-wrap items-center gap-2 overflow-x-visible relative z-10">
-        <button
-          onClick={() => {
-            setSearchTerm("");
-            setFilterType("全部");
-            setFilterColor("全部顏色");
-            setFilterGrade("全部階級");
-            setFilterSeries("全部彈數");
-            setSupportSubtype("全部");
-            setFilterVersion("全部版本");
-            setSelectedTag("全部標籤");
-            setTagSearchInput("");
-          }}
-          className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded max-w-[150px] w-full text-sm truncate"
-        >
-          🔄 清空搜尋
-        </button>
+    <div style={{ position: "sticky", top: 0, zIndex: 40 }}>
 
-        <div className="relative" ref={el => dropdownRefs.current[0] = el}>  
-          <button
-            onClick={() => {
-              setMainDropdownOpen(!mainDropdownOpen);
-              setMemberSubOpen(false);
-              setSupportSubOpen(false);
+      {/* Row 1 — 篩選列 */}
+      <div style={{
+        display: "flex", alignItems: "center", gap: "8px",
+        padding: "8px 16px", background: "#1e1830",
+        borderBottom: "1px solid #2d2440",
+        overflowX: "auto", msOverflowStyle: "none", scrollbarWidth: "none",
+      }}>
+
+        {/* 搜尋框 */}
+        <div style={{
+          display: "flex", alignItems: "center", gap: "6px",
+          background: "#2a2240", border: "1px solid #3d3155",
+          borderRadius: "20px", padding: "5px 12px", flexShrink: 0,
+        }}>
+          <span style={{ fontSize: "13px", color: "#4a3f5c" }}>🔍</span>
+          <input
+            type="text" placeholder="搜尋卡號或名稱..."
+            value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}
+            style={{
+              background: "none", border: "none", outline: "none",
+              fontSize: "13px", color: "#c9b8e0", width: "130px", fontFamily: "inherit",
             }}
-            className="border rounded px-2 py-1 bg-white max-w-[160px] w-full text-sm truncate"
-          >
-            {typeDisplayName[filterType] || "卡片種類"}{extraLabel} ▾
-          </button>
-
-          {mainDropdownOpen && (
-            <div className="absolute bg-white border rounded shadow z-10 w-32 mt-1">
-              <div
-                className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
-                onClick={() => {
-                  setFilterType("全部");
-                  setFilterGrade("全部階級");
-                  setSupportSubtype("全部");
-                  setMainDropdownOpen(false);
-                }}
-              >
-                全部卡片
-              </div>
-              <div
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                onClick={() => {
-                  setFilterType("Oshi");
-                  setFilterGrade("全部階級");
-                  setSupportSubtype("全部");
-                  setMainDropdownOpen(false);
-                }}
-              >
-                主推卡
-              </div>
-
-              {/* 成員卡（有子選單） */}
-              <div className="relative">
-                <div
-                  className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => {
-                    setMemberSubOpen(!memberSubOpen);
-                    setSupportSubOpen(false);
-                  }}
-                >
-                  成員卡 ▸
-                </div>
-                {memberSubOpen && (
-                  <div className="absolute left-full top-0 bg-white border rounded shadow w-40 z-30">
-                    {["全部階級", "debut", "1st", "2nd", "buzz", "spot"].map((grade) => (
-                      <div
-                        key={grade}
-                        className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                        onClick={() => {
-                          setFilterType("Member");
-                          setFilterGrade(grade);
-                          setSupportSubtype("全部");
-                          setMainDropdownOpen(false);
-                          setMemberSubOpen(false);
-                        }}
-                      >
-                        {grade}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {/* 支援卡（有子選單） */}
-              <div className="relative">
-                <div
-                  className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => {
-                    setSupportSubOpen(!supportSubOpen);
-                    setMemberSubOpen(false);
-                  }}
-                >
-                  支援卡 ▸
-                </div>
-                {supportSubOpen && (
-                  <div className="absolute left-full top-0 bg-white border rounded shadow w-40 z-30">
-                    {["全部", "item", "event", "tool", "mascot", "fan", "staff"].map((subtype) => (
-                      <div
-                        key={subtype}
-                        className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                        onClick={() => {
-                          setFilterType("Support");
-                          setSupportSubtype(subtype);
-                          setFilterGrade("全部階級");
-                          setMainDropdownOpen(false);
-                          setSupportSubOpen(false);
-                        }}
-                      >
-                        {subtype}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              <div
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                onClick={() => {
-                  setFilterType("Energy");
-                  setFilterGrade("全部階級");
-                  setSupportSubtype("全部");
-                  setMainDropdownOpen(false);
-                }}
-              >
-                能量卡
-              </div>
-            </div>
-          )}
+          />
         </div>
-        <input
-          type="text"
-          placeholder="搜尋卡片編號或名稱..."
-          className="border rounded px-2 py-1 bg-white max-w-[150px] w-full text-sm truncate"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
 
-        <select className="border rounded px-2 py-1 max-w-[150px] w-full text-sm truncate" value={filterColor} onChange={(e) => setFilterColor(e.target.value)}>
-          <option value="全部顏色">全部顏色</option>
-          <option value="red">紅</option>
-          <option value="white">白</option>
-          <option value="blue">藍</option>
-          <option value="green">綠</option>
-          <option value="yellow">黃</option>
-          <option value="purple">紫</option>
-          <option value="colorless">無</option>
-        </select>
+        {/* 卡片種類 */}
+        <div ref={refs.type} style={{ flexShrink: 0 }}>
+          <div style={filterType !== "全部" ? CHIP_ON : CHIP} onClick={() => toggle("type")}>
+            {typeMap[filterType]}{extraLabel} <span style={{ fontSize: "10px", opacity: 0.6 }}>▾</span>
+          </div>
+          <PortalDropdown anchorRef={refs.type} open={open === "type"}>
+            <div data-searchbar-dropdown>
+              <DItem onClick={() => { setFilterType("全部"); setFilterGrade("全部階級"); setSupportSubtype("全部"); close(); }} active={filterType === "全部"}>全部卡片</DItem>
+              <DItem onClick={() => { setFilterType("Oshi"); setFilterGrade("全部階級"); setSupportSubtype("全部"); close(); }} active={filterType === "Oshi"}>主推卡</DItem>
 
-        <select className="border rounded px-2 py-1 max-w-[200px] w-full text-sm truncate" value={filterSeries} onChange={(e) => setFilterSeries(e.target.value)}>
-          <option value="全部彈數">全部彈數</option>
-          <option value="hYS01">hYS01 エントリーカップ「ブルーミングレディアンス」スタートエールセット</option>
-          <option value="hBP01">hBP01 ブースターパック「ブルーミングレディアンス」</option>
-          <option value="hBP02">hBP02 ブースターパック「クインテットスペクトラム」</option>
-          <option value="hBP03">hBP03 ブースターパック「エリートスパーク」</option>
-          <option value="hBP04">hBP04 ブースターパック「キュリアスユニバース」</option>
-          <option value="hBP05">hBP05 ブースターパック「エンチャントレガリア」</option>
-          <option value="hBP06">hBP06 ブースターパック「アヤカシヴァーミリオン」</option>
-          <option value="hBP07">hBP07 ブースターパック「ディーヴァフィーバー」</option>
-          <option value="hSD01">hSD01 スタートデッキ「ときのそら＆AZKi」</option>
-          <option value="hSD02">hSD02 スタートデッキ 赤 百鬼あやめ</option>
-          <option value="hSD03">hSD03 スタートデッキ 青 猫又おかゆ</option>
-          <option value="hSD04">hSD04 スタートデッキ 紫 癒月ちょこ</option>
-          <option value="hSD05">hSD05 スタートデッキ 白 轟はじめ</option>
-          <option value="hSD06">hSD06 スタートデッキ 緑 風真いろは</option>
-          <option value="hSD07">hSD07 スタートデッキ 黄 不知火フレア</option>
-          <option value="hSD08">hSD08 スタートデッキ 白 天音かなた</option>
-          <option value="hSD09">hSD09 スタートデッキ 赤 宝鐘マリン</option>
-          <option value="hSD10">hSD10 スタートデッキ FLOW GLOW 推し 輪堂千速</option>
-          <option value="hSD11">hSD11 スタートデッキ FLOW GLOW 推し 虎金妃笑虎</option>
-          <option value="hSD12">hSD12 スタートデッキ 推し Advent</option>
-          <option value="hSD13">hSD13 スタートデッキ 推し Justice</option>
-          <option value="hPR">PRカード</option>
-          <option value="hBD24">生日カード</option>
-        　<option value="energy">エールカード</option>
-          <option value="PC_Set">【イベント物販／hololive production OFFICIAL SHOP限定商品】オフィシャルホロカコレクション-PCセット-</option>
-        </select>
-
-        <div className="relative" ref={el => dropdownRefs.current[1] = el}>  
-          <button
-            onClick={() => setTagDropdownOpen(!tagDropdownOpen)}
-            className="border rounded px-2 py-1 bg-white min-w-[150px] max-w-[200px] text-left truncate"
-          >
-            {selectedTag ? `#${selectedTag}` : "搜尋卡片標籤..."} ▾
-          </button>
-
-          {tagDropdownOpen && (
-            <div className="absolute z-20 mt-1 w-full bg-white border rounded shadow max-h-60 overflow-y-auto">
-              <input
-                type="text"
-                value={tagSearchInput}
-                onChange={(e) => setTagSearchInput(e.target.value)}
-                className="w-full px-2 py-1 border-b"
-                placeholder="輸入標籤名稱..."
-              />
-
-              {/* ➕ 固定的「全部標籤」選項 */}
-              <div
-                onClick={() => {
-                  setSelectedTag("全部標籤");
-                  setTagDropdownOpen(false);
-                  setTagSearchInput("");
-                }}
-                className="px-4 py-1 hover:bg-gray-100 cursor-pointer font-semibold text-gray-600"
-              >
-                #全部標籤
+              {/* 成員卡 */}
+              <div ref={refs.member} style={{ position: "relative" }}>
+                <DItem onClick={() => { setMemberSub(p => !p); setSupportSub(false); }} active={filterType === "Member"}>
+                  <span style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>成員卡 <span>▸</span></span>
+                </DItem>
+                <PortalDropdown anchorRef={refs.member} open={memberSub}>
+                  <div data-searchbar-dropdown>
+                    {["全部階級","debut","1st","2nd","buzz","spot"].map(g => (
+                      <DItem key={g} onClick={() => { setFilterType("Member"); setFilterGrade(g); setSupportSubtype("全部"); close(); }} active={filterType === "Member" && filterGrade === g}>{g}</DItem>
+                    ))}
+                  </div>
+                </PortalDropdown>
               </div>
 
-              {/* 🔍 篩選後的標籤列表 */}
-              {allTags
-                .filter((tag) => tag.includes(tagSearchInput))
-                .map((tag) => (
-                  <div
-                    key={tag}
-                    onClick={() => {
-                      setSelectedTag(tag);
-                      setTagDropdownOpen(false);
-                      setTagSearchInput("");
-                    }}
-                    className="px-4 py-1 hover:bg-gray-100 cursor-pointer"
-                  >
-                    #{tag}
+              {/* 支援卡 */}
+              <div ref={refs.support} style={{ position: "relative" }}>
+                <DItem onClick={() => { setSupportSub(p => !p); setMemberSub(false); }} active={filterType === "Support"}>
+                  <span style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>支援卡 <span>▸</span></span>
+                </DItem>
+                <PortalDropdown anchorRef={refs.support} open={supportSub}>
+                  <div data-searchbar-dropdown>
+                    {["全部","item","event","tool","mascot","fan","staff"].map(s => (
+                      <DItem key={s} onClick={() => { setFilterType("Support"); setSupportSubtype(s); setFilterGrade("全部階級"); close(); }} active={filterType === "Support" && supportSubtype === s}>{s}</DItem>
+                    ))}
                   </div>
+                </PortalDropdown>
+              </div>
+
+              <DItem onClick={() => { setFilterType("Energy"); setFilterGrade("全部階級"); setSupportSubtype("全部"); close(); }} active={filterType === "Energy"}>能量卡</DItem>
+            </div>
+          </PortalDropdown>
+        </div>
+
+        {/* 顏色 */}
+        <div ref={refs.color} style={{ flexShrink: 0 }}>
+          <div style={filterColor !== "全部顏色" ? CHIP_ON : CHIP} onClick={() => toggle("color")}>
+            {colorMap[filterColor] || filterColor} <span style={{ fontSize: "10px", opacity: 0.6 }}>▾</span>
+          </div>
+          <PortalDropdown anchorRef={refs.color} open={open === "color"}>
+            <div data-searchbar-dropdown>
+              {[["全部顏色","全部顏色"],["red","紅"],["white","白"],["blue","藍"],["green","綠"],["yellow","黃"],["purple","紫"],["colorless","無色"]].map(([v,l]) => (
+                <DItem key={v} onClick={() => { setFilterColor(v); close(); }} active={filterColor === v}>{l}</DItem>
               ))}
             </div>
-          )}
+          </PortalDropdown>
         </div>
 
-        <select
-          className="border rounded px-2 py-1 max-w-[150px] w-full text-sm truncate"
-          value={filterVersion}
-          onChange={(e) => setFilterVersion(e.target.value)}
+        {/* 彈數 */}
+        <div ref={refs.series} style={{ flexShrink: 0 }}>
+          <div style={filterSeries !== "全部彈數" ? CHIP_ON : CHIP} onClick={() => toggle("series")}>
+            {seriesLabel} <span style={{ fontSize: "10px", opacity: 0.6 }}>▾</span>
+          </div>
+          <PortalDropdown anchorRef={refs.series} open={open === "series"}>
+            <div data-searchbar-dropdown style={{ maxHeight: "260px", overflowY: "auto" }}>
+              {seriesList.map(v => (
+                <DItem key={v} onClick={() => { setFilterSeries(v); close(); }} active={filterSeries === v}>{v === "全部彈數" ? "全部彈數" : v}</DItem>
+              ))}
+            </div>
+          </PortalDropdown>
+        </div>
+
+        {/* 標籤 */}
+        <div ref={refs.tag} style={{ flexShrink: 0 }}>
+          <div style={selectedTag && selectedTag !== "全部標籤" ? CHIP_ON : CHIP} onClick={() => toggle("tag")}>
+            {tagLabel} <span style={{ fontSize: "10px", opacity: 0.6 }}>▾</span>
+          </div>
+          <PortalDropdown anchorRef={refs.tag} open={open === "tag"}>
+            <div data-searchbar-dropdown style={{ width: "180px", maxHeight: "260px", overflowY: "auto" }}>
+              <div style={{ padding: "8px 10px", borderBottom: "1px solid #2d2440", position: "sticky", top: 0, background: "#1e1830" }}>
+                <input
+                  type="text" value={tagSearch} onChange={e => setTagSearch(e.target.value)}
+                  placeholder="搜尋標籤..."
+                  style={{
+                    width: "100%", background: "#2a2240", border: "1px solid #3d3155",
+                    borderRadius: "8px", padding: "4px 10px", fontSize: "13px",
+                    color: "#c9b8e0", outline: "none", fontFamily: "inherit",
+                  }}
+                />
+              </div>
+              <DItem onClick={() => { setSelectedTag("全部標籤"); close(); setTagSearch(""); }} active={!selectedTag || selectedTag === "全部標籤"}>#全部標籤</DItem>
+              {allTags.filter(t => t.includes(tagSearch)).map(tag => (
+                <DItem key={tag} onClick={() => { setSelectedTag(tag); close(); setTagSearch(""); }} active={selectedTag === tag}>#{tag}</DItem>
+              ))}
+            </div>
+          </PortalDropdown>
+        </div>
+
+        {/* 版本 */}
+        <div ref={refs.version} style={{ flexShrink: 0 }}>
+          <div style={filterVersion !== "全部版本" ? CHIP_ON : CHIP} onClick={() => toggle("version")}>
+            {versionLabel} <span style={{ fontSize: "10px", opacity: 0.6 }}>▾</span>
+          </div>
+          <PortalDropdown anchorRef={refs.version} open={open === "version"}>
+            <div data-searchbar-dropdown style={{ maxHeight: "260px", overflowY: "auto" }}>
+              {versionList.map(v => (
+                <DItem key={v} onClick={() => { setFilterVersion(v); close(); }} active={filterVersion === v}>{v === "全部版本" ? "全部版本" : v.replace("_", "")}</DItem>
+              ))}
+            </div>
+          </PortalDropdown>
+        </div>
+
+        {/* 分隔 */}
+        <div style={{ width: "1px", height: "18px", background: "#2d2440", flexShrink: 0, margin: "0 2px" }} />
+
+        {/* 清空篩選 */}
+        <div
+          style={{ ...CHIP, border: "1px solid transparent", background: "transparent", color: "#c9b8e0" }}
+          onMouseEnter={e => e.currentTarget.style.color = "#9b8ab0"}
+          onMouseLeave={e => e.currentTarget.style.color = "#c9b8e0"}
+          onClick={clearAll}
         >
-          <option value="全部版本">全部版本</option>
-          <option value="_C">C</option>
-          <option value="_U">U</option>
-          <option value="_S">S</option>
-          <option value="_R">R</option>
-          <option value="_RR">RR</option>
-          <option value="_SR">SR</option>
-          <option value="_UR">UR</option>
-          <option value="_HR">HR</option>
-          <option value="_OC">OC</option>
-          <option value="_OSR">OSR</option>
-          <option value="_OUR">OUR</option>
-          <option value="_SEC">SEC</option>
-          <option value="_P">P</option>
-          <option value="_SY">SY</option>
-        </select>
+          清空篩選
+        </div>
       </div>
 
-      <div className="mt-2 flex flex-wrap items-center gap-2">
-        <button 
-          onClick={onClearDeck}
-          className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded"
-        >
-          🧹 清空牌組
+      {/* Row 2 — 操作列 */}
+      <div style={{
+        display: "flex", alignItems: "center", gap: "8px",
+        padding: "7px 16px", background: "#1a1625",
+        borderBottom: "1px solid #2d2440",
+      }}>
+        <button style={{ ...BTN, borderColor: "#3d3155", color: "#9b8ab0", background: "#2a2240" }} onClick={onClearDeck}>🧹 清空牌組</button>
+        <button style={{ ...BTN, borderColor: "#2d6e50", color: "#5dbf94", background: "#1a3028" }} onClick={onExportImage}>
+          {exporting ? "匯出中..." : "🖼 匯出圖片"}
         </button>
-        <button
-          onClick={onExportImage}
-          className="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded flex items-center gap-2"
-        >
-          {exporting ? (
-            <svg className="animate-spin h-4 w-4 text-white" viewBox="0 0 24 24">
-              <circle className="opacity-25" cx="12" cy="12" r="10"
-                stroke="currentColor" strokeWidth="4" fill="none" />
-              <path className="opacity-75" fill="currentColor"
-                d="M4 12a8 8 0 018-8v8z" />
-            </svg>
-          ) : (
-            <>🖼 匯出圖片</>
-          )}
-        </button>
-
-        <button
-          onClick={handleCopyCode}
-          className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded"
-        >
-          🔗 分享代碼
-        </button>
-
+        <button style={{ ...BTN, borderColor: "#1e4a7a", color: "#5ba3e0", background: "#162033" }} onClick={handleCopyCode}>🔗 分享代碼</button>
         <input
-          type="text"
-          placeholder="輸入代碼..."
-          className="border px-2 py-1 rounded"
-          value={shareCode}
-          onChange={(e) => setShareCode(e.target.value)}
+          type="text" placeholder="輸入代碼..."
+          value={shareCode} onChange={e => setShareCode(e.target.value)}
+          style={{
+            fontSize: "13px", padding: "6px 12px", borderRadius: "20px",
+            border: "1px solid #3d3155", background: "#2a2240",
+            color: "#c9b8e0", width: "110px", outline: "none", fontFamily: "inherit",
+          }}
         />
-        <button
-          onClick={onImportCode}
-          className="bg-purple-500 hover:bg-purple-600 text-white px-3 py-1 rounded flex items-center gap-2"
-        >
-          {loading ? (
-            <svg className="animate-spin h-4 w-4 text-white" viewBox="0 0 24 24">
-              <circle className="opacity-25" cx="12" cy="12" r="10"
-                stroke="currentColor" strokeWidth="4" fill="none" />
-              <path className="opacity-75" fill="currentColor"
-                d="M4 12a8 8 0 018-8v8z" />
-            </svg>
-          ) : (
-            <>📥 讀取代碼</>
-          )}
+        <button style={{ ...BTN, borderColor: "#6b3fa0", color: "#c084fc", background: "#2d1e40" }} onClick={onImportCode}>
+          {loading ? "讀取中..." : "📥 讀取代碼"}
         </button>
-
-        <a
-          href="https://mail.google.com/mail/?view=cm&fs=1&to=holotcgtw.feedback@gmail.com&su=HoloTCG意見回饋&body=請在此填寫你的意見～"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded"
-        >
-          📮 意見回饋
-        </a>
-      </div>
-
-      <div className="mt-2 text-right text-[12px] text-gray-500 pr-1">
-        翻譯圖來源：<a
-          href="https://www.facebook.com/HoONeko"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline hover:text-blue-500"
-        >
-          鳳凰貓 Bushiroad Card Gamer 
-        </a>
+        <div style={{ flex: 1 }} />
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=holotcgtw.feedback@gmail.com&su=HoloTCG意見回饋&body=請在此填寫你的意見～"
+          target="_blank" rel="noopener noreferrer"
+          style={{ fontSize: "12px", color: "#c9b8e0", textDecoration: "underline" }}>意見回饋</a>
+        <span style={{ fontSize: "12px", color: "#3d3155" }}>｜</span>
+        <a href="https://www.facebook.com/HoONeko"
+          target="_blank" rel="noopener noreferrer"
+          style={{ fontSize: "12px", color: "#c9b8e0", textDecoration: "underline" }}>翻譯圖：鳳凰貓</a>
       </div>
     </div>
   );
