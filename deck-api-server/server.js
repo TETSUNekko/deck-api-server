@@ -18,6 +18,8 @@ const ALLOW_ORIGINS = new Set([
   'http://localhost:5173',
 ]);
 
+console.log('[DEBUG] DATABASE_URL:', process.env.DATABASE_URL?.slice(0, 30));
+
 app.use(cors({
   origin: (origin, cb) => {
     if (!origin) return cb(null, true);
