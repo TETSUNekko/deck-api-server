@@ -48,10 +48,8 @@ console.log('[Export] Using CARDS_DIR:', CARDS_DIR);
 
 /* ===================== 4) PostgreSQL 連線 ===================== */
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: process.env.DATABASE_URL?.includes('railway.internal')
-    ? false
-    : { rejectUnauthorized: false },
+  connectionString: process.env.DATABASE_URL || 'postgresql://postgres:zpUNdxJLHVpaFeQPtXuHWjMIhOQTfoLM@ballast.proxy.rlwy.net:27575/railway',
+  ssl: { rejectUnauthorized: false },
 });
 
 // 初始化資料表
