@@ -5,16 +5,18 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "postinstall": "npm rebuild canvas --build-from-source"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^2.2.0",
+    "canvas": "^2.11.2",
     "cors": "^2.8.5",
     "express": "^4.21.2",
     "puppeteer": "^24.6.1"
   },
   "description": ""
-
 }
