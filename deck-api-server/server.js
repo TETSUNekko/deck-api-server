@@ -1,111 +1,115 @@
 import express from 'express';
 import cors from 'cors';
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
+import { existsSync, mkdirSync } from 'fs';
 import { fetchDecklogData } from './decklog-scraper.cjs';
-import path from "path";
-import { createCanvas, loadImage } from "canvas";
-import { fileURLToPath } from "url";
+import path from 'path';
+import { createCanvas, loadImage } from 'canvas';
+import { fileURLToPath } from 'url';
+import pg from 'pg';
+
+const { Pool } = pg;
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-/* ===================== 1) 全域 CORS（最前面） ===================== */
+/* ===================== 1) 全域 CORS ===================== */
 const ALLOW_ORIGINS = new Set([
-  "https://tetsunekko.github.io",
-  "http://localhost:5173",
+  'https://tetsunekko.github.io',
+  'http://localhost:5173',
 ]);
 
 app.use(cors({
   origin: (origin, cb) => {
-    if (!origin) return cb(null, true);               // 允許非瀏覽器（curl/內網）
-    return cb(null, ALLOW_ORIGINS.has(origin));        // 嚴格白名單
+    if (!origin) return cb(null, true);
+    return cb(null, ALLOW_ORIGINS.has(origin));
   },
-  methods: ["GET", "POST", "OPTIONS"],
+  methods: ['GET', 'POST', 'OPTIONS'],
 }));
-
-// 確保所有預檢都過（避免被瀏覽器擋）
-app.options("*", cors());
+app.options('*', cors());
 
 /* ===================== 2) 基本中介層 ===================== */
-app.use(express.json());
+app.use(express.json({ limit: '2mb' }));
 
-// 請求追蹤（方便看 Railway 的 hit 狀況）
 app.use((req, res, next) => {
-  console.log(`[REQ] ${req.method} ${req.url} Origin=${req.headers.origin || "-"}`);
+  console.log(`[REQ] ${req.method} ${req.url} Origin=${req.headers.origin || '-'}`);
   next();
 });
 
-/* ===================== 3) 基礎變數與路徑 ===================== */
+/* ===================== 3) 路徑設定 ===================== */
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// 若 Railway 有掛 Volume，請在 Railway 的環境變數設 DB_DIR=/data
-const DB_DIR = process.env.DB_DIR || path.join(__dirname);
-try { mkdirSync(DB_DIR, { recursive: true }); } catch {}
-const DB_FILE = path.join(DB_DIR, "deckCodes.json");
-
-// 卡圖根目錄（用於 export-deck）
 const CARDS_DIR = process.env.CARDS_DIR
   ? path.resolve(process.env.CARDS_DIR)
-  : path.join(__dirname, "cards");
-console.log("[Export] Using CARDS_DIR:", CARDS_DIR);
+  : path.join(__dirname, 'cards');
+console.log('[Export] Using CARDS_DIR:', CARDS_DIR);
 
-/* ===================== 4) 健康檢查 ===================== */
-app.get("/", (req, res) => res.type("text").send("OK"));
-app.get("/healthz", (req, res) => res.json({ ok: true, uptime: process.uptime() }));
-app.get("/debug/ping", (req, res) => res.json({ ok: true, ts: Date.now() }));
+/* ===================== 4) PostgreSQL 連線 ===================== */
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: process.env.DATABASE_URL?.includes('railway.internal')
+    ? false
+    : { rejectUnauthorized: false },
+});
 
-/* ===================== 5) 小型「DB」工具 ===================== */
-const readDB = () => {
-  try {
-    if (!existsSync(DB_FILE)) return {};
-    return JSON.parse(readFileSync(DB_FILE, 'utf8'));
-  } catch (e) {
-    console.error('Error reading DB:', e);
-    return {};
-  }
-};
-const writeDB = (data) => {
-  try {
-    writeFileSync(DB_FILE, JSON.stringify(data, null, 2));
-  } catch (e) {
-    console.error('Error writing DB:', e);
-  }
-};
+// 初始化資料表
+async function initDB() {
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS deck_codes (
+      code      VARCHAR(10) PRIMARY KEY,
+      payload   JSONB       NOT NULL,
+      created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    )
+  `);
+  console.log('[DB] Table ready');
+}
 
-/* ===================== 6) 工具函式 ===================== */
+/* ===================== 5) 工具函式 ===================== */
 function genShareCode(len = 6) {
-  const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-  let s = "";
+  const alphabet = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let s = '';
   for (let i = 0; i < len; i++) s += alphabet[Math.floor(Math.random() * alphabet.length)];
   return s;
 }
+
 function simplifyCards(cards = []) {
   const map = new Map();
   for (const c of cards) {
     if (!c?.key) continue;
-    const add = Number.isFinite(c.count) ? Math.max(1, c.count|0) : 1; // 預設 1，避免 0/NaN
+    const add = Number.isFinite(c.count) ? Math.max(1, c.count | 0) : 1;
     if (!map.has(c.key)) map.set(c.key, { key: c.key, count: 0 });
     map.get(c.key).count += add;
   }
   return Array.from(map.values());
 }
+
 function parseKey(key) {
   if (!key) return null;
-  const [idver, folder] = key.split("@");
+  const [idver, folder] = key.split('@');
   if (!idver || !folder) return null;
-
   const m = idver.match(/^(h[A-Za-z]+\d*-\d{3})(_[A-Za-z0-9_]+)?$/);
   if (!m) return null;
-
-  const id = m[1];
-  const version = m[2] || "_C";
-  return { id, version, folder };
+  return { id: m[1], version: m[2] || '_C', folder };
 }
 
-/* ===================== 7) 路由：六碼分享 ===================== */
+// 清除 90 天前的舊代碼
+async function cleanExpiredCodes() {
+  const result = await pool.query(
+    `DELETE FROM deck_codes WHERE created_at < NOW() - INTERVAL '90 days'`
+  );
+  if (result.rowCount > 0) {
+    console.log(`[DB] Cleaned ${result.rowCount} expired codes`);
+  }
+}
+
+/* ===================== 6) 健康檢查 ===================== */
+app.get('/', (req, res) => res.type('text').send('OK'));
+app.get('/healthz', (req, res) => res.json({ ok: true, uptime: process.uptime() }));
+app.get('/debug/ping', (req, res) => res.json({ ok: true, ts: Date.now() }));
+
+/* ===================== 7) 六碼分享 ===================== */
 // 自動產生六碼（POST /save）
-app.post("/save", (req, res) => {
+app.post('/save', async (req, res) => {
   try {
     const { oshi = [], deck = [], energy = [] } = req.body || {};
     const payload = {
@@ -114,72 +118,115 @@ app.post("/save", (req, res) => {
       energy: simplifyCards(energy),
     };
 
-    const db = readDB();
-    let code = genShareCode(6), guard = 0;
-    while (db[code] && guard++ < 50) code = genShareCode(6);
-    if (db[code]) return res.status(500).json({ error: "Generate code failed (collision)" });
+    // 產生不重複的代碼
+    let code = genShareCode(6);
+    let guard = 0;
+    while (guard++ < 50) {
+      const { rows } = await pool.query('SELECT 1 FROM deck_codes WHERE code = $1', [code]);
+      if (rows.length === 0) break;
+      code = genShareCode(6);
+    }
 
-    db[code] = payload;
-    writeDB(db);
-    console.log("[SAVE] new share code:", code);
+    await pool.query(
+      'INSERT INTO deck_codes (code, payload) VALUES ($1, $2)',
+      [code, JSON.stringify(payload)]
+    );
+
+    // 每次儲存時順便清理過期代碼
+    cleanExpiredCodes().catch(console.error);
+
+    console.log('[SAVE] new share code:', code);
     res.json({ code });
   } catch (e) {
-    console.error("POST /save error:", e);
-    res.status(500).json({ error: "Save failed" });
+    console.error('POST /save error:', e);
+    res.status(500).json({ error: 'Save failed' });
   }
 });
 
 // 指定六碼（POST /save/:code）
-app.post('/save/:code', (req, res) => {
-  const { code } = req.params;
-  const { oshi = [], deck = [], energy = [] } = req.body || {};
-  const payload = {
-    oshi: simplifyCards(oshi),
-    deck: simplifyCards(deck),
-    energy: simplifyCards(energy),
-  };
-  const dbData = readDB();
-  dbData[code] = payload;
-  writeDB(dbData);
-  res.json({ success: true });
+app.post('/save/:code', async (req, res) => {
+  try {
+    const { code } = req.params;
+    const { oshi = [], deck = [], energy = [] } = req.body || {};
+    const payload = {
+      oshi: simplifyCards(oshi),
+      deck: simplifyCards(deck),
+      energy: simplifyCards(energy),
+    };
+    await pool.query(
+      `INSERT INTO deck_codes (code, payload)
+       VALUES ($1, $2)
+       ON CONFLICT (code) DO UPDATE SET payload = $2, created_at = NOW()`,
+      [code, JSON.stringify(payload)]
+    );
+    res.json({ success: true });
+  } catch (e) {
+    console.error('POST /save/:code error:', e);
+    res.status(500).json({ error: 'Save failed' });
+  }
 });
 
 // 讀取六碼（GET /load/:code）
-app.get('/load/:code', (req, res) => {
-  const { code } = req.params;
-  const dbData = readDB();
-  if (dbData[code]) return res.json(dbData[code]);
-  return res.status(404).json({ error: 'Code not found' });
+app.get('/load/:code', async (req, res) => {
+  try {
+    const { code } = req.params;
+    const { rows } = await pool.query(
+      'SELECT payload, created_at FROM deck_codes WHERE code = $1',
+      [code]
+    );
+    if (rows.length === 0) return res.status(404).json({ error: 'Code not found' });
+
+    // 檢查是否過期（90天）
+    const age = Date.now() - new Date(rows[0].created_at).getTime();
+    if (age > 90 * 24 * 60 * 60 * 1000) {
+      return res.status(404).json({ error: 'Code expired' });
+    }
+
+    return res.json(rows[0].payload);
+  } catch (e) {
+    console.error('GET /load/:code error:', e);
+    res.status(500).json({ error: 'Load failed' });
+  }
 });
 
-/* ===================== 8) 路由：五碼 decklog 匯入 ===================== */
-app.get("/import-decklog/:code", async (req, res, next) => {
+/* ===================== 8) 五碼 decklog 匯入 ===================== */
+app.get('/import-decklog/:code', async (req, res, next) => {
   try {
-    const code = (req.params.code || "").trim().toUpperCase();
-    console.log("[/import-decklog] hit:", code, "Origin:", req.headers.origin || "-");
+    const code = (req.params.code || '').trim().toUpperCase();
+    console.log('[/import-decklog] hit:', code);
 
-    // 乾跑：用來驗證 CORS/路由/部署
-    if (req.query.dry === "1") {
+    if (req.query.dry === '1') {
       return res.json({ oshi: [], deck: [], energy: [], _dry: true, code });
     }
 
-    const data = await fetchDecklogData(code);
-    console.log("[/import-decklog] ok", {
+    // 加上 30 秒 timeout
+    const timeoutPromise = new Promise((_, reject) =>
+      setTimeout(() => reject(new Error('Decklog fetch timeout')), 30000)
+    );
+    const data = await Promise.race([fetchDecklogData(code), timeoutPromise]);
+
+    console.log('[/import-decklog] ok', {
       oshi: data.oshi?.length || 0,
       deck: data.deck?.length || 0,
       energy: data.energy?.length || 0,
     });
     return res.json(data);
   } catch (err) {
-    console.error("[/import-decklog] fail:", err?.message || err);
-    return next(err); // 交給全域錯誤處理器（會帶 CORS）
+    console.error('[/import-decklog] fail:', err?.message || err);
+    return next(err);
   }
 });
 
-/* ===================== 9) 路由：牌組圖輸出（export-deck） ===================== */
-app.post("/export-deck", async (req, res, next) => {
+/* ===================== 9) 牌組圖輸出 ===================== */
+app.post('/export-deck', async (req, res, next) => {
   try {
     const { oshi = [], deck = [], energy = [] } = req.body;
+
+    // 上限保護
+    const MAX_OSHI = 1, MAX_DECK = 50, MAX_ENERGY = 20;
+    if (oshi.length > MAX_OSHI || deck.length > MAX_DECK || energy.length > MAX_ENERGY) {
+      return res.status(400).json({ error: 'Card count exceeds limit' });
+    }
 
     const canvasW = 1400;
     const cardW = 140, cardH = 196, gap = 12;
@@ -198,21 +245,21 @@ app.post("/export-deck", async (req, res, next) => {
     );
 
     const canvas = createCanvas(canvasW, canvasH);
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext('2d');
 
     try {
-      const bgPath = path.join(CARDS_DIR, "backgrounds", "wood.jpg");
+      const bgPath = path.join(CARDS_DIR, 'backgrounds', 'wood.jpg');
       const bgImg = await loadImage(bgPath);
       ctx.drawImage(bgImg, 0, 0, canvasW, canvasH);
     } catch (e) {
-      console.warn("⚠️ 背景載入失敗:", e.message, "→ 改用灰色背景");
-      ctx.fillStyle = "#f5f5f5";
+      console.warn('⚠️ 背景載入失敗，改用灰色背景');
+      ctx.fillStyle = '#f5f5f5';
       ctx.fillRect(0, 0, canvasW, canvasH);
     }
 
-    ctx.font = "20px Arial";
-    ctx.textBaseline = "top";
-    ctx.textAlign = "left";
+    ctx.font = '20px Arial';
+    ctx.textBaseline = 'top';
+    ctx.textAlign = 'left';
 
     async function drawCard(ctx, filePath, x, y, w, h, count) {
       try {
@@ -221,35 +268,35 @@ app.post("/export-deck", async (req, res, next) => {
         if (count > 1) {
           const boxW = 40, boxH = 24;
           const boxX = x + w - boxW - 4, boxY = y + h - boxH - 4;
-          ctx.fillStyle = "rgba(0,0,0,.72)";
+          ctx.fillStyle = 'rgba(0,0,0,.72)';
           ctx.fillRect(boxX, boxY, boxW, boxH);
-          ctx.fillStyle = "#fff";
-          ctx.font = "bold 16px Arial";
-          ctx.textAlign = "center";
-          ctx.textBaseline = "middle";
+          ctx.fillStyle = '#fff';
+          ctx.font = 'bold 16px Arial';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
           ctx.fillText(`x${count}`, boxX + boxW / 2, boxY + boxH / 2);
         }
       } catch (err) {
-        console.error("❌ 載入卡片失敗:", filePath, err.message);
-        ctx.fillStyle = "red";
+        console.error('❌ 載入卡片失敗:', filePath, err.message);
+        ctx.fillStyle = '#2a2240';
         ctx.fillRect(x, y, w, h);
-        ctx.fillStyle = "#fff";
-        ctx.font = "bold 18px Arial";
-        ctx.textAlign = "center";
-        ctx.textBaseline = "middle";
-        ctx.fillText("❌", x + w / 2, y + h / 2);
+        ctx.fillStyle = '#c084fc';
+        ctx.font = 'bold 18px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('❌', x + w / 2, y + h / 2);
       }
     }
 
     function drawTitle(ctx, text, x, y) {
-      ctx.font = "bold 22px Arial";
-      ctx.textAlign = "left";
-      ctx.textBaseline = "top";
-      ctx.lineJoin = "round";
+      ctx.font = 'bold 22px Arial';
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'top';
+      ctx.lineJoin = 'round';
       ctx.lineWidth = 4;
-      ctx.strokeStyle = "white";
+      ctx.strokeStyle = 'white';
       ctx.strokeText(text, x, y);
-      ctx.fillStyle = "black";
+      ctx.fillStyle = 'black';
       ctx.fillText(text, x, y);
     }
 
@@ -257,12 +304,10 @@ app.post("/export-deck", async (req, res, next) => {
     {
       const total = oshi.reduce((a, c) => a + (c.count || 1), 0);
       drawTitle(ctx, `OSHI (${total})`, 40, 20);
-
       if (oshi[0]) {
         const entry = parseKey(oshi[0].key);
         if (entry) {
-          const filename = `${entry.id}${entry.version}.png`;
-          const filePath = path.join(CARDS_DIR, entry.folder || "MISSING", filename);
+          const filePath = path.join(CARDS_DIR, entry.folder, `${entry.id}${entry.version}.png`);
           await drawCard(ctx, filePath, 40, oshiTop, cardW, cardH, oshi[0].count || 1);
         }
       }
@@ -272,17 +317,14 @@ app.post("/export-deck", async (req, res, next) => {
     {
       const total = deck.reduce((a, c) => a + (c.count || 1), 0);
       drawTitle(ctx, `MAIN (${total})`, 300, 20);
-
       for (let i = 0; i < deck.length; i++) {
         const col = i % mainCols;
         const row = Math.floor(i / mainCols);
         const x = 300 + col * (cardW + gap);
         const y = 60 + row * (cardH + gap);
-
         const entry = parseKey(deck[i].key);
         if (!entry) continue;
-        const filename = `${entry.id}${entry.version}.png`;
-        const filePath = path.join(CARDS_DIR, entry.folder || "MISSING", filename);
+        const filePath = path.join(CARDS_DIR, entry.folder, `${entry.id}${entry.version}.png`);
         await drawCard(ctx, filePath, x, y, cardW, cardH, deck[i].count || 1);
       }
     }
@@ -291,37 +333,41 @@ app.post("/export-deck", async (req, res, next) => {
     {
       const total = energy.reduce((a, c) => a + (c.count || 1), 0);
       drawTitle(ctx, `ENERGY (${total})`, 40, energyBaseY);
-
       const smallW = 110, smallH = 155;
       for (let i = 0; i < energy.length; i++) {
         const col = i % 2;
         const row = Math.floor(i / 2);
         const x = 40 + col * (smallW + gap);
         const y = energyBaseY + 40 + row * (smallH + gap);
-
         const entry = parseKey(energy[i].key);
         if (!entry) continue;
-        const filename = `${entry.id}${entry.version}.png`;
-        const filePath = path.join(CARDS_DIR, entry.folder || "MISSING", filename);
+        const filePath = path.join(CARDS_DIR, entry.folder, `${entry.id}${entry.version}.png`);
         await drawCard(ctx, filePath, x, y, smallW, smallH, energy[i].count || 1);
       }
     }
 
-    res.setHeader("Content-Type", "image/png");
+    res.setHeader('Content-Type', 'image/png');
     return canvas.pngStream().pipe(res);
   } catch (err) {
     return next(err);
   }
 });
 
-/* ===================== 10) 全域錯誤處理（也會帶 CORS） ===================== */
+/* ===================== 10) 全域錯誤處理 ===================== */
 app.use((err, req, res, next) => {
-  console.error("[ERR]", err?.stack || err?.message || err);
-  // 若需要可根據 ALLOW_ORIGINS 手動補 header，但 cors() 通常已處理
-  res.status(500).json({ error: "Server error" });
+  console.error('[ERR]', err?.stack || err?.message || err);
+  res.status(500).json({ error: 'Server error' });
 });
 
 /* ===================== 11) 啟動 ===================== */
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Deck server running on http://0.0.0.0:${PORT}`);
+async function start() {
+  await initDB();
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Deck server running on http://0.0.0.0:${PORT}`);
+  });
+}
+
+start().catch((err) => {
+  console.error('Failed to start:', err);
+  process.exit(1);
 });
