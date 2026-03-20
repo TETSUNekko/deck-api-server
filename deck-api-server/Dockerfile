@@ -18,6 +18,9 @@ RUN apt-get update && apt-get install -y \
 COPY package*.json ./
 RUN npm install
 
+# 安裝 Puppeteer 需要的 Chrome
+RUN npx puppeteer browsers install chrome
+
 # 複製剩下的專案檔案
 COPY . .
 
