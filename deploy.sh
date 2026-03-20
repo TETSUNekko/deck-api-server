@@ -1,23 +1,17 @@
 #!/bin/bash
+set -e
 
-# === HoloTCG GitHub Pages 一鍵部署腳本 ===
+echo "📦 [1/3] Push 後端到 GitHub（Railway 自動部署）"
+git add .
+git commit -m "deploy: $(date '+%Y-%m-%d %H:%M:%S')" || echo "⚠️ Nothing to commit"
+git push origin main
 
-echo "🛠️ [1/5] 建立 dist"
+echo "🛠️ [2/3] 建立前端 dist"
 npm run --prefix client build
 
-echo "📂 [2/5] 進入 dist 資料夾"
-cd client/dist
+echo "📤 [3/3] 部署前端到 GitHub Pages"
+npm run --prefix client deploy
 
-echo "🔧 [3/5] 初始化 git repo"
-git init
-git checkout -b gh-pages
-git remote add origin https://github.com/TETSUNekko/holotcgtw.git
-
-echo "📦 [4/5] 加入檔案並 Commit"
-git add .
-git commit -m "🚀 Deploy $(date '+%Y-%m-%d %H:%M:%S')"
-
-echo "📤 [5/5] 推送 gh-pages（--force）"
-git push -f origin gh-pages
-
-echo "✅ 部署完成！請查看 👉 https://tetsunekko.github.io/holotcgtw"
+echo "✅ 完成！"
+echo "🌐 前端：https://tetsunekko.github.io/holotcgtw"
+echo "⚙️ 後端：https://deck-api-server-production.up.railway.app"
