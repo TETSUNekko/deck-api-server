@@ -4,9 +4,18 @@ FROM ghcr.io/puppeteer/puppeteer:latest
 # 設定工作目錄
 WORKDIR /app
 
+# 安裝 canvas 所需的系統依賴
+USER root
+RUN apt-get update && apt-get install -y \
+    libcairo2-dev \
+    libpango1.0-dev \
+    libjpeg-dev \
+    libgif-dev \
+    librsvg2-dev \
+    && rm -rf /var/lib/apt/lists/*
+
 # 複製 package 檔案並安裝依賴
 COPY package*.json ./
-USER root
 RUN npm install
 
 # 複製剩下的專案檔案
