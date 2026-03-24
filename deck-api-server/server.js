@@ -41,10 +41,9 @@ app.use((req, res, next) => {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const CARDS_DIR = process.env.CARDS_DIR
-  ? path.resolve(process.env.CARDS_DIR)
-  : path.join(__dirname, 'cards');
-console.log('[Export] Using CARDS_DIR:', CARDS_DIR);
+// 卡圖 CDN（Cloudflare R2）
+const CARDS_CDN = process.env.CARDS_CDN || 'https://pub-9e063c0641df4849b7460815c8ee4a6d.r2.dev/cards';
+console.log('[Export] Using CARDS_CDN:', CARDS_CDN);
 
 /* ===================== 4) PostgreSQL 連線 ===================== */
 const pool = new Pool({
@@ -52,7 +51,6 @@ const pool = new Pool({
   ssl: { rejectUnauthorized: false },
 });
 
-// 初始化資料表
 async function initDB() {
   await pool.query(`
     CREATE TABLE IF NOT EXISTS deck_codes (
@@ -92,7 +90,6 @@ function parseKey(key) {
   return { id: m[1], version: m[2] || '_C', folder };
 }
 
-// 清除 90 天前的舊代碼
 async function cleanExpiredCodes() {
   const result = await pool.query(
     `DELETE FROM deck_codes WHERE created_at < NOW() - INTERVAL '90 days'`
@@ -108,7 +105,6 @@ app.get('/healthz', (req, res) => res.json({ ok: true, uptime: process.uptime() 
 app.get('/debug/ping', (req, res) => res.json({ ok: true, ts: Date.now() }));
 
 /* ===================== 7) 六碼分享 ===================== */
-// 自動產生六碼（POST /save）
 app.post('/save', async (req, res) => {
   try {
     const { oshi = [], deck = [], energy = [] } = req.body || {};
@@ -118,7 +114,6 @@ app.post('/save', async (req, res) => {
       energy: simplifyCards(energy),
     };
 
-    // 產生不重複的代碼
     let code = genShareCode(6);
     let guard = 0;
     while (guard++ < 50) {
@@ -132,7 +127,6 @@ app.post('/save', async (req, res) => {
       [code, JSON.stringify(payload)]
     );
 
-    // 每次儲存時順便清理過期代碼
     cleanExpiredCodes().catch(console.error);
 
     console.log('[SAVE] new share code:', code);
@@ -143,7 +137,6 @@ app.post('/save', async (req, res) => {
   }
 });
 
-// 指定六碼（POST /save/:code）
 app.post('/save/:code', async (req, res) => {
   try {
     const { code } = req.params;
@@ -166,7 +159,6 @@ app.post('/save/:code', async (req, res) => {
   }
 });
 
-// 讀取六碼（GET /load/:code）
 app.get('/load/:code', async (req, res) => {
   try {
     const { code } = req.params;
@@ -176,7 +168,6 @@ app.get('/load/:code', async (req, res) => {
     );
     if (rows.length === 0) return res.status(404).json({ error: 'Code not found' });
 
-    // 檢查是否過期（90天）
     const age = Date.now() - new Date(rows[0].created_at).getTime();
     if (age > 90 * 24 * 60 * 60 * 1000) {
       return res.status(404).json({ error: 'Code expired' });
@@ -199,7 +190,6 @@ app.get('/import-decklog/:code', async (req, res, next) => {
       return res.json({ oshi: [], deck: [], energy: [], _dry: true, code });
     }
 
-    // 加上 30 秒 timeout
     const timeoutPromise = new Promise((_, reject) =>
       setTimeout(() => reject(new Error('Decklog fetch timeout')), 30000)
     );
@@ -217,12 +207,11 @@ app.get('/import-decklog/:code', async (req, res, next) => {
   }
 });
 
-/* ===================== 9) 牌組圖輸出 ===================== */
+/* ===================== 9) 牌組圖輸出（使用 R2 CDN）===================== */
 app.post('/export-deck', async (req, res, next) => {
   try {
     const { oshi = [], deck = [], energy = [] } = req.body;
 
-    // 上限保護
     const MAX_OSHI = 1, MAX_DECK = 50, MAX_ENERGY = 20;
     if (oshi.length > MAX_OSHI || deck.length > MAX_DECK || energy.length > MAX_ENERGY) {
       return res.status(400).json({ error: 'Card count exceeds limit' });
@@ -232,8 +221,7 @@ app.post('/export-deck', async (req, res, next) => {
     const cardW = 140, cardH = 196, gap = 12;
     const mainCols = 7;
     const mainRows = Math.ceil((deck.length || 0) / mainCols);
-    const energyCols = 2;
-    const energyRows = Math.ceil((energy.length || 0) / energyCols);
+    const energyRows = Math.ceil((energy.length || 0) / 2);
 
     const oshiTop = 60;
     const oshiBottom = oshiTop + cardH;
@@ -247,9 +235,10 @@ app.post('/export-deck', async (req, res, next) => {
     const canvas = createCanvas(canvasW, canvasH);
     const ctx = canvas.getContext('2d');
 
+    // 背景圖從 CDN 讀取
     try {
-      const bgPath = path.join(CARDS_DIR, 'backgrounds', 'wood.jpg');
-      const bgImg = await loadImage(bgPath);
+      const bgUrl = `${CARDS_CDN}/backgrounds/wood.jpg`;
+      const bgImg = await loadImage(bgUrl);
       ctx.drawImage(bgImg, 0, 0, canvasW, canvasH);
     } catch (e) {
       console.warn('⚠️ 背景載入失敗，改用灰色背景');
@@ -261,9 +250,9 @@ app.post('/export-deck', async (req, res, next) => {
     ctx.textBaseline = 'top';
     ctx.textAlign = 'left';
 
-    async function drawCard(ctx, filePath, x, y, w, h, count) {
+    async function drawCard(ctx, url, x, y, w, h, count) {
       try {
-        const img = await loadImage(filePath);
+        const img = await loadImage(url);
         ctx.drawImage(img, x, y, w, h);
         if (count > 1) {
           const boxW = 40, boxH = 24;
@@ -277,7 +266,7 @@ app.post('/export-deck', async (req, res, next) => {
           ctx.fillText(`x${count}`, boxX + boxW / 2, boxY + boxH / 2);
         }
       } catch (err) {
-        console.error('❌ 載入卡片失敗:', filePath, err.message);
+        console.error('❌ 載入卡片失敗:', url, err.message);
         ctx.fillStyle = '#2a2240';
         ctx.fillRect(x, y, w, h);
         ctx.fillStyle = '#c084fc';
@@ -300,20 +289,20 @@ app.post('/export-deck', async (req, res, next) => {
       ctx.fillText(text, x, y);
     }
 
-    // OSHI
+    // OSHI — 從 CDN 讀圖
     {
       const total = oshi.reduce((a, c) => a + (c.count || 1), 0);
       drawTitle(ctx, `OSHI (${total})`, 40, 20);
       if (oshi[0]) {
         const entry = parseKey(oshi[0].key);
         if (entry) {
-          const filePath = path.join(CARDS_DIR, entry.folder, `${entry.id}${entry.version}.png`);
-          await drawCard(ctx, filePath, 40, oshiTop, cardW, cardH, oshi[0].count || 1);
+          const url = `${CARDS_CDN}/${entry.folder}/${entry.id}${entry.version}.png`;
+          await drawCard(ctx, url, 40, oshiTop, cardW, cardH, oshi[0].count || 1);
         }
       }
     }
 
-    // MAIN
+    // MAIN — 從 CDN 讀圖
     {
       const total = deck.reduce((a, c) => a + (c.count || 1), 0);
       drawTitle(ctx, `MAIN (${total})`, 300, 20);
@@ -324,12 +313,12 @@ app.post('/export-deck', async (req, res, next) => {
         const y = 60 + row * (cardH + gap);
         const entry = parseKey(deck[i].key);
         if (!entry) continue;
-        const filePath = path.join(CARDS_DIR, entry.folder, `${entry.id}${entry.version}.png`);
-        await drawCard(ctx, filePath, x, y, cardW, cardH, deck[i].count || 1);
+        const url = `${CARDS_CDN}/${entry.folder}/${entry.id}${entry.version}.png`;
+        await drawCard(ctx, url, x, y, cardW, cardH, deck[i].count || 1);
       }
     }
 
-    // ENERGY
+    // ENERGY — 從 CDN 讀圖
     {
       const total = energy.reduce((a, c) => a + (c.count || 1), 0);
       drawTitle(ctx, `ENERGY (${total})`, 40, energyBaseY);
@@ -341,8 +330,8 @@ app.post('/export-deck', async (req, res, next) => {
         const y = energyBaseY + 40 + row * (smallH + gap);
         const entry = parseKey(energy[i].key);
         if (!entry) continue;
-        const filePath = path.join(CARDS_DIR, entry.folder, `${entry.id}${entry.version}.png`);
-        await drawCard(ctx, filePath, x, y, smallW, smallH, energy[i].count || 1);
+        const url = `${CARDS_CDN}/${entry.folder}/${entry.id}${entry.version}.png`;
+        await drawCard(ctx, url, x, y, smallW, smallH, energy[i].count || 1);
       }
     }
 
