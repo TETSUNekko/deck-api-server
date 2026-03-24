@@ -1,10 +1,10 @@
-# 使用 Puppeteer 官方映像作為基礎
+# 使用 Puppeteer 官方映像
 FROM ghcr.io/puppeteer/puppeteer:latest
 
-WORKDIR /app
-
-# 安裝 canvas 系統依賴
+# 切換到 root 以安裝系統套件
 USER root
+
+# 1. 安裝 node-canvas 必要的系統依賴
 RUN apt-get update && apt-get install -y \
     libcairo2-dev \
     libpango1.0-dev \
@@ -13,24 +13,32 @@ RUN apt-get update && apt-get install -y \
     librsvg2-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# 複製 package 檔案並安裝依賴
+WORKDIR /app
+
+# 2. 設定 Puppeteer 快取目錄（這會影響 npx 安裝的位置）
+ENV PUPPETEER_CACHE_DIR=/home/pptruser/.cache/puppeteer
+
+# 3. 先複製 package.json 並安裝 npm 套件
 COPY package*.json ./
 RUN npm install
 
-# 安裝 Chrome 到 root，然後複製到 pptruser
-RUN npx puppeteer browsers install chrome && \
-    mkdir -p /home/pptruser/.cache && \
-    cp -r /root/.cache/puppeteer /home/pptruser/.cache/puppeteer && \
-    chown -R pptruser:pptruser /home/pptruser/.cache
+# 4. 安裝 Chrome 瀏覽器
+RUN npx puppeteer browsers install chrome
 
-# 複製專案檔案
+# 5. 複製其餘專案檔案 (包含你的 cards 資料夾)
 COPY . .
 
-RUN touch deckCodes.json && chmod 666 deckCodes.json
+# 6. 強制修正所有權限（包含剛剛 COPY 進來的 cards）
+# 確保 pptruser 可以讀取圖片並執行 chrome
+RUN chown -R pptruser:pptruser /app /home/pptruser/.cache
 
-# 切換回 pptruser
+# 7. 建立空白 JSON (如果你的程式碼還在使用它)
+RUN touch /app/deckCodes.json && chown pptruser:pptruser /app/deckCodes.json
+
+# 切換回非 root 使用者執行
 USER pptruser
 
+# Railway 建議不要寫死 PORT，這裡保留 EXPOSE 即可
 EXPOSE 3001
 
 CMD ["node", "server.js"]
