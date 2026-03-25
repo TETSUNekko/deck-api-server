@@ -6,11 +6,11 @@ const DeckArea = React.forwardRef(function DeckArea(
   { oshiCards, deckCards, energyCards, setOshiCards, setDeckCards, setEnergyCards, filteredCards, onZoom, deckVisible },
   ref
 ) {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 620);
   const [cardSize, setCardSize] = useState(56);
 
   useEffect(() => {
-    const handler = () => setIsMobile(window.innerWidth < 768);
+    const handler = () => setIsMobile(window.innerWidth < 620);
     window.addEventListener("resize", handler);
     return () => window.removeEventListener("resize", handler);
   }, []);
@@ -77,9 +77,14 @@ const DeckArea = React.forwardRef(function DeckArea(
         borderLeft: "1px solid #2d2440",
         height: "100%", overflow: "hidden",
         ...(isMobile ? {
-          position: "fixed", bottom: 0, left: 0, right: 0,
-          height: "60vh", zIndex: 100,
-          borderTop: "1px solid #2d2440", borderLeft: "none",
+          position: "fixed", 
+          top: "50%", left: "50%",
+          transform: "translate(-50%, -50%)",
+          width: "90vw", height: "80vh",
+          zIndex: 1000,
+          borderRadius: "16px",
+          border: "1px solid #3d3155",
+          boxShadow: "0 24px 64px rgba(0,0,0,0.8)",
         } : {}),
       }}
     >

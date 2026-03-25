@@ -176,6 +176,7 @@ function SearchBar({
         padding: "8px 16px", background: "#1e1830",
         borderBottom: "1px solid #2d2440",
         overflowX: "auto", msOverflowStyle: "none", scrollbarWidth: "none",
+        flexWrap: "wrap",
       }}>
 
         {/* 搜尋框 */}
@@ -314,6 +315,14 @@ function SearchBar({
         >
           清空篩選
         </div>
+
+        {/* 分隔 */}
+        <div style={{ flex: 1 }} />
+
+        {/* 版權 */}
+        <span style={{ fontSize: "11px", color: "#c9b8e0", flexShrink: 0 }}>
+          © 2016 COVER Corp.
+        </span>
       </div>
 
       {/* Row 2 — 操作列 */}
@@ -321,6 +330,7 @@ function SearchBar({
         display: "flex", alignItems: "center", gap: "8px",
         padding: "7px 16px", background: "#1a1625",
         borderBottom: "1px solid #2d2440",
+        flexWrap: "wrap",
       }}>
         <button style={{ ...BTN, borderColor: "#3d3155", color: "#9b8ab0", background: "#2a2240" }} onClick={onClearDeck}>🧹 清空牌組</button>
         

@@ -1,5 +1,5 @@
 // src/components/DeckBuilder/DeckBuilder.jsx
-import React, { useState, useRef, useMemo, useCallback } from "react";
+import React, { useState, useRef, useMemo, useCallback, useEffect } from "react";
 import { cardSets, allTags } from "../cardsConfig";
 import { byKey, webpUrlFromKey, parseKey } from "../../utils/imageIndex";
 import SearchBar from "../SearchBar";
@@ -52,6 +52,14 @@ function DeckBuilder() {
   const dragStartWidth = useRef(0);
   const mainRef = useRef(null);
   const deckRef = useRef(null);
+
+  //手機板隱藏牌組區
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 620);
+  useEffect(() => {
+    const handler = () => setIsMobile(window.innerWidth < 620);
+    window.addEventListener("resize", handler);
+    return () => window.removeEventListener("resize", handler);
+  }, []);
 
   // ── 卡片資料（memoized，不隨 state 重算）────────────────
   const allCards = useMemo(() => {
@@ -321,7 +329,7 @@ function DeckBuilder() {
       {/* 主區域 */}
       <div ref={mainRef} style={{ display: "flex", flex: 1, overflow: "hidden", position: "relative" }}>
         {/* 卡片區 */}
-        <div style={{ width: `${cardPanelWidth}%`, overflow: "hidden", display: "flex", flexDirection: "column" }}>
+        <div style={{ width: isMobile ? "100%" : `${cardPanelWidth}%`, overflow: "hidden", display: "flex", flexDirection: "column" }}>
           <CardArea
             filteredCards={filteredCards}
             filterSeries={filterSeries}
@@ -333,6 +341,7 @@ function DeckBuilder() {
         </div>
 
         {/* 拖拉分隔線 */}
+        {!isMobile && (
         <div
           onMouseDown={handleDividerMouseDown}
           style={{
@@ -351,9 +360,22 @@ function DeckBuilder() {
             ))}
           </div>
         </div>
+        )}
 
-        {/* 牌組區 */}
-        <div style={{ flex: 1, overflow: "hidden", minWidth: 0 }}>
+        {/* 牌組區 - 手機隱藏容器，但 DeckArea 本身永遠 render */}
+        {!isMobile ? (
+          <div style={{ flex: 1, overflow: "hidden", minWidth: 0 }}>
+            <DeckArea
+              ref={deckRef}
+              oshiCards={oshiCards} deckCards={deckCards} energyCards={energyCards}
+              setOshiCards={setOshiCards} setDeckCards={setDeckCards} setEnergyCards={setEnergyCards}
+              filteredCards={filteredCards}
+              onZoom={handleZoom}
+              deckVisible={deckVisible}
+              allFolders={allImageFolders}
+            />
+          </div>
+        ) : (
           <DeckArea
             ref={deckRef}
             oshiCards={oshiCards} deckCards={deckCards} energyCards={energyCards}
@@ -363,7 +385,7 @@ function DeckBuilder() {
             deckVisible={deckVisible}
             allFolders={allImageFolders}
           />
-        </div>
+        )}
       </div>
 
       {/* Zoom 彈窗 */}
@@ -380,7 +402,7 @@ function DeckBuilder() {
       <WelcomeModal show={showWelcome} onClose={() => setShowWelcome(false)} />
 
       {/* 手機浮動按鈕 */}
-      {!showWelcome && !zoomCard && (
+      {!showWelcome && !zoomCard && isMobile && (
         <button
           onClick={() => setDeckVisible(!deckVisible)}
           style={{
@@ -393,7 +415,6 @@ function DeckBuilder() {
             boxShadow: "0 4px 20px rgba(0,0,0,0.4)",
             cursor: "pointer",
           }}
-          className="md:hidden"
         >
           {deckVisible
             ? <><span style={{ fontSize: "20px" }}>✕</span><span style={{ fontSize: "9px", marginTop: "2px" }}>收起</span></>
@@ -401,14 +422,6 @@ function DeckBuilder() {
           }
         </button>
       )}
-
-      {/* 版權 */}
-      <div style={{
-        position: "absolute", top: "8px", right: "16px",
-        fontSize: "11px", color: "#c9b8e0", zIndex: 50,
-      }}>
-        © 2016 COVER Corp.
-      </div>
 
       {showDrawHand && (
         <DrawHandModal
