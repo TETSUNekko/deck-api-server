@@ -174,6 +174,7 @@ async function fetchDecklogData(deckCode) {
           "--disable-dev-shm-usage",
           "--disable-gpu",
           "--window-size=1366,768",
+          "--single-process", // 在 Docker/Railway 等低資源環境建議加上
         ],
       });
 

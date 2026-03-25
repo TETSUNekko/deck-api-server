@@ -45,14 +45,21 @@ const SERIES_LIST = [
   { value: "PC_Set", label: "PC_Set　オフィシャルホロカコレクション" },
 ];
 
-function PortalDropdown({ anchorRef, open, children }) {
+// alignRight: 子選單往右展開（用於成員卡/支援卡子選單）
+function PortalDropdown({ anchorRef, open, children, alignRight = false }) {
   const [pos, setPos] = useState({ top: 0, left: 0 });
 
   useEffect(() => {
     if (!open || !anchorRef.current) return;
     const r = anchorRef.current.getBoundingClientRect();
-    setPos({ top: r.bottom + window.scrollY + 4, left: r.left + window.scrollX });
-  }, [open, anchorRef]);
+    if (alignRight) {
+      // 子選單：從 anchor 右側展開，垂直對齊頂部
+      setPos({ top: r.top + window.scrollY, left: r.right + window.scrollX + 4 });
+    } else {
+      // 主選單：從 anchor 下方展開
+      setPos({ top: r.bottom + window.scrollY + 4, left: r.left + window.scrollX });
+    }
+  }, [open, anchorRef, alignRight]);
 
   if (!open) return null;
 
@@ -101,7 +108,7 @@ function SearchBar({
   onExportImage, exporting,
   onExportCode, onImportCode, onClearDeck,
   selectedTag, setSelectedTag, allTags,
-  loading,
+  loading, deckCount, onDrawHand
 }) {
   const [open, setOpen] = useState(null);
   const [memberSub, setMemberSub] = useState(false);
@@ -155,12 +162,9 @@ function SearchBar({
     filterType === "Member" && filterGrade !== "全部階級" ? ` · ${filterGrade}` :
     filterType === "Support" && supportSubtype !== "全部" ? ` · ${supportSubtype}` : "";
   const colorMap = { "全部顏色": "顏色", red: "紅", white: "白", blue: "藍", green: "綠", yellow: "黃", purple: "紫", colorless: "無色" };
-
-  // 彈數顯示：chip 上只顯示編號，dropdown 顯示完整名稱
   const seriesChipLabel = filterSeries === "全部彈數" ? "彈數" : filterSeries;
   const versionLabel = filterVersion === "全部版本" ? "版本" : filterVersion.replace("_", "");
   const tagLabel = (!selectedTag || selectedTag === "全部標籤") ? "標籤" : `#${selectedTag}`;
-
   const versionList = ["全部版本","_C","_U","_S","_R","_RR","_SR","_UR","_HR","_OC","_OSR","_OUR","_SEC","_P","_SY"];
 
   return (
@@ -199,26 +203,31 @@ function SearchBar({
           <PortalDropdown anchorRef={refs.type} open={open === "type"}>
             <DItem onClick={() => { setFilterType("全部"); setFilterGrade("全部階級"); setSupportSubtype("全部"); close(); }} active={filterType === "全部"}>全部卡片</DItem>
             <DItem onClick={() => { setFilterType("Oshi"); setFilterGrade("全部階級"); setSupportSubtype("全部"); close(); }} active={filterType === "Oshi"}>主推卡</DItem>
+
+            {/* 成員卡 — 子選單往右 */}
             <div ref={refs.member}>
               <DItem onClick={() => { setMemberSub(p => !p); setSupportSub(false); }} active={filterType === "Member"}>
                 <span style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>成員卡 <span>▸</span></span>
               </DItem>
-              <PortalDropdown anchorRef={refs.member} open={memberSub}>
+              <PortalDropdown anchorRef={refs.member} open={memberSub} alignRight>
                 {["全部階級","debut","1st","2nd","buzz","spot"].map(g => (
                   <DItem key={g} onClick={() => { setFilterType("Member"); setFilterGrade(g); setSupportSubtype("全部"); close(); }} active={filterType === "Member" && filterGrade === g}>{g}</DItem>
                 ))}
               </PortalDropdown>
             </div>
+
+            {/* 支援卡 — 子選單往右 */}
             <div ref={refs.support}>
               <DItem onClick={() => { setSupportSub(p => !p); setMemberSub(false); }} active={filterType === "Support"}>
                 <span style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>支援卡 <span>▸</span></span>
               </DItem>
-              <PortalDropdown anchorRef={refs.support} open={supportSub}>
+              <PortalDropdown anchorRef={refs.support} open={supportSub} alignRight>
                 {["全部","item","event","tool","mascot","fan","staff"].map(s => (
                   <DItem key={s} onClick={() => { setFilterType("Support"); setSupportSubtype(s); setFilterGrade("全部階級"); close(); }} active={filterType === "Support" && supportSubtype === s}>{s}</DItem>
                 ))}
               </PortalDropdown>
             </div>
+
             <DItem onClick={() => { setFilterType("Energy"); setFilterGrade("全部階級"); setSupportSubtype("全部"); close(); }} active={filterType === "Energy"}>能量卡</DItem>
           </PortalDropdown>
         </div>
@@ -314,6 +323,20 @@ function SearchBar({
         borderBottom: "1px solid #2d2440",
       }}>
         <button style={{ ...BTN, borderColor: "#3d3155", color: "#9b8ab0", background: "#2a2240" }} onClick={onClearDeck}>🧹 清空牌組</button>
+        
+        <button
+          style={{ ...BTN, borderColor: "#2d6e50", color: "#5dbf94", background: "#1a3028" }}
+          onClick={() => {
+            if (deckCount !== 50) {
+              alert(`❌ 主卡組需要剛好 50 張才能模擬起手（目前 ${deckCount} 張）`);
+              return;
+            }
+            onDrawHand();
+          }}
+        >
+          🃏 起手測試
+        </button>
+                
         <button style={{ ...BTN, borderColor: "#2d6e50", color: "#5dbf94", background: "#1a3028" }} onClick={onExportImage}>
           {exporting ? "匯出中..." : "🖼 匯出圖片"}
         </button>
@@ -329,7 +352,7 @@ function SearchBar({
         />
         <button style={{ ...BTN, borderColor: "#6b3fa0", color: "#c084fc", background: "#2d1e40" }} onClick={onImportCode}>
           {loading ? "讀取中..." : "📥 讀取代碼"}
-        </button> 
+        </button>
         <div style={{ flex: 1 }} />
         <a href="https://mail.google.com/mail/?view=cm&fs=1&to=holotcgtw.feedback@gmail.com&su=HoloTCG意見回饋&body=請在此填寫你的意見～"
           target="_blank" rel="noopener noreferrer"

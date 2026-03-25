@@ -15,7 +15,7 @@ function CardArea({ filteredCards, onAddCard, onZoom }) {
         borderBottom: "1px solid #2d2440", flexShrink: 0,
       }}>
         <span style={{ fontSize: "12px", color: "#9b8ab0", fontWeight: 500 }}>卡片列表</span>
-        <span style={{ fontSize: "11px", color: "#4a3f5c" }}>{filteredCards.length} 張</span>
+        <span style={{ fontSize: "11px", color: "#c9b8e0" }}>{filteredCards.length} 張</span>
       </div>
 
       {/* 卡片格 */}

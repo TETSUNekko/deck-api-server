@@ -7,6 +7,7 @@ const DeckArea = React.forwardRef(function DeckArea(
   ref
 ) {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [cardSize, setCardSize] = useState(56);
 
   useEffect(() => {
     const handler = () => setIsMobile(window.innerWidth < 768);
@@ -21,7 +22,6 @@ const DeckArea = React.forwardRef(function DeckArea(
 
   const total = oshiCards.length + deckCards.length + energyCards.length;
 
-  // 手機版隱藏邏輯
   if (isMobile && !deckVisible) return null;
 
   const sectionTitle = (label, count, max) => (
@@ -29,17 +29,17 @@ const DeckArea = React.forwardRef(function DeckArea(
       <span style={{ fontSize: "12px", color: "#9b8ab0", fontWeight: 500 }}>{label}</span>
       <span style={{
         fontSize: "11px", padding: "1px 8px", borderRadius: "10px",
-        background: count >= max ? "#2d1e40" : "#231d33",
-        border: `1px solid ${count >= max ? "#6b3fa0" : "#2d2440"}`,
-        color: count >= max ? "#e879f9" : "#7c6fa0",
+        background: count > max ? "#3d1e20" : count >= max ? "#2d1e40" : "#231d33",
+        border: `1px solid ${count > max ? "#e84040" : count >= max ? "#6b3fa0" : "#2d2440"}`,
+        color: count > max ? "#f87171" : count >= max ? "#e879f9" : "#7c6fa0",
       }}>
         {count} / {max}
       </span>
     </div>
   );
 
-  const miniCardStyle = (hoverColor) => ({
-    width: "clamp(36px, 4vw, 52px)",
+  const cardStyle = {
+    width: `${cardSize}px`,
     aspectRatio: "2/3",
     borderRadius: "4px",
     overflow: "hidden",
@@ -47,26 +47,39 @@ const DeckArea = React.forwardRef(function DeckArea(
     cursor: "pointer",
     flexShrink: 0,
     transition: "border-color 0.15s",
-  });
+  };
+
+  const renderCards = (cards, setFn, hoverColor, prefix) => (
+    <div style={{ display: "flex", flexWrap: "wrap", gap: "4px" }}>
+      {cards.map((card, index) => (
+        <div
+          key={`${prefix}-${index}`}
+          style={cardStyle}
+          onMouseEnter={e => e.currentTarget.style.borderColor = hoverColor}
+          onMouseLeave={e => e.currentTarget.style.borderColor = "#3d3155"}
+        >
+          <CardImage
+            card={card} version={card.version}
+            onZoom={(url, cardData) => onZoom(url, cardData, getZoomIndex(cardData))}
+            onClick={() => handleRemove(setFn, index)}
+          />
+        </div>
+      ))}
+    </div>
+  );
 
   return (
     <div
       ref={ref}
       style={{
-        display: "flex",
-        flexDirection: "column",
+        display: "flex", flexDirection: "column",
         background: "#1e1830",
         borderLeft: "1px solid #2d2440",
-        height: "100%",
-        overflow: "hidden",
-        // 手機版固定在底部
+        height: "100%", overflow: "hidden",
         ...(isMobile ? {
-          position: "fixed",
-          bottom: 0, left: 0, right: 0,
-          height: "60vh",
-          zIndex: 100,
-          borderTop: "1px solid #2d2440",
-          borderLeft: "none",
+          position: "fixed", bottom: 0, left: 0, right: 0,
+          height: "60vh", zIndex: 100,
+          borderTop: "1px solid #2d2440", borderLeft: "none",
         } : {}),
       }}
     >
@@ -77,78 +90,58 @@ const DeckArea = React.forwardRef(function DeckArea(
         borderBottom: "1px solid #2d2440", flexShrink: 0,
       }}>
         <span style={{ fontSize: "12px", color: "#9b8ab0", fontWeight: 500 }}>我的牌組</span>
-        <span style={{ fontSize: "11px", color: "#4a3f5c" }}>{total} 張</span>
+        <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+          <button
+            onClick={() => setCardSize(s => Math.max(36, s - 8))}
+            style={{
+              width: "20px", height: "20px", borderRadius: "4px",
+              background: "#2a2240", border: "1px solid #3d3155",
+              color: "#c9b8e0", fontSize: "14px", cursor: "pointer",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              lineHeight: 1, padding: 0,
+            }}
+          >−</button>
+          <span style={{ fontSize: "10px", color: "#c9b8e0", minWidth: "28px", textAlign: "center" }}>
+            {cardSize}px
+          </span>
+          <button
+            onClick={() => setCardSize(s => Math.min(100, s + 8))}
+            style={{
+              width: "20px", height: "20px", borderRadius: "4px",
+              background: "#2a2240", border: "1px solid #3d3155",
+              color: "#9b8ab0", fontSize: "14px", cursor: "pointer",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              lineHeight: 1, padding: 0,
+            }}
+          >+</button>
+          <span style={{ fontSize: "11px", color: "#c9b8e0", marginLeft: "4px" }}>{total} 張</span>
+        </div>
       </div>
 
       {/* 牌組內容 */}
       <div style={{ flex: 1, overflowY: "auto", padding: "10px 12px" }}>
-
-        {/* 主推卡 */}
         <div style={{ marginBottom: "14px" }}>
           {sectionTitle("🌟 主推卡", oshiCards.length, 1)}
           {oshiCards.length === 0
             ? <p style={{ fontSize: "11px", color: "#3d3155" }}>尚未選擇主推卡</p>
-            : (
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "4px" }}>
-                {oshiCards.map((card, index) => (
-                  <div
-                    key={`oshi-${index}`}
-                    style={miniCardStyle("#e879f9")}
-                    onMouseEnter={e => e.currentTarget.style.borderColor = "#e879f9"}
-                    onMouseLeave={e => e.currentTarget.style.borderColor = "#3d3155"}
-                  >
-                    <CardImage
-                      card={card} version={card.version}
-                      onZoom={(url, cardData) => onZoom(url, cardData, getZoomIndex(cardData))}
-                      onClick={() => handleRemove(setOshiCards, index)}
-                    />
-                  </div>
-                ))}
-              </div>
-            )
+            : renderCards(oshiCards, setOshiCards, "#e879f9", "oshi")
           }
         </div>
 
-        {/* 主卡組 */}
         <div style={{ marginBottom: "14px" }}>
           {sectionTitle("📦 主卡組", deckCards.length, 50)}
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "4px" }}>
-            {deckCards.map((card, index) => (
-              <div
-                key={`deck-${index}`}
-                style={miniCardStyle("#c084fc")}
-                onMouseEnter={e => e.currentTarget.style.borderColor = "#c084fc"}
-                onMouseLeave={e => e.currentTarget.style.borderColor = "#3d3155"}
-              >
-                <CardImage
-                  card={card} version={card.version}
-                  onZoom={(url, cardData) => onZoom(url, cardData, getZoomIndex(cardData))}
-                  onClick={() => handleRemove(setDeckCards, index)}
-                />
-              </div>
-            ))}
-          </div>
+          {deckCards.length === 0
+            ? <p style={{ fontSize: "11px", color: "#3d3155" }}>尚未選擇主卡</p>
+            : renderCards(deckCards, setDeckCards, "#c084fc", "deck")
+          }
         </div>
 
-        {/* 能量卡 */}
         <div>
           {sectionTitle("⚡ 能量卡", energyCards.length, 20)}
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "4px" }}>
-            {energyCards.map((card, index) => (
-              <div
-                key={`energy-${index}`}
-                style={miniCardStyle("#5dbf94")}
-                onMouseEnter={e => e.currentTarget.style.borderColor = "#5dbf94"}
-                onMouseLeave={e => e.currentTarget.style.borderColor = "#3d3155"}
-              >
-                <CardImage
-                  card={card} version={card.version}
-                  onZoom={(url, cardData) => onZoom(url, cardData, getZoomIndex(cardData))}
-                  onClick={() => handleRemove(setEnergyCards, index)}
-                />
-              </div>
-            ))}
-          </div>
+          {energyCards.length === 0
+            ? <p style={{ fontSize: "11px", color: "#3d3155" }}>尚未選擇能量卡</p>
+            : renderCards(energyCards, setEnergyCards, "#5dbf94", "energy")
+          }
         </div>
       </div>
 
@@ -157,7 +150,7 @@ const DeckArea = React.forwardRef(function DeckArea(
         padding: "8px 12px", borderTop: "1px solid #2d2440",
         display: "flex", justifyContent: "space-between", flexShrink: 0,
       }}>
-        <span style={{ fontSize: "11px", color: "#4a3f5c" }}>總計</span>
+        <span style={{ fontSize: "11px", color: "#c9b8e0" }}>總計</span>
         <span style={{ fontSize: "11px", color: "#c084fc", fontWeight: 500 }}>{total} 張</span>
       </div>
     </div>

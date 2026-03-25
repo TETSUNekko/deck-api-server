@@ -10,6 +10,7 @@ import WelcomeModal from "./WelcomeModal";
 import { sortDeckByType } from "../../utils/sort";
 import { API_BASE, saveDeck, importDecklog, loadDeck } from "../../utils/api";
 import { Folder } from "lucide-react";
+import DrawHandModal from "./DrawHandModal";
 
 const folderRank = (f = "") => {
   if (/^hYS\d+$/i.test(f)) return 100;
@@ -42,6 +43,7 @@ function DeckBuilder() {
   const [showWelcome, setShowWelcome] = useState(true);
   const [deckVisible, setDeckVisible] = useState(false);
   const [exporting, setExporting] = useState(false);
+  const [showDrawHand, setShowDrawHand] = useState(false);
 
   // 拖拉分隔線
   const [cardPanelWidth, setCardPanelWidth] = useState(58); // 百分比
@@ -123,13 +125,10 @@ function DeckBuilder() {
     const newCard = { ...card, version, folder: card.folder, key };
 
     if (card.type === "Oshi") {
-      if (oshiCards.length >= 1) return;
       setOshiCards(prev => [...prev, newCard]);
     } else if (card.type === "Energy") {
-      if (energyCards.length >= 20) return;
       setEnergyCards(prev => [...prev, newCard]);
     } else {
-      if (deckCards.length >= 50) return;
       setDeckCards(prev => sortDeckByType([...prev, newCard]));
     }
   }, [oshiCards.length, deckCards.length, energyCards.length]);
@@ -315,6 +314,8 @@ function DeckBuilder() {
             setOshiCards([]); setDeckCards([]); setEnergyCards([]); setShareCode("");
           }
         }}
+        deckCount={deckCards.length}
+        onDrawHand={() => setShowDrawHand(true)}
       />
 
       {/* 主區域 */}
@@ -408,6 +409,14 @@ function DeckBuilder() {
       }}>
         © 2016 COVER Corp.
       </div>
+
+      {showDrawHand && (
+        <DrawHandModal
+          deckCards={deckCards}
+          onClose={() => setShowDrawHand(false)}
+          onZoom={handleZoom}
+        />
+      )}
     </div>
   );
 }
