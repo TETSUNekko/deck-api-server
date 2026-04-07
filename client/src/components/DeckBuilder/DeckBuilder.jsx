@@ -190,6 +190,7 @@ function DeckBuilder() {
 
   // ── 匯出圖片 ─────────────────────────────────────────────
   const handleExportImage = useCallback(async () => {
+    setExporting(true);
     try {
       const payload = {
         oshi: groupByCard(oshiCards),
@@ -217,6 +218,8 @@ function DeckBuilder() {
     } catch (err) {
       console.error(err);
       alert("❌ 匯出失敗，請檢查 console");
+    } finally {
+      setExporting(false);
     }
   }, [oshiCards, deckCards, energyCards, groupByCard]);
 

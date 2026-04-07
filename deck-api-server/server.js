@@ -247,19 +247,20 @@ app.post('/export-deck', async (req, res, next) => {
       return res.status(400).json({ error: 'Card count exceeds limit' });
     }
 
-    const canvasW = 1400;
-    const cardW = 140, cardH = 196, gap = 12;
+    const SCALE = 2; // 2x 解析度，避免模糊
+    const canvasW = 1400 * SCALE;
+    const cardW = 140 * SCALE, cardH = 196 * SCALE, gap = 12 * SCALE;
     const mainCols = 7;
     const mainRows = Math.ceil((deck.length || 0) / mainCols);
     const energyRows = Math.ceil((energy.length || 0) / 2);
 
-    const oshiTop = 60;
+    const oshiTop = 60 * SCALE;
     const oshiBottom = oshiTop + cardH;
-    const energyBaseY = oshiBottom + 80;
+    const energyBaseY = oshiBottom + 80 * SCALE;
 
     const canvasH = Math.max(
-      energyBaseY + energyRows * (cardH * 0.75 + gap) + 100,
-      200 + mainRows * (cardH + gap)
+      energyBaseY + energyRows * (cardH * 0.75 + gap) + 100 * SCALE,
+      200 * SCALE + mainRows * (cardH + gap)
     );
 
     const canvas = createCanvas(canvasW, canvasH);
@@ -276,7 +277,7 @@ app.post('/export-deck', async (req, res, next) => {
       ctx.fillRect(0, 0, canvasW, canvasH);
     }
 
-    ctx.font = '20px NotoSans';
+    ctx.font = `${20 * SCALE}px NotoSans`;
     ctx.textBaseline = 'top';
     ctx.textAlign = 'left';
 
@@ -286,15 +287,15 @@ app.post('/export-deck', async (req, res, next) => {
         const img = await loadImage(url);
         ctx.drawImage(img, x, y, w, h);
         if (count > 1) {
-          const boxW = 38, boxH = 22;
-          const boxX = x + w - boxW - 3, boxY = y + h - boxH - 3;
+          const boxW = 38 * SCALE, boxH = 22 * SCALE;
+          const boxX = x + w - boxW - 3 * SCALE, boxY = y + h - boxH - 3 * SCALE;
           ctx.fillStyle = 'rgba(0,0,0,0.82)';
           ctx.fillRect(boxX, boxY, boxW, boxH);
-          ctx.font = 'bold 14px NotoSans';
+          ctx.font = `bold ${14 * SCALE}px NotoSans`;
           ctx.fillStyle = '#ffffff';
           ctx.textAlign = 'center';
           ctx.textBaseline = 'alphabetic';
-          ctx.fillText(`x${count}`, boxX + boxW / 2, boxY + boxH - 4);
+          ctx.fillText(`x${count}`, boxX + boxW / 2, boxY + boxH - 4 * SCALE);
         }
       } catch (err) {
         console.error('❌ 載入卡片失敗:', url, err.message);
@@ -303,7 +304,7 @@ app.post('/export-deck', async (req, res, next) => {
         ctx.fillStyle = '#2a2240';
         ctx.fillRect(x, y, w, h);
         ctx.fillStyle = '#c084fc';
-        ctx.font = 'bold 18px NotoSans';
+        ctx.font = `bold ${18 * SCALE}px NotoSans`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText('?', x + w / 2, y + h / 2);
@@ -313,11 +314,11 @@ app.post('/export-deck', async (req, res, next) => {
 
     function drawTitle(ctx, text, x, y) {
       ctx.save();
-      ctx.font = 'bold 22px NotoSans';
+      ctx.font = `bold ${22 * SCALE}px NotoSans`;
       ctx.textAlign = 'left';
       ctx.textBaseline = 'top';
       ctx.lineJoin = 'round';
-      ctx.lineWidth = 4;
+      ctx.lineWidth = 4 * SCALE;
       ctx.strokeStyle = 'white';
       ctx.strokeText(text, x, y);
       ctx.fillStyle = 'black';
@@ -328,12 +329,12 @@ app.post('/export-deck', async (req, res, next) => {
     // OSHI — 從 CDN 讀圖
     {
       const total = oshi.reduce((a, c) => a + (c.count || 1), 0);
-      drawTitle(ctx, `OSHI (${total})`, 40, 20);
+      drawTitle(ctx, `OSHI (${total})`, 40 * SCALE, 20 * SCALE);
       if (oshi[0]) {
         const entry = parseKey(oshi[0].key);
         if (entry) {
           const url = `${CARDS_CDN}/${entry.folder}/${entry.id}${entry.version}.png`;
-          await drawCard(ctx, url, 40, oshiTop, cardW, cardH, oshi[0].count || 1);
+          await drawCard(ctx, url, 40 * SCALE, oshiTop, cardW, cardH, oshi[0].count || 1);
         }
       }
     }
@@ -341,12 +342,12 @@ app.post('/export-deck', async (req, res, next) => {
     // MAIN — 從 CDN 讀圖
     {
       const total = deck.reduce((a, c) => a + (c.count || 1), 0);
-      drawTitle(ctx, `MAIN (${total})`, 300, 20);
+      drawTitle(ctx, `MAIN (${total})`, 300 * SCALE, 20 * SCALE);
       for (let i = 0; i < deck.length; i++) {
         const col = i % mainCols;
         const row = Math.floor(i / mainCols);
-        const x = 300 + col * (cardW + gap);
-        const y = 60 + row * (cardH + gap);
+        const x = 300 * SCALE + col * (cardW + gap);
+        const y = 60 * SCALE + row * (cardH + gap);
         const entry = parseKey(deck[i].key);
         if (!entry) continue;
         const url = `${CARDS_CDN}/${entry.folder}/${entry.id}${entry.version}.png`;
@@ -357,13 +358,13 @@ app.post('/export-deck', async (req, res, next) => {
     // ENERGY — 從 CDN 讀圖
     {
       const total = energy.reduce((a, c) => a + (c.count || 1), 0);
-      drawTitle(ctx, `ENERGY (${total})`, 40, energyBaseY);
-      const smallW = 110, smallH = 155;
+      drawTitle(ctx, `ENERGY (${total})`, 40 * SCALE, energyBaseY);
+      const smallW = 110 * SCALE, smallH = 155 * SCALE;
       for (let i = 0; i < energy.length; i++) {
         const col = i % 2;
         const row = Math.floor(i / 2);
-        const x = 40 + col * (smallW + gap);
-        const y = energyBaseY + 40 + row * (smallH + gap);
+        const x = 40 * SCALE + col * (smallW + gap);
+        const y = energyBaseY + 40 * SCALE + row * (smallH + gap);
         const entry = parseKey(energy[i].key);
         if (!entry) continue;
         const url = `${CARDS_CDN}/${entry.folder}/${entry.id}${entry.version}.png`;
