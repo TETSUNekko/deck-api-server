@@ -22,6 +22,13 @@ const DeckArea = React.forwardRef(function DeckArea(
 
   const total = oshiCards.length + deckCards.length + energyCards.length;
 
+  const gradeStats = {
+    debut: deckCards.filter(c => c.grade === "debut").length,
+    "1st":  deckCards.filter(c => c.grade === "1st" || c.grade === "buzz").length,
+    "2nd":  deckCards.filter(c => c.grade === "2nd").length,
+    spot:   deckCards.filter(c => c.grade === "spot").length,
+  };
+
   if (isMobile && !deckVisible) return null;
 
   const sectionTitle = (label, count, max) => (
@@ -134,7 +141,31 @@ const DeckArea = React.forwardRef(function DeckArea(
         </div>
 
         <div style={{ marginBottom: "14px" }}>
-          {sectionTitle("📦 主卡組", deckCards.length, 50)}
+          <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "6px", flexWrap: "wrap" }}>
+            <span style={{ fontSize: "12px", color: "#9b8ab0", fontWeight: 500 }}>📦 主卡組</span>
+            <span style={{
+              fontSize: "11px", padding: "1px 8px", borderRadius: "10px",
+              background: deckCards.length > 50 ? "#3d1e20" : deckCards.length >= 50 ? "#2d1e40" : "#231d33",
+              border: `1px solid ${deckCards.length > 50 ? "#e84040" : deckCards.length >= 50 ? "#6b3fa0" : "#2d2440"}`,
+              color: deckCards.length > 50 ? "#f87171" : deckCards.length >= 50 ? "#e879f9" : "#7c6fa0",
+            }}>
+              {deckCards.length} / 50
+            </span>
+            {[
+              { label: "Debut", value: gradeStats.debut, color: "#60a5fa" },
+              { label: "1st",   value: gradeStats["1st"], color: "#34d399" },
+              { label: "2nd",   value: gradeStats["2nd"], color: "#f472b6" },
+              { label: "Spot",  value: gradeStats.spot,   color: "#fbbf24" },
+            ].map(({ label, value, color }) => (
+              <span key={label} style={{
+                fontSize: "10px", padding: "1px 6px", borderRadius: "8px",
+                background: "#231d33", border: `1px solid ${color}40`,
+                color: value > 0 ? color : "#4a3f5c",
+              }}>
+                {label} {value}
+              </span>
+            ))}
+          </div>
           {deckCards.length === 0
             ? <p style={{ fontSize: "11px", color: "#3d3155" }}>尚未選擇主卡</p>
             : renderCards(deckCards, setDeckCards, "#c084fc", "deck")

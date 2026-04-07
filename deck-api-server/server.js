@@ -251,33 +251,45 @@ app.post('/export-deck', async (req, res, next) => {
     ctx.textAlign = 'left';
 
     async function drawCard(ctx, url, x, y, w, h, count) {
+      ctx.save();
       try {
         const img = await loadImage(url);
         ctx.drawImage(img, x, y, w, h);
         if (count > 1) {
           const boxW = 40, boxH = 24;
           const boxX = x + w - boxW - 4, boxY = y + h - boxH - 4;
-          ctx.fillStyle = 'rgba(0,0,0,.72)';
+          ctx.globalAlpha = 1;
+          ctx.lineWidth = 1;
+          ctx.fillStyle = 'rgba(0,0,0,0.72)';
           ctx.fillRect(boxX, boxY, boxW, boxH);
-          ctx.fillStyle = '#fff';
           ctx.font = 'bold 16px Arial';
           ctx.textAlign = 'center';
-          ctx.textBaseline = 'middle';
-          ctx.fillText(`x${count}`, boxX + boxW / 2, boxY + boxH / 2);
+          ctx.textBaseline = 'top';
+          const textX = boxX + boxW / 2;
+          const textY = boxY + 4;
+          ctx.strokeStyle = '#000000';
+          ctx.lineWidth = 3;
+          ctx.strokeText(`x${count}`, textX, textY);
+          ctx.fillStyle = '#ffffff';
+          ctx.fillText(`x${count}`, textX, textY);
         }
       } catch (err) {
         console.error('❌ 載入卡片失敗:', url, err.message);
+        ctx.globalAlpha = 1;
+        ctx.lineWidth = 1;
         ctx.fillStyle = '#2a2240';
         ctx.fillRect(x, y, w, h);
         ctx.fillStyle = '#c084fc';
         ctx.font = 'bold 18px Arial';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        ctx.fillText('❌', x + w / 2, y + h / 2);
+        ctx.fillText('?', x + w / 2, y + h / 2);
       }
+      ctx.restore();
     }
 
     function drawTitle(ctx, text, x, y) {
+      ctx.save();
       ctx.font = 'bold 22px Arial';
       ctx.textAlign = 'left';
       ctx.textBaseline = 'top';
@@ -287,6 +299,7 @@ app.post('/export-deck', async (req, res, next) => {
       ctx.strokeText(text, x, y);
       ctx.fillStyle = 'black';
       ctx.fillText(text, x, y);
+      ctx.restore();
     }
 
     // OSHI — 從 CDN 讀圖
