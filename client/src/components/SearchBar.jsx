@@ -347,8 +347,19 @@ function SearchBar({
           🃏 起手測試
         </button>
                 
-        <button style={{ ...BTN, borderColor: "#2d6e50", color: "#5dbf94", background: "#1a3028" }} onClick={onExportImage}>
-          {exporting ? "匯出中..." : "🖼 匯出圖片"}
+        <button
+          style={{
+            ...BTN,
+            borderColor: exporting ? "#1a4a32" : "#2d6e50",
+            color: exporting ? "#3a7a5a" : "#5dbf94",
+            background: "#1a3028",
+            opacity: exporting ? 0.7 : 1,
+            cursor: exporting ? "not-allowed" : "pointer",
+          }}
+          onClick={onExportImage}
+          disabled={exporting}
+        >
+          {exporting ? "⏳ 匯出中..." : "🖼 匯出圖片"}
         </button>
         <button style={{ ...BTN, borderColor: "#1e4a7a", color: "#5ba3e0", background: "#162033" }} onClick={handleCopyCode}>🔗 分享代碼</button>
         <input
