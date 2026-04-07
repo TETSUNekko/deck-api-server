@@ -111,27 +111,33 @@ function ZoomModal({ card, imageUrl, onClose, onPrev, onNext }) {
       onClick={onClose}
     >
       {isMobile ? (
-        /* ── 手機版：上方兩圖並排，下方按鈕 ── */
+        /* ── 手機版：左原圖、右翻譯圖+按鈕，兩欄等高 ── */
         <div
           style={{
-            display: "flex", flexDirection: "column", alignItems: "center",
-            gap: "10px", padding: "48px 8px 16px", width: "100%",
-            height: "100%", boxSizing: "border-box", overflow: "auto",
+            display: "flex", flexDirection: "row", alignItems: "stretch",
+            gap: "8px", padding: "48px 8px 16px", width: "100%",
+            height: "100%", boxSizing: "border-box", overflow: "hidden",
           }}
           onClick={e => e.stopPropagation()}
         >
-          <div style={{ display: "flex", gap: "8px", width: "100%", justifyContent: "center" }}>
+          {/* 左欄：原圖 */}
+          <div style={{ flex: "1 1 0", minWidth: 0, display: "flex", alignItems: "center" }}>
             <img src={imageUrl} alt="原圖"
-              style={{ flex: "1 1 0", minWidth: 0, maxHeight: "62vh", objectFit: "contain", borderRadius: "8px" }}
+              style={{ width: "100%", height: "100%", maxHeight: "80vh", objectFit: "contain", borderRadius: "8px" }}
             />
+          </div>
+          {/* 右欄：翻譯圖 + 按鈕 */}
+          <div style={{ flex: "1 1 0", minWidth: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "space-between" }}>
             {primary && showTranslated && (
               <img src={primary} alt="翻譯圖"
-                style={{ flex: "1 1 0", minWidth: 0, maxHeight: "62vh", objectFit: "contain", borderRadius: "8px" }}
+                style={{ width: "100%", flex: "1 1 0", minHeight: 0, objectFit: "contain", borderRadius: "8px" }}
                 onError={handleError}
               />
             )}
+            <div style={{ flexShrink: 0, paddingTop: "8px" }}>
+              {buttons(true)}
+            </div>
           </div>
-          {buttons(true)}
         </div>
       ) : (
         /* ── 桌面版：左原圖，右翻譯圖＋按鈕 ── */
