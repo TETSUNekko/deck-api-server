@@ -126,22 +126,19 @@ function ZoomModal({ card, imageUrl, onClose, onPrev, onNext }) {
               style={{ width: "100%", objectFit: "contain", borderRadius: "8px", maxHeight: "75vh" }}
             />
           </div>
-          {/* 右欄：翻譯圖（撐到同高） + 按鈕靠底 */}
+          {/* 右欄：翻譯圖 + 按鈕 */}
           <div style={{
             flex: "1 1 0", minWidth: 0,
             display: "flex", flexDirection: "column",
-            alignItems: "center", justifyContent: "space-between",
-            maxHeight: "75vh",
+            alignItems: "center", gap: "8px",
           }}>
-            {primary && showTranslated ? (
+            {primary && showTranslated && (
               <img src={primary} alt="翻譯圖"
-                style={{ width: "100%", objectFit: "contain", borderRadius: "8px", minHeight: 0, flex: "1 1 0" }}
+                style={{ width: "100%", maxHeight: "65vh", objectFit: "contain", borderRadius: "8px" }}
                 onError={handleError}
               />
-            ) : <div style={{ flex: "1 1 0" }} />}
-            <div style={{ flexShrink: 0, width: "100%", paddingTop: "8px" }}>
-              {buttons(true)}
-            </div>
+            )}
+            {buttons(true)}
           </div>
         </div>
       ) : (
