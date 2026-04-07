@@ -121,7 +121,7 @@ app.get('/debug/canvas-text', async (_req, res) => {
     const ctx = c.getContext('2d');
     ctx.fillStyle = '#222';
     ctx.fillRect(0, 0, 200, 60);
-    ctx.font = 'bold 24px "NotoSans"';
+    ctx.font = 'bold 24px sans-serif';
     ctx.fillStyle = '#ffffff';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'alphabetic';
@@ -275,7 +275,7 @@ app.post('/export-deck', async (req, res, next) => {
       ctx.fillRect(0, 0, canvasW, canvasH);
     }
 
-    ctx.font = '20px "NotoSans"';
+    ctx.font = '20px sans-serif';
     ctx.textBaseline = 'top';
     ctx.textAlign = 'left';
 
@@ -289,7 +289,7 @@ app.post('/export-deck', async (req, res, next) => {
           const boxX = x + w - boxW - 3, boxY = y + h - boxH - 3;
           ctx.fillStyle = 'rgba(0,0,0,0.82)';
           ctx.fillRect(boxX, boxY, boxW, boxH);
-          ctx.font = 'bold 14px "NotoSans"';
+          ctx.font = 'bold 14px sans-serif';
           ctx.fillStyle = '#ffffff';
           ctx.textAlign = 'center';
           ctx.textBaseline = 'alphabetic';
@@ -302,7 +302,7 @@ app.post('/export-deck', async (req, res, next) => {
         ctx.fillStyle = '#2a2240';
         ctx.fillRect(x, y, w, h);
         ctx.fillStyle = '#c084fc';
-        ctx.font = 'bold 18px "NotoSans"';
+        ctx.font = 'bold 18px sans-serif';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText('?', x + w / 2, y + h / 2);
@@ -312,7 +312,7 @@ app.post('/export-deck', async (req, res, next) => {
 
     function drawTitle(ctx, text, x, y) {
       ctx.save();
-      ctx.font = 'bold 22px "NotoSans"';
+      ctx.font = 'bold 22px sans-serif';
       ctx.textAlign = 'left';
       ctx.textBaseline = 'top';
       ctx.lineJoin = 'round';
