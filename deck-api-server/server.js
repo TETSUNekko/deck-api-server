@@ -42,9 +42,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // 字體註冊（打包進 repo，不依賴系統字體）
-const fontPath = path.join(__dirname, 'fonts', 'NotoSans.ttf');
-console.log('[Font] registering:', fontPath);
-registerFont(fontPath, { family: 'NotoSans' });
+const fontPath = path.join(__dirname, 'fonts', 'NotoSans-Bold.ttf');
+console.log('[Font] registering:', fontPath, 'exists:', existsSync(fontPath));
+registerFont(fontPath, { family: 'NotoSans', weight: 'bold' });
 
 // 卡圖 CDN（Cloudflare R2）
 const CARDS_CDN = process.env.CARDS_CDN || 'https://pub-9e063c0641df4849b7460815c8ee4a6d.r2.dev/cards';
