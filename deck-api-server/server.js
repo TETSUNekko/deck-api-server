@@ -260,7 +260,7 @@ app.post('/export-deck', async (req, res, next) => {
           const boxX = x + w - boxW - 3, boxY = y + h - boxH - 3;
           ctx.fillStyle = 'rgba(0,0,0,0.82)';
           ctx.fillRect(boxX, boxY, boxW, boxH);
-          ctx.font = 'bold 14px sans-serif';
+          ctx.font = 'bold 14px "Noto Sans", sans-serif';
           ctx.fillStyle = '#ffffff';
           ctx.textAlign = 'center';
           ctx.textBaseline = 'alphabetic';
