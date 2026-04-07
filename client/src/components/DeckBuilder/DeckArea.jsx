@@ -29,6 +29,14 @@ const DeckArea = React.forwardRef(function DeckArea(
     spot:   deckCards.filter(c => c.grade === "spot").length,
   };
 
+  const TMF_KEYS = ["tool", "ツール", "mascot", "マスコット", "fan", "ファン"];
+  const ITEM_KEYS = ["item", "アイテム"];
+  const supportStats = {
+    tmf:   deckCards.filter(c => c.type === "Support" && (c.searchKeywords || []).some(k => TMF_KEYS.includes(k))).length,
+    item:  deckCards.filter(c => c.type === "Support" && (c.searchKeywords || []).some(k => ITEM_KEYS.includes(k))).length,
+    other: deckCards.filter(c => c.type === "Support" && !(c.searchKeywords || []).some(k => [...TMF_KEYS, ...ITEM_KEYS].includes(k))).length,
+  };
+
   if (isMobile && !deckVisible) return null;
 
   const sectionTitle = (label, count, max) => (
@@ -152,10 +160,13 @@ const DeckArea = React.forwardRef(function DeckArea(
               {deckCards.length} / 50
             </span>
             {[
-              { label: "Debut", value: gradeStats.debut, color: "#60a5fa" },
-              { label: "1st",   value: gradeStats["1st"], color: "#34d399" },
-              { label: "2nd",   value: gradeStats["2nd"], color: "#f472b6" },
-              { label: "Spot",  value: gradeStats.spot,   color: "#fbbf24" },
+              { label: "Debut", value: gradeStats.debut,   color: "#60a5fa" },
+              { label: "1st",   value: gradeStats["1st"],  color: "#34d399" },
+              { label: "2nd",   value: gradeStats["2nd"],  color: "#f472b6" },
+              { label: "Spot",  value: gradeStats.spot,    color: "#fbbf24" },
+              { label: "T/M/F", value: supportStats.tmf,   color: "#c084fc" },
+              { label: "Item",  value: supportStats.item,  color: "#fb923c" },
+              { label: "其他",  value: supportStats.other, color: "#94a3b8" },
             ].map(({ label, value, color }) => (
               <span key={label} style={{
                 fontSize: "10px", padding: "1px 6px", borderRadius: "8px",

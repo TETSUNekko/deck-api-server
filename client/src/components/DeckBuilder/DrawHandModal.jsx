@@ -13,12 +13,18 @@ function shuffle(arr) {
 
 function DrawHandModal({ deckCards, onClose, onZoom }) {
   const [hand, setHand] = useState(() => {
-    // 展開卡片（依 count）並抽 7 張
     const expanded = deckCards.flatMap(c =>
       Array.from({ length: c.count || 1 }, () => c)
     );
     return shuffle(expanded).slice(0, 7);
   });
+
+  const [isMobile, setIsMobile] = React.useState(window.innerWidth < 620);
+  React.useEffect(() => {
+    const handler = () => setIsMobile(window.innerWidth < 620);
+    window.addEventListener("resize", handler);
+    return () => window.removeEventListener("resize", handler);
+  }, []);
 
   const redraw = useCallback(() => {
     const expanded = deckCards.flatMap(c =>
@@ -26,6 +32,36 @@ function DrawHandModal({ deckCards, onClose, onZoom }) {
     );
     setHand(shuffle(expanded).slice(0, 7));
   }, [deckCards]);
+
+  // 手機版：前4張一排、後3張一排
+  const firstRow = isMobile ? hand.slice(0, 4) : hand;
+  const secondRow = isMobile ? hand.slice(4) : [];
+
+  const cardStyle = {
+    borderRadius: "6px", overflow: "hidden",
+    border: "1.5px solid #3d3155",
+    cursor: "pointer", flexShrink: 0,
+    aspectRatio: "2/3",
+  };
+
+  const renderCard = (card, i) => (
+    <div
+      key={i}
+      style={{
+        ...cardStyle,
+        width: isMobile ? "calc(25% - 6px)" : "160px",
+      }}
+      onMouseEnter={e => e.currentTarget.style.borderColor = "#c084fc"}
+      onMouseLeave={e => e.currentTarget.style.borderColor = "#3d3155"}
+    >
+      <CardImage
+        card={card}
+        version={card.version}
+        onZoom={(url, cardData) => onZoom && onZoom(url, cardData)}
+        onClick={() => {}}
+      />
+    </div>
+  );
 
   return (
     <div
@@ -42,13 +78,14 @@ function DrawHandModal({ deckCards, onClose, onZoom }) {
           background: "#1e1830",
           border: "1px solid #3d3155",
           borderRadius: "16px",
-          padding: "24px",
-          maxWidth: "90vw",
+          padding: isMobile ? "16px" : "24px",
+          maxWidth: isMobile ? "98vw" : "90vw",
+          width: isMobile ? "98vw" : "auto",
           boxShadow: "0 24px 64px rgba(0,0,0,0.6)",
         }}
       >
         {/* 標題 */}
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "20px" }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "16px" }}>
           <span style={{ fontSize: "15px", color: "#c084fc", fontWeight: 600 }}>
             🃏 起手 7 張
           </span>
@@ -61,33 +98,24 @@ function DrawHandModal({ deckCards, onClose, onZoom }) {
           >✕</button>
         </div>
 
-        {/* 7 張卡 */}
-        <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", justifyContent: "center" }}>
-          {hand.map((card, i) => (
-            <div
-              key={i}
-              style={{
-                width: "160px", aspectRatio: "2/3",
-                borderRadius: "6px", overflow: "hidden",
-                border: "1.5px solid #3d3155",
-                cursor: "pointer",
-                flexShrink: 0,
-              }}
-              onMouseEnter={e => e.currentTarget.style.borderColor = "#c084fc"}
-              onMouseLeave={e => e.currentTarget.style.borderColor = "#3d3155"}
-            >
-              <CardImage
-                card={card}
-                version={card.version}
-                onZoom={(url, cardData) => onZoom && onZoom(url, cardData)}
-                onClick={() => {}}
-              />
+        {/* 手機版：4+3 兩排；桌面版：7張一排 */}
+        {isMobile ? (
+          <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+            <div style={{ display: "flex", gap: "8px", justifyContent: "center" }}>
+              {firstRow.map((card, i) => renderCard(card, i))}
             </div>
-          ))}
-        </div>
+            <div style={{ display: "flex", gap: "8px", justifyContent: "center" }}>
+              {secondRow.map((card, i) => renderCard(card, i + 4))}
+            </div>
+          </div>
+        ) : (
+          <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", justifyContent: "center" }}>
+            {hand.map((card, i) => renderCard(card, i))}
+          </div>
+        )}
 
         {/* 重抽按鈕 */}
-        <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
+        <div style={{ display: "flex", justifyContent: "center", marginTop: "16px" }}>
           <button
             onClick={redraw}
             style={{

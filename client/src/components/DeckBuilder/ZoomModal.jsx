@@ -35,6 +35,18 @@ function ZoomModal({ card, imageUrl, onClose, onPrev, onNext }) {
     }
   };
 
+  const cardId = card.id || "";
+  const rutenUrl = `https://www.ruten.com.tw/find/?q=${encodeURIComponent(cardId)}`;
+  const shopeeUrl = `https://shopee.tw/search?keyword=${encodeURIComponent(cardId)}`;
+
+  const shopBtnStyle = {
+    display: "inline-flex", alignItems: "center", gap: "5px",
+    padding: "6px 14px", borderRadius: "16px",
+    fontSize: "12px", fontWeight: 500, cursor: "pointer",
+    border: "1px solid", textDecoration: "none",
+    whiteSpace: "nowrap",
+  };
+
   return (
     <div
       style={{
@@ -44,12 +56,11 @@ function ZoomModal({ card, imageUrl, onClose, onPrev, onNext }) {
       }}
       onClick={onClose}
     >
-      {/* 圖片容器 */}
       <div
         style={{
           display: "flex",
           flexDirection: isMobile ? "column" : "row",
-          alignItems: "center",
+          alignItems: isMobile ? "center" : "flex-start",
           justifyContent: "center",
           gap: "16px",
           padding: isMobile ? "16px 16px 80px" : "24px 80px",
@@ -65,33 +76,73 @@ function ZoomModal({ card, imageUrl, onClose, onPrev, onNext }) {
           src={imageUrl}
           alt="原圖"
           style={{
-            flex: "1 1 0",
-            minWidth: 0,
-            maxHeight: isMobile ? "45vh" : "85vh",
-            width: "100%",
+            flex: "0 0 auto",
+            maxHeight: isMobile ? "40vh" : "82vh",
+            maxWidth: isMobile ? "55vw" : "none",
+            width: "auto",
             height: "auto",
             objectFit: "contain",
             borderRadius: "8px",
           }}
         />
 
-        {/* 翻譯圖 */}
-        {primary && showTranslated && (
-          <img
-            src={primary}
-            alt="翻譯圖"
-            style={{
-              flex: "1 1 0",
-              minWidth: 0,
-              maxHeight: isMobile ? "45vh" : "85vh",
-              width: "100%",
-              height: "auto",
-              objectFit: "contain",
-              borderRadius: "8px",
-            }}
-            onError={handleError}
-          />
-        )}
+        {/* 右側：翻譯圖 + 賣場按鈕 */}
+        <div style={{
+          display: "flex", flexDirection: "column",
+          alignItems: "center", gap: "12px",
+          flex: "0 0 auto",
+        }}>
+          {/* 翻譯圖 */}
+          {primary && showTranslated && (
+            <img
+              src={primary}
+              alt="翻譯圖"
+              style={{
+                maxHeight: isMobile ? "40vh" : "72vh",
+                maxWidth: isMobile ? "85vw" : "none",
+                width: "auto",
+                height: "auto",
+                objectFit: "contain",
+                borderRadius: "8px",
+              }}
+              onError={handleError}
+            />
+          )}
+
+          {/* 賣場查卡按鈕 */}
+          {cardId && (
+            <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", justifyContent: "center" }}>
+              <a
+                href={rutenUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  ...shopBtnStyle,
+                  borderColor: "#e05c2a",
+                  color: "#f87c4a",
+                  background: "rgba(224,92,42,0.12)",
+                }}
+                onClick={e => e.stopPropagation()}
+              >
+                🛒 露天查卡
+              </a>
+              <a
+                href={shopeeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  ...shopBtnStyle,
+                  borderColor: "#e05c2a",
+                  color: "#f87c4a",
+                  background: "rgba(224,92,42,0.12)",
+                }}
+                onClick={e => e.stopPropagation()}
+              >
+                🛍 蝦皮查卡
+              </a>
+            </div>
+          )}
+        </div>
       </div>
 
       {/* 左箭頭 */}
