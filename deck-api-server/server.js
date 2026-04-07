@@ -281,10 +281,9 @@ app.post('/export-deck', async (req, res, next) => {
     ctx.textBaseline = 'top';
     ctx.textAlign = 'left';
 
-    async function drawCard(ctx, url, x, y, w, h, count) {
+    function drawCardImage(ctx, img, x, y, w, h, count) {
       ctx.save();
-      try {
-        const img = await loadImage(url);
+      if (img) {
         ctx.drawImage(img, x, y, w, h);
         if (count > 1) {
           const boxW = 38 * SCALE, boxH = 22 * SCALE;
@@ -297,10 +296,7 @@ app.post('/export-deck', async (req, res, next) => {
           ctx.textBaseline = 'alphabetic';
           ctx.fillText(`x${count}`, boxX + boxW / 2, boxY + boxH - 4 * SCALE);
         }
-      } catch (err) {
-        console.error('❌ 載入卡片失敗:', url, err.message);
-        ctx.globalAlpha = 1;
-        ctx.lineWidth = 1;
+      } else {
         ctx.fillStyle = '#2a2240';
         ctx.fillRect(x, y, w, h);
         ctx.fillStyle = '#c084fc';
@@ -326,51 +322,67 @@ app.post('/export-deck', async (req, res, next) => {
       ctx.restore();
     }
 
-    // OSHI — 從 CDN 讀圖
-    {
-      const total = oshi.reduce((a, c) => a + (c.count || 1), 0);
-      drawTitle(ctx, `OSHI (${total})`, 40 * SCALE, 20 * SCALE);
-      if (oshi[0]) {
-        const entry = parseKey(oshi[0].key);
-        if (entry) {
-          const url = `${CARDS_CDN}/${entry.folder}/${entry.id}${entry.version}.png`;
-          await drawCard(ctx, url, 40 * SCALE, oshiTop, cardW, cardH, oshi[0].count || 1);
-        }
-      }
+    // 所有圖片 URL 與位置先計算好，再並行載入
+    const drawJobs = [];
+
+    // OSHI
+    if (oshi[0]) {
+      const entry = parseKey(oshi[0].key);
+      if (entry) drawJobs.push({
+        url: `${CARDS_CDN}/${entry.folder}/${entry.id}${entry.version}.png`,
+        x: 40 * SCALE, y: oshiTop, w: cardW, h: cardH, count: oshi[0].count || 1,
+      });
     }
 
-    // MAIN — 從 CDN 讀圖
-    {
-      const total = deck.reduce((a, c) => a + (c.count || 1), 0);
-      drawTitle(ctx, `MAIN (${total})`, 300 * SCALE, 20 * SCALE);
-      for (let i = 0; i < deck.length; i++) {
-        const col = i % mainCols;
-        const row = Math.floor(i / mainCols);
-        const x = 300 * SCALE + col * (cardW + gap);
-        const y = 60 * SCALE + row * (cardH + gap);
-        const entry = parseKey(deck[i].key);
-        if (!entry) continue;
-        const url = `${CARDS_CDN}/${entry.folder}/${entry.id}${entry.version}.png`;
-        await drawCard(ctx, url, x, y, cardW, cardH, deck[i].count || 1);
-      }
+    // MAIN
+    for (let i = 0; i < deck.length; i++) {
+      const entry = parseKey(deck[i].key);
+      if (!entry) continue;
+      const col = i % mainCols, row = Math.floor(i / mainCols);
+      drawJobs.push({
+        url: `${CARDS_CDN}/${entry.folder}/${entry.id}${entry.version}.png`,
+        x: 300 * SCALE + col * (cardW + gap), y: 60 * SCALE + row * (cardH + gap),
+        w: cardW, h: cardH, count: deck[i].count || 1,
+      });
     }
 
-    // ENERGY — 從 CDN 讀圖
-    {
-      const total = energy.reduce((a, c) => a + (c.count || 1), 0);
-      drawTitle(ctx, `ENERGY (${total})`, 40 * SCALE, energyBaseY);
-      const smallW = 110 * SCALE, smallH = 155 * SCALE;
-      for (let i = 0; i < energy.length; i++) {
-        const col = i % 2;
-        const row = Math.floor(i / 2);
-        const x = 40 * SCALE + col * (smallW + gap);
-        const y = energyBaseY + 40 * SCALE + row * (smallH + gap);
-        const entry = parseKey(energy[i].key);
-        if (!entry) continue;
-        const url = `${CARDS_CDN}/${entry.folder}/${entry.id}${entry.version}.png`;
-        await drawCard(ctx, url, x, y, smallW, smallH, energy[i].count || 1);
-      }
+    // ENERGY
+    const smallW = 110 * SCALE, smallH = 155 * SCALE;
+    for (let i = 0; i < energy.length; i++) {
+      const entry = parseKey(energy[i].key);
+      if (!entry) continue;
+      const col = i % 2, row = Math.floor(i / 2);
+      drawJobs.push({
+        url: `${CARDS_CDN}/${entry.folder}/${entry.id}${entry.version}.png`,
+        x: 40 * SCALE + col * (smallW + gap), y: energyBaseY + 40 * SCALE + row * (smallH + gap),
+        w: smallW, h: smallH, count: energy[i].count || 1,
+      });
     }
+
+    // 並行載入背景 + 所有卡片圖
+    const bgUrl = `${CARDS_CDN}/backgrounds/wood.jpg`;
+    const [bgResult, ...imgResults] = await Promise.all([
+      loadImage(bgUrl).catch(() => null),
+      ...drawJobs.map(job => loadImage(job.url).catch(() => null)),
+    ]);
+
+    // 畫背景
+    if (bgResult) {
+      ctx.drawImage(bgResult, 0, 0, canvasW, canvasH);
+    } else {
+      ctx.fillStyle = '#f5f5f5';
+      ctx.fillRect(0, 0, canvasW, canvasH);
+    }
+
+    // 畫標題
+    drawTitle(ctx, `OSHI (${oshi.reduce((a, c) => a + (c.count || 1), 0)})`, 40 * SCALE, 20 * SCALE);
+    drawTitle(ctx, `MAIN (${deck.reduce((a, c) => a + (c.count || 1), 0)})`, 300 * SCALE, 20 * SCALE);
+    drawTitle(ctx, `ENERGY (${energy.reduce((a, c) => a + (c.count || 1), 0)})`, 40 * SCALE, energyBaseY);
+
+    // 依序畫卡片（圖已載入好，純 canvas 操作）
+    drawJobs.forEach((job, i) => {
+      drawCardImage(ctx, imgResults[i], job.x, job.y, job.w, job.h, job.count);
+    });
 
     res.setHeader('Content-Type', 'image/png');
     const buf = await canvas.encode('png');
