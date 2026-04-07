@@ -104,6 +104,25 @@ app.get('/', (req, res) => res.type('text').send('OK'));
 app.get('/healthz', (req, res) => res.json({ ok: true, uptime: process.uptime() }));
 app.get('/debug/ping', (req, res) => res.json({ ok: true, ts: Date.now() }));
 
+/* canvas 文字渲染測試 — 回傳一張小圖，確認字體是否正常 */
+app.get('/debug/canvas-text', async (_req, res) => {
+  try {
+    const c = createCanvas(200, 60);
+    const ctx = c.getContext('2d');
+    ctx.fillStyle = '#222';
+    ctx.fillRect(0, 0, 200, 60);
+    ctx.font = 'bold 24px "Noto Sans", sans-serif';
+    ctx.fillStyle = '#ffffff';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'alphabetic';
+    ctx.fillText('x3 test OK', 100, 40);
+    res.setHeader('Content-Type', 'image/png');
+    c.pngStream().pipe(res);
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
 /* ===================== 7) 六碼分享 ===================== */
 app.post('/save', async (req, res) => {
   try {
