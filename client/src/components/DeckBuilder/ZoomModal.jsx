@@ -60,13 +60,46 @@ function ZoomModal({ card, imageUrl, onClose, onPrev, onNext }) {
     }
   };
 
-  const shopBtnStyle = {
-    display: "inline-flex", alignItems: "center", gap: "6px",
-    padding: "10px 22px", borderRadius: "20px",
-    fontSize: "15px", fontWeight: 600, cursor: "pointer",
+  const shopBtnStyle = (mobile) => ({
+    display: "inline-flex", alignItems: "center", gap: mobile ? "4px" : "6px",
+    padding: mobile ? "7px 12px" : "10px 22px",
+    borderRadius: "20px",
+    fontSize: mobile ? "12px" : "15px",
+    fontWeight: 600, cursor: "pointer",
     border: "1.5px solid", textDecoration: "none",
     whiteSpace: "nowrap",
-  };
+  });
+
+  const buttons = (mobile) => cardId && (
+    <div style={{ display: "flex", gap: "6px", flexWrap: "wrap", justifyContent: "center" }}>
+      <button
+        onClick={handleDownload}
+        disabled={downloading}
+        style={{
+          ...shopBtnStyle(mobile),
+          borderColor: "#6b3fa0",
+          color: downloading ? "#4a3f5c" : "#c084fc",
+          background: "rgba(107,63,160,0.12)",
+          cursor: downloading ? "not-allowed" : "pointer",
+          opacity: downloading ? 0.6 : 1,
+        }}
+      >
+        {downloading ? "⏳" : "⬇"} {mobile ? "下載" : "下載圖片"}
+      </button>
+      <a href={rutenUrl} target="_blank" rel="noopener noreferrer"
+        style={{ ...shopBtnStyle(mobile), borderColor: "#e05c2a", color: "#f87c4a", background: "rgba(224,92,42,0.12)" }}
+        onClick={e => e.stopPropagation()}
+      >
+        🛒 {mobile ? "露天" : "露天查卡"}
+      </a>
+      <a href={shopeeUrl} target="_blank" rel="noopener noreferrer"
+        style={{ ...shopBtnStyle(mobile), borderColor: "#e05c2a", color: "#f87c4a", background: "rgba(224,92,42,0.12)" }}
+        onClick={e => e.stopPropagation()}
+      >
+        🛍 {mobile ? "蝦皮" : "蝦皮查卡"}
+      </a>
+    </div>
+  );
 
   return (
     <div
@@ -77,108 +110,55 @@ function ZoomModal({ card, imageUrl, onClose, onPrev, onNext }) {
       }}
       onClick={onClose}
     >
-      <div
-        style={{
-          display: "flex",
-          flexDirection: isMobile ? "column" : "row",
-          alignItems: isMobile ? "center" : "flex-start",
-          justifyContent: "center",
-          gap: "16px",
-          padding: isMobile ? "16px 16px 80px" : "24px 80px",
-          width: "100%",
-          height: "100%",
-          boxSizing: "border-box",
-          overflow: "auto",
-        }}
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* 原圖 */}
-        <img
-          src={imageUrl}
-          alt="原圖"
+      {isMobile ? (
+        /* ── 手機版：上方兩圖並排，下方按鈕 ── */
+        <div
           style={{
-            flex: "0 0 auto",
-            maxHeight: isMobile ? "40vh" : "82vh",
-            maxWidth: isMobile ? "55vw" : "none",
-            width: "auto",
-            height: "auto",
-            objectFit: "contain",
-            borderRadius: "8px",
+            display: "flex", flexDirection: "column", alignItems: "center",
+            gap: "10px", padding: "48px 8px 16px", width: "100%",
+            height: "100%", boxSizing: "border-box", overflow: "auto",
           }}
-        />
-
-        {/* 右側：翻譯圖 + 賣場按鈕 */}
-        <div style={{
-          display: "flex", flexDirection: "column",
-          alignItems: "center", gap: "12px",
-          flex: "0 0 auto",
-        }}>
-          {/* 翻譯圖 */}
-          {primary && showTranslated && (
-            <img
-              src={primary}
-              alt="翻譯圖"
-              style={{
-                maxHeight: isMobile ? "40vh" : "72vh",
-                maxWidth: isMobile ? "85vw" : "none",
-                width: "auto",
-                height: "auto",
-                objectFit: "contain",
-                borderRadius: "8px",
-              }}
-              onError={handleError}
+          onClick={e => e.stopPropagation()}
+        >
+          <div style={{ display: "flex", gap: "8px", width: "100%", justifyContent: "center" }}>
+            <img src={imageUrl} alt="原圖"
+              style={{ flex: "1 1 0", minWidth: 0, maxHeight: "62vh", objectFit: "contain", borderRadius: "8px" }}
             />
-          )}
-
-          {/* 下載＋賣場按鈕 */}
-          {cardId && (
-            <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", justifyContent: "center" }}>
-              <button
-                onClick={handleDownload}
-                disabled={downloading}
-                style={{
-                  ...shopBtnStyle,
-                  borderColor: "#6b3fa0",
-                  color: downloading ? "#4a3f5c" : "#c084fc",
-                  background: "rgba(107,63,160,0.12)",
-                  cursor: downloading ? "not-allowed" : "pointer",
-                  opacity: downloading ? 0.6 : 1,
-                }}
-              >
-                {downloading ? "⏳ 下載中..." : "⬇ 下載圖片"}
-              </button>
-              <a
-                href={rutenUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  ...shopBtnStyle,
-                  borderColor: "#e05c2a",
-                  color: "#f87c4a",
-                  background: "rgba(224,92,42,0.12)",
-                }}
-                onClick={e => e.stopPropagation()}
-              >
-                🛒 露天查卡
-              </a>
-              <a
-                href={shopeeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  ...shopBtnStyle,
-                  borderColor: "#e05c2a",
-                  color: "#f87c4a",
-                  background: "rgba(224,92,42,0.12)",
-                }}
-                onClick={e => e.stopPropagation()}
-              >
-                🛍 蝦皮查卡
-              </a>
-            </div>
-          )}
+            {primary && showTranslated && (
+              <img src={primary} alt="翻譯圖"
+                style={{ flex: "1 1 0", minWidth: 0, maxHeight: "62vh", objectFit: "contain", borderRadius: "8px" }}
+                onError={handleError}
+              />
+            )}
+          </div>
+          {buttons(true)}
         </div>
-      </div>
+      ) : (
+        /* ── 桌面版：左原圖，右翻譯圖＋按鈕 ── */
+        <div
+          style={{
+            display: "flex", flexDirection: "row",
+            alignItems: "flex-start", justifyContent: "center",
+            gap: "16px", padding: "24px 80px",
+            width: "100%", height: "100%",
+            boxSizing: "border-box", overflow: "auto",
+          }}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <img src={imageUrl} alt="原圖"
+            style={{ flex: "0 0 auto", maxHeight: "82vh", objectFit: "contain", borderRadius: "8px" }}
+          />
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "12px", flex: "0 0 auto" }}>
+            {primary && showTranslated && (
+              <img src={primary} alt="翻譯圖"
+                style={{ maxHeight: "72vh", objectFit: "contain", borderRadius: "8px" }}
+                onError={handleError}
+              />
+            )}
+            {buttons(false)}
+          </div>
+        </div>
+      )}
 
       {/* 左箭頭 */}
       {onPrev && (
