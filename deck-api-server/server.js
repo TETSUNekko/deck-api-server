@@ -3,7 +3,11 @@ import cors from 'cors';
 import { existsSync, mkdirSync } from 'fs';
 import { fetchDecklogData } from './decklog-scraper.cjs';
 import path from 'path';
-import { createCanvas, loadImage } from 'canvas';
+import { createCanvas, loadImage, registerFont } from 'canvas';
+
+// 使用打包好的字體，不依賴系統字體
+const __fontDir = new URL('./fonts', import.meta.url).pathname;
+registerFont(`${__fontDir}/NotoSans.ttf`, { family: 'NotoSans' });
 import { fileURLToPath } from 'url';
 import pg from 'pg';
 
@@ -111,7 +115,7 @@ app.get('/debug/canvas-text', async (_req, res) => {
     const ctx = c.getContext('2d');
     ctx.fillStyle = '#222';
     ctx.fillRect(0, 0, 200, 60);
-    ctx.font = 'bold 24px "Noto Sans", sans-serif';
+    ctx.font = 'bold 24px "NotoSans"';
     ctx.fillStyle = '#ffffff';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'alphabetic';
@@ -265,7 +269,7 @@ app.post('/export-deck', async (req, res, next) => {
       ctx.fillRect(0, 0, canvasW, canvasH);
     }
 
-    ctx.font = '20px Arial';
+    ctx.font = '20px "NotoSans"';
     ctx.textBaseline = 'top';
     ctx.textAlign = 'left';
 
@@ -279,7 +283,7 @@ app.post('/export-deck', async (req, res, next) => {
           const boxX = x + w - boxW - 3, boxY = y + h - boxH - 3;
           ctx.fillStyle = 'rgba(0,0,0,0.82)';
           ctx.fillRect(boxX, boxY, boxW, boxH);
-          ctx.font = 'bold 14px "Noto Sans", sans-serif';
+          ctx.font = 'bold 14px "NotoSans"';
           ctx.fillStyle = '#ffffff';
           ctx.textAlign = 'center';
           ctx.textBaseline = 'alphabetic';
@@ -292,7 +296,7 @@ app.post('/export-deck', async (req, res, next) => {
         ctx.fillStyle = '#2a2240';
         ctx.fillRect(x, y, w, h);
         ctx.fillStyle = '#c084fc';
-        ctx.font = 'bold 18px Arial';
+        ctx.font = 'bold 18px "NotoSans"';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText('?', x + w / 2, y + h / 2);
@@ -302,7 +306,7 @@ app.post('/export-deck', async (req, res, next) => {
 
     function drawTitle(ctx, text, x, y) {
       ctx.save();
-      ctx.font = 'bold 22px Arial';
+      ctx.font = 'bold 22px "NotoSans"';
       ctx.textAlign = 'left';
       ctx.textBaseline = 'top';
       ctx.lineJoin = 'round';
