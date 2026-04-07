@@ -111,30 +111,35 @@ function ZoomModal({ card, imageUrl, onClose, onPrev, onNext }) {
       onClick={onClose}
     >
       {isMobile ? (
-        /* ── 手機版：左原圖、右翻譯圖+按鈕，兩欄等高 ── */
+        /* ── 手機版：左原圖、右(翻譯圖+按鈕)，固定高度區塊 ── */
         <div
           style={{
-            display: "flex", flexDirection: "row", alignItems: "stretch",
+            display: "flex", flexDirection: "row",
             gap: "8px", padding: "48px 8px 16px", width: "100%",
-            height: "100%", boxSizing: "border-box", overflow: "hidden",
+            height: "100%", boxSizing: "border-box",
           }}
           onClick={e => e.stopPropagation()}
         >
           {/* 左欄：原圖 */}
-          <div style={{ flex: "1 1 0", minWidth: 0, display: "flex", alignItems: "center" }}>
+          <div style={{ flex: "1 1 0", minWidth: 0, display: "flex", alignItems: "flex-start" }}>
             <img src={imageUrl} alt="原圖"
-              style={{ width: "100%", height: "100%", maxHeight: "80vh", objectFit: "contain", borderRadius: "8px" }}
+              style={{ width: "100%", objectFit: "contain", borderRadius: "8px", maxHeight: "75vh" }}
             />
           </div>
-          {/* 右欄：翻譯圖 + 按鈕 */}
-          <div style={{ flex: "1 1 0", minWidth: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "space-between" }}>
-            {primary && showTranslated && (
+          {/* 右欄：翻譯圖（撐到同高） + 按鈕靠底 */}
+          <div style={{
+            flex: "1 1 0", minWidth: 0,
+            display: "flex", flexDirection: "column",
+            alignItems: "center", justifyContent: "space-between",
+            maxHeight: "75vh",
+          }}>
+            {primary && showTranslated ? (
               <img src={primary} alt="翻譯圖"
-                style={{ width: "100%", flex: "1 1 0", minHeight: 0, objectFit: "contain", borderRadius: "8px" }}
+                style={{ width: "100%", objectFit: "contain", borderRadius: "8px", minHeight: 0, flex: "1 1 0" }}
                 onError={handleError}
               />
-            )}
-            <div style={{ flexShrink: 0, paddingTop: "8px" }}>
+            ) : <div style={{ flex: "1 1 0" }} />}
+            <div style={{ flexShrink: 0, width: "100%", paddingTop: "8px" }}>
               {buttons(true)}
             </div>
           </div>
