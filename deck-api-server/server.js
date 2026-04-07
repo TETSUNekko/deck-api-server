@@ -256,22 +256,15 @@ app.post('/export-deck', async (req, res, next) => {
         const img = await loadImage(url);
         ctx.drawImage(img, x, y, w, h);
         if (count > 1) {
-          const boxW = 40, boxH = 24;
-          const boxX = x + w - boxW - 4, boxY = y + h - boxH - 4;
-          ctx.globalAlpha = 1;
-          ctx.lineWidth = 1;
-          ctx.fillStyle = 'rgba(0,0,0,0.72)';
+          const boxW = 38, boxH = 22;
+          const boxX = x + w - boxW - 3, boxY = y + h - boxH - 3;
+          ctx.fillStyle = 'rgba(0,0,0,0.82)';
           ctx.fillRect(boxX, boxY, boxW, boxH);
-          ctx.font = 'bold 16px Arial';
-          ctx.textAlign = 'center';
-          ctx.textBaseline = 'top';
-          const textX = boxX + boxW / 2;
-          const textY = boxY + 4;
-          ctx.strokeStyle = '#000000';
-          ctx.lineWidth = 3;
-          ctx.strokeText(`x${count}`, textX, textY);
+          ctx.font = 'bold 14px sans-serif';
           ctx.fillStyle = '#ffffff';
-          ctx.fillText(`x${count}`, textX, textY);
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'alphabetic';
+          ctx.fillText(`x${count}`, boxX + boxW / 2, boxY + boxH - 4);
         }
       } catch (err) {
         console.error('❌ 載入卡片失敗:', url, err.message);
