@@ -40,10 +40,10 @@ function ZoomModal({ card, imageUrl, onClose, onPrev, onNext }) {
   const shopeeUrl = `https://shopee.tw/search?keyword=${encodeURIComponent(cardId)}`;
 
   const shopBtnStyle = {
-    display: "inline-flex", alignItems: "center", gap: "5px",
-    padding: "6px 14px", borderRadius: "16px",
-    fontSize: "12px", fontWeight: 500, cursor: "pointer",
-    border: "1px solid", textDecoration: "none",
+    display: "inline-flex", alignItems: "center", gap: "6px",
+    padding: "10px 22px", borderRadius: "20px",
+    fontSize: "15px", fontWeight: 600, cursor: "pointer",
+    border: "1.5px solid", textDecoration: "none",
     whiteSpace: "nowrap",
   };
 
