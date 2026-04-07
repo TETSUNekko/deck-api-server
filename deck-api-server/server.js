@@ -3,7 +3,7 @@ import cors from 'cors';
 import { existsSync, mkdirSync } from 'fs';
 import { fetchDecklogData } from './decklog-scraper.cjs';
 import path from 'path';
-import { createCanvas, loadImage, registerFont } from 'canvas';
+import { createCanvas, loadImage, GlobalFonts } from '@napi-rs/canvas';
 import { fileURLToPath } from 'url';
 import pg from 'pg';
 
@@ -41,14 +41,14 @@ app.use((req, res, next) => {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// 字體註冊（打包進 repo 作為備用）
+// 字體註冊（@napi-rs/canvas 使用 GlobalFonts，內建 Skia 不依賴系統字體）
 const fontPath = path.join(__dirname, 'fonts', 'NotoSans-Bold.ttf');
 console.log('[Font] registering:', fontPath, 'exists:', existsSync(fontPath));
 try {
-  registerFont(fontPath, { family: 'NotoSans', weight: 'bold' });
+  GlobalFonts.registerFromPath(fontPath, 'NotoSans');
   console.log('[Font] registered OK');
 } catch (e) {
-  console.warn('[Font] registerFont failed, falling back to system fonts:', e.message);
+  console.warn('[Font] registerFont failed:', e.message);
 }
 
 // 卡圖 CDN（Cloudflare R2）
@@ -121,13 +121,14 @@ app.get('/debug/canvas-text', async (_req, res) => {
     const ctx = c.getContext('2d');
     ctx.fillStyle = '#222';
     ctx.fillRect(0, 0, 200, 60);
-    ctx.font = 'bold 24px sans-serif';
+    ctx.font = 'bold 24px NotoSans';
     ctx.fillStyle = '#ffffff';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'alphabetic';
     ctx.fillText('x3 test OK', 100, 40);
     res.setHeader('Content-Type', 'image/png');
-    c.pngStream().pipe(res);
+    const buf = await c.encode('png');
+    res.end(buf);
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
@@ -275,7 +276,7 @@ app.post('/export-deck', async (req, res, next) => {
       ctx.fillRect(0, 0, canvasW, canvasH);
     }
 
-    ctx.font = '20px sans-serif';
+    ctx.font = '20px NotoSans';
     ctx.textBaseline = 'top';
     ctx.textAlign = 'left';
 
@@ -289,7 +290,7 @@ app.post('/export-deck', async (req, res, next) => {
           const boxX = x + w - boxW - 3, boxY = y + h - boxH - 3;
           ctx.fillStyle = 'rgba(0,0,0,0.82)';
           ctx.fillRect(boxX, boxY, boxW, boxH);
-          ctx.font = 'bold 14px sans-serif';
+          ctx.font = 'bold 14px NotoSans';
           ctx.fillStyle = '#ffffff';
           ctx.textAlign = 'center';
           ctx.textBaseline = 'alphabetic';
@@ -302,7 +303,7 @@ app.post('/export-deck', async (req, res, next) => {
         ctx.fillStyle = '#2a2240';
         ctx.fillRect(x, y, w, h);
         ctx.fillStyle = '#c084fc';
-        ctx.font = 'bold 18px sans-serif';
+        ctx.font = 'bold 18px NotoSans';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText('?', x + w / 2, y + h / 2);
@@ -312,7 +313,7 @@ app.post('/export-deck', async (req, res, next) => {
 
     function drawTitle(ctx, text, x, y) {
       ctx.save();
-      ctx.font = 'bold 22px sans-serif';
+      ctx.font = 'bold 22px NotoSans';
       ctx.textAlign = 'left';
       ctx.textBaseline = 'top';
       ctx.lineJoin = 'round';
@@ -371,7 +372,8 @@ app.post('/export-deck', async (req, res, next) => {
     }
 
     res.setHeader('Content-Type', 'image/png');
-    return canvas.pngStream().pipe(res);
+    const buf = await canvas.encode('png');
+    return res.end(buf);
   } catch (err) {
     return next(err);
   }
