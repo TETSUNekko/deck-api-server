@@ -39,6 +39,27 @@ function ZoomModal({ card, imageUrl, onClose, onPrev, onNext }) {
   const rutenUrl = `https://www.ruten.com.tw/find/?q=${encodeURIComponent(cardId)}`;
   const shopeeUrl = `https://shopee.tw/search?keyword=${encodeURIComponent(cardId)}`;
 
+  const [downloading, setDownloading] = useState(false);
+  const handleDownload = async () => {
+    if (!imageUrl || downloading) return;
+    setDownloading(true);
+    try {
+      const res = await fetch(imageUrl);
+      const blob = await res.blob();
+      // 轉成 PNG（如果原本是 webp 也統一存成 .png 副檔名）
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `${cardId}${card.version || ""}.png`;
+      a.click();
+      URL.revokeObjectURL(url);
+    } catch {
+      alert("下載失敗，請稍後再試");
+    } finally {
+      setDownloading(false);
+    }
+  };
+
   const shopBtnStyle = {
     display: "inline-flex", alignItems: "center", gap: "6px",
     padding: "10px 22px", borderRadius: "20px",
@@ -109,9 +130,23 @@ function ZoomModal({ card, imageUrl, onClose, onPrev, onNext }) {
             />
           )}
 
-          {/* 賣場查卡按鈕 */}
+          {/* 下載＋賣場按鈕 */}
           {cardId && (
             <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", justifyContent: "center" }}>
+              <button
+                onClick={handleDownload}
+                disabled={downloading}
+                style={{
+                  ...shopBtnStyle,
+                  borderColor: "#6b3fa0",
+                  color: downloading ? "#4a3f5c" : "#c084fc",
+                  background: "rgba(107,63,160,0.12)",
+                  cursor: downloading ? "not-allowed" : "pointer",
+                  opacity: downloading ? 0.6 : 1,
+                }}
+              >
+                {downloading ? "⏳ 下載中..." : "⬇ 下載圖片"}
+              </button>
               <a
                 href={rutenUrl}
                 target="_blank"
