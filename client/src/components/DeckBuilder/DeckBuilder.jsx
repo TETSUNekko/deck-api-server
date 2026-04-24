@@ -52,6 +52,7 @@ function DeckBuilder() {
   const dragStartWidth = useRef(0);
   const mainRef = useRef(null);
   const deckRef = useRef(null);
+  const dividerCleanup = useRef(null);
 
   //手機板隱藏牌組區
   const [isMobile, setIsMobile] = useState(window.innerWidth < 620);
@@ -68,7 +69,6 @@ function DeckBuilder() {
     rawCards.forEach((card, index) => {
       const key = `${card.id}-${(card.versions || []).join(",")}`;
       if (!uniqueCardMap.has(key)) {
-        // 記錄原始順序 index
         uniqueCardMap.set(key, { ...card, sortType: card.grade || card.type, _order: index });
       }
     });
@@ -76,11 +76,17 @@ function DeckBuilder() {
   }, []);
 
   const indexedCards = useMemo(() => {
-    // 建立 id -> _order 的對應表
+    // 建立 id -> 全域順序 的對應表
     const orderMap = new Map(allCards.map(c => [c.id, c._order]));
+    // 建立 id@folder -> 該 folder 內的順序 的對應表
+    const folderOrderMap = new Map();
+    cardSets.flat().forEach((card, index) => {
+      const folder = (card.imageFolder || "").replace(/\/$/, "");
+      folderOrderMap.set(`${card.id}@${folder}`, index);
+    });
 
     return Object.entries(byKey)
-      .map(([key, relPath]) => {
+      .map(([key]) => {
         const [idVer, folder] = key.split("@");
         const match = idVer.match(/^(h[A-Za-z]+[0-9]*-\d{3})(.*)$/);
         if (!match) return null;
@@ -91,11 +97,10 @@ function DeckBuilder() {
       })
       .filter(Boolean)
       .sort((a, b) => {
-        // 先按照 cardList 原始順序排
-        const orderA = orderMap.get(a.id) ?? 99999;
-        const orderB = orderMap.get(b.id) ?? 99999;
+        // 優先用 id@folder 的順序，確保重刷卡依照所在 set 的 JSON 順序排列
+        const orderA = folderOrderMap.get(`${a.id}@${a.folder}`) ?? orderMap.get(a.id) ?? 99999;
+        const orderB = folderOrderMap.get(`${b.id}@${b.folder}`) ?? orderMap.get(b.id) ?? 99999;
         if (orderA !== orderB) return orderA - orderB;
-        // 同一張卡不同版本，按版本字母排
         return a.version.localeCompare(b.version);
       });
   }, [allCards]);
@@ -119,10 +124,11 @@ function DeckBuilder() {
       const matchTag = !selectedTag || selectedTag === "全部標籤" || (Array.isArray(card.tags) && card.tags.includes(selectedTag));
       const matchSeries = filterSeries === "全部彈數" || card.folder === filterSeries;
       const matchVersion = filterVersion === "全部版本" || card.version === filterVersion;
+      if (!(matchType && matchSearch && matchColor && matchGrade && matchSubtype && matchTag && matchSeries && matchVersion)) return false;
       const k = `${card.id}|${card.version}`;
       if (seen.has(k)) return false;
       seen.add(k);
-      return matchType && matchSearch && matchColor && matchGrade && matchSubtype && matchTag && matchSeries && matchVersion;
+      return true;
     });
   }, [indexedCards, searchTerm, filterType, filterColor, filterGrade, filterSeries, filterVersion, supportSubtype, selectedTag]);
 
@@ -139,7 +145,7 @@ function DeckBuilder() {
     } else {
       setDeckCards(prev => sortDeckByType([...prev, newCard]));
     }
-  }, [oshiCards.length, deckCards.length, energyCards.length]);
+  }, []);
 
   // ── Zoom ─────────────────────────────────────────────────
   const handleZoom = useCallback((url, cardData, index) => {
@@ -269,6 +275,10 @@ function DeckBuilder() {
   }, [shareCode, allCards]);
 
   // ── 拖拉分隔線 ───────────────────────────────────────────
+  useEffect(() => {
+    return () => { if (dividerCleanup.current) dividerCleanup.current(); };
+  }, []);
+
   const handleDividerMouseDown = useCallback((e) => {
     isDragging.current = true;
     dragStartX.current = e.clientX;
@@ -289,9 +299,16 @@ function DeckBuilder() {
       document.body.style.userSelect = "";
       document.removeEventListener("mousemove", onMove);
       document.removeEventListener("mouseup", onUp);
+      dividerCleanup.current = null;
     };
     document.addEventListener("mousemove", onMove);
     document.addEventListener("mouseup", onUp);
+    dividerCleanup.current = () => {
+      document.removeEventListener("mousemove", onMove);
+      document.removeEventListener("mouseup", onUp);
+      document.body.style.cursor = "";
+      document.body.style.userSelect = "";
+    };
   }, [cardPanelWidth]);
 
   const allImageFolders = useMemo(() => Array.from(new Set(

@@ -1,6 +1,6 @@
 # 設定資料夾與裁切參數
-$inputFolder = "C:\Users\Johna\Downloads\trans"
-$outputFolder = "C:\Users\Johna\Desktop\holotcg-online\client\public\webpcards\hBP07-trans"
+$inputFolder = "C:\Users\Johna\Downloads\hSD14-19\hSD19"
+$outputFolder = "C:\Users\Johna\Desktop\holotcg-online\client\public\webpcards\hSD19-trans"
 $prefix = "hSD09"
 $width = 1120
 $height = 1080

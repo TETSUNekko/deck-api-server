@@ -4,8 +4,8 @@ import { ZoomIn } from "lucide-react";
 import { webpUrlFromKey, ensureVersion } from "../../utils/imageIndex";
 
 const warningMap = {
-  "hBP01-010": "限制卡（一副牌中只能有一張）",
-  "hBP01-014": "限制卡（一副牌中只能有一張）",
+  //"hBP01-010": "限制卡（一副牌中只能有一張）",
+  //"hBP01-014": "限制卡（一副牌中只能有一張）",
   "hBP01-030": "限制卡（一副牌中只能有一張）",
   "hBP02-094": "限制卡（一副牌中只能有一張）",
 };

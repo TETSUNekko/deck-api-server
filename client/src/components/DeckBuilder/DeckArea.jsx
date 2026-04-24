@@ -164,9 +164,9 @@ const DeckArea = React.forwardRef(function DeckArea(
               { label: "1st",   value: gradeStats["1st"],  color: "#34d399" },
               { label: "2nd",   value: gradeStats["2nd"],  color: "#f472b6" },
               { label: "Spot",  value: gradeStats.spot,    color: "#fbbf24" },
-              { label: "T/M/F", value: supportStats.tmf,   color: "#c084fc" },
+              { label: "Staff/Event",  value: supportStats.other, color: "#94a3b8" },
               { label: "Item",  value: supportStats.item,  color: "#fb923c" },
-              { label: "其他",  value: supportStats.other, color: "#94a3b8" },
+              { label: "Other", value: supportStats.tmf,   color: "#c084fc" },
             ].map(({ label, value, color }) => (
               <span key={label} style={{
                 fontSize: "10px", padding: "1px 6px", borderRadius: "8px",

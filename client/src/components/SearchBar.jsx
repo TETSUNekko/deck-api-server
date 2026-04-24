@@ -39,6 +39,13 @@ const SERIES_LIST = [
   { value: "hSD11", label: "hSD11　スタートデッキ FLOW GLOW 推し 虎金妃笑虎" },
   { value: "hSD12", label: "hSD12　スタートデッキ 推し Advent" },
   { value: "hSD13", label: "hSD13　スタートデッキ 推し Justice" },
+  { value: "hSD14", label: "hSD14　ライブスタートデッキ 白上フブキ" },
+  { value: "hSD15", label: "hSD15　ライブスタートデッキ 儒烏風亭らでん" },
+  { value: "hSD16", label: "hSD16　ライブスタートデッキ さくらみこ" },
+  { value: "hSD17", label: "hSD17　ライブスタートデッキ 星街" },
+  { value: "hSD18", label: "hSD18　ライブスタートデッキ 森" },
+  { value: "hSD19", label: "hSD19　ライブスタートデッキ 大空" },
+
   { value: "hPR", label: "hPR　PRカード" },
   { value: "hBD24", label: "hBD24　生日カード" },
   { value: "energy", label: "エールカード" },

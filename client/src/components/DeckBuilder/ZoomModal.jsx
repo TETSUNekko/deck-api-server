@@ -4,12 +4,18 @@ import React, { useEffect, useState } from "react";
 
 function ZoomModal({ card, imageUrl, onClose, onPrev, onNext }) {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [showTranslated, setShowTranslated] = useState(true);
 
   useEffect(() => {
     const handler = () => setIsMobile(window.innerWidth < 768);
     window.addEventListener("resize", handler);
     return () => window.removeEventListener("resize", handler);
   }, []);
+
+  // 每次換卡時重置翻譯圖狀態
+  useEffect(() => {
+    setShowTranslated(true);
+  }, [card?.key]);
 
   if (!card || !imageUrl) return null;
 
@@ -23,8 +29,6 @@ function ZoomModal({ card, imageUrl, onClose, onPrev, onNext }) {
     const prefix = entry.id.split("-")[0];
     fallback = `${base}webpcards/${prefix}-trans/${entry.id}.webp`;
   }
-
-  const [showTranslated, setShowTranslated] = useState(true);
 
   const handleError = (e) => {
     if (primary && fallback && !e.currentTarget.dataset.fallback) {
@@ -146,10 +150,10 @@ function ZoomModal({ card, imageUrl, onClose, onPrev, onNext }) {
         <div
           style={{
             display: "flex", flexDirection: "row",
-            alignItems: "flex-start", justifyContent: "center",
+            alignItems: "flex-start",
             gap: "16px", padding: "24px 80px",
-            width: "100%", height: "100%",
             boxSizing: "border-box", overflow: "auto",
+            maxHeight: "100vh",
           }}
           onClick={(e) => e.stopPropagation()}
         >
