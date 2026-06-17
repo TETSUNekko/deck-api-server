@@ -3,90 +3,116 @@
     "id": "hBP03-001",
     "type": "Oshi",
     "name": "姫森ルーナ",
+    "life": "",
     "imageFolder": "hBP03/",
     "color": ["white"],
-    "grade": "",
     "searchKeywords": ["姫森ルーナ", "姬森璐娜", "Himemori Luna"],
-    "versions": ["_OSR.png", "_OUR.png"]  
+    "skillType": "",
+    "versions": ["_OSR.png", "_OUR.png"],
+    "tags": "",
+    "grade": ""
   },
   {
     "id": "hBP03-002",
     "type": "Oshi",
     "name": "獅白ぼたん",
+    "life": "",
     "imageFolder": "hBP03/",
     "color": ["green"],
-    "grade": "",
     "searchKeywords": ["獅白ぼたん", "獅白牡丹", "Shishiro Botan"],
-    "versions": ["_SEC.png", "_OSR.png", "_OUR.png"]
+    "skillType": "",
+    "versions": ["_SEC.png", "_OSR.png", "_OUR.png"],
+    "tags": "",
+    "grade": ""
   },
   {
     "id": "hBP03-003",
     "type": "Oshi",
     "name": "さくらみこ",
+    "life": "",
     "imageFolder": "hBP03/",
     "color": ["red"],
-    "grade": "",
     "searchKeywords": ["さくらみこ", "櫻巫女", "Sakura Miko"],
-    "versions": ["_SEC.png", "_OSR.png", "_OUR.png"]
+    "skillType": "",
+    "versions": ["_SEC.png", "_OSR.png", "_OUR.png"],
+    "tags": "",
+    "grade": ""
   },
   {
     "id": "hBP03-004",
     "type": "Oshi",
     "name": "FUWAMOCO",
+    "life": "",
     "imageFolder": "hBP03/",
     "color": ["blue"],
-    "grade": "",
     "searchKeywords": ["FUWAMOCO", "FUWAMOCO", "FUWAMOCO"],
-    "versions": ["_OSR.png", "_OUR.png"]
+    "skillType": "",
+    "versions": ["_OSR.png", "_OUR.png"],
+    "tags": "",
+    "grade": ""
   },
   {
     "id": "hBP03-005",
     "type": "Oshi",
     "name": "常闇トワ",
+    "life": "",
     "imageFolder": "hBP03/",
     "color": ["purple"],
-    "grade": "",
     "searchKeywords": ["常闇トワ", "常闇永遠", "Tokoyami Towa"],
-    "versions": ["_SEC.png", "_OSR.png", "_OUR.png"]
+    "skillType": "",
+    "versions": ["_SEC.png", "_OSR.png", "_OUR.png"],
+    "tags": "",
+    "grade": ""
   },
   {
     "id": "hBP03-006",
     "type": "Oshi",
     "name": "戌神ころね",
+    "life": "",
     "imageFolder": "hBP03/",
     "color": ["yellow"],
-    "grade": "",
     "searchKeywords": ["戌神ころね", "戌神沁音", "Inugami Korone"],
-    "versions": ["_OSR.png", "_OUR.png"]
+    "skillType": "",
+    "versions": ["_OSR.png", "_OUR.png"],
+    "tags": "",
+    "grade": ""
   },
   {
     "id": "hBP03-007",
     "type": "Oshi",
     "name": "角巻わため",
+    "life": "",
     "imageFolder": "hBP03/",
     "color": ["yellow"],
-    "grade": "",
     "searchKeywords": ["角巻わため", "角卷綿芽", "Tsunomaki Watame"],
-    "versions": ["_SEC.png", "_OSR.png", "_OUR.png"]
+    "skillType": "",
+    "versions": ["_SEC.png", "_OSR.png", "_OUR.png"],
+    "tags": "",
+    "grade": ""
   },
   {
     "id": "hBP03-008",
     "type": "Oshi",
     "name": "アユンダ・リス",
+    "life": "",
     "imageFolder": "hBP03/",
     "color": ["yellow"],
-    "grade": "",
     "searchKeywords": ["アユンダ・リス", "阿芸達·栗絲", "Ayunda Risu"],
-    "versions": ["_OSR.png", "_OUR.png"]
+    "skillType": "",
+    "versions": ["_OSR.png", "_OUR.png"],
+    "tags": "",
+    "grade": ""
   },
   {
     "id": "hBP03-009",
     "type": "Member",
     "name": "姫森ルーナ",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["white"],
     "grade": "debut",
     "searchKeywords": ["姫森ルーナ", "姬森璐娜", "Himemori Luna"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["JP", "4期生", "嬰兒"],
     "effectType": ""
@@ -95,10 +121,12 @@
     "id": "hBP03-010",
     "type": "Member",
     "name": "姫森ルーナ",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["white"],
     "grade": "debut",
     "searchKeywords": ["姫森ルーナ", "姬森璐娜", "Himemori Luna"],
+    "skillType": "",
     "versions": ["_U.png", "_S.png"],
     "tags": ["JP", "4期生", "嬰兒"],
     "effectType": "Collaboration"
@@ -107,10 +135,12 @@
     "id": "hBP03-011",
     "type": "Member",
     "name": "姫森ルーナ",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["white"],
     "grade": "1st",
     "searchKeywords": ["姫森ルーナ", "姬森璐娜", "Himemori Luna"],
+    "skillType": "",
     "versions": ["_C.png", "_S.png"],
     "tags": ["JP", "4期生", "嬰兒"],
     "effectType": ""
@@ -119,10 +149,12 @@
     "id": "hBP03-012",
     "type": "Member",
     "name": "姫森ルーナ",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["white"],
     "grade": "1st",
     "searchKeywords": ["姫森ルーナ", "姬森璐娜", "Himemori Luna"],
+    "skillType": "",
     "versions": ["_U.png", "_S.png"],
     "tags": ["JP", "4期生", "嬰兒"],
     "effectType": "Bloom"
@@ -131,10 +163,12 @@
     "id": "hBP03-013",
     "type": "Member",
     "name": "姫森ルーナ",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["white"],
     "grade": "1st",
     "searchKeywords": ["姫森ルーナ", "姬森璐娜", "Himemori Luna"],
+    "skillType": "",
     "versions": ["_R.png", "_SR.png"],
     "tags": ["JP", "4期生", "嬰兒"],
     "effectType": "Gift"
@@ -143,10 +177,12 @@
     "id": "hBP03-014",
     "type": "Member",
     "name": "姫森ルーナ",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["white"],
     "grade": "2nd",
     "searchKeywords": ["姫森ルーナ", "姬森璐娜", "Himemori Luna"],
+    "skillType": "",
     "versions": ["_RR.png", "_SR.png", "_UR.png"],
     "tags": ["JP", "4期生", "嬰兒"],
     "effectType": "Bloom"
@@ -155,10 +191,12 @@
     "id": "hBP03-015",
     "type": "Member",
     "name": "轟はじめ",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["white"],
     "grade": "2nd",
     "searchKeywords": ["轟はじめ", "轟一", "Todoroki Hajime"],
+    "skillType": "",
     "versions": ["_RR.png", "_SR.png", "_UR.png"],
     "tags": ["DEV_IS", "ReGLOSS", "嬰兒"],
     "effectType": "Gift"
@@ -167,22 +205,26 @@
     "id": "hSD05-009",
     "type": "Member",
     "name": "轟はじめ",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["white"],
     "grade": "2nd",
     "searchKeywords": ["轟はじめ", "轟一", "Todoroki Hajime"],
+    "skillType": "",
     "versions": ["_SR.png"],
     "tags": ["DEV_IS", "ReGLOSS", "嬰兒"],
-    "effectType": "Bloom"  
+    "effectType": "Bloom"
   },
   {
     "id": "hBP03-016",
     "type": "Member",
     "name": "獅白ぼたん",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["green"],
     "grade": "debut",
     "searchKeywords": ["獅白ぼたん", "獅白牡丹", "Shishiro Botan"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["JP", "5期生", "獸耳", "射手"],
     "effectType": "Gift"
@@ -191,10 +233,12 @@
     "id": "hBP03-017",
     "type": "Member",
     "name": "獅白ぼたん",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["green"],
     "grade": "debut",
     "searchKeywords": ["獅白ぼたん", "獅白牡丹", "Shishiro Botan"],
+    "skillType": "",
     "versions": ["_S.png", "_U.png"],
     "tags": ["JP", "5期生", "獸耳", "射手"],
     "effectType": "Collaboration"
@@ -203,10 +247,12 @@
     "id": "hBP03-018",
     "type": "Member",
     "name": "獅白ぼたん",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["green"],
     "grade": "1st",
     "searchKeywords": ["獅白ぼたん", "獅白牡丹", "Shishiro Botan"],
+    "skillType": "",
     "versions": ["_C.png", "_S.png"],
     "tags": ["JP", "5期生", "獸耳", "射手"],
     "effectType": ""
@@ -215,10 +261,12 @@
     "id": "hBP03-019",
     "type": "Member",
     "name": "獅白ぼたん",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["green"],
     "grade": "1st",
     "searchKeywords": ["獅白ぼたん", "獅白牡丹", "Shishiro Botan"],
+    "skillType": "",
     "versions": ["_U.png", "_S.png"],
     "tags": ["JP", "5期生", "獸耳", "射手"],
     "effectType": "Bloom"
@@ -227,10 +275,12 @@
     "id": "hBP03-020",
     "type": "Member",
     "name": "獅白ぼたん",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["green"],
     "grade": "1st",
     "searchKeywords": ["獅白ぼたん", "獅白牡丹", "Shishiro Botan"],
+    "skillType": "",
     "versions": ["_R.png", "_SR.png"],
     "tags": ["JP", "5期生", "獸耳", "射手"],
     "effectType": "Bloom"
@@ -239,10 +289,12 @@
     "id": "hBP03-021",
     "type": "Member",
     "name": "獅白ぼたん",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["green"],
     "grade": "2nd",
     "searchKeywords": ["獅白ぼたん", "獅白牡丹", "Shishiro Botan"],
+    "skillType": "",
     "versions": ["_RR.png", "_SR.png", "_UR.png"],
     "tags": ["JP", "5期生", "獸耳", "射手"],
     "effectType": "Bloom"
@@ -251,10 +303,12 @@
     "id": "hBP03-022",
     "type": "Member",
     "name": "アキ・ローゼンタール",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["green"],
     "grade": "buzz",
     "searchKeywords": ["アキ・ローゼンタール", "亞綺·羅森塔爾", "Aki Rosenthal"],
+    "skillType": "",
     "versions": ["_R.png", "_SR.png"],
     "tags": ["JP", "1期生", "半精靈", "酒"],
     "effectType": "Gift"
@@ -263,10 +317,12 @@
     "id": "hBP03-023",
     "type": "Member",
     "name": "兔田ぺこら",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["green"],
     "grade": "buzz",
     "searchKeywords": ["兔田ぺこら", "兔田佩可拉", "Usada Pekora"],
+    "skillType": "",
     "versions": ["_R.png", "_SR.png"],
     "tags": ["JP", "3期生", "獸耳"],
     "effectType": "Collaboration"
@@ -275,10 +331,12 @@
     "id": "hBP03-024",
     "type": "Member",
     "name": "風真いろは",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["green"],
     "grade": "2nd",
     "searchKeywords": ["風真いろは", "風真伊呂波", "Kazama Iroha"],
+    "skillType": "",
     "versions": ["_RR.png", "_SR.png", "_UR.png"],
     "tags": ["JP", "秘密結社holoX"],
     "effectType": "Bloom"
@@ -287,22 +345,26 @@
     "id": "hSD06-007",
     "type": "Member",
     "name": "風真いろは",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["green"],
     "grade": "2nd",
     "searchKeywords": ["風真いろは", "風真伊呂波", "Kazama Iroha"],
+    "skillType": "",
     "versions": ["_SR.png"],
     "tags": ["JP", "秘密結社holoX"],
-    "effectType": "Bloom"   
+    "effectType": "Bloom"
   },
   {
     "id": "hBP03-025",
     "type": "Member",
     "name": "さくらみこ",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["red"],
     "grade": "debut",
     "searchKeywords": ["さくらみこ", "櫻巫女", "Sakura Miko"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["JP", "0期生", "嬰兒"],
     "effectType": ""
@@ -311,10 +373,12 @@
     "id": "hBP03-026",
     "type": "Member",
     "name": "さくらみこ",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["red"],
     "grade": "debut",
     "searchKeywords": ["さくらみこ", "櫻巫女", "Sakura Miko"],
+    "skillType": "",
     "versions": ["_U.png", "_S.png"],
     "tags": ["JP", "0期生", "嬰兒"],
     "effectType": "Collaboration"
@@ -323,10 +387,12 @@
     "id": "hBP03-027",
     "type": "Member",
     "name": "さくらみこ",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["red"],
     "grade": "1st",
     "searchKeywords": ["さくらみこ", "櫻巫女", "Sakura Miko"],
+    "skillType": "",
     "versions": ["_C_2.png", "_S_2.png"],
     "tags": ["JP", "0期生", "嬰兒"],
     "effectType": ""
@@ -335,10 +401,12 @@
     "id": "hBP03-028",
     "type": "Member",
     "name": "さくらみこ",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["red"],
     "grade": "1st",
     "searchKeywords": ["さくらみこ", "櫻巫女", "Sakura Miko"],
+    "skillType": "",
     "versions": ["_U.png", "_S.png"],
     "tags": ["JP", "0期生", "嬰兒"],
     "effectType": ""
@@ -347,10 +415,12 @@
     "id": "hBP03-029",
     "type": "Member",
     "name": "さくらみこ",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["red"],
     "grade": "1st",
     "searchKeywords": ["さくらみこ", "櫻巫女", "Sakura Miko"],
+    "skillType": "",
     "versions": ["_R.png", "_SR.png"],
     "tags": ["JP", "0期生", "嬰兒"],
     "effectType": "Bloom"
@@ -359,10 +429,12 @@
     "id": "hBP03-030",
     "type": "Member",
     "name": "さくらみこ",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["red"],
     "grade": "2nd",
     "searchKeywords": ["さくらみこ", "櫻巫女", "Sakura Miko"],
+    "skillType": "",
     "versions": ["_RR.png", "_SR.png", "_UR.png"],
     "tags": ["JP", "0期生", "嬰兒"],
     "effectType": "Gift"
@@ -371,10 +443,12 @@
     "id": "hBP03-031",
     "type": "Member",
     "name": "赤井はあと",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["red"],
     "grade": "debut",
     "searchKeywords": ["赤井はあと", "赤井心", "Akai Haato"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["JP", "1期生", "料理"],
     "effectType": ""
@@ -383,10 +457,12 @@
     "id": "hBP03-032",
     "type": "Member",
     "name": "赤井はあと",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["red"],
     "grade": "debut",
     "searchKeywords": ["赤井はあと", "赤井心", "Akai Haato"],
+    "skillType": "",
     "versions": ["_C.png", "_S.png"],
     "tags": ["JP", "1期生", "料理"],
     "effectType": ""
@@ -395,10 +471,12 @@
     "id": "hBP03-033",
     "type": "Member",
     "name": "赤井はあと",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["red"],
     "grade": "1st",
     "searchKeywords": ["赤井はあと", "赤井心", "Akai Haato"],
+    "skillType": "",
     "versions": ["_U.png", "_S.png"],
     "tags": ["JP", "1期生", "料理"],
     "effectType": "Bloom"
@@ -407,10 +485,12 @@
     "id": "hBP03-034",
     "type": "Member",
     "name": "赤井はあと",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["red"],
     "grade": "buzz",
     "searchKeywords": ["赤井はあと", "赤井心", "Akai Haato"],
+    "skillType": "",
     "versions": ["_RR.png", "_SR.png", "_UR.png"],
     "tags": ["JP", "1期生", "料理"],
     "effectType": "Bloom"
@@ -419,10 +499,12 @@
     "id": "hBP03-035",
     "type": "Member",
     "name": "鷹嶺ルイ",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["red"],
     "grade": "buzz",
     "searchKeywords": ["鷹嶺ルイ", "鷹嶺琉依", "Takane Rui"],
+    "skillType": "",
     "versions": ["_R.png", "_SR.png"],
     "tags": ["JP", "秘密結社holoX", "鳥", "酒"],
     "effectType": ""
@@ -431,10 +513,12 @@
     "id": "hBP03-036",
     "type": "Member",
     "name": "小鳥遊キアラ",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["red"],
     "grade": "1st",
     "searchKeywords": ["小鳥遊キアラ", "小鳥遊琪亞拉", "Takanashi Kiara"],
+    "skillType": "",
     "versions": ["_R.png", "_SR.png"],
     "tags": ["EN", "Myth", "鳥"],
     "effectType": "Bloom"
@@ -443,10 +527,12 @@
     "id": "hBP03-037",
     "type": "Member",
     "name": "モココ・アビスガード",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["red"],
     "grade": "debut",
     "searchKeywords": ["モココ・アビスガード", "茸茸·阿比斯加德", "Mococo Abyssgard"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["EN", "Advent", "獸耳"],
     "effectType": ""
@@ -455,10 +541,12 @@
     "id": "hBP03-038",
     "type": "Member",
     "name": "モココ・アビスガード",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["red"],
     "grade": "1st",
     "searchKeywords": ["モココ・アビスガード", "茸茸·阿比斯加德", "Mococo Abyssgard"],
+    "skillType": "",
     "versions": ["_C.png", "_S.png"],
     "tags": ["EN", "Advent", "獸耳"],
     "effectType": "Bloom"
@@ -467,10 +555,12 @@
     "id": "hBP03-039",
     "type": "Member",
     "name": "モココ・アビスガード",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["red"],
     "grade": "buzz",
     "searchKeywords": ["モココ・アビスガード", "茸茸·阿比斯加德", "Mococo Abyssgard"],
+    "skillType": "",
     "versions": ["_R.png", "_SR.png"],
     "tags": ["EN", "Advent", "獸耳"],
     "effectType": "Gift"
@@ -479,10 +569,12 @@
     "id": "hBP03-040",
     "type": "Member",
     "name": "フワワ・アビスガード",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["blue"],
     "grade": "debut",
     "searchKeywords": ["フワワ・アビスガード", "軟軟·阿比斯加德", "Fuwawa Abyssgard"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["EN", "Advent", "獸耳"],
     "effectType": ""
@@ -491,10 +583,12 @@
     "id": "hBP03-041",
     "type": "Member",
     "name": "フワワ・アビスガード",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["blue"],
     "grade": "1st",
     "searchKeywords": ["フワワ・アビスガード", "軟軟·阿比斯加德", "Fuwawa Abyssgard"],
+    "skillType": "",
     "versions": ["_C.png", "_S.png"],
     "tags": ["EN", "Advent", "獸耳"],
     "effectType": ""
@@ -503,10 +597,12 @@
     "id": "hBP03-042",
     "type": "Member",
     "name": "フワワ・アビスガード",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["blue"],
     "grade": "1st",
     "searchKeywords": ["フワワ・アビスガード", "軟軟·阿比斯加德", "Fuwawa Abyssgard"],
+    "skillType": "",
     "versions": ["_U.png", "_S.png"],
     "tags": ["EN", "Advent", "獸耳"],
     "effectType": "Bloom"
@@ -515,10 +611,12 @@
     "id": "hBP03-043",
     "type": "Member",
     "name": "フワワ・アビスガード",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["blue"],
     "grade": "2nd",
     "searchKeywords": ["フワワ・アビスガード", "軟軟·阿比斯加德", "Fuwawa Abyssgard"],
+    "skillType": "",
     "versions": ["_RR.png", "_SR.png", "_UR.png"],
     "tags": ["EN", "Advent", "獸耳"],
     "effectType": ""
@@ -527,10 +625,12 @@
     "id": "hBP03-044",
     "type": "Member",
     "name": "星街すいせい",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["blue"],
     "grade": "1st",
     "searchKeywords": ["星街すいせい", "星街彗星", "Hoshimachi Suisei"],
+    "skillType": "",
     "versions": ["_R.png", "_SR.png"],
     "tags": ["JP", "0期生", "歌"],
     "effectType": "Bloom"
@@ -539,10 +639,12 @@
     "id": "hBP03-045",
     "type": "Member",
     "name": "こぼ・かなえる",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["blue"],
     "grade": "buzz",
     "searchKeywords": ["こぼ・かなえる", "果波·卡娜埃露", "Kobo Kanaeru"],
+    "skillType": "",
     "versions": ["_R.png", "_SR.png"],
     "tags": ["ID", "ID3期生"],
     "effectType": "Bloom"
@@ -551,10 +653,12 @@
     "id": "hBP03-046",
     "type": "Member",
     "name": "火威青",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["blue"],
     "grade": "debut",
     "searchKeywords": ["火威青", "火威青", "Hiodoshi Ao"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["DEV_IS", "ReGLOSS", "畫"],
     "effectType": ""
@@ -563,10 +667,12 @@
     "id": "hBP03-047",
     "type": "Member",
     "name": "火威青",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["blue"],
     "grade": "1st",
     "searchKeywords": ["火威青", "火威青", "Hiodoshi Ao"],
+    "skillType": "",
     "versions": ["_C.png", "_S.png"],
     "tags": ["DEV_IS", "ReGLOSS", "畫"],
     "effectType": ""
@@ -575,10 +681,12 @@
     "id": "hBP03-048",
     "type": "Member",
     "name": "火威青",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["blue"],
     "grade": "1st",
     "searchKeywords": ["火威青", "火威青", "Hiodoshi Ao"],
+    "skillType": "",
     "versions": ["_U.png", "_S.png"],
     "tags": ["DEV_IS", "ReGLOSS", "畫"],
     "effectType": ""
@@ -587,10 +695,12 @@
     "id": "hBP03-049",
     "type": "Member",
     "name": "火威青",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["blue"],
     "grade": "buzz",
     "searchKeywords": ["火威青", "火威青", "Hiodoshi Ao"],
+    "skillType": "",
     "versions": ["_R.png", "_SR.png"],
     "tags": ["DEV_IS", "ReGLOSS", "畫"],
     "effectType": "Bloom"
@@ -599,10 +709,12 @@
     "id": "hBP03-050",
     "type": "Member",
     "name": "FUWAMOCO",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["red", "blue"],
     "grade": "1st",
     "searchKeywords": ["FUWAMOCO", "FUWAMOCO", "FUWAMOCO"],
+    "skillType": "",
     "versions": ["_R.png", "_SR.png"],
     "tags": ["EN", "Advent", "獸耳"],
     "effectType": ""
@@ -611,10 +723,12 @@
     "id": "hBP03-051",
     "type": "Member",
     "name": "常闇トワ",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["purple"],
     "grade": "debut",
     "searchKeywords": ["常闇トワ", "常闇永遠", "Tokoyami Towa"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["JP", "4期生", "歌", "射手"],
     "effectType": ""
@@ -623,10 +737,12 @@
     "id": "hBP03-052",
     "type": "Member",
     "name": "常闇トワ",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["purple"],
     "grade": "debut",
     "searchKeywords": ["常闇トワ", "常闇永遠", "Tokoyami Towa"],
+    "skillType": "",
     "versions": ["_U.png", "_S.png"],
     "tags": ["JP", "4期生", "歌", "射手"],
     "effectType": ""
@@ -635,10 +751,12 @@
     "id": "hBP03-053",
     "type": "Member",
     "name": "常闇トワ",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["purple"],
     "grade": "1st",
     "searchKeywords": ["常闇トワ", "常闇永遠", "Tokoyami Towa"],
+    "skillType": "",
     "versions": ["_C.png", "_S.png"],
     "tags": ["JP", "4期生", "歌", "射手"],
     "effectType": ""
@@ -647,10 +765,12 @@
     "id": "hBP03-054",
     "type": "Member",
     "name": "常闇トワ",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["purple"],
     "grade": "1st",
     "searchKeywords": ["常闇トワ", "常闇永遠", "Tokoyami Towa"],
+    "skillType": "",
     "versions": ["_U.png", "_S.png"],
     "tags": ["JP", "4期生", "歌", "射手"],
     "effectType": "Collaboration"
@@ -659,10 +779,12 @@
     "id": "hBP03-055",
     "type": "Member",
     "name": "常闇トワ",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["purple"],
     "grade": "1st",
     "searchKeywords": ["常闇トワ", "常闇永遠", "Tokoyami Towa"],
+    "skillType": "",
     "versions": ["_R.png", "_SR.png"],
     "tags": ["JP", "4期生", "歌", "射手"],
     "effectType": ""
@@ -671,22 +793,26 @@
     "id": "hBP03-056",
     "type": "Member",
     "name": "常闇トワ",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["purple"],
     "grade": "2nd",
     "searchKeywords": ["常闇トワ", "常闇永遠", "Tokoyami Towa"],
+    "skillType": "",
     "versions": ["_RR.png", "_SR.png", "_UR.png"],
     "tags": ["JP", "4期生", "歌", "射手"],
-    "effectType": ""  
+    "effectType": ""
   },
   {
     "id": "hBP03-057",
     "type": "Member",
     "name": "ロボ子さん",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["purple"],
     "grade": "debut",
     "searchKeywords": ["ロボ子さん", "蘿蔔子", "Roboco-san"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["JP", "0期生", "射手"],
     "effectType": ""
@@ -695,10 +821,12 @@
     "id": "hBP03-058",
     "type": "Member",
     "name": "ロボ子さん",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["purple"],
     "grade": "1st",
     "searchKeywords": ["ロボ子さん", "蘿蔔子", "Roboco-san"],
+    "skillType": "",
     "versions": ["_C.png", "_S.png"],
     "tags": ["JP", "0期生", "射手"],
     "effectType": ""
@@ -707,10 +835,12 @@
     "id": "hBP03-059",
     "type": "Member",
     "name": "ロボ子さん",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["purple"],
     "grade": "1st",
     "searchKeywords": ["ロボ子さん", "蘿蔔子", "Roboco-san"],
+    "skillType": "",
     "versions": ["_U.png", "_S.png"],
     "tags": ["JP", "0期生", "射手"],
     "effectType": "Bloom"
@@ -719,10 +849,12 @@
     "id": "hBP03-060",
     "type": "Member",
     "name": "ロボ子さん",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["purple"],
     "grade": "2nd",
     "searchKeywords": ["ロボ子さん", "蘿蔔子", "Roboco-san"],
+    "skillType": "",
     "versions": ["_R.png", "_SR.png"],
     "tags": ["JP", "0期生", "射手"],
     "effectType": ""
@@ -731,10 +863,12 @@
     "id": "hBP03-061",
     "type": "Member",
     "name": "戌神ころね",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "debut",
     "searchKeywords": ["戌神ころね", "戌神沁音", "Inugami Korone"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["JP", "Gamers", "獸耳"],
     "effectType": ""
@@ -743,10 +877,12 @@
     "id": "hBP03-062",
     "type": "Member",
     "name": "戌神ころね",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "debut",
     "searchKeywords": ["戌神ころね", "戌神沁音", "Inugami Korone"],
+    "skillType": "",
     "versions": ["_U.png", "_S.png"],
     "tags": ["JP", "Gamers", "獸耳"],
     "effectType": "Collaboration"
@@ -755,10 +891,12 @@
     "id": "hBP03-063",
     "type": "Member",
     "name": "戌神ころね",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "1st",
     "searchKeywords": ["戌神ころね", "戌神沁音", "Inugami Korone"],
+    "skillType": "",
     "versions": ["_C.png", "_S.png"],
     "tags": ["JP", "Gamers", "獸耳"],
     "effectType": ""
@@ -767,10 +905,12 @@
     "id": "hBP03-064",
     "type": "Member",
     "name": "戌神ころね",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "1st",
     "searchKeywords": ["戌神ころね", "戌神沁音", "Inugami Korone"],
+    "skillType": "",
     "versions": ["_U.png", "_S.png"],
     "tags": ["JP", "Gamers", "獸耳"],
     "effectType": ""
@@ -779,10 +919,12 @@
     "id": "hBP03-065",
     "type": "Member",
     "name": "戌神ころね",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "1st",
     "searchKeywords": ["戌神ころね", "戌神沁音", "Inugami Korone"],
+    "skillType": "",
     "versions": ["_R.png", "_SR.png"],
     "tags": ["JP", "Gamers", "獸耳"],
     "effectType": "Gift"
@@ -791,10 +933,12 @@
     "id": "hBP03-066",
     "type": "Member",
     "name": "戌神ころね",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "2nd",
     "searchKeywords": ["戌神ころね", "戌神沁音", "Inugami Korone"],
+    "skillType": "",
     "versions": ["_RR.png", "_SR.png", "_UR.png"],
     "tags": ["JP", "Gamers", "獸耳"],
     "effectType": "Gift"
@@ -803,10 +947,12 @@
     "id": "hBP03-067",
     "type": "Member",
     "name": "角巻わため",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "debut",
     "searchKeywords": ["角巻わため", "角卷綿芽", "Tsunomaki Watame"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["JP", "4期生", "獸耳", "歌"],
     "effectType": ""
@@ -815,10 +961,12 @@
     "id": "hBP03-068",
     "type": "Member",
     "name": "角巻わため",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "debut",
     "searchKeywords": ["角巻わため", "角卷綿芽", "Tsunomaki Watame"],
+    "skillType": "",
     "versions": ["_U.png", "_S.png"],
     "tags": ["JP", "4期生", "獸耳", "歌"],
     "effectType": ""
@@ -827,10 +975,12 @@
     "id": "hBP03-069",
     "type": "Member",
     "name": "角巻わため",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "1st",
     "searchKeywords": ["角巻わため", "角卷綿芽", "Tsunomaki Watame"],
+    "skillType": "",
     "versions": ["_C.png", "_S.png"],
     "tags": ["JP", "4期生", "獸耳", "歌"],
     "effectType": ""
@@ -839,10 +989,12 @@
     "id": "hBP03-070",
     "type": "Member",
     "name": "角巻わため",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "1st",
     "searchKeywords": ["角巻わため", "角卷綿芽", "Tsunomaki Watame"],
+    "skillType": "",
     "versions": ["_U.png", "_S.png"],
     "tags": ["JP", "4期生", "獸耳", "歌"],
     "effectType": "Bloom"
@@ -851,10 +1003,12 @@
     "id": "hBP03-071",
     "type": "Member",
     "name": "角巻わため",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "1st",
     "searchKeywords": ["角巻わため", "角卷綿芽", "Tsunomaki Watame"],
+    "skillType": "",
     "versions": ["_R.png", "_SR.png"],
     "tags": ["JP", "4期生", "獸耳", "歌"],
     "effectType": "Bloom"
@@ -863,10 +1017,12 @@
     "id": "hBP03-072",
     "type": "Member",
     "name": "角巻わため",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "2nd",
     "searchKeywords": ["角巻わため", "角卷綿芽", "Tsunomaki Watame"],
+    "skillType": "",
     "versions": ["_RR.png", "_SR.png", "_UR.png"],
     "tags": ["JP", "4期生", "獸耳", "歌"],
     "effectType": "Gift"
@@ -875,10 +1031,12 @@
     "id": "hBP03-073",
     "type": "Member",
     "name": "アユンダ・リス",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "debut",
     "searchKeywords": ["アユンダ・リス", "阿芸達·栗絲", "Ayunda Risu"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["ID", "ID1期生", "獸耳", "歌"],
     "effectType": ""
@@ -887,10 +1045,12 @@
     "id": "hBP03-074",
     "type": "Member",
     "name": "アユンダ・リス",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "debut",
     "searchKeywords": ["アユンダ・リス", "阿芸達·栗絲", "Ayunda Risu"],
+    "skillType": "",
     "versions": ["_U.png", "_S.png"],
     "tags": ["ID", "ID1期生", "獸耳", "歌"],
     "effectType": ""
@@ -899,10 +1059,12 @@
     "id": "hBP03-075",
     "type": "Member",
     "name": "アユンダ・リス",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "1st",
     "searchKeywords": ["アユンダ・リス", "阿芸達·栗絲", "Ayunda Risu"],
+    "skillType": "",
     "versions": ["_C.png", "_S.png"],
     "tags": ["ID", "ID1期生", "獸耳", "歌"],
     "effectType": ""
@@ -911,10 +1073,12 @@
     "id": "hBP03-076",
     "type": "Member",
     "name": "アユンダ・リス",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "1st",
     "searchKeywords": ["アユンダ・リス", "阿芸達·栗絲", "Ayunda Risu"],
+    "skillType": "",
     "versions": ["_U.png", "_S.png"],
     "tags": ["ID", "ID1期生", "獸耳", "歌"],
     "effectType": "Bloom"
@@ -923,10 +1087,12 @@
     "id": "hBP03-077",
     "type": "Member",
     "name": "アユンダ・リス",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "1st",
     "searchKeywords": ["アユンダ・リス", "阿芸達·栗絲", "Ayunda Risu"],
+    "skillType": "",
     "versions": ["_R.png", "_SR.png"],
     "tags": ["ID", "ID1期生", "獸耳", "歌"],
     "effectType": "Bloom"
@@ -935,10 +1101,12 @@
     "id": "hBP03-078",
     "type": "Member",
     "name": "アユンダ・リス",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "2nd",
     "searchKeywords": ["アユンダ・リス", "阿芸達·栗絲", "Ayunda Risu"],
+    "skillType": "",
     "versions": ["_RR.png", "_SR.png", "_UR.png"],
     "tags": ["ID", "ID1期生", "獸耳", "歌"],
     "effectType": "Bloom"
@@ -947,10 +1115,12 @@
     "id": "hBP03-079",
     "type": "Member",
     "name": "不知火フレア",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "buzz",
     "searchKeywords": ["不知火フレア", "不知火芙蕾雅", "Shiranui Flare"],
+    "skillType": "",
     "versions": ["_RR.png", "_SR.png", "_UR.png"],
     "tags": ["JP", "3期生", "半精靈"],
     "effectType": "Bloom"
@@ -959,10 +1129,12 @@
     "id": "hBP03-080",
     "type": "Member",
     "name": "音乃瀨奏",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "debut",
     "searchKeywords": ["音乃瀨奏", "音乃瀨奏", "Otonose Kanade"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["DEV_IS", "ReGLOSS", "歌"],
     "effectType": ""
@@ -971,10 +1143,12 @@
     "id": "hBP03-081",
     "type": "Member",
     "name": "音乃瀨奏",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "1st",
     "searchKeywords": ["音乃瀨奏", "音乃瀨奏", "Otonose Kanade"],
+    "skillType": "",
     "versions": ["_C.png", "_S.png"],
     "tags": ["DEV_IS", "ReGLOSS", "歌"],
     "effectType": ""
@@ -983,10 +1157,12 @@
     "id": "hBP03-082",
     "type": "Member",
     "name": "音乃瀨奏",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "1st",
     "searchKeywords": ["音乃瀨奏", "音乃瀨奏", "Otonose Kanade"],
+    "skillType": "",
     "versions": ["_U.png", "_S.png"],
     "tags": ["DEV_IS", "ReGLOSS", "歌"],
     "effectType": "Bloom"
@@ -995,22 +1171,26 @@
     "id": "hSD07-009",
     "type": "Member",
     "name": "不知火フレア",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "2nd",
     "searchKeywords": ["不知火フレア", "不知火芙蕾雅", "Shiranui Flare"],
+    "skillType": "",
     "versions": ["_SR.png"],
     "tags": ["JP", "3期生", "半精靈"],
-    "effectType": "Gift"  
+    "effectType": "Gift"
   },
   {
     "id": "hBP03-083",
     "type": "Member",
     "name": "音乃瀨奏",
+    "hp": "",
     "imageFolder": "hBP03/",
     "color": ["yellow"],
     "grade": "buzz",
     "searchKeywords": ["音乃瀨奏", "音乃瀨奏", "Otonose Kanade"],
+    "skillType": "",
     "versions": ["_R.png", "_SR.png"],
     "tags": ["DEV_IS", "ReGLOSS", "歌"],
     "effectType": "Gift"
@@ -1023,7 +1203,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["item", "アイテム", "ゴージャスパソコン", "豪華電腦"],
-    "versions": ["_S.png", "_U.png"]
+    "versions": ["_S.png", "_U.png"],
+    "tags": ""
   },
   {
     "id": "hBP03-085",
@@ -1033,7 +1214,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["item", "アイテム", "スーパーパソコン", "超級電腦"],
-    "versions": ["_S.png", "_U.png"]
+    "versions": ["_S.png", "_U.png"],
+    "tags": ""
   },
   {
     "id": "hBP03-086",
@@ -1043,7 +1225,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["item", "アイテム", "デュアルモニターパソコン", "雙螢幕電腦"],
-    "versions": ["_S.png", "_C.png"]
+    "versions": ["_S.png", "_C.png"],
+    "tags": ""
   },
   {
     "id": "hBP03-087",
@@ -1053,7 +1236,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["event", "イベント", "コールアンドレスポンス"],
-    "versions": ["_S.png", "_C.png"]
+    "versions": ["_S.png", "_C.png"],
+    "tags": ""
   },
   {
     "id": "hBP03-088",
@@ -1064,7 +1248,7 @@
     "grade": "",
     "searchKeywords": ["event", "イベント", "凸待ち"],
     "versions": ["_S.png", "_U.png"],
-    "tags" : ["LIMITED"]
+    "tags": ["LIMITED"]
   },
   {
     "id": "hBP03-089",
@@ -1074,7 +1258,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["event", "イベント", "ファンミーティング"],
-    "versions": ["_S.png", "_U.png"]
+    "versions": ["_S.png", "_U.png"],
+    "tags": ""
   },
   {
     "id": "hBP03-090",
@@ -1084,7 +1269,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["event", "イベント", "ホロライブ言えるかな？"],
-    "versions": ["_U.png", "_S.png"]
+    "versions": ["_U.png", "_S.png"],
+    "tags": ""
   },
   {
     "id": "hBP03-091",
@@ -1094,7 +1280,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["event", "イベント", "ホロライブインドネシア1期生"],
-    "versions": ["_U.png", "_S.png"]
+    "versions": ["_U.png", "_S.png"],
+    "tags": ""
   },
   {
     "id": "hBP03-092",
@@ -1104,7 +1291,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["event", "イベント", "ホロライブ0期生"],
-    "versions": ["_U.png", "_S.png"]
+    "versions": ["_U.png", "_S.png"],
+    "tags": ""
   },
   {
     "id": "hBP03-093",
@@ -1114,7 +1302,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["event", "イベント", "ホロライブ4期生"],
-    "versions": ["_U.png", "_S.png"]
+    "versions": ["_U.png", "_S.png"],
+    "tags": ""
   },
   {
     "id": "hBP03-094",
@@ -1124,7 +1313,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["event", "イベント", "FPS配信"],
-    "versions": ["_U.png", "_S.png"]
+    "versions": ["_U.png", "_S.png"],
+    "tags": ""
   },
   {
     "id": "hBP03-095",
@@ -1134,7 +1324,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["tool", "ツール", "ホロキャップ"],
-    "versions": ["_C.png", "_S.png"]
+    "versions": ["_C.png", "_S.png"],
+    "tags": ""
   },
   {
     "id": "hBP03-096",
@@ -1144,7 +1335,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["tool", "ツール", "ライフル"],
-    "versions": ["_U.png", "_S.png"]
+    "versions": ["_U.png", "_S.png"],
+    "tags": ""
   },
   {
     "id": "hBP03-097",
@@ -1154,7 +1346,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["tool", "ツール", "リコーダー"],
-    "versions": ["_C.png", "_S.png"]
+    "versions": ["_C.png", "_S.png"],
+    "tags": ""
   },
   {
     "id": "hBP03-098",
@@ -1164,7 +1357,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["mascot", "マスコット", "金時"],
-    "versions": ["_U.png", "_S.png"]
+    "versions": ["_U.png", "_S.png"],
+    "tags": ""
   },
   {
     "id": "hBP03-099",
@@ -1174,7 +1368,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["mascot", "マスコット", "マグチ"],
-    "versions": ["_C.png", "_S.png"]
+    "versions": ["_C.png", "_S.png"],
+    "tags": ""
   },
   {
     "id": "hBP03-100",
@@ -1184,7 +1379,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["mascot", "マスコット", "ペロ"],
-    "versions": ["_C.png", "_S.png"]
+    "versions": ["_C.png", "_S.png"],
+    "tags": ""
   },
   {
     "id": "hBP03-101",
@@ -1194,7 +1390,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["mascot", "マスコット", "ビビ"],
-    "versions": ["_C.png", "_S.png"]
+    "versions": ["_C.png", "_S.png"],
+    "tags": ""
   },
   {
     "id": "hBP03-102",
@@ -1204,7 +1401,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["mascot", "マスコット", "フトイヌ"],
-    "versions": ["_U.png", "_S.png"]
+    "versions": ["_U.png", "_S.png"],
+    "tags": ""
   },
   {
     "id": "hBP03-103",
@@ -1214,7 +1412,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["mascot", "マスコット", "ホソイヌ"],
-    "versions": ["_C.png", "_S.png"]
+    "versions": ["_C.png", "_S.png"],
+    "tags": ""
   },
   {
     "id": "hBP03-104",
@@ -1224,7 +1423,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["mascot", "マスコット", "Riscot"],
-    "versions": ["_C.png", "_S.png"]
+    "versions": ["_C.png", "_S.png"],
+    "tags": ""
   },
   {
     "id": "hBP03-105",
@@ -1234,7 +1434,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["fan", "ファン", "ルーナイト"],
-    "versions": ["_U.png", "_S.png"]
+    "versions": ["_U.png", "_S.png"],
+    "tags": ""
   },
   {
     "id": "hBP03-106",
@@ -1244,7 +1445,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["fan", "ファン", "SSRB"],
-    "versions": ["_C.png", "_S.png"]
+    "versions": ["_C.png", "_S.png"],
+    "tags": ""
   },
   {
     "id": "hBP03-107",
@@ -1254,7 +1456,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["fan", "ファン", "35P"],
-    "versions": ["_U.png", "_S.png"]
+    "versions": ["_U.png", "_S.png"],
+    "tags": ""
   },
   {
     "id": "hBP03-108",
@@ -1265,7 +1468,7 @@
     "grade": "",
     "searchKeywords": ["fan", "ファン", "はあとん"],
     "versions": ["_C.png", "_S.png"],
-    "tags" : ["白上的角色"]
+    "tags": ["白上的角色"]
   },
   {
     "id": "hBP03-109",
@@ -1275,7 +1478,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["fan", "ファン", "Ruffians"],
-    "versions": ["_C.png", "_S.png"]
+    "versions": ["_C.png", "_S.png"],
+    "tags": ""
   },
   {
     "id": "hBP03-110",
@@ -1285,7 +1489,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["fan", "ファン", "ろぼさー"],
-    "versions": ["_U.png", "_S.png"]
+    "versions": ["_U.png", "_S.png"],
+    "tags": ""
   },
   {
     "id": "hBP03-111",
@@ -1295,7 +1500,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["fan", "ファン", "ころねすきー"],
-    "versions": ["_C.png", "_S.png"]
+    "versions": ["_C.png", "_S.png"],
+    "tags": ""
   },
   {
     "id": "hBP03-112",
@@ -1305,7 +1511,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["fan", "ファン", "わためいと"],
-    "versions": ["_U.png", "_S.png"]
+    "versions": ["_U.png", "_S.png"],
+    "tags": ""
   },
   {
     "id": "hBP03-113",
@@ -1315,6 +1522,7 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["fan", "ファン", "Risuners"],
-    "versions": ["_C.png", "_S.png"]
+    "versions": ["_C.png", "_S.png"],
+    "tags": ""
   }
-] 
+]

@@ -8,7 +8,8 @@
     "color": ["red"],
     "searchKeywords": ["さくらみこ", "櫻巫女", "Sakura Miko"],
     "skillType": ["回合中1次", "遊戲中1次"],
-    "versions": ["_OC.png"]
+    "versions": ["_OC.png"],
+    "tags": ""
   },
   {
     "id": "hSD16-002",
@@ -63,7 +64,7 @@
     "searchKeywords": ["さくらみこ", "櫻巫女", "Sakura Miko"],
     "skillType": "",
     "versions": ["_U.png"],
-    "tags": ["JP", "1期生", "嬰兒"],
+    "tags": ["JP", "0期生", "嬰兒"],
     "effectType": ""
   },
   {
@@ -131,7 +132,7 @@
     "grade": "",
     "searchKeywords": ["staff", "スタッフ", "holoAN"],
     "versions": ["_C.png"],
-    "tags" : ["LIMITED"]
+    "tags": ["LIMITED"]
   },
   {
     "id": "hSD01-017",
@@ -141,7 +142,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["staff", "スタッフ", "マネちゃん", "經紀醬"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hSD01-019",
@@ -152,7 +154,7 @@
     "grade": "",
     "searchKeywords": ["item", "アイテム", "スゴイパソコン", "厲害電腦"],
     "versions": ["_C_02.png"],
-    "tags" : ["LIMITED"]
+    "tags": ["LIMITED"]
   },
   {
     "id": "hBP02-084",
@@ -163,7 +165,7 @@
     "grade": "",
     "searchKeywords": ["event", "イベント", "みっころね24", "mikorone24", "丟擲", "骰子", "加入手牌"],
     "versions": ["_U.png"],
-    "tags" : ["LIMITED"]
+    "tags": ["LIMITED"]
   },
   {
     "id": "hBP02-077",
@@ -174,7 +176,7 @@
     "grade": "",
     "searchKeywords": ["item", "アイテム", "レトロパソコン", "復古電腦", "返回手牌"],
     "versions": ["_C.png"],
-    "tags" : ["LIMITED"]
+    "tags": ["LIMITED"]
   },
   {
     "id": "hBP03-107",
@@ -184,7 +186,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["fan", "ファン", "35P"],
-    "versions": ["_U.png"]
+    "versions": ["_U.png"],
+    "tags": ""
   },
   {
     "id": "hBP01-104",

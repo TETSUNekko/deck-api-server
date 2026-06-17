@@ -3,205 +3,207 @@
     "id": "hSD13-001",
     "type": "Oshi",
     "name": "エリザベス・ローズ・ブラッドフレイム",
-    "life" : "5",
+    "life": "5",
     "imageFolder": "hSD13/",
     "color": ["red"],
     "searchKeywords": ["エリザベス・ローズ・ブラッドフレイム", "伊莉莎白·露絲·布拉德弗雷姆", "Elizabeth Rose Bloodflame"],
-    "skillType" : ["回合中1次", "遊戲中1次"],
-    "versions": ["_OSR.png"]  
+    "skillType": ["回合中1次", "遊戲中1次"],
+    "versions": ["_OSR.png"],
+    "tags": ""
   },
   {
     "id": "hSD13-002",
     "type": "Oshi",
     "name": "ジジ・ムリン",
-    "life" : "5",
+    "life": "5",
     "imageFolder": "hSD13/",
     "color": ["yellow"],
     "searchKeywords": ["ジジ・ムリン", "琪琪·沐林", "Gigi Murin"],
-    "skillType" : ["回合中1次", "遊戲中1次"],
-    "versions": ["_OSR.png"]  
+    "skillType": ["回合中1次", "遊戲中1次"],
+    "versions": ["_OSR.png"],
+    "tags": ""
   },
   {
     "id": "hSD13-003",
     "type": "Member",
     "name": "エリザベス・ローズ・ブラッドフレイム",
-    "hp" : "140",
+    "hp": "140",
     "imageFolder": "hSD13/",
     "color": ["red"],
     "grade": "debut",
     "searchKeywords": ["エリザベス・ローズ・ブラッドフレイム", "伊莉莎白·露絲·布拉德弗雷姆", "Elizabeth Rose Bloodflame"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["EN", "Justice", "歌"],
-    "effectType": ""  
+    "effectType": ""
   },
   {
     "id": "hSD13-004",
     "type": "Member",
     "name": "エリザベス・ローズ・ブラッドフレイム",
-    "hp" : "170",
+    "hp": "170",
     "imageFolder": "hSD13/",
     "color": ["red"],
     "grade": "1st",
     "searchKeywords": ["エリザベス・ローズ・ブラッドフレイム", "伊莉莎白·露絲·布拉德弗雷姆", "Elizabeth Rose Bloodflame"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["EN", "Justice", "歌"],
-    "effectType": ""  
+    "effectType": ""
   },
   {
     "id": "hSD13-005",
     "type": "Member",
     "name": "エリザベス・ローズ・ブラッドフレイム",
-    "hp" : "160",
+    "hp": "160",
     "imageFolder": "hSD13/",
     "color": ["red"],
     "grade": "1st",
     "searchKeywords": ["エリザベス・ローズ・ブラッドフレイム", "伊莉莎白·露絲·布拉德弗雷姆", "Elizabeth Rose Bloodflame"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_U.png"],
     "tags": ["EN", "Justice", "歌"],
-    "effectType": "Gift"  
+    "effectType": "Gift"
   },
   {
     "id": "hSD13-006",
     "type": "Member",
     "name": "エリザベス・ローズ・ブラッドフレイム",
-    "hp" : "150",
+    "hp": "150",
     "imageFolder": "hSD13/",
     "color": ["red"],
     "grade": "1st",
     "searchKeywords": ["エリザベス・ローズ・ブラッドフレイム", "伊莉莎白·露絲·布拉德弗雷姆", "Elizabeth Rose Bloodflame"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_U.png"],
     "tags": ["EN", "Justice", "歌"],
-    "effectType": "Bloom"  
+    "effectType": "Bloom"
   },
   {
     "id": "hSD13-007",
     "type": "Member",
     "name": "エリザベス・ローズ・ブラッドフレイム",
-    "hp" : "180",
+    "hp": "180",
     "imageFolder": "hSD13/",
     "color": ["red"],
     "grade": "2nd",
     "searchKeywords": ["エリザベス・ローズ・ブラッドフレイム", "伊莉莎白·露絲·布拉德弗雷姆", "Elizabeth Rose Bloodflame"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_RR.png"],
     "tags": ["EN", "Justice", "歌"],
-    "effectType": "Gift"  
+    "effectType": "Gift"
   },
   {
     "id": "hSD13-008",
     "type": "Member",
     "name": "ジジ・ムリン",
-    "hp" : "100",
+    "hp": "100",
     "imageFolder": "hSD13/",
     "color": ["yellow"],
     "grade": "debut",
     "searchKeywords": ["ジジ・ムリン", "琪琪·沐林", "Gigi Murin"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["EN", "Justice"],
-    "effectType": "Collaboration"   
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD13-009",
     "type": "Member",
     "name": "ジジ・ムリン",
-    "hp" : "120",
+    "hp": "120",
     "imageFolder": "hSD13/",
     "color": ["yellow"],
     "grade": "debut",
     "searchKeywords": ["ジジ・ムリン", "琪琪·沐林", "Gigi Murin"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["EN", "Justice"],
-    "effectType": "Collaboration"   
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD13-010",
     "type": "Member",
     "name": "ジジ・ムリン",
-    "hp" : "180",
+    "hp": "180",
     "imageFolder": "hSD13/",
     "color": ["yellow"],
     "grade": "1st",
     "searchKeywords": ["ジジ・ムリン", "琪琪·沐林", "Gigi Murin"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["EN", "Justice"],
-    "effectType": ""   
+    "effectType": ""
   },
   {
     "id": "hSD13-011",
     "type": "Member",
     "name": "ジジ・ムリン",
-    "hp" : "140",
+    "hp": "140",
     "imageFolder": "hSD13/",
     "color": ["yellow"],
     "grade": "1st",
     "searchKeywords": ["ジジ・ムリン", "琪琪·沐林", "Gigi Murin"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_U.png"],
     "tags": ["EN", "Justice"],
-    "effectType": "Bloom"   
+    "effectType": "Bloom"
   },
   {
     "id": "hSD13-012",
     "type": "Member",
     "name": "ジジ・ムリン",
-    "hp" : "170",
+    "hp": "170",
     "imageFolder": "hSD13/",
     "color": ["yellow"],
     "grade": "1st",
     "searchKeywords": ["ジジ・ムリン", "琪琪·沐林", "Gigi Murin"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_U.png"],
     "tags": ["EN", "Justice"],
-    "effectType": "Gift"   
+    "effectType": "Gift"
   },
   {
     "id": "hSD13-013",
     "type": "Member",
     "name": "ジジ・ムリン",
-    "hp" : "210",
+    "hp": "210",
     "imageFolder": "hSD13/",
     "color": ["yellow"],
     "grade": "2nd",
     "searchKeywords": ["ジジ・ムリン", "琪琪·沐林", "Gigi Murin"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_RR.png"],
     "tags": ["EN", "Justice"],
-    "effectType": "Gift"   
+    "effectType": "Gift"
   },
   {
     "id": "hSD13-014",
     "type": "Member",
     "name": "セシリア・イマーグリーン",
-    "hp" : "160",
+    "hp": "160",
     "imageFolder": "hSD13/",
     "color": ["colorless"],
     "grade": "spot",
     "searchKeywords": ["セシリア・イマーグリーン", "塞西莉亞·伊默格林", "Cecilia Immergreen"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["EN", "Justice", "語言學"],
-    "effectType": "Gift"   
+    "effectType": "Gift"
   },
   {
     "id": "hSD13-015",
     "type": "Member",
     "name": "ラオーラ・パンテーラ",
-    "hp" : "160",
+    "hp": "160",
     "imageFolder": "hSD13/",
     "color": ["colorless"],
     "grade": "spot",
     "searchKeywords": ["ラオーラ・パンテーラ", "拉歐拉·潘特拉", "Raora Panthera"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["EN", "Justice", "獸耳", "畫"],
-    "effectType": "Collaboration"   
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD13-016",
@@ -212,7 +214,7 @@
     "grade": "",
     "searchKeywords": ["event", "イベント", "Justice"],
     "versions": ["_U.png"],
-    "tags" : ["LIMITED"]
+    "tags": ["LIMITED"]
   },
   {
     "id": "hSD13-017",
@@ -223,7 +225,7 @@
     "grade": "",
     "searchKeywords": ["event", "イベント", "JUSTICE, JUST LIKE THAT!!!!"],
     "versions": ["_U.png"],
-    "tags" : ["LIMITED"]
+    "tags": ["LIMITED"]
   },
   {
     "id": "hSD13-018",
@@ -234,7 +236,7 @@
     "grade": "",
     "searchKeywords": ["mascot", "マスコット", "Popo"],
     "versions": ["_C.png"],
-    "tags" : ""
+    "tags": ""
   },
   {
     "id": "hBP01-104",
@@ -244,7 +246,7 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["item", "アイテム", "ふつうのパソコン", "普通的電腦", "出場至舞台"],
-    "versions": ["_C.png" ],
+    "versions": ["_C.png"],
     "tags": ""
   },
   {
@@ -256,7 +258,7 @@
     "grade": "",
     "searchKeywords": ["event", "イベント", "凸待ち"],
     "versions": ["_U.png"],
-    "tags" : ["LIMITED"]
+    "tags": ["LIMITED"]
   },
   {
     "id": "hBP05-074",
@@ -278,7 +280,7 @@
     "grade": "",
     "searchKeywords": ["staff", "スタッフ", "春先のどか"],
     "versions": ["_C.png"],
-    "tags" : ["LIMITED"]
+    "tags": ["LIMITED"]
   },
   {
     "id": "hSD01-019",
@@ -289,6 +291,6 @@
     "grade": "",
     "searchKeywords": ["item", "アイテム", "スゴイパソコン", "厲害電腦"],
     "versions": ["_C_02.png"],
-    "tags" : ["LIMITED"]
+    "tags": ["LIMITED"]
   }
-] 
+]

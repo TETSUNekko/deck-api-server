@@ -32,6 +32,7 @@ import energyCardList from "../cardList_hY.json";
 import CardListYS01 from "../cardList_hYS01.json";
 import cardListPC from "../cardList_PC_Set.json";
 import cardListPR from "../cardList_PR.json";
+import cardList2025Live from "../cardList_2025Live_Set.json";
 
 // 🔹 集中管理所有卡表
 export const cardSets = [
@@ -41,7 +42,7 @@ export const cardSets = [
   cardListSD06, cardListSD07, cardListSD08, cardListSD09, cardListSD10,
   cardListSD11, cardListSD12, cardListSD13, cardListSD14, cardListSD15,
   cardListSD16, cardListSD17, cardListSD18, cardListSD19,
-  cardListPR, cardListBD24, energyCardList, CardListYS01, cardListPC
+  cardListPR, cardListBD24, energyCardList, CardListYS01, cardListPC, cardList2025Live
 ];
 
 // 🔹 集中管理標籤
@@ -70,5 +71,6 @@ export const changelog = [
   " 2/24 更新內容 : Advence hSD12 & Justice hSD13 卡表上線",
   " 3/13 更新內容 : hBP07 卡表上線 (高版本卡牌後續更新) ",
   "  4/7 更新內容 : 部分BUG修復(新增露天&蝦皮查卡、匯出牌組卡片張數/速度問題、牌組張數細節顯示) ",
-  " 4/24 更新內容 : 新增hSD14、hSD15、hSD16、hSD17、hSD18、hSD19卡表上線 "
+  " 4/24 更新內容 : 新增hSD14、hSD15、hSD16、hSD17、hSD18、hSD19卡表上線 ",
+  " 5/22 更新內容 : 新增2025 Live Set 卡片、高版本能量卡以及部分缺漏更新",
 ];

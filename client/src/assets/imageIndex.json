@@ -1,5 +1,13 @@
 {
   "byKey": {
+    "hBP02-026_SR@2025Live_Set": "2025Live_Set/hBP02-026_SR.webp",
+    "hBP03-044_SR@2025Live_Set": "2025Live_Set/hBP03-044_SR.webp",
+    "hBP03-055_SR@2025Live_Set": "2025Live_Set/hBP03-055_SR.webp",
+    "hBP05-043_SR@2025Live_Set": "2025Live_Set/hBP05-043_SR.webp",
+    "hBP05-069_SR@2025Live_Set": "2025Live_Set/hBP05-069_SR.webp",
+    "hBP06-058_SR@2025Live_Set": "2025Live_Set/hBP06-058_SR.webp",
+    "hBP06-090_SR@2025Live_Set": "2025Live_Set/hBP06-090_SR.webp",
+    "hBP07-066_SR@2025Live_Set": "2025Live_Set/hBP07-066_SR.webp",
     "hY01-001_C@energy": "energy/hY01-001_C.webp",
     "hY01-002_P@energy": "energy/hY01-002_P.webp",
     "hY01-003_SY@energy": "energy/hY01-003_SY.webp",
@@ -8,6 +16,8 @@
     "hY01-006_SY@energy": "energy/hY01-006_SY.webp",
     "hY01-007_SY@energy": "energy/hY01-007_SY.webp",
     "hY01-009_P@energy": "energy/hY01-009_P.webp",
+    "hY01-010_SY@energy": "energy/hY01-010_SY.webp",
+    "hY01-012_SY@energy": "energy/hY01-012_SY.webp",
     "hY02-001_C@energy": "energy/hY02-001_C.webp",
     "hY02-002_SY@energy": "energy/hY02-002_SY.webp",
     "hY02-003_SY@energy": "energy/hY02-003_SY.webp",
@@ -15,6 +25,8 @@
     "hY02-005_SY@energy": "energy/hY02-005_SY.webp",
     "hY02-006_SY@energy": "energy/hY02-006_SY.webp",
     "hY02-007_P@energy": "energy/hY02-007_P.webp",
+    "hY02-008_SY@energy": "energy/hY02-008_SY.webp",
+    "hY02-010_SY@energy": "energy/hY02-010_SY.webp",
     "hY03-001_C@energy": "energy/hY03-001_C.webp",
     "hY03-002_SY@energy": "energy/hY03-002_SY.webp",
     "hY03-003_SY@energy": "energy/hY03-003_SY.webp",
@@ -26,6 +38,8 @@
     "hY03-009_SY@energy": "energy/hY03-009_SY.webp",
     "hY03-011_P@energy": "energy/hY03-011_P.webp",
     "hY03-012_P@energy": "energy/hY03-012_P.webp",
+    "hY03-013_SY@energy": "energy/hY03-013_SY.webp",
+    "hY03-014_SY@energy": "energy/hY03-014_SY.webp",
     "hY04-001_C@energy": "energy/hY04-001_C.webp",
     "hY04-002_SY@energy": "energy/hY04-002_SY.webp",
     "hY04-003_SY@energy": "energy/hY04-003_SY.webp",
@@ -34,18 +48,24 @@
     "hY04-006_SY@energy": "energy/hY04-006_SY.webp",
     "hY04-007_S@energy": "energy/hY04-007_S.webp",
     "hY04-009_P@energy": "energy/hY04-009_P.webp",
+    "hY04-010_SY@energy": "energy/hY04-010_SY.webp",
+    "hY04-011_SY@energy": "energy/hY04-011_SY.webp",
     "hY05-001_C@energy": "energy/hY05-001_C.webp",
     "hY05-002_SY@energy": "energy/hY05-002_SY.webp",
     "hY05-003_SY@energy": "energy/hY05-003_SY.webp",
     "hY05-004_SY@energy": "energy/hY05-004_SY.webp",
     "hY05-005_SY@energy": "energy/hY05-005_SY.webp",
     "hY05-007_P@energy": "energy/hY05-007_P.webp",
+    "hY05-008_SY@energy": "energy/hY05-008_SY.webp",
+    "hY05-009_SY@energy": "energy/hY05-009_SY.webp",
     "hY06-001_C@energy": "energy/hY06-001_C.webp",
     "hY06-002_SY@energy": "energy/hY06-002_SY.webp",
     "hY06-003_P@energy": "energy/hY06-003_P.webp",
     "hY06-004_SY@energy": "energy/hY06-004_SY.webp",
     "hY06-005_SY@energy": "energy/hY06-005_SY.webp",
     "hY06-006_P@energy": "energy/hY06-006_P.webp",
+    "hY06-007_SY@energy": "energy/hY06-007_SY.webp",
+    "hY06-009_SY@energy": "energy/hY06-009_SY.webp",
     "hBD24-001_P@hBD24": "hBD24/hBD24-001_P.webp",
     "hBD24-002_P@hBD24": "hBD24/hBD24-002_P.webp",
     "hBD24-003_P@hBD24": "hBD24/hBD24-003_P.webp",
@@ -2091,6 +2111,44 @@
     "hSD01-019_SR@PC_Set": "PC_Set/hSD01-019_SR.webp"
   },
   "versionsById": {
+    "hBP02-026": [
+      "_U",
+      "_S",
+      "_SR"
+    ],
+    "hBP03-044": [
+      "_R",
+      "_SR"
+    ],
+    "hBP03-055": [
+      "_R",
+      "_SR"
+    ],
+    "hBP05-043": [
+      "_U",
+      "_S",
+      "_SR"
+    ],
+    "hBP05-069": [
+      "_U",
+      "_S",
+      "_SR"
+    ],
+    "hBP06-058": [
+      "_U",
+      "_S",
+      "_SR"
+    ],
+    "hBP06-090": [
+      "_U",
+      "_S",
+      "_SR"
+    ],
+    "hBP07-066": [
+      "_C",
+      "_S",
+      "_SR"
+    ],
     "hY01-001": [
       "_C"
     ],
@@ -2115,6 +2173,12 @@
     "hY01-009": [
       "_P"
     ],
+    "hY01-010": [
+      "_SY"
+    ],
+    "hY01-012": [
+      "_SY"
+    ],
     "hY02-001": [
       "_C"
     ],
@@ -2135,6 +2199,12 @@
     ],
     "hY02-007": [
       "_P"
+    ],
+    "hY02-008": [
+      "_SY"
+    ],
+    "hY02-010": [
+      "_SY"
     ],
     "hY03-001": [
       "_C"
@@ -2169,6 +2239,12 @@
     "hY03-012": [
       "_P"
     ],
+    "hY03-013": [
+      "_SY"
+    ],
+    "hY03-014": [
+      "_SY"
+    ],
     "hY04-001": [
       "_C"
     ],
@@ -2193,6 +2269,12 @@
     "hY04-009": [
       "_P"
     ],
+    "hY04-010": [
+      "_SY"
+    ],
+    "hY04-011": [
+      "_SY"
+    ],
     "hY05-001": [
       "_C"
     ],
@@ -2211,6 +2293,12 @@
     "hY05-007": [
       "_P"
     ],
+    "hY05-008": [
+      "_SY"
+    ],
+    "hY05-009": [
+      "_SY"
+    ],
     "hY06-001": [
       "_C"
     ],
@@ -2228,6 +2316,12 @@
     ],
     "hY06-006": [
       "_P"
+    ],
+    "hY06-007": [
+      "_SY"
+    ],
+    "hY06-009": [
+      "_SY"
     ],
     "hBD24-001": [
       "_P"
@@ -2959,10 +3053,6 @@
       "_C",
       "_S"
     ],
-    "hBP02-026": [
-      "_U",
-      "_S"
-    ],
     "hBP02-027": [
       "_RR",
       "_SR",
@@ -3493,10 +3583,6 @@
       "_SR",
       "_UR"
     ],
-    "hBP03-044": [
-      "_R",
-      "_SR"
-    ],
     "hBP03-045": [
       "_R",
       "_SR"
@@ -3536,10 +3622,6 @@
     "hBP03-054": [
       "_U",
       "_S"
-    ],
-    "hBP03-055": [
-      "_R",
-      "_SR"
     ],
     "hBP03-056": [
       "_RR",
@@ -4439,10 +4521,6 @@
       "_C",
       "_S"
     ],
-    "hBP05-043": [
-      "_U",
-      "_S"
-    ],
     "hBP05-044": [
       "_R",
       "_SR"
@@ -4546,10 +4624,6 @@
     ],
     "hBP05-068": [
       "_C",
-      "_S"
-    ],
-    "hBP05-069": [
-      "_U",
       "_S"
     ],
     "hBP05-070": [
@@ -4877,10 +4951,6 @@
       "_C",
       "_S"
     ],
-    "hBP06-058": [
-      "_U",
-      "_S"
-    ],
     "hBP06-059": [
       "_R",
       "_SR"
@@ -5006,10 +5076,6 @@
     ],
     "hBP06-089": [
       "_C",
-      "_S"
-    ],
-    "hBP06-090": [
-      "_U",
       "_S"
     ],
     "hBP06-091": [
@@ -5338,10 +5404,6 @@
       "_S"
     ],
     "hBP07-065": [
-      "_C",
-      "_S"
-    ],
-    "hBP07-066": [
       "_C",
       "_S"
     ],

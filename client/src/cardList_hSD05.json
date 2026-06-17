@@ -3,140 +3,165 @@
     "id": "hSD05-001",
     "type": "Oshi",
     "name": "轟はじめ",
+    "life": "",
     "imageFolder": "hSD05/",
     "color": ["white"],
-    "grade": "",
     "searchKeywords": ["轟はじめ", "轟一", "Todoroki Hajime"],
-    "versions": ["_OC.png"]  
+    "skillType": "",
+    "versions": ["_OC.png"],
+    "tags": "",
+    "grade": ""
   },
   {
     "id": "hSD05-002",
     "type": "Member",
     "name": "轟はじめ",
+    "hp": "",
     "imageFolder": "hSD05/",
     "color": ["white"],
     "grade": "debut",
     "searchKeywords": ["轟はじめ", "轟一", "Todoroki Hajime"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["DEV_IS", "ReGLOSS", "嬰兒"],
-    "effectType": ""  
+    "effectType": ""
   },
   {
     "id": "hSD05-003",
     "type": "Member",
     "name": "轟はじめ",
+    "hp": "",
     "imageFolder": "hSD05/",
     "color": ["white"],
     "grade": "debut",
     "searchKeywords": ["轟はじめ", "轟一", "Todoroki Hajime"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["DEV_IS", "ReGLOSS", "嬰兒"],
-    "effectType": "Collaboration"  
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD05-004",
     "type": "Member",
     "name": "轟はじめ",
+    "hp": "",
     "imageFolder": "hSD05/",
     "color": ["white"],
     "grade": "debut",
     "searchKeywords": ["轟はじめ", "轟一", "Todoroki Hajime"],
+    "skillType": "",
     "versions": ["_U.png"],
     "tags": ["DEV_IS", "ReGLOSS", "嬰兒"],
-    "effectType": ""  
+    "effectType": ""
   },
   {
     "id": "hSD05-005",
     "type": "Member",
     "name": "轟はじめ",
+    "hp": "",
     "imageFolder": "hSD05/",
     "color": ["white"],
     "grade": "1st",
     "searchKeywords": ["轟はじめ", "轟一", "Todoroki Hajime"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["DEV_IS", "ReGLOSS", "嬰兒"],
-    "effectType": ""  
+    "effectType": ""
   },
   {
     "id": "hSD05-006",
     "type": "Member",
     "name": "轟はじめ",
+    "hp": "",
     "imageFolder": "hSD05/",
     "color": ["white"],
     "grade": "1st",
     "searchKeywords": ["轟はじめ", "轟一", "Todoroki Hajime"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["DEV_IS", "ReGLOSS", "嬰兒"],
-    "effectType": ""  
+    "effectType": ""
   },
   {
     "id": "hSD05-007",
     "type": "Member",
     "name": "轟はじめ",
+    "hp": "",
     "imageFolder": "hSD05/",
     "color": ["white"],
     "grade": "1st",
     "searchKeywords": ["轟はじめ", "轟一", "Todoroki Hajime"],
+    "skillType": "",
     "versions": ["_U.png"],
     "tags": ["DEV_IS", "ReGLOSS", "嬰兒"],
-    "effectType": "Bloom"  
+    "effectType": "Bloom"
   },
   {
     "id": "hSD05-008",
     "type": "Member",
     "name": "轟はじめ",
+    "hp": "",
     "imageFolder": "hSD05/",
     "color": ["white"],
     "grade": "buzz",
     "searchKeywords": ["轟はじめ", "轟一", "Todoroki Hajime"],
+    "skillType": "",
     "versions": ["_R.png"],
     "tags": ["DEV_IS", "ReGLOSS", "嬰兒"],
-    "effectType": ""  
+    "effectType": ""
   },
   {
     "id": "hSD05-009",
     "type": "Member",
     "name": "轟はじめ",
+    "hp": "",
     "imageFolder": "hSD05/",
     "color": ["white"],
     "grade": "2nd",
     "searchKeywords": ["轟はじめ", "轟一", "Todoroki Hajime"],
+    "skillType": "",
     "versions": ["_RR.png"],
     "tags": ["DEV_IS", "ReGLOSS", "嬰兒"],
-    "effectType": "Bloom"  
+    "effectType": "Bloom"
   },
   {
     "id": "hSD05-010",
     "type": "Member",
     "name": "儒烏風亭らでん",
+    "hp": "",
     "imageFolder": "hSD05/",
     "color": ["green"],
     "grade": "debut",
     "searchKeywords": ["儒烏風亭らでん", "儒烏風亭螺鈿", "Juufuutei Raden"],
+    "skillType": "",
     "versions": ["_U.png"],
     "tags": ["DEV_IS", "ReGLOSS", "酒"],
-    "effectType": ""  
+    "effectType": ""
   },
   {
     "id": "hSD05-011",
     "type": "Member",
     "name": "一条莉々華",
+    "hp": "",
     "imageFolder": "hSD05/",
     "color": ["red"],
     "grade": "debut",
     "searchKeywords": ["一条莉々華", "一條莉莉華", "Ichijou Ririka"],
+    "skillType": "",
     "versions": ["_U.png"],
     "tags": ["DEV_IS", "ReGLOSS", "料理"],
-    "effectType": "Collaboration"  
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD05-012",
     "type": "Member",
     "name": "火威青",
+    "hp": "",
     "imageFolder": "hSD05/",
     "color": ["blue"],
     "grade": "debut",
     "searchKeywords": ["火威青", "火威青", "Hiodoshi Ao"],
+    "skillType": "",
     "versions": ["_U.png"],
     "tags": ["DEV_IS", "ReGLOSS", "畫"],
     "effectType": "Collaboration"
@@ -145,10 +170,12 @@
     "id": "hSD05-013",
     "type": "Member",
     "name": "音乃瀨奏",
+    "hp": "",
     "imageFolder": "hSD05/",
     "color": ["yellow"],
     "grade": "debut",
     "searchKeywords": ["音乃瀨奏", "音乃瀨奏", "Otonose Kanade"],
+    "skillType": "",
     "versions": ["_U.png"],
     "tags": ["DEV_IS", "ReGLOSS", "歌"],
     "effectType": "Collaboration"
@@ -161,7 +188,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["event", "イベント", "ReGLOSS"],
-    "versions": ["_U.png"]  
+    "versions": ["_U.png"],
+    "tags": ""
   },
   {
     "id": "hSD05-014",
@@ -171,7 +199,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["mascot", "マスコット", "ばんぺん", "Banpen", "轟はじめ", "轟一", "Todoroki Hajime", "藝能傷害+", "HP+"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hSD01-016",
@@ -181,7 +210,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["staff", "スタッフ", "春先のどか"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hSD01-017",
@@ -191,7 +221,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["staff", "スタッフ", "マネちゃん"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hBP01-104",
@@ -215,4 +246,4 @@
     "versions": ["_U.png"],
     "tags": ["LIMITED"]
   }
-] 
+]

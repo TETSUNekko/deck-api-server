@@ -1,0 +1,113 @@
+# HoloTCG Online 維護備忘錄
+
+## 2025-05-22 修復紀錄
+
+### 修改內容
+
+| 檔案 | 修改 |
+|---|---|
+| `client/src/cardList_hBP06.json` | hBP06-059 的 `versions` `_S.png` → `_SR.png`（版本名稱錯誤，實際圖檔為 `_SR`） |
+| `client/src/cardList_hSD11.json` | hSD11-003 的 `versions` `_C.png` → `_C_re.png`（圖檔命名更新為 re 版） |
+| `client/src/cardList_hSD11.json` | hSD11-004 的 `versions` `_U.png` → `_U_re.png`（同上） |
+| `client/src/cardList_hSD14.json` | hSD14-010 的 `imageFolder` `hSD01/` → `hSD14/`（指向錯誤資料夾） |
+| `client/src/cardList_PR.json` | hPR-002 的 `versions` 移除空的 `".png"` 條目 |
+| `client/src/assets/imageIndex.json` | 執行 `npm run build:index` 重建，納入 2025Live_Set 的 8 張牌 |
+
+### 2025Live_Set 問題原因
+圖檔已放進 `client/public/webpcards/2025Live_Set/`，但 `imageIndex.json` 是自動產生的，需要手動執行 `npm run build:index` 才會更新。新增圖檔後記得重建。
+
+---
+
+## 系統架構說明
+
+### imageIndex.json 的產生方式
+- **腳本**：`client/scripts/build-image-index.cjs`
+- **觸發時機**：`npm run dev` 和 `npm run build` 執行前會自動跑（`predev`/`prebuild`）
+- **手動執行**：`cd client && npm run build:index`
+- **掃描對象**：`client/public/webpcards/` 下所有非 `-trans` 資料夾的 `.webp`/`.png` 檔案
+- **輸出**：`client/src/assets/imageIndex.json`（`byKey` + `versionsById`）
+
+### 圖片命名規則
+```
+{卡片ID}{版本尾碼}.webp
+例：hBP01-001_C.webp、hSD11-003_C_re.webp、hPR-002_P.webp
+```
+
+**已知版本尾碼**（在 `build-image-index.cjs` 的 `VERSION_ORDER` 定義排序）：
+`_C`, `_C_2`, `_C_02`, `_U`, `_U_2`, `_U_02`, `_S`, `_S_02`, `_P`, `_P_1`, `_P_2`, `_P_3`, `_P_02`, `_R`, `_R_02`, `_RR`, `_RR_02`, `_SR`, `_UR`, `_HR`, `_SEC`
+
+沒有尾碼的檔案（如 `hPR-002.webp`）會被視為 `_C` 版本。
+
+### cardList JSON 的 `versions` 欄位
+- 每個字串對應一個版本尾碼，格式為 `_XX.png`（帶副檔名）
+- **不影響 UI 顯示**：實際顯示的版本由 `imageIndex.json` 的 `byKey` 決定，JSON 的 `versions` 僅作為 metadata 參考
+- 因此 `versions` 填錯不會讓牌消失，但會造成 metadata 不一致
+
+### 跨 Set 的復刻牌
+卡片 ID 和 `imageFolder` 不同是**正常設計**，代表這張牌以不同圖在另一個 set 出現。例如：
+- `hBP01-104` 在 `hSD11.json` 中 `imageFolder: hSD11/` → 使用 hSD11 資料夾內的圖
+
+---
+
+## 新增卡片 SOP
+
+### 1. 新增卡組
+1. 在 `client/public/webpcards/{setName}/` 放入 `.webp` 圖檔
+2. 在 `client/src/` 新增 `cardList_{setName}.json`，格式參考既有檔案
+3. 在 `client/src/components/cardsConfig.jsx` import 新的 JSON
+4. 執行 `cd client && npm run build:index` 重建索引
+
+### 2. 新增已有卡組的新圖（復刻/新版本）
+1. 把圖檔放進對應資料夾，命名格式：`{ID}_{版本}.webp`
+2. 在對應 `cardList_*.json` 的 `versions` 陣列加入新版本
+3. 執行 `npm run build:index`
+
+---
+
+## 定期健康檢查腳本
+
+在專案根目錄執行以下指令可快速驗證系統狀態：
+
+```bash
+node -e "
+const fs = require('fs');
+const path = require('path');
+const idx = JSON.parse(fs.readFileSync('client/src/assets/imageIndex.json', 'utf8'));
+const byKey = idx.byKey || {};
+const srcDir = 'client/src';
+const webpDir = 'client/public/webpcards';
+
+// 1. 找孤兒圖片（在磁碟上但不在 imageIndex）
+const folders = fs.readdirSync(webpDir).filter(f =>
+  fs.statSync(path.join(webpDir, f)).isDirectory() && !f.endsWith('-trans')
+);
+let orphans = [];
+for (const folder of folders) {
+  for (const file of fs.readdirSync(path.join(webpDir, folder)).filter(f => f.endsWith('.webp'))) {
+    const rel = folder + '/' + file;
+    if (!Object.values(byKey).includes(rel)) orphans.push(rel);
+  }
+}
+console.log('孤兒圖片（有圖無索引）:', orphans.length);
+orphans.forEach(f => console.log(' ', f));
+
+// 2. 找索引中版本錯誤的卡（JSON versions 指向不存在的 key）
+const jsonFiles = fs.readdirSync(srcDir).filter(f => f.startsWith('cardList_') && f.endsWith('.json'));
+let broken = [];
+for (const jf of jsonFiles) {
+  for (const card of JSON.parse(fs.readFileSync(path.join(srcDir, jf), 'utf8'))) {
+    const folder = (card.imageFolder || '').replace(/\/\$/, '');
+    for (const v of (card.versions || [])) {
+      const s = v.replace(/\.(png|webp)\$/, '');
+      if (!s) continue;
+      const key = card.id + s + '@' + folder;
+      if (!byKey[key]) broken.push(card.id + ' ' + v + ' (' + jf + ')');
+    }
+  }
+}
+console.log('版本錯誤（JSON versions 找不到對應圖）:', broken.length);
+broken.forEach(b => console.log(' ', b));
+"
+```
+
+正常狀態：兩個數字都應為 **0**。

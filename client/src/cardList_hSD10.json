@@ -3,138 +3,139 @@
     "id": "hSD10-001",
     "type": "Oshi",
     "name": "輪堂千速",
-    "life" : "5",
+    "life": "5",
     "imageFolder": "hSD10/",
     "color": ["green"],
     "searchKeywords": ["輪堂千速", "輪堂千速", "Rindo Chihaya"],
-    "skillType" : ["回合中1次", "遊戲中1次"],
-    "versions": ["_OSR.png"]  
+    "skillType": ["回合中1次", "遊戲中1次"],
+    "versions": ["_OSR.png"],
+    "tags": ""
   },
   {
     "id": "hSD10-002",
     "type": "Member",
     "name": "輪堂千速",
-    "hp" : "110",
+    "hp": "110",
     "imageFolder": "hSD10/",
     "color": ["green"],
     "grade": "debut",
     "searchKeywords": ["輪堂千速", "輪堂千速", "Rindo Chihaya"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["DEV_IS", "FLOW GLOW"],
-    "effectType": ""  
+    "effectType": ""
   },
   {
     "id": "hSD10-003",
     "type": "Member",
     "name": "輪堂千速",
-    "hp" : "170",
+    "hp": "170",
     "imageFolder": "hSD10/",
     "color": ["green"],
     "grade": "1st",
     "searchKeywords": ["輪堂千速", "輪堂千速", "Rindo Chihaya"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["DEV_IS", "FLOW GLOW"],
-    "effectType": ""  
+    "effectType": ""
   },
   {
     "id": "hSD10-004",
     "type": "Member",
     "name": "輪堂千速",
-    "hp" : "150",
+    "hp": "150",
     "imageFolder": "hSD10/",
     "color": ["green"],
     "grade": "1st",
     "searchKeywords": ["輪堂千速", "輪堂千速", "Rindo Chihaya"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_U.png"],
     "tags": ["DEV_IS", "FLOW GLOW"],
-    "effectType": "Gift"  
+    "effectType": "Gift"
   },
   {
     "id": "hSD10-005",
     "type": "Member",
     "name": "輪堂千速",
-    "hp" : "160",
+    "hp": "160",
     "imageFolder": "hSD10/",
     "color": ["green"],
     "grade": "1st",
     "searchKeywords": ["輪堂千速", "輪堂千速", "Rindo Chihaya"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_U.png"],
     "tags": ["DEV_IS", "FLOW GLOW"],
-    "effectType": "Collaboration"  
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD10-006",
     "type": "Member",
     "name": "輪堂千速",
-    "hp" : "200",
+    "hp": "200",
     "imageFolder": "hSD10/",
     "color": ["green"],
     "grade": "2nd",
     "searchKeywords": ["輪堂千速", "輪堂千速", "Rindo Chihaya"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_RR.png"],
     "tags": ["DEV_IS", "FLOW GLOW"],
-    "effectType": ""  
+    "effectType": ""
   },
   {
     "id": "hSD10-007",
     "type": "Member",
     "name": "綺々羅々ヴィヴィ",
-    "hp" : "120",
+    "hp": "120",
     "imageFolder": "hSD10/",
     "color": ["purple"],
     "grade": "debut",
     "searchKeywords": ["綺々羅々ヴィヴィ", "綺綺羅羅薇薇", "Kikirara Vivi"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["DEV_IS", "FLOW GLOW"],
-    "effectType": ""   
+    "effectType": ""
   },
   {
     "id": "hSD10-008",
     "type": "Member",
     "name": "綺々羅々ヴィヴィ",
-    "hp" : "130",
+    "hp": "130",
     "imageFolder": "hSD10/",
     "color": ["purple"],
     "grade": "1st",
     "searchKeywords": ["綺々羅々ヴィヴィ", "綺綺羅羅薇薇", "Kikirara Vivi"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["DEV_IS", "FLOW GLOW"],
-    "effectType": "Collaboration"   
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD10-009",
     "type": "Member",
     "name": "綺々羅々ヴィヴィ",
-    "hp" : "200",
+    "hp": "200",
     "imageFolder": "hSD10/",
     "color": ["purple"],
     "grade": "2nd",
     "searchKeywords": ["綺々羅々ヴィヴィ", "綺綺羅羅薇薇", "Kikirara Vivi"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_RR.png"],
     "tags": ["DEV_IS", "FLOW GLOW"],
-    "effectType": "Collaboration"   
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD10-010",
     "type": "Member",
     "name": "響咲リオナ",
-    "hp" : "170",
+    "hp": "170",
     "imageFolder": "hSD10/",
     "color": ["colorless"],
     "grade": "spot",
     "searchKeywords": ["響咲リオナ", "響咲莉歐娜", "Isaki Riona"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_RR.png"],
     "tags": ["DEV_IS", "FLOW GLOW"],
-    "effectType": "Collaboration"   
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD10-011",
@@ -145,7 +146,7 @@
     "grade": "",
     "searchKeywords": ["event", "イベント", "WHAT'S UP!!!!! KEEEEEP GROWING!!!!!"],
     "versions": ["_U.png"],
-    "tags": ["LIMITED", "FLOW GLOW"]  
+    "tags": ["LIMITED", "FLOW GLOW"]
   },
   {
     "id": "hSD10-012",
@@ -156,7 +157,7 @@
     "grade": "",
     "searchKeywords": ["event", "イベント", "FLOW GLOW"],
     "versions": ["_U.png"],
-    "tags": ["LIMITED", "FLOW GLOW"]  
+    "tags": ["LIMITED", "FLOW GLOW"]
   },
   {
     "id": "hSD10-013",
@@ -167,7 +168,7 @@
     "grade": "",
     "searchKeywords": ["tool", "ツール", "ふぐ太郎", "河豚太郎"],
     "versions": ["_C.png"],
-    "tags": ["FLOW GLOW"]  
+    "tags": ["FLOW GLOW"]
   },
   {
     "id": "hSD01-016",
@@ -177,7 +178,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["staff", "スタッフ", "春先のどか"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hSD01-017",
@@ -187,7 +189,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["staff", "スタッフ", "マネちゃん"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hBP01-104",
@@ -197,7 +200,7 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["item", "アイテム", "ふつうのパソコン", "普通的電腦", "出場至舞台"],
-    "versions": ["_C.png" ],
+    "versions": ["_C.png"],
     "tags": ""
   },
   {
@@ -209,6 +212,6 @@
     "grade": "",
     "searchKeywords": ["item", "アイテム", "レトロパソコン", "復古電腦", "返回手牌"],
     "versions": ["_C.png"],
-    "tags" : ["LIMITED"]
+    "tags": ["LIMITED"]
   }
-] 
+]

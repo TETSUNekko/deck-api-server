@@ -3,133 +3,155 @@
     "id": "hSD04-001",
     "type": "Oshi",
     "name": "癒月ちょこ",
+    "life": "",
     "imageFolder": "hSD04/",
     "color": ["purple"],
-    "grade": "",
     "searchKeywords": ["癒月ちょこ", "癒月巧可", "Yuzuki Choco"],
+    "skillType": "",
     "versions": ["_OC.png"],
-    "tags":"",
-    "hp":"5"
+    "tags": "",
+    "grade": "",
+    "hp": "5"
   },
   {
     "id": "hSD04-002",
     "type": "Member",
     "name": "癒月ちょこ",
+    "hp": "",
     "imageFolder": "hSD04/",
     "color": ["purple"],
     "grade": "debut",
     "searchKeywords": ["癒月ちょこ", "癒月巧可", "Yuzuki Choco"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["JP", "2期生", "料理"],
-    "effectType": ""  
+    "effectType": ""
   },
   {
     "id": "hSD04-003",
     "type": "Member",
     "name": "癒月ちょこ",
+    "hp": "",
     "imageFolder": "hSD04/",
     "color": ["purple"],
     "grade": "debut",
     "searchKeywords": ["癒月ちょこ", "癒月巧可", "Yuzuki Choco"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["JP", "2期生", "料理"],
-    "effectType": "Collaboration"  
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD04-004",
     "type": "Member",
     "name": "癒月ちょこ",
+    "hp": "",
     "imageFolder": "hSD04/",
     "color": ["purple"],
     "grade": "debut",
     "searchKeywords": ["癒月ちょこ", "癒月巧可", "Yuzuki Choco"],
+    "skillType": "",
     "versions": ["_U.png"],
     "tags": ["JP", "2期生", "料理"],
-    "effectType": "Collaboration"  
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD04-005",
     "type": "Member",
     "name": "癒月ちょこ",
+    "hp": "",
     "imageFolder": "hSD04/",
     "color": ["purple"],
     "grade": "1st",
     "searchKeywords": ["癒月ちょこ", "癒月巧可", "Yuzuki Choco"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["JP", "2期生", "料理"],
-    "effectType": ""  
+    "effectType": ""
   },
   {
     "id": "hSD04-006",
     "type": "Member",
     "name": "癒月ちょこ",
+    "hp": "",
     "imageFolder": "hSD04/",
     "color": ["purple"],
     "grade": "1st",
     "searchKeywords": ["癒月ちょこ", "癒月巧可", "Yuzuki Choco"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["JP", "2期生", "料理"],
-    "effectType": ""  
+    "effectType": ""
   },
   {
     "id": "hSD04-007",
     "type": "Member",
     "name": "癒月ちょこ",
+    "hp": "",
     "imageFolder": "hSD04/",
     "color": ["purple"],
     "grade": "1st",
     "searchKeywords": ["癒月ちょこ", "癒月巧可", "Yuzuki Choco"],
+    "skillType": "",
     "versions": ["_U.png"],
     "tags": ["JP", "2期生", "料理"],
-    "effectType": "Bloom"  
+    "effectType": "Bloom"
   },
   {
     "id": "hSD04-008",
     "type": "Member",
     "name": "癒月ちょこ",
+    "hp": "",
     "imageFolder": "hSD04/",
     "color": ["purple"],
     "grade": "buzz",
     "searchKeywords": ["癒月ちょこ", "癒月巧可", "Yuzuki Choco"],
+    "skillType": "",
     "versions": ["_R.png"],
     "tags": ["JP", "2期生", "料理"],
-    "effectType": ""  
+    "effectType": ""
   },
   {
     "id": "hSD04-009",
     "type": "Member",
     "name": "癒月ちょこ",
+    "hp": "",
     "imageFolder": "hSD04/",
     "color": ["purple"],
     "grade": "2nd",
     "searchKeywords": ["癒月ちょこ", "癒月巧可", "Yuzuki Choco"],
+    "skillType": "",
     "versions": ["_RR.png"],
     "tags": ["JP", "2期生", "料理"],
-    "effectType": ""  
+    "effectType": ""
   },
   {
     "id": "hSD04-010",
     "type": "Member",
     "name": "大空スバル",
+    "hp": "",
     "imageFolder": "hSD04/",
     "color": ["colorless"],
     "grade": "spot",
     "searchKeywords": ["大空スバル", "大空昴", "Ozora Subaru"],
+    "skillType": "",
     "versions": ["_U.png"],
     "tags": ["JP", "2期生"],
-    "effectType": "Collaboration"  
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD04-011",
     "type": "Member",
     "name": "姫森ルーナ",
+    "hp": "",
     "imageFolder": "hSD04/",
     "color": ["colorless"],
     "grade": "spot",
     "searchKeywords": ["姫森ルーナ", "姬森璐娜", "Himemori Luna"],
+    "skillType": "",
     "versions": ["_U.png"],
     "tags": ["JP", "4期生"],
-    "effectType": "Collaboration"  
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD04-012",
@@ -139,7 +161,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["event", "イベント", "スバちょこルーナ"],
-    "versions": ["_U.png"]
+    "versions": ["_U.png"],
+    "tags": ""
   },
   {
     "id": "hSD04-013",
@@ -160,7 +183,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["mascot", "マスコット", "しょこら"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hBP01-104",
@@ -181,7 +205,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["staff", "スタッフ", "春先のどか"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hSD01-017",
@@ -191,7 +216,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["staff", "スタッフ", "マネちゃん"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hBP01-106",
@@ -212,6 +238,7 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["item", "アイテム", "スゴイパソコン", "厲害電腦"],
-    "versions": ["_C_02.png"]
+    "versions": ["_C_02.png"],
+    "tags": ""
   }
-] 
+]

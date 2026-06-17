@@ -3,83 +3,98 @@
     "id": "hSD09-001",
     "type": "Oshi",
     "name": "宝鐘マリン",
+    "life": "",
     "imageFolder": "hSD09/",
     "color": ["red"],
-    "grade": "",
     "searchKeywords": ["宝鐘マリン", "寶鐘瑪琳", "Houshou Marin"],
-    "versions": ["_OC.png"]  
+    "skillType": "",
+    "versions": ["_OC.png"],
+    "tags": "",
+    "grade": ""
   },
   {
     "id": "hSD09-002",
     "type": "Member",
     "name": "宝鐘マリン",
+    "hp": "",
     "imageFolder": "hSD09/",
     "color": ["red"],
     "grade": "debut",
     "searchKeywords": ["宝鐘マリン", "寶鐘瑪琳", "Houshou Marin"],
+    "skillType": "",
     "versions": ["_U.png"],
     "tags": ["JP", "3期生", "畫", "海", "夏季"],
-    "effectType": "Collaboration"  
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD09-003",
     "type": "Member",
     "name": "宝鐘マリン",
+    "hp": "",
     "imageFolder": "hSD09/",
     "color": ["red"],
     "grade": "buzz",
     "searchKeywords": ["宝鐘マリン", "寶鐘瑪琳", "Houshou Marin"],
+    "skillType": "",
     "versions": ["_R.png"],
     "tags": ["JP", "3期生", "畫", "海"],
-    "effectType": "Collaboration"  
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD09-004",
     "type": "Member",
     "name": "宝鐘マリン",
+    "hp": "",
     "imageFolder": "hSD09/",
     "color": ["red"],
     "grade": "2nd",
     "searchKeywords": ["宝鐘マリン", "寶鐘瑪琳", "Houshou Marin"],
+    "skillType": "",
     "versions": ["_RR.png"],
     "tags": ["JP", "3期生", "畫", "海"],
-    "effectType": ""  
+    "effectType": ""
   },
   {
     "id": "hSD09-005",
     "type": "Member",
     "name": "白銀ノエル",
+    "hp": "",
     "imageFolder": "hSD09/",
     "color": ["white"],
     "grade": "debut",
     "searchKeywords": ["白銀ノエル", "白銀諾艾爾", "Shirogane Noel"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["JP", "3期生", "酒", "夏季"],
-    "effectType": "Collaboration"  
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD09-006",
     "type": "Member",
     "name": "兔田ぺこら",
+    "hp": "",
     "imageFolder": "hSD09/",
     "color": ["green"],
     "grade": "debut",
     "searchKeywords": ["兔田ぺこら", "兔田佩可拉", "Usada Pekora"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["JP", "3期生", "獸耳", "夏季"],
-    "effectType": "Collaboration"  
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD09-007",
     "type": "Member",
     "name": "不知火フレア",
+    "hp": "",
     "imageFolder": "hSD09/",
     "color": ["yellow"],
     "grade": "debut",
     "searchKeywords": ["不知火フレア", "不知火芙蕾雅", "Shiranui Flare"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["JP", "3期生", "半精靈", "夏季"],
-    "effectType": "Gift"   
+    "effectType": "Gift"
   },
   {
     "id": "hBP01-108",
@@ -90,43 +105,49 @@
     "grade": "",
     "searchKeywords": ["event", "イベント", "じゃあ敵だね", "那就是敵人了", "交替"],
     "versions": ["_U.png"],
-    "tags": ["LIMITED"]  
+    "tags": ["LIMITED"]
   },
   {
     "id": "hBP02-028",
     "type": "Member",
     "name": "宝鐘マリン",
+    "hp": "",
     "imageFolder": "hSD09/",
     "color": ["red"],
     "grade": "debut",
     "searchKeywords": ["宝鐘マリン", "寶鐘瑪琳", "Houshou Marin"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["JP", "3期生", "畫", "海"],
-    "effectType": ""  
+    "effectType": ""
   },
   {
     "id": "hBP02-030",
     "type": "Member",
     "name": "宝鐘マリン",
+    "hp": "",
     "imageFolder": "hSD09/",
     "color": ["red"],
     "grade": "1st",
     "searchKeywords": ["宝鐘マリン", "寶鐘瑪琳", "Houshou Marin"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["JP", "3期生", "畫", "海"],
-    "effectType": ""  
+    "effectType": ""
   },
   {
     "id": "hBP02-032",
     "type": "Member",
     "name": "宝鐘マリン",
+    "hp": "",
     "imageFolder": "hSD09/",
     "color": ["red"],
     "grade": "1st",
     "searchKeywords": ["宝鐘マリン", "寶鐘瑪琳", "Houshou Marin"],
+    "skillType": "",
     "versions": ["_R.png"],
     "tags": ["JP", "3期生", "畫", "海"],
-    "effectType": "Bloom"  
+    "effectType": "Bloom"
   },
   {
     "id": "hBP02-084",
@@ -137,7 +158,7 @@
     "grade": "",
     "searchKeywords": ["event", "イベント", "みっころね24", "mikorone24", "丟擲", "骰子", "加入手牌"],
     "versions": ["_U.png"],
-    "tags" : ["LIMITED"]
+    "tags": ["LIMITED"]
   },
   {
     "id": "hBP02-085",
@@ -148,7 +169,7 @@
     "grade": "",
     "searchKeywords": ["event", "イベント", "HOLOLIVE FANTASY", "加入手牌"],
     "versions": ["_U_02.png"],
-    "tags" : ["3期生", "LIMITED"]
+    "tags": ["3期生", "LIMITED"]
   },
   {
     "id": "hBP02-095",
@@ -159,7 +180,7 @@
     "grade": "",
     "searchKeywords": ["mascot", "マスコット", "ドクロくん", "骷髏君", "中央位置限定", "藝能傷害+", "宝鐘マリン", "寶鐘瑪琳", "Houshou Marin"],
     "versions": ["_C.png"],
-    "tags" : ""
+    "tags": ""
   },
   {
     "id": "hSD01-016",
@@ -169,7 +190,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["staff", "スタッフ", "春先のどか"],
-    "versions": ["_02_C.png"]
+    "versions": ["_02_C.png"],
+    "tags": ""
   },
   {
     "id": "hSD01-017",
@@ -179,6 +201,7 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["staff", "スタッフ", "マネちゃん"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ""
   }
-] 
+]

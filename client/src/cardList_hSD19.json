@@ -8,7 +8,8 @@
     "color": ["yellow"],
     "searchKeywords": ["大空スバル", "大空昴", "Ozora Subaru"],
     "skillType": ["回合中1次", "遊戲中1次"],
-    "versions": ["_OC.png"]
+    "versions": ["_OC.png"],
+    "tags": ""
   },
   {
     "id": "hSD19-002",
@@ -131,7 +132,7 @@
     "grade": "",
     "searchKeywords": ["event", "イベント", "ごきげんカレー", "開心咖哩"],
     "versions": ["_C.png"],
-    "tags" : ["食物"]
+    "tags": ["食物"]
   },
   {
     "id": "hSD14-010",
@@ -142,7 +143,7 @@
     "grade": "",
     "searchKeywords": ["staff", "スタッフ", "holoAN"],
     "versions": ["_C.png"],
-    "tags" : ["LIMITED"]
+    "tags": ["LIMITED"]
   },
   {
     "id": "hSD01-017",
@@ -152,7 +153,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["staff", "スタッフ", "マネちゃん", "經紀醬"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hSD01-019",
@@ -163,7 +165,7 @@
     "grade": "",
     "searchKeywords": ["item", "アイテム", "スゴイパソコン", "厲害電腦"],
     "versions": ["_C_02.png"],
-    "tags" : ["LIMITED"]
+    "tags": ["LIMITED"]
   },
   {
     "id": "hBP02-084",
@@ -174,7 +176,7 @@
     "grade": "",
     "searchKeywords": ["event", "イベント", "みっころね24", "mikorone24", "丟擲", "骰子", "加入手牌"],
     "versions": ["_U.png"],
-    "tags" : ["LIMITED"]
+    "tags": ["LIMITED"]
   },
   {
     "id": "hBP02-077",
@@ -185,7 +187,7 @@
     "grade": "",
     "searchKeywords": ["item", "アイテム", "レトロパソコン", "復古電腦", "返回手牌"],
     "versions": ["_C.png"],
-    "tags" : ["LIMITED"]
+    "tags": ["LIMITED"]
   },
   {
     "id": "hBP01-104",
@@ -196,6 +198,6 @@
     "grade": "",
     "searchKeywords": ["item", "アイテム", "ふつうのパソコン", "普通的電腦", "出場至舞台"],
     "versions": ["_07_C.png"],
-    "tags" : ""
+    "tags": ""
   }
 ]

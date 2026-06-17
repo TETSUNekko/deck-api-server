@@ -46,10 +46,11 @@ const SERIES_LIST = [
   { value: "hSD18", label: "hSD18　ライブスタートデッキ 森" },
   { value: "hSD19", label: "hSD19　ライブスタートデッキ 大空" },
 
-  { value: "hPR", label: "hPR　PRカード" },
-  { value: "hBD24", label: "hBD24　生日カード" },
+  { value: "hPR", label: "PRカード" },
+  { value: "hBD24", label: "生日カード" },
   { value: "energy", label: "エールカード" },
-  { value: "PC_Set", label: "PC_Set　オフィシャルホロカコレクション" },
+  { value: "PC_Set", label: "オフィシャルホロカコレクション-PCセット-" },
+  { value: "2025Live_Set", label: "オフィシャルホロカコレクション-2025ライブセット-" },
 ];
 
 // alignRight: 子選單往右展開（用於成員卡/支援卡子選單）

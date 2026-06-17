@@ -8,7 +8,8 @@
     "color": ["white"],
     "searchKeywords": ["白上フブキ", "白上吹雪", "Shirakami Fubuki"],
     "skillType": ["回合中1次", "遊戲中1次"],
-    "versions": ["_OC.png"]
+    "versions": ["_OC.png"],
+    "tags": ""
   },
   {
     "id": "hSD14-002",
@@ -126,12 +127,12 @@
     "id": "hSD14-010",
     "type": "Support",
     "name": "holoAN",
-    "imageFolder": "hSD01/",
+    "imageFolder": "hSD14/",
     "color": "",
     "grade": "",
     "searchKeywords": ["staff", "スタッフ", "holoAN"],
     "versions": ["_C.png"],
-    "tags" : ["LIMITED"]
+    "tags": ["LIMITED"]
   },
   {
     "id": "hSD14-011",
@@ -142,7 +143,7 @@
     "grade": "",
     "searchKeywords": ["mascot", "マスコット", "ありよりのアリゲーター", "非常可以鱷魚", "白上フブキ", "白上吹雪", "Shirakami Fubuki"],
     "versions": ["_C.png"],
-    "tags" : ["白上的角色"]
+    "tags": ["白上的角色"]
   },
   {
     "id": "hSD01-019",
@@ -153,7 +154,7 @@
     "grade": "",
     "searchKeywords": ["item", "アイテム", "スゴイパソコン", "厲害電腦"],
     "versions": ["_C_02.png"],
-    "tags" : ["LIMITED"]
+    "tags": ["LIMITED"]
   },
   {
     "id": "hSD01-017",
@@ -163,7 +164,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["staff", "スタッフ", "マネちゃん", "經紀醬"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hBP02-084",
@@ -174,7 +176,7 @@
     "grade": "",
     "searchKeywords": ["event", "イベント", "みっころね24", "mikorone24", "丟擲", "骰子", "加入手牌"],
     "versions": ["_U.png"],
-    "tags" : ["LIMITED"]
+    "tags": ["LIMITED"]
   },
   {
     "id": "hBP02-077",
@@ -185,7 +187,7 @@
     "grade": "",
     "searchKeywords": ["item", "アイテム", "レトロパソコン", "復古電腦", "返回手牌"],
     "versions": ["_C.png"],
-    "tags" : ["LIMITED"]
+    "tags": ["LIMITED"]
   },
   {
     "id": "hBP01-104",
@@ -195,7 +197,7 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["item", "アイテム", "ふつうのパソコン", "普通的電腦", "出場至舞台"],
-    "versions": ["_02_C.png" ],
+    "versions": ["_02_C.png"],
     "tags": ""
   }
 ]

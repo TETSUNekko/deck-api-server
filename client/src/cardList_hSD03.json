@@ -3,131 +3,154 @@
     "id": "hSD03-001",
     "type": "Oshi",
     "name": "猫又おかゆ",
+    "life": "",
     "imageFolder": "hSD03/",
     "color": ["blue"],
-    "grade": "",
     "searchKeywords": ["猫又おかゆ", "貓又小粥", "Nekomata Okayu"],
-    "versions": ["_OC.png"]  
+    "skillType": "",
+    "versions": ["_OC.png"],
+    "tags": "",
+    "grade": ""
   },
   {
     "id": "hSD03-002",
     "type": "Member",
     "name": "猫又おかゆ",
+    "hp": "",
     "imageFolder": "hSD03/",
     "color": ["blue"],
     "grade": "debut",
     "searchKeywords": ["猫又おかゆ", "貓又小粥", "Nekomata Okayu"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["JP", "Gamers", "獸耳"],
-    "effectType": ""  
+    "effectType": ""
   },
   {
     "id": "hSD03-003",
     "type": "Member",
     "name": "猫又おかゆ",
+    "hp": "",
     "imageFolder": "hSD03/",
     "color": ["blue"],
     "grade": "debut",
     "searchKeywords": ["猫又おかゆ", "貓又小粥", "Nekomata Okayu"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["JP", "Gamers", "獸耳"],
-    "effectType": "Collaboration"  
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD03-004",
     "type": "Member",
     "name": "猫又おかゆ",
+    "hp": "",
     "imageFolder": "hSD03/",
     "color": ["blue"],
     "grade": "debut",
     "searchKeywords": ["猫又おかゆ", "貓又小粥", "Nekomata Okayu"],
+    "skillType": "",
     "versions": ["_U.png"],
     "tags": ["JP", "Gamers", "獸耳"],
-    "effectType": "Collaboration"  
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD03-005",
     "type": "Member",
     "name": "猫又おかゆ",
+    "hp": "",
     "imageFolder": "hSD03/",
     "color": ["blue"],
     "grade": "1st",
     "searchKeywords": ["猫又おかゆ", "貓又小粥", "Nekomata Okayu"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["JP", "Gamers", "獸耳"],
-    "effectType": ""  
+    "effectType": ""
   },
   {
     "id": "hSD03-006",
     "type": "Member",
     "name": "猫又おかゆ",
+    "hp": "",
     "imageFolder": "hSD03/",
     "color": ["blue"],
     "grade": "1st",
     "searchKeywords": ["猫又おかゆ", "貓又小粥", "Nekomata Okayu"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["JP", "Gamers", "獸耳", "歌"],
-    "effectType": ""  
+    "effectType": ""
   },
   {
     "id": "hSD03-007",
     "type": "Member",
     "name": "猫又おかゆ",
+    "hp": "",
     "imageFolder": "hSD03/",
     "color": ["blue"],
     "grade": "1st",
     "searchKeywords": ["猫又おかゆ", "貓又小粥", "Nekomata Okayu"],
+    "skillType": "",
     "versions": ["_U.png"],
     "tags": ["JP", "Gamers", "獸耳"],
-    "effectType": "Bloom"  
+    "effectType": "Bloom"
   },
   {
     "id": "hSD03-008",
     "type": "Member",
     "name": "猫又おかゆ",
+    "hp": "",
     "imageFolder": "hSD03/",
     "color": ["blue"],
     "grade": "buzz",
     "searchKeywords": ["猫又おかゆ", "貓又小粥", "Nekomata Okayu"],
+    "skillType": "",
     "versions": ["_R.png"],
     "tags": ["JP", "Gamers", "獸耳"],
-    "effectType": "Gift"  
+    "effectType": "Gift"
   },
   {
     "id": "hSD03-009",
     "type": "Member",
     "name": "猫又おかゆ",
+    "hp": "",
     "imageFolder": "hSD03/",
     "color": ["blue"],
-    "grade": "2nd",                                                                              
+    "grade": "2nd",
     "searchKeywords": ["猫又おかゆ", "貓又小粥", "Nekomata Okayu"],
+    "skillType": "",
     "versions": ["_RR.png"],
     "tags": ["JP", "Gamers", "獸耳"],
-    "effectType": ""  
+    "effectType": ""
   },
   {
     "id": "hSD03-010",
     "type": "Member",
     "name": "戌神ころね",
+    "hp": "",
     "imageFolder": "hSD03/",
     "color": ["colorless"],
     "grade": "spot",
     "searchKeywords": ["戌神ころね", "戌神沁音", "Inugami Korone"],
+    "skillType": "",
     "versions": ["_U.png"],
     "tags": ["JP", "Gamers", "獸耳"],
-    "effectType": "Collaboration"  
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD03-011",
     "type": "Member",
     "name": "ラプラス・ダークネス",
+    "hp": "",
     "imageFolder": "hSD03/",
     "color": ["colorless"],
     "grade": "spot",
     "searchKeywords": ["ラプラス・ダークネス", "拉普拉斯·達克尼斯", "Laplus Darknesss"],
+    "skillType": "",
     "versions": ["_U.png"],
     "tags": ["JP", "秘密結社holoX", "射手"],
-    "effectType": "" 
+    "effectType": ""
   },
   {
     "id": "hSD03-012",
@@ -137,7 +160,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["event", "イベント", "泥棒建設"],
-    "versions": ["_U.png"]
+    "versions": ["_U.png"],
+    "tags": ""
   },
   {
     "id": "hSD03-013",
@@ -147,7 +171,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["mascot", "マスコット", "おかにゃん"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hSD03-014",
@@ -157,7 +182,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["fan", "ファン", "おにぎりゃー"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hBP01-108",
@@ -178,7 +204,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["staff", "スタッフ", "春先のどか"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hSD01-017",
@@ -188,7 +215,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["staff", "スタッフ", "マネちゃん"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hBP01-105",
@@ -209,6 +237,7 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["item", "アイテム", "スゴイパソコン", "厲害電腦"],
-    "versions": ["_C_02.png"]
+    "versions": ["_C_02.png"],
+    "tags": ""
   }
-] 
+]

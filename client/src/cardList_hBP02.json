@@ -3,80 +3,103 @@
     "id": "hBP02-001",
     "type": "Oshi",
     "name": "白上フブキ",
+    "life": "",
     "imageFolder": "hBP02/",
     "color": ["white"],
-    "grade": "",
     "searchKeywords": ["白上フブキ", "白上吹雪", "Shirakami Fubuki"],
-    "versions": ["_SEC.png", "_OSR.png", "_OUR.png"]  
+    "skillType": "",
+    "versions": ["_SEC.png", "_OSR.png", "_OUR.png"],
+    "tags": "",
+    "grade": ""
   },
   {
     "id": "hBP02-002",
     "type": "Oshi",
     "name": "パヴォリア・レイネ",
+    "life": "",
     "imageFolder": "hBP02/",
     "color": ["green"],
-    "grade": "",
     "searchKeywords": ["パヴォリア・レイネ", "帕沃莉亞·蕾內", "Pavolia Reine"],
-    "versions": ["_OSR.png", "_OUR.png"]
+    "skillType": "",
+    "versions": ["_OSR.png", "_OUR.png"],
+    "tags": "",
+    "grade": ""
   },
   {
     "id": "hBP02-003",
     "type": "Oshi",
     "name": "宝鐘マリン",
+    "life": "",
     "imageFolder": "hBP02/",
     "color": ["red"],
-    "grade": "",
     "searchKeywords": ["宝鐘マリン", "寶鐘瑪琳", "Houshou Marin"],
-    "versions": ["_SEC.png", "_OSR.png", "_OUR.png"]
+    "skillType": "",
+    "versions": ["_SEC.png", "_OSR.png", "_OUR.png"],
+    "tags": "",
+    "grade": ""
   },
   {
     "id": "hBP02-004",
     "type": "Oshi",
     "name": "沙花叉クロヱ",
+    "life": "",
     "imageFolder": "hBP02/",
     "color": ["blue"],
-    "grade": "",
     "searchKeywords": ["沙花叉クロヱ", "沙花叉克蘿伊", "Sakamata Kuroe"],
-    "versions": ["_SEC.png", "_OSR.png", "_OUR.png"]
+    "skillType": "",
+    "versions": ["_SEC.png", "_OSR.png", "_OUR.png"],
+    "tags": "",
+    "grade": ""
   },
   {
     "id": "hBP02-005",
     "type": "Oshi",
     "name": "紫咲シオン",
+    "life": "",
     "imageFolder": "hBP02/",
     "color": ["purple"],
-    "grade": "",
     "searchKeywords": ["紫咲シオン", "紫咲詩音", "Murasaki Shion"],
-    "versions": ["_OSR.png", "_OUR.png"]
+    "skillType": "",
+    "versions": ["_OSR.png", "_OUR.png"],
+    "tags": "",
+    "grade": ""
   },
   {
     "id": "hBP02-006",
     "type": "Oshi",
     "name": "クレイジー・オリー",
+    "life": "",
     "imageFolder": "hBP02/",
     "color": ["purple"],
-    "grade": "",
     "searchKeywords": ["クレイジー・オリー", "克蕾西·奧莉", "Kureiji Ollie"],
-    "versions": ["_OSR.png", "_OUR.png"]
+    "skillType": "",
+    "versions": ["_OSR.png", "_OUR.png"],
+    "tags": "",
+    "grade": ""
   },
   {
     "id": "hBP02-007",
     "type": "Oshi",
     "name": "森カリオペ",
+    "life": "",
     "imageFolder": "hBP02/",
     "color": ["purple"],
-    "grade": "",
     "searchKeywords": ["森カリオペ", "森美聲", "Mori Calliope"],
-    "versions": ["_OSR.png", "_OUR.png"]
+    "skillType": "",
+    "versions": ["_OSR.png", "_OUR.png"],
+    "tags": "",
+    "grade": ""
   },
   {
     "id": "hBP02-008",
     "type": "Member",
     "name": "白上フブキ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["white"],
     "grade": "debut",
     "searchKeywords": ["白上フブキ", "白上吹雪", "Shirakami Fubuki"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["JP", "1期生", "獸耳", "畫", "Gamers"],
     "effectType": ""
@@ -85,11 +108,13 @@
     "id": "hBP02-009",
     "type": "Member",
     "name": "白上フブキ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["white"],
     "grade": "debut",
     "searchKeywords": ["白上フブキ", "白上吹雪", "Shirakami Fubuki", "聯動位置限定", "自己所有附上吉祥物的成員,藝能傷害+10"],
-    "versions": ["_U.png" ],
+    "skillType": "",
+    "versions": ["_U.png"],
     "tags": ["JP", "1期生", "獸耳", "畫", "Gamers"],
     "effectType": "Gift"
   },
@@ -97,10 +122,12 @@
     "id": "hBP02-010",
     "type": "Member",
     "name": "白上フブキ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["white"],
     "grade": "1st",
     "searchKeywords": ["白上フブキ", "白上吹雪", "Shirakami Fubuki"],
+    "skillType": "",
     "versions": ["_C.png", "_S.png"],
     "tags": ["JP", "1期生", "獸耳", "畫", "Gamers"],
     "effectType": ""
@@ -109,10 +136,12 @@
     "id": "hBP02-011",
     "type": "Member",
     "name": "白上フブキ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["white"],
     "grade": "1st",
     "searchKeywords": ["白上フブキ", "白上吹雪", "Shirakami Fubuki", "從自己的牌組公開1張持有#白上的角色的卡片加入手牌，接著牌組洗牌"],
+    "skillType": "",
     "versions": ["_U.png", "_S.png"],
     "tags": ["JP", "1期生", "獸耳", "畫", "Gamers"],
     "effectType": "Bloom"
@@ -121,10 +150,12 @@
     "id": "hBP02-012",
     "type": "Member",
     "name": "白上フブキ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["white"],
     "grade": "1st",
     "searchKeywords": ["白上フブキ", "白上吹雪", "Shirakami Fubuki", "將自己舞台的1張吉祥物，重新替換至自己的成員上", "這個回合中，自己附上吉祥物的中央成員和聯動成員的藝能傷害+20"],
+    "skillType": "",
     "versions": ["_R.png", "_SR.png"],
     "tags": ["JP", "1期生", "獸耳", "畫", "Gamers"],
     "effectType": "Bloom"
@@ -133,10 +164,12 @@
     "id": "hBP02-013",
     "type": "Member",
     "name": "白上フブキ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["white"],
     "grade": "2nd",
     "searchKeywords": ["白上フブキ", "白上吹雪", "Shirakami Fubuki", "這個成員可以被附上至多2張不同卡名的吉祥物", "自己的舞台每有1張吉祥物，這個藝能傷害+20"],
+    "skillType": "",
     "versions": ["_RR.png", "_SR.png", "_UR.png"],
     "tags": ["JP", "1期生", "獸耳", "畫", "Gamers"],
     "effectType": "Gift"
@@ -145,11 +178,13 @@
     "id": "hBP02-014",
     "type": "Member",
     "name": "白銀ノエル",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["white"],
     "grade": "debut",
     "searchKeywords": ["白銀ノエル", "白銀諾艾爾", "Shirogane Noel"],
-    "versions": ["_C.png" ],
+    "skillType": "",
+    "versions": ["_C.png"],
     "tags": ["JP", "3期生", "酒"],
     "effectType": ""
   },
@@ -157,10 +192,12 @@
     "id": "hBP02-015",
     "type": "Member",
     "name": "白銀ノエル",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["white"],
     "grade": "1st",
     "searchKeywords": ["白銀ノエル", "白銀諾艾爾", "Shirogane Noel"],
+    "skillType": "",
     "versions": ["_C.png", "_S.png"],
     "tags": ["JP", "3期生", "酒"],
     "effectType": ""
@@ -169,10 +206,12 @@
     "id": "hBP02-016",
     "type": "Member",
     "name": "白銀ノエル",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["white"],
     "grade": "1st",
     "searchKeywords": ["白銀ノエル", "白銀諾艾爾", "Shirogane Noel", "從debut開花的時候，從自己的牌組公開1張持有#3期生的debut成員或1st成員或spot成員加入手牌，接著牌組洗牌"],
+    "skillType": "",
     "versions": ["_U.png", "_S.png"],
     "tags": ["JP", "3期生", "酒"],
     "effectType": "Bloom"
@@ -181,10 +220,12 @@
     "id": "hBP02-017",
     "type": "Member",
     "name": "白銀ノエル",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["white"],
     "grade": "buzz",
     "searchKeywords": ["白銀ノエル", "白銀諾艾爾", "Shirogane Noel", "聯動位置限定", "自己的舞台除了這個成員以外持有#3期生的成員每有1人，這個藝能傷害+20，但是計算的人數最多4人"],
+    "skillType": "",
     "versions": ["_RR.png", "_SR.png", "_UR.png"],
     "tags": ["JP", "3期生", "酒"],
     "effectType": ""
@@ -193,11 +234,13 @@
     "id": "hBP02-018",
     "type": "Member",
     "name": "パヴォリア・レイネ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["green"],
     "grade": "debut",
     "searchKeywords": ["パヴォリア・レイネ", "帕沃莉亞·蕾內", "Pavolia Reine"],
-    "versions": ["_C.png" ],
+    "skillType": "",
+    "versions": ["_C.png"],
     "tags": ["ID", "ID2期生", "畫", "鳥"],
     "effectType": ""
   },
@@ -205,10 +248,12 @@
     "id": "hBP02-019",
     "type": "Member",
     "name": "パヴォリア・レイネ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["green"],
     "grade": "debut",
     "searchKeywords": ["パヴォリア・レイネ", "帕沃莉亞·蕾內", "Pavolia Reine", "將自己存檔的1張聲援，送進自己的成員裡"],
+    "skillType": "",
     "versions": ["_U.png", "_S.png"],
     "tags": ["ID", "ID2期生", "畫", "鳥"],
     "effectType": "Collaboration"
@@ -217,10 +262,12 @@
     "id": "hBP02-020",
     "type": "Member",
     "name": "パヴォリア・レイネ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["green"],
     "grade": "1st",
     "searchKeywords": ["パヴォリア・レイネ", "帕沃莉亞·蕾內", "Pavolia Reine"],
+    "skillType": "",
     "versions": ["_C.png", "_S.png"],
     "tags": ["ID", "ID2期生", "畫", "鳥"],
     "effectType": ""
@@ -229,10 +276,12 @@
     "id": "hBP02-021",
     "type": "Member",
     "name": "パヴォリア・レイネ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["green"],
     "grade": "1st",
     "searchKeywords": ["パヴォリア・レイネ", "帕沃莉亞·蕾內", "Pavolia Reine", "將自己存檔的1張聲援，送進自己的成員裡", "自己舞台上的聲援顏色每有1種，使自己的1名成員HP回復10"],
+    "skillType": "",
     "versions": ["_U.png", "_S.png"],
     "tags": ["ID", "ID2期生", "畫", "鳥"],
     "effectType": "Bloom"
@@ -241,10 +290,12 @@
     "id": "hBP02-022",
     "type": "Member",
     "name": "パヴォリア・レイネ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["green"],
     "grade": "1st",
     "searchKeywords": ["パヴォリア・レイネ", "帕沃莉亞·蕾內", "Pavolia Reine", "從自己的牌組公開1張Tatang加入手牌。接著牌組洗牌", "自己舞台上的聲援顏色有2種或以上時，這個藝能傷害+20"],
+    "skillType": "",
     "versions": ["_R.png", "_SR.png"],
     "tags": ["ID", "ID2期生", "畫", "鳥"],
     "effectType": "Bloom"
@@ -253,10 +304,12 @@
     "id": "hBP02-023",
     "type": "Member",
     "name": "パヴォリア・レイネ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["green"],
     "grade": "2nd",
     "searchKeywords": ["パヴォリア・レイネ", "帕沃莉亞·蕾內", "Pavolia Reine", "自己舞台上的聲援顏色每有1種，這個藝能傷害+20", "從自己的聲援牌組公開1張聲援，送進自己的成員裡，接著將聲援牌組洗牌"],
+    "skillType": "",
     "versions": ["_RR.png", "_SR.png", "_UR.png"],
     "tags": ["ID", "ID2期生", "畫", "鳥"],
     "effectType": "Bloom"
@@ -265,11 +318,13 @@
     "id": "hBP02-024",
     "type": "Member",
     "name": "大神ミオ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["green"],
     "grade": "debut",
     "searchKeywords": ["大神ミオ", "大神澪", "Ookami Mio", "將自己舞台的1張聲援，重新替換至自己持有#JP的成員裡"],
-    "versions": ["_C.png" ],
+    "skillType": "",
+    "versions": ["_C.png"],
     "tags": ["JP", "Gamers", "獸耳", "料理"],
     "effectType": ""
   },
@@ -277,10 +332,12 @@
     "id": "hBP02-025",
     "type": "Member",
     "name": "大神ミオ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["green"],
     "grade": "debut",
     "searchKeywords": ["大神ミオ", "大神澪", "Ookami Mio"],
+    "skillType": "",
     "versions": ["_C.png", "_S.png"],
     "tags": ["JP", "Gamers", "獸耳", "料理"],
     "effectType": ""
@@ -289,10 +346,12 @@
     "id": "hBP02-026",
     "type": "Member",
     "name": "大神ミオ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["green"],
     "grade": "1st",
     "searchKeywords": ["大神ミオ", "大神澪", "Ookami Mio", "從自己的聲援牌組公開1張與自己持有#Gamers成員相同顏色的聲援卡，送進自己的成員裡，接著將聲援牌組洗牌"],
+    "skillType": "",
     "versions": ["_U.png", "_S.png"],
     "tags": ["JP", "Gamers", "獸耳", "料理"],
     "effectType": "Bloom"
@@ -301,10 +360,12 @@
     "id": "hBP02-027",
     "type": "Member",
     "name": "大神ミオ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["green"],
     "grade": "buzz",
     "searchKeywords": ["大神ミオ", "大神澪", "Ookami Mio", "可以將自己牌組上方1張存檔:被存檔的卡若為成員時，這個藝能傷害+20。若為支援卡時，這個藝能傷害+50"],
+    "skillType": "",
     "versions": ["_RR.png", "_SR.png", "_UR.png"],
     "tags": ["JP", "Gamers", "獸耳", "料理"],
     "effectType": ""
@@ -313,10 +374,12 @@
     "id": "hBP02-028",
     "type": "Member",
     "name": "宝鐘マリン",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["red"],
     "grade": "debut",
     "searchKeywords": ["宝鐘マリン", "寶鐘瑪琳", "Houshou Marin"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["JP", "3期生", "畫", "海"],
     "effectType": ""
@@ -325,11 +388,13 @@
     "id": "hBP02-029",
     "type": "Member",
     "name": "宝鐘マリン",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["red"],
     "grade": "debut",
     "searchKeywords": ["宝鐘マリン", "寶鐘瑪琳", "Houshou Marin", "給予對手的聯動成員20點特殊傷害"],
-    "versions": ["_U.png" ],
+    "skillType": "",
+    "versions": ["_U.png"],
     "tags": ["JP", "3期生", "畫", "海"],
     "effectType": "Collaboration"
   },
@@ -337,10 +402,12 @@
     "id": "hBP02-030",
     "type": "Member",
     "name": "宝鐘マリン",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["red"],
     "grade": "1st",
     "searchKeywords": ["宝鐘マリン", "寶鐘瑪琳", "Houshou Marin"],
+    "skillType": "",
     "versions": ["_C.png", "_S.png"],
     "tags": ["JP", "3期生", "畫", "海"],
     "effectType": ""
@@ -349,10 +416,12 @@
     "id": "hBP02-031",
     "type": "Member",
     "name": "宝鐘マリン",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["red"],
     "grade": "1st",
     "searchKeywords": ["宝鐘マリン", "寶鐘瑪琳", "Houshou Marin", "給予對手的聯動成員20點特殊傷害"],
+    "skillType": "",
     "versions": ["_U.png", "_S.png"],
     "tags": ["JP", "3期生", "畫", "海"],
     "effectType": "Bloom"
@@ -361,10 +430,12 @@
     "id": "hBP02-032",
     "type": "Member",
     "name": "宝鐘マリン",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["red"],
     "grade": "1st",
     "searchKeywords": ["宝鐘マリン", "寶鐘瑪琳", "Houshou Marin", "從自己的牌組公開1張寶鐘瑪琳加入手牌，接著牌組洗牌", "一回合僅能使用1次"],
+    "skillType": "",
     "versions": ["_R.png", "_SR.png"],
     "tags": ["JP", "3期生", "畫", "海"],
     "effectType": "Bloom"
@@ -373,10 +444,12 @@
     "id": "hBP02-033",
     "type": "Member",
     "name": "宝鐘マリン",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["red"],
     "grade": "2nd",
     "searchKeywords": ["宝鐘マリン", "寶鐘瑪琳", "Houshou Marin", "這個成員每重疊1張成員卡，這個藝能傷害+20", "將自己存檔的1張成員返回手牌:之後這個成員重疊3張以上的成員卡時，給予對手的中央成員或聯動成員50點特殊傷害"],
+    "skillType": "",
     "versions": ["_RR.png", "_SR.png", "_UR.png"],
     "tags": ["JP", "3期生", "畫", "海"],
     "effectType": "Bloom"
@@ -385,22 +458,26 @@
     "id": "hSD02-009",
     "type": "Member",
     "name": "百鬼あやめ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["red"],
     "grade": "2nd",
     "searchKeywords": ["百鬼あやめ", "百鬼綾目", "Nakiri Ayame"],
+    "skillType": "",
     "versions": ["_SR.png"],
     "tags": ["JP", "2期生", "射手"],
-    "effectType": ""  
+    "effectType": ""
   },
   {
     "id": "hBP02-034",
     "type": "Member",
     "name": "百鬼あやめ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["red"],
     "grade": "buzz",
     "searchKeywords": ["百鬼あやめ", "百鬼綾目", "Nakiri Ayame", "這個成員有附著工具或吉祥物時，給予對手的中央成員或聯動成員30點特殊傷害"],
+    "skillType": "",
     "versions": ["_RR.png", "_SR.png", "_UR.png"],
     "tags": ["JP", "2期生", "射手"],
     "effectType": ""
@@ -409,11 +486,13 @@
     "id": "hBP02-035",
     "type": "Member",
     "name": "沙花叉クロヱ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["blue"],
     "grade": "debut",
     "searchKeywords": ["沙花叉クロヱ", "沙花叉克蘿伊", "Sakamata Kuroe"],
-    "versions": ["_C.png" ],
+    "skillType": "",
+    "versions": ["_C.png"],
     "tags": ["JP", "秘密結社holoX", "海"],
     "effectType": ""
   },
@@ -421,10 +500,12 @@
     "id": "hBP02-036",
     "type": "Member",
     "name": "沙花叉クロヱ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["blue"],
     "grade": "debut",
     "searchKeywords": ["沙花叉クロヱ", "沙花叉克蘿伊", "Sakamata Kuroe", "從自己的牌組上方看3張。將其中的1張持有#秘密結社holoX 2nd成員公開，加入手牌。接著將剩下的卡依照喜好順序放回牌組最下方"],
+    "skillType": "",
     "versions": ["_U.png", "_S.png"],
     "tags": ["JP", "秘密結社holoX", "海"],
     "effectType": "Collaboration"
@@ -433,10 +514,12 @@
     "id": "hBP02-037",
     "type": "Member",
     "name": "沙花叉クロヱ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["blue"],
     "grade": "1st",
     "searchKeywords": ["沙花叉クロヱ", "沙花叉克蘿伊", "Sakamata Kuroe"],
+    "skillType": "",
     "versions": ["_C.png", "_S.png"],
     "tags": ["JP", "秘密結社holoX", "海"],
     "effectType": ""
@@ -445,10 +528,12 @@
     "id": "hBP02-038",
     "type": "Member",
     "name": "沙花叉クロヱ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["blue"],
     "grade": "1st",
     "searchKeywords": ["沙花叉クロヱ", "沙花叉克蘿伊", "Sakamata Kuroe", "從自己的聲援牌組上方看3張。將其中1張聲援公開，送進自己的成員裡，接著將剩下的聲援依喜好順序放回聲援牌組最下方"],
+    "skillType": "",
     "versions": ["_U.png", "_S.png"],
     "tags": ["JP", "秘密結社holoX", "海"],
     "effectType": "Bloom"
@@ -457,10 +542,12 @@
     "id": "hBP02-039",
     "type": "Member",
     "name": "沙花叉クロヱ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["blue"],
     "grade": "1st",
     "searchKeywords": ["沙花叉クロヱ", "沙花叉克蘿伊", "Sakamata Kuroe", "可以將自己牌組上方3張公開:公開的成員每有1張這個藝能傷害+20，接著將公開的卡存檔", "回合中1次", "當卡片因這個成員的藝能公開時，將公開的1張支援卡，從存檔改為加入手牌"],
+    "skillType": "",
     "versions": ["_R.png", "_SR.png"],
     "tags": ["JP", "秘密結社holoX", "海"],
     "effectType": "Gift"
@@ -469,10 +556,12 @@
     "id": "hBP02-040",
     "type": "Member",
     "name": "沙花叉クロヱ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["blue"],
     "grade": "2nd",
     "searchKeywords": ["沙花叉クロヱ", "沙花叉克蘿伊", "Sakamata Kuroe", "回合中1次", "可以將自己牌組上方3張公開:公開的成員每有1張這個藝能傷害+20，接著將公開的卡存檔", "當卡片因這個成員的藝能公開時，被公開卡有3張相同開花等級的成員的話，對手的生命-1"],
+    "skillType": "",
     "versions": ["_RR.png", "_SR.png", "_UR.png"],
     "tags": ["JP", "秘密結社holoX", "海"],
     "effectType": "Gift"
@@ -481,22 +570,26 @@
     "id": "hSD03-009",
     "type": "Member",
     "name": "猫又おかゆ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["blue"],
-    "grade": "2nd",                                                                              
+    "grade": "2nd",
     "searchKeywords": ["猫又おかゆ", "貓又小粥", "Nekomata Okayu"],
+    "skillType": "",
     "versions": ["_SR.png"],
     "tags": ["JP", "Gamers", "獸耳"],
-    "effectType": ""  
+    "effectType": ""
   },
   {
     "id": "hBP02-041",
     "type": "Member",
     "name": "猫又おかゆ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["blue"],
     "grade": "buzz",
     "searchKeywords": ["猫又おかゆ", "貓又小粥", "Nekomata Okayu", "中央位置限定", "自己舞台全部的貓又小粥給予對手中央成員的特殊傷害+20", "可以將這個成員的1張藍聲援存檔:給予對手的中央成員和1名後備成員20點特殊傷害"],
+    "skillType": "",
     "versions": ["_RR.png", "_SR.png", "_UR.png"],
     "tags": ["JP", "Gamers", "獸耳", "歌"],
     "effectType": "Gift"
@@ -505,11 +598,13 @@
     "id": "hBP02-042",
     "type": "Member",
     "name": "紫咲シオン",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["purple"],
     "grade": "debut",
     "searchKeywords": ["紫咲シオン", "紫咲詩音", "Murasaki Shion"],
-    "versions": ["_C.png" ],
+    "skillType": "",
+    "versions": ["_C.png"],
     "tags": ["JP", "2期生"],
     "effectType": ""
   },
@@ -517,11 +612,13 @@
     "id": "hBP02-043",
     "type": "Member",
     "name": "紫咲シオン",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["purple"],
     "grade": "debut",
     "searchKeywords": ["紫咲シオン", "紫咲詩音", "Murasaki Shion", "丟擲1次骰子:4或以上時，從自己的牌組公開1張持有#魔法的卡片，加入手牌，接著牌組洗牌"],
-    "versions": ["_U.png" ],
+    "skillType": "",
+    "versions": ["_U.png"],
     "tags": ["JP", "2期生"],
     "effectType": "Collaboration"
   },
@@ -529,10 +626,12 @@
     "id": "hBP02-044",
     "type": "Member",
     "name": "紫咲シオン",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["purple"],
     "grade": "1st",
     "searchKeywords": ["紫咲シオン", "紫咲詩音", "Murasaki Shion"],
+    "skillType": "",
     "versions": ["_C.png", "_S.png"],
     "tags": ["JP", "2期生"],
     "effectType": ""
@@ -541,10 +640,12 @@
     "id": "hBP02-045",
     "type": "Member",
     "name": "紫咲シオン",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["purple"],
     "grade": "1st",
     "searchKeywords": ["紫咲シオン", "紫咲詩音", "Murasaki Shion", "從自己的牌組上方看3張，將其中的藍色成員或紫色成員1張公開，加入手牌。接著將剩下的卡依喜好順序放回牌組下方"],
+    "skillType": "",
     "versions": ["_U.png", "_S.png"],
     "tags": ["JP", "2期生"],
     "effectType": "Bloom"
@@ -553,10 +654,12 @@
     "id": "hBP02-046",
     "type": "Member",
     "name": "紫咲シオン",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["purple"],
     "grade": "1st",
     "searchKeywords": ["紫咲シオン", "紫咲詩音", "Murasaki Shion", "可以將自己的1張手牌存檔:將自己存檔的1張持有#魔法的卡片回到手牌", "丟擲1次骰子:5或以上時，將對手舞台的1張聲援重新替換至對手的成員上"],
+    "skillType": "",
     "versions": ["_R.png", "_SR.png"],
     "tags": ["JP", "2期生"],
     "effectType": "Bloom"
@@ -565,10 +668,12 @@
     "id": "hBP02-047",
     "type": "Member",
     "name": "紫咲シオン",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["purple"],
     "grade": "2nd",
     "searchKeywords": ["紫咲シオン", "紫咲詩音", "Murasaki Shion", "丟擲1次骰子:4或以上時，將對手舞台的1張聲援重新替換至對手的成員上", "對手的中央成員每持有1張聲援，給予對手的中央成員和聯動成員20點特殊傷害"],
+    "skillType": "",
     "versions": ["_RR.png", "_SR.png", "_UR.png"],
     "tags": ["JP", "2期生"],
     "effectType": "Bloom"
@@ -577,11 +682,13 @@
     "id": "hBP02-048",
     "type": "Member",
     "name": "クレイジー・オリー",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["purple"],
     "grade": "debut",
     "searchKeywords": ["クレイジー・オリー", "克蕾西·奧莉", "Kureiji Ollie"],
-    "versions": ["_C.png" ],
+    "skillType": "",
+    "versions": ["_C.png"],
     "tags": ["ID", "ID2期生", "語言學"],
     "effectType": ""
   },
@@ -589,10 +696,12 @@
     "id": "hBP02-049",
     "type": "Member",
     "name": "クレイジー・オリー",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["purple"],
     "grade": "debut",
     "searchKeywords": ["クレイジー・オリー", "克蕾西·奧莉", "Kureiji Ollie", "從自己的牌組抽1張後，將自己的1張手牌存檔"],
+    "skillType": "",
     "versions": ["_U.png", "_S.png"],
     "tags": ["ID", "ID2期生", "語言學"],
     "effectType": "Collaboration"
@@ -601,10 +710,12 @@
     "id": "hBP02-050",
     "type": "Member",
     "name": "クレイジー・オリー",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["purple"],
     "grade": "1st",
     "searchKeywords": ["クレイジー・オリー", "克蕾西·奧莉", "Kureiji Ollie"],
+    "skillType": "",
     "versions": ["_C.png", "_S.png"],
     "tags": ["ID", "ID2期生", "語言學"],
     "effectType": ""
@@ -613,10 +724,12 @@
     "id": "hBP02-051",
     "type": "Member",
     "name": "クレイジー・オリー",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["purple"],
     "grade": "1st",
     "searchKeywords": ["クレイジー・オリー", "克蕾西·奧莉", "Kureiji Ollie", "可以使用自己存檔的成員，使自己1名持有#ID2期生的debut成員進行開花。", "一回合僅能使用1次"],
+    "skillType": "",
     "versions": ["_U.png", "_S.png"],
     "tags": ["ID", "ID2期生", "語言學"],
     "effectType": "Bloom"
@@ -625,10 +738,12 @@
     "id": "hBP02-052",
     "type": "Member",
     "name": "クレイジー・オリー",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["purple"],
     "grade": "1st",
     "searchKeywords": ["クレイジー・オリー", "克蕾西·奧莉", "Kureiji Ollie", "從自己的牌組抽1張"],
+    "skillType": "",
     "versions": ["_R.png", "_SR.png"],
     "tags": ["ID", "ID2期生", "語言學"],
     "effectType": "Bloom"
@@ -637,10 +752,12 @@
     "id": "hBP02-053",
     "type": "Member",
     "name": "クレイジー・オリー",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["purple"],
     "grade": "2nd",
     "searchKeywords": ["クレイジー・オリー", "克蕾西·奧莉", "Kureiji Ollie", "可以將自己的2張手牌存檔:這個回合中，這個成員的藝能傷害+40", "自己的舞台持有#ID2期生的2nd成員有2人以上時，這個藝能傷害+40"],
+    "skillType": "",
     "versions": ["_RR.png", "_SR.png", "_UR.png"],
     "tags": ["ID", "ID2期生", "語言學"],
     "effectType": "Bloom"
@@ -649,11 +766,13 @@
     "id": "hBP02-054",
     "type": "Member",
     "name": "森カリオペ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["purple"],
     "grade": "debut",
     "searchKeywords": ["森カリオペ", "森美聲", "Mori Calliope", "自己的存檔中有成員卡時，這個藝能傷害+10"],
-    "versions": ["_C.png" ],
+    "skillType": "",
+    "versions": ["_C.png"],
     "tags": ["EN", "Myth", "歌"],
     "effectType": ""
   },
@@ -661,10 +780,12 @@
     "id": "hBP02-055",
     "type": "Member",
     "name": "森カリオペ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["purple"],
     "grade": "debut",
     "searchKeywords": ["森カリオペ", "森美聲", "Mori Calliope", "可以將自己手牌的1張成員存檔:這個回合中，自己的舞台1名持有#Myth的成員藝能傷害+20"],
+    "skillType": "",
     "versions": ["_U.png", "_S.png"],
     "tags": ["EN", "Myth", "歌"],
     "effectType": "Collaboration"
@@ -673,10 +794,12 @@
     "id": "hBP02-056",
     "type": "Member",
     "name": "森カリオペ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["purple"],
     "grade": "1st",
     "searchKeywords": ["森カリオペ", "森美聲", "Mori Calliope"],
+    "skillType": "",
     "versions": ["_C.png", "_S.png"],
     "tags": ["EN", "Myth", "歌"],
     "effectType": ""
@@ -685,10 +808,12 @@
     "id": "hBP02-057",
     "type": "Member",
     "name": "森カリオペ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["purple"],
     "grade": "1st",
     "searchKeywords": ["森カリオペ", "森美聲", "Mori Calliope", "可以將自己手牌持有相同標籤的2張成員存檔:從自己的牌組抽2張"],
+    "skillType": "",
     "versions": ["_U.png", "_S.png"],
     "tags": ["EN", "Myth", "歌"],
     "effectType": "Bloom"
@@ -697,10 +822,12 @@
     "id": "hBP02-058",
     "type": "Member",
     "name": "森カリオペ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["purple"],
     "grade": "1st",
     "searchKeywords": ["森カリオペ", "森美聲", "Mori Calliope", "將自己存檔的1張森美聲的鐮刀或Death-sensei返回手牌"],
+    "skillType": "",
     "versions": ["_R.png", "_SR.png"],
     "tags": ["EN", "Myth", "歌"],
     "effectType": "Bloom"
@@ -709,10 +836,12 @@
     "id": "hBP02-059",
     "type": "Member",
     "name": "森カリオペ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["purple"],
     "grade": "2nd",
     "searchKeywords": ["森カリオペ", "森美聲", "Mori Calliope", "從自己的牌組公開1張卡，進行存檔。接著牌組洗牌", "自己的存檔區持有#Myth的成員有4張或以上時，這個藝能傷害+40。8張以上時，這個藝能傷害再+40"],
+    "skillType": "",
     "versions": ["_RR.png", "_SR.png", "_UR.png"],
     "tags": ["EN", "Myth", "歌"],
     "effectType": "Bloom"
@@ -721,10 +850,12 @@
     "id": "hBP02-060",
     "type": "Member",
     "name": "癒月ちょこ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["purple"],
     "grade": "buzz",
     "searchKeywords": ["癒月ちょこ", "癒月巧可", "Yuzuki Choco", "可以使自己的1名後備成員HP回復50:每回復10點傷害，給予對手中央成員10點特殊傷害"],
+    "skillType": "",
     "versions": ["_R.png", "_SR.png"],
     "tags": ["JP", "2期生", "料理"],
     "effectType": "Bloom"
@@ -733,11 +864,13 @@
     "id": "hBP02-061",
     "type": "Member",
     "name": "一伊那尓栖",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["purple"],
     "grade": "debut",
     "searchKeywords": ["一伊那尓栖", "一伊那爾棲", "Ninomae Ina'nis"],
-    "versions": ["_C.png" ],
+    "skillType": "",
+    "versions": ["_C.png"],
     "tags": ["EN", "Myth", "畫", "海"],
     "effectType": ""
   },
@@ -745,10 +878,12 @@
     "id": "hBP02-062",
     "type": "Member",
     "name": "一伊那尓栖",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["purple"],
     "grade": "1st",
     "searchKeywords": ["一伊那尓栖", "一伊那爾棲", "Ninomae Ina'nis"],
+    "skillType": "",
     "versions": ["_C.png", "_S.png"],
     "tags": ["EN", "Myth", "畫", "海"],
     "effectType": ""
@@ -757,10 +892,12 @@
     "id": "hBP02-063",
     "type": "Member",
     "name": "一伊那尓栖",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["purple"],
     "grade": "1st",
     "searchKeywords": ["一伊那尓栖", "一伊那爾棲", "Ninomae Ina'nis", "自己1名持有#Myth的成員HP回復20"],
+    "skillType": "",
     "versions": ["_U.png", "_S.png"],
     "tags": ["EN", "Myth", "畫", "海"],
     "effectType": "Bloom"
@@ -769,10 +906,12 @@
     "id": "hBP02-064",
     "type": "Member",
     "name": "一伊那尓栖",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["purple"],
     "grade": "buzz",
     "searchKeywords": ["一伊那尓栖", "一伊那爾棲", "Ninomae Ina'nis", "自己的存檔區持有#Myth的成員有5張或以上時，將這個成員的1張聲援，重新替換至自己其他成員。10張或以上時，這個藝能傷害再+50"],
+    "skillType": "",
     "versions": ["_UR.png", "_SR.png", "_RR.png"],
     "tags": ["EN", "Myth", "畫", "海"],
     "effectType": ""
@@ -781,10 +920,12 @@
     "id": "hBP02-065",
     "type": "Member",
     "name": "ネリッサ・レイヴンクロフト",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["purple"],
     "grade": "debut",
     "searchKeywords": ["ネリッサ・レイヴンクロフト", "納瑞莎·雷文克羅夫特", "Nerissa Ravencroft", "這個成員有附著紅聲援時，這個藝能傷害+10"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["EN", "Advent", "歌", "鳥"],
     "effectType": ""
@@ -793,10 +934,12 @@
     "id": "hBP02-066",
     "type": "Member",
     "name": "ネリッサ・レイヴンクロフト",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["purple"],
     "grade": "1st",
     "searchKeywords": ["ネリッサ・レイヴンクロフト", "納瑞莎·雷文克羅夫特", "Nerissa Ravencroft"],
+    "skillType": "",
     "versions": ["_C.png", "_S.png"],
     "tags": ["EN", "Advent", "歌", "鳥"],
     "effectType": ""
@@ -805,10 +948,12 @@
     "id": "hBP02-067",
     "type": "Member",
     "name": "ネリッサ・レイヴンクロフト",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["purple"],
     "grade": "1st",
     "searchKeywords": ["ネリッサ・レイヴンクロフト", "納瑞莎·雷文克羅夫特", "Nerissa Ravencroft", "從自己的牌組上方看3張。將其中的1張持有#歌的成員公開，加入手牌。接著將剩下的卡依照喜好順序放回牌組最下方"],
+    "skillType": "",
     "versions": ["_U.png", "_S.png"],
     "tags": ["EN", "Advent", "歌", "鳥"],
     "effectType": "Bloom"
@@ -817,10 +962,12 @@
     "id": "hBP02-068",
     "type": "Member",
     "name": "ネリッサ・レイヴンクロフト",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["purple"],
     "grade": "2nd",
     "searchKeywords": ["ネリッサ・レイヴンクロフト", "納瑞莎·雷文克羅夫特", "Nerissa Ravencroft", "這個回合中，自己持有#歌的中央成員和聯動成員的藝能傷害+30"],
+    "skillType": "",
     "versions": ["_R.png", "_SR.png"],
     "tags": ["EN", "Advent", "歌", "鳥"],
     "effectType": "Collaboration"
@@ -829,22 +976,26 @@
     "id": "hSD04-009",
     "type": "Member",
     "name": "癒月ちょこ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["purple"],
     "grade": "2nd",
     "searchKeywords": ["癒月ちょこ", "癒月巧可", "Yuzuki Choco"],
+    "skillType": "",
     "versions": ["_SR.png"],
     "tags": ["JP", "2期生", "料理"],
-    "effectType": ""  
+    "effectType": ""
   },
   {
     "id": "hBP02-069",
     "type": "Member",
     "name": "魔法少女みこ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["colorless"],
     "grade": "spot",
     "searchKeywords": ["魔法少女みこ", "魔法少女巫女", "Maho Shojo Miko", "丟擲1次骰子:奇數時，從自己的聲援牌組公開1張紅聲援或藍聲援，送進自己的後備成員裡，接著將聲援牌組洗牌"],
+    "skillType": "",
     "versions": ["_R.png", "_SR.png"],
     "tags": ["HoloWitch", "0期生", "魔法"],
     "effectType": "Collaboration"
@@ -853,10 +1004,12 @@
     "id": "hBP02-070",
     "type": "Member",
     "name": "魔法少女かなた",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["colorless"],
     "grade": "spot",
     "searchKeywords": ["魔法少女かなた", "魔法少女彼方", "Maho Shojo Kanata", "丟擲1次骰子:奇數時，從自己的聲援牌組公開1張白聲援或綠聲援，送進自己的後備成員裡，接著將聲援牌組洗牌"],
+    "skillType": "",
     "versions": ["_R.png", "_SR.png"],
     "tags": ["HoloWitch", "4期生", "魔法"],
     "effectType": "Collaboration"
@@ -865,10 +1018,12 @@
     "id": "hBP02-071",
     "type": "Member",
     "name": "魔法少女ルーナ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["colorless"],
     "grade": "spot",
     "searchKeywords": ["魔法少女ルーナ", "魔法少女璐娜", "Maho Shojo Luna", "丟擲1次骰子:奇數時，從自己的聲援牌組公開1張紫聲援或黃聲援，送進自己的後備成員裡，接著將聲援牌組洗牌"],
+    "skillType": "",
     "versions": ["_R.png", "_SR.png"],
     "tags": ["HoloWitch", "4期生", "魔法"],
     "effectType": "Collaboration"
@@ -877,10 +1032,12 @@
     "id": "hBP02-072",
     "type": "Member",
     "name": "魔法少女シオン",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["colorless"],
     "grade": "spot",
     "searchKeywords": ["魔法少女シオン", "魔法少女詩音", "Maho Shojo Shion", "丟擲1次骰子:偶數時，從自己牌組公開1張事件，加入手牌，接著牌組洗牌"],
+    "skillType": "",
     "versions": ["_R.png", "_SR.png"],
     "tags": ["HoloWitch", "2期生", "魔法"],
     "effectType": "Collaboration"
@@ -889,10 +1046,12 @@
     "id": "hBP02-073",
     "type": "Member",
     "name": "魔法少女マリン",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["colorless"],
     "grade": "spot",
     "searchKeywords": ["寶鐘マリン", "魔法少女瑪琳", "Maho Shojo Marin", "丟擲1次骰子:偶數時，從自己牌組公開1張粉絲，加入手牌，接著牌組洗牌"],
+    "skillType": "",
     "versions": ["_R.png", "_SR.png"],
     "tags": ["HoloWitch", "3期生", "魔法"],
     "effectType": "Collaboration"
@@ -901,10 +1060,12 @@
     "id": "hBP02-074",
     "type": "Member",
     "name": "魔法少女クロヱ",
+    "hp": "",
     "imageFolder": "hBP02/",
     "color": ["colorless"],
     "grade": "spot",
     "searchKeywords": ["魔法少女クロヱ", "魔法少女克蘿伊", "Maho Shojo Kuroe", "丟擲1次骰子:偶數時，從自己牌組公開1張工具，加入手牌，接著牌組洗牌"],
+    "skillType": "",
     "versions": ["_R.png", "_SR.png"],
     "tags": ["HoloWitch", "秘密結社holoX", "魔法"],
     "effectType": "Collaboration"
@@ -918,7 +1079,7 @@
     "grade": "",
     "searchKeywords": ["item", "アイテム", "アイドルサインペン", "偶像簽字筆", "加入手牌"],
     "versions": ["_U.png", "_S.png"],
-    "tags" : ["LIMITED", "畫"]
+    "tags": ["LIMITED", "畫"]
   },
   {
     "id": "hBP02-076",
@@ -929,7 +1090,7 @@
     "grade": "",
     "searchKeywords": ["item", "アイテム", "カスタムパソコン", "改造電腦", "加入手牌"],
     "versions": ["_C.png", "_S.png"],
-    "tags" : ""
+    "tags": ""
   },
   {
     "id": "hBP02-077",
@@ -940,7 +1101,7 @@
     "grade": "",
     "searchKeywords": ["item", "アイテム", "レトロパソコン", "復古電腦", "返回手牌"],
     "versions": ["_C.png", "_S.png"],
-    "tags" : ["LIMITED"]
+    "tags": ["LIMITED"]
   },
   {
     "id": "hBP02-078",
@@ -951,7 +1112,7 @@
     "grade": "",
     "searchKeywords": ["event", "イベント", "かなた建設", "AZKi", "沙花叉クロヱ", "沙花叉克蘿伊", "Sakamata Kuroe", "天音かなた", "天音彼方", "Amane Kanata", "加入手牌"],
     "versions": ["_U.png", "_S.png"],
-    "tags" : ["LIMITED"]
+    "tags": ["LIMITED"]
   },
   {
     "id": "hBP02-079",
@@ -960,9 +1121,9 @@
     "imageFolder": "hBP02/",
     "color": "",
     "grade": "",
-    "searchKeywords": ["event", "イベント", "爆発の魔法", "爆炸的魔法","一回合僅能使用1次", "特殊傷害"],
+    "searchKeywords": ["event", "イベント", "爆発の魔法", "爆炸的魔法", "一回合僅能使用1次", "特殊傷害"],
     "versions": ["_U.png", "_S.png"],
-    "tags" : ["魔法"]
+    "tags": ["魔法"]
   },
   {
     "id": "hBP02-080",
@@ -973,7 +1134,7 @@
     "grade": "",
     "searchKeywords": ["event", "イベント", "秘密結社holoX", "加入手牌"],
     "versions": ["_U.png", "_S.png"],
-    "tags" : ["秘密結社holoX", "LIMITED"]
+    "tags": ["秘密結社holoX", "LIMITED"]
   },
   {
     "id": "hBP02-081",
@@ -984,7 +1145,7 @@
     "grade": "",
     "searchKeywords": ["event", "イベント", "ホロライブ インドネシア2期生", "Hololive 印尼2期生", "hololive indonesia 2期生", "加入手牌"],
     "versions": ["_U.png", "_S.png"],
-    "tags" : ["ID2期生", "LIMITED"]
+    "tags": ["ID2期生", "LIMITED"]
   },
   {
     "id": "hBP02-082",
@@ -995,7 +1156,7 @@
     "grade": "",
     "searchKeywords": ["event", "イベント", "ホロライブゲーマーズ", "hololive gamers", "加入手牌"],
     "versions": ["_U.png", "_S.png"],
-    "tags" : ["Gamers", "LIMITED"]
+    "tags": ["Gamers", "LIMITED"]
   },
   {
     "id": "hBP02-083",
@@ -1006,7 +1167,7 @@
     "grade": "",
     "searchKeywords": ["event", "イベント", "魔法のタンス", "紫咲シオン", "紫咲詩音", "Murasaki Shion", "一回合僅能使用1次"],
     "versions": ["_U.png", "_S.png"],
-    "tags" : ["魔法"]
+    "tags": ["魔法"]
   },
   {
     "id": "hBP02-084",
@@ -1017,7 +1178,7 @@
     "grade": "",
     "searchKeywords": ["event", "イベント", "みっころね24", "mikorone24", "丟擲", "骰子", "加入手牌"],
     "versions": ["_SEC.png", "_S.png", "_U.png"],
-    "tags" : ["LIMITED"]
+    "tags": ["LIMITED"]
   },
   {
     "id": "hBP02-085",
@@ -1028,7 +1189,7 @@
     "grade": "",
     "searchKeywords": ["event", "イベント", "HOLOLIVE FANTASY", "加入手牌"],
     "versions": ["_U.png", "_S.png"],
-    "tags" : ["3期生", "LIMITED"]
+    "tags": ["3期生", "LIMITED"]
   },
   {
     "id": "hBP02-086",
@@ -1039,7 +1200,7 @@
     "grade": "",
     "searchKeywords": ["tool", "ツール", "ホロスパークリング", "holo氣泡酒", "藝能傷害+", "受到的傷害+"],
     "versions": ["_C.png", "_S.png"],
-    "tags" : ["酒"]
+    "tags": ["酒"]
   },
   {
     "id": "hBP02-087",
@@ -1050,7 +1211,7 @@
     "grade": "",
     "searchKeywords": ["tool", "ツール", "紫咲シオンの魔法のステッキ", "紫咲詩音的魔法之杖", "藝能傷害+", "Murasaki Shion", "回合中2次"],
     "versions": ["_C.png", "_S.png"],
-    "tags" : ["魔法"]
+    "tags": ["魔法"]
   },
   {
     "id": "hBP02-088",
@@ -1061,7 +1222,7 @@
     "grade": "",
     "searchKeywords": ["tool", "ツール", "森カリオペの鎌", "森美聲的鐮刀", "Mori Calliope", "藝能傷害+"],
     "versions": ["_U.png", "_S.png"],
-    "tags" : ""
+    "tags": ""
   },
   {
     "id": "hBP02-089",
@@ -1072,7 +1233,7 @@
     "grade": "",
     "searchKeywords": ["mascot", "マスコット", "おるやんけ", "狐筍", "白上フブキ", "白上吹雪", "Shirakami Fubuki", "HP+"],
     "versions": ["_C.png", "_S.png"],
-    "tags" : ["白上的角色"]
+    "tags": ["白上的角色"]
   },
   {
     "id": "hBP02-090",
@@ -1083,7 +1244,7 @@
     "grade": "",
     "searchKeywords": ["mascot", "マスコット", "ネジマキツネ", "螺絲狐", "白上フブキ", "白上吹雪", "Shirakami Fubuki", "HP+"],
     "versions": ["_C.png", "_S.png"],
-    "tags" : ["白上的角色"]
+    "tags": ["白上的角色"]
   },
   {
     "id": "hBP02-091",
@@ -1094,7 +1255,7 @@
     "grade": "",
     "searchKeywords": ["mascot", "マスコット", "フブチュン", "fubuchun", "白上フブキ", "白上吹雪", "Shirakami Fubuki", "HP+"],
     "versions": ["_C.png", "_S.png"],
-    "tags" : ["白上的角色"]
+    "tags": ["白上的角色"]
   },
   {
     "id": "hBP02-092",
@@ -1105,7 +1266,7 @@
     "grade": "",
     "searchKeywords": ["mascot", "マスコット", "フブラ", "吹吉拉", "白上フブキ", "白上吹雪", "Shirakami Fubuki", "HP+", "藝能傷害+", "回合中1次"],
     "versions": ["_U.png", "_S.png"],
-    "tags" : ["白上的角色"]
+    "tags": ["白上的角色"]
   },
   {
     "id": "hBP02-093",
@@ -1116,7 +1277,7 @@
     "grade": "",
     "searchKeywords": ["mascot", "マスコット", "ミテイル", "後備位置限定", "miteiru", "白上フブキ", "白上吹雪", "Shirakami Fubuki", "HP+", "不會受到來自對手的傷害"],
     "versions": ["_C.png", "_S.png"],
-    "tags" : ["白上的角色"]
+    "tags": ["白上的角色"]
   },
   {
     "id": "hBP02-094",
@@ -1127,7 +1288,7 @@
     "grade": "",
     "searchKeywords": ["mascot", "マスコット", "Tatang", "HP+", "藝能傷害+", "パヴォリア・レイネ", "帕沃莉亞·蕾內", "Pavolia Reine"],
     "versions": ["_C.png", "_S.png"],
-    "tags" : ""
+    "tags": ""
   },
   {
     "id": "hBP02-095",
@@ -1138,7 +1299,7 @@
     "grade": "",
     "searchKeywords": ["mascot", "マスコット", "ドクロくん", "骷髏君", "中央位置限定", "藝能傷害+", "宝鐘マリン", "寶鐘瑪琳", "Houshou Marin"],
     "versions": ["_C.png", "_S.png"],
-    "tags" : ""
+    "tags": ""
   },
   {
     "id": "hBP02-096",
@@ -1149,7 +1310,7 @@
     "grade": "",
     "searchKeywords": ["mascot", "マスコット", "イヌ", "inu", "藝能傷害+", "秘密結社holoX", "沙花叉クロヱ", "沙花叉克蘿伊", "Sakamata Kuroe"],
     "versions": ["_C.png", "_S.png"],
-    "tags" : ["秘密結社holoX"]
+    "tags": ["秘密結社holoX"]
   },
   {
     "id": "hBP02-097",
@@ -1160,7 +1321,7 @@
     "grade": "",
     "searchKeywords": ["mascot", "マスコット", "UDIN", "藝能傷害+", "クレイジー・オリー", "克蕾西·奧莉", "Kureiji Ollie"],
     "versions": ["_C.png", "_S.png"],
-    "tags" : ""
+    "tags": ""
   },
   {
     "id": "hBP02-098",
@@ -1171,7 +1332,7 @@
     "grade": "",
     "searchKeywords": ["mascot", "マスコット", "Death-sensei", "HP+", "森カリオペ", "森美聲", "Mori Calliope"],
     "versions": ["_C.png", "_S.png"],
-    "tags" : ""
+    "tags": ""
   },
   {
     "id": "hBP02-099",
@@ -1182,7 +1343,7 @@
     "grade": "",
     "searchKeywords": ["fan", "ファン", "すこん部", "司空部", "HP+", "白上フブキ", "白上吹雪", "Shirakami Fubuki"],
     "versions": ["_C.png", "_S.png"],
-    "tags" : ["白上的角色"]
+    "tags": ["白上的角色"]
   },
   {
     "id": "hBP02-100",
@@ -1193,7 +1354,7 @@
     "grade": "",
     "searchKeywords": ["fan", "ファン", "白銀聖騎士団", "白銀聖騎士團", "白銀ノエル", "白銀諾艾爾", "Shirogane Noel", "受到的傷害-"],
     "versions": ["_C.png", "_S.png"],
-    "tags" : ""
+    "tags": ""
   },
   {
     "id": "hBP02-101",
@@ -1204,7 +1365,7 @@
     "grade": "",
     "searchKeywords": ["fan", "ファン", "ミオファ", "miofa", "大神ミオ", "大神澪", "Ookami Mio"],
     "versions": ["_C.png", "_S.png"],
-    "tags" : ""
+    "tags": ""
   },
   {
     "id": "hBP02-102",
@@ -1215,6 +1376,6 @@
     "grade": "",
     "searchKeywords": ["fan", "ファン", "塩っ子", "鹽子", "藝能傷害+", "紫咲シオン", "紫咲詩音", "Murasaki Shion"],
     "versions": ["_C.png", "_S.png"],
-    "tags" : ""
+    "tags": ""
   }
 ]

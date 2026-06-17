@@ -3,20 +3,25 @@
     "id": "hSD02-001",
     "type": "Oshi",
     "name": "百鬼あやめ",
+    "life": "",
     "imageFolder": "hSD02/",
     "color": ["red"],
-    "grade": "",
     "searchKeywords": ["百鬼あやめ", "百鬼綾目", "Nakiri Ayame"],
-    "versions": ["_OC.png"]  
+    "skillType": "",
+    "versions": ["_OC.png"],
+    "tags": "",
+    "grade": ""
   },
   {
     "id": "hSD02-002",
     "type": "Member",
     "name": "百鬼あやめ",
+    "hp": "",
     "imageFolder": "hSD02/",
     "color": ["red"],
     "grade": "debut",
     "searchKeywords": ["百鬼あやめ", "百鬼綾目", "Nakiri Ayame"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["JP", "2期生", "射手"],
     "effectType": ""
@@ -25,22 +30,26 @@
     "id": "hSD02-003",
     "type": "Member",
     "name": "百鬼あやめ",
+    "hp": "",
     "imageFolder": "hSD02/",
     "color": ["red"],
     "grade": "debut",
     "searchKeywords": ["百鬼あやめ", "百鬼綾目", "Nakiri Ayame"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["JP", "2期生", "射手"],
-    "effectType": "Collaboration"  
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD02-004",
     "type": "Member",
     "name": "百鬼あやめ",
+    "hp": "",
     "imageFolder": "hSD02/",
     "color": ["red"],
     "grade": "debut",
     "searchKeywords": ["百鬼あやめ", "百鬼綾目", "Nakiri Ayame"],
+    "skillType": "",
     "versions": ["_U.png"],
     "tags": ["JP", "2期生", "射手"],
     "effectType": "Collaboration"
@@ -49,85 +58,99 @@
     "id": "hSD02-005",
     "type": "Member",
     "name": "百鬼あやめ",
+    "hp": "",
     "imageFolder": "hSD02/",
     "color": ["red"],
     "grade": "1st",
     "searchKeywords": ["百鬼あやめ", "百鬼綾目", "Nakiri Ayame"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["JP", "2期生", "射手"],
-    "effectType": ""  
+    "effectType": ""
   },
   {
     "id": "hSD02-006",
     "type": "Member",
     "name": "百鬼あやめ",
+    "hp": "",
     "imageFolder": "hSD02/",
     "color": ["red"],
     "grade": "1st",
     "searchKeywords": ["百鬼あやめ", "百鬼綾目", "Nakiri Ayame"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["JP", "2期生", "射手"],
-    "effectType": "Bloom"  
+    "effectType": "Bloom"
   },
   {
     "id": "hSD02-007",
     "type": "Member",
     "name": "百鬼あやめ",
+    "hp": "",
     "imageFolder": "hSD02/",
     "color": ["red"],
     "grade": "1st",
     "searchKeywords": ["百鬼あやめ", "百鬼綾目", "Nakiri Ayame"],
+    "skillType": "",
     "versions": ["_U.png"],
     "tags": ["JP", "2期生", "射手"],
-    "effectType": "Bloom"  
+    "effectType": "Bloom"
   },
   {
     "id": "hSD02-008",
     "type": "Member",
     "name": "百鬼あやめ",
+    "hp": "",
     "imageFolder": "hSD02/",
     "color": ["red"],
     "grade": "buzz",
     "searchKeywords": ["百鬼あやめ", "百鬼綾目", "Nakiri Ayame"],
+    "skillType": "",
     "versions": ["_R.png"],
     "tags": ["JP", "2期生", "射手"],
-    "effectType": ""  
+    "effectType": ""
   },
   {
     "id": "hSD02-009",
     "type": "Member",
     "name": "百鬼あやめ",
+    "hp": "",
     "imageFolder": "hSD02/",
     "color": ["red"],
     "grade": "2nd",
     "searchKeywords": ["百鬼あやめ", "百鬼綾目", "Nakiri Ayame"],
+    "skillType": "",
     "versions": ["_RR.png"],
     "tags": ["JP", "2期生", "射手"],
-    "effectType": ""  
+    "effectType": ""
   },
   {
     "id": "hSD02-010",
     "type": "Member",
     "name": "白上フブキ",
+    "hp": "",
     "imageFolder": "hSD02/",
     "color": ["colorless"],
     "grade": "spot",
     "searchKeywords": ["白上フブキ", "白上吹雪", "Shirakami Fubuki"],
+    "skillType": "",
     "versions": ["_U.png"],
     "tags": ["JP", "1期生", "Gamers", "獸耳", "畫"],
-    "effectType": "Collaboration"  
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD02-011",
     "type": "Member",
     "name": "大神ミオ",
+    "hp": "",
     "imageFolder": "hSD02/",
     "color": ["colorless"],
     "grade": "spot",
     "searchKeywords": ["大神ミオ", "大神澪", "Ookami Mio"],
+    "skillType": "",
     "versions": ["_U.png"],
     "tags": ["JP", "Gamers", "獸耳", "料理"],
-    "effectType": "Collaboration" 
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD02-012",
@@ -137,7 +160,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["event", "イベント", "いろはにほへっと あやふぶみ"],
-    "versions": ["_U.png"]
+    "versions": ["_U.png"],
+    "tags": ""
   },
   {
     "id": "hSD02-013",
@@ -147,7 +171,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["tool", "ツール", "阿修羅＆羅刹"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hSD02-014",
@@ -158,7 +183,7 @@
     "grade": "",
     "searchKeywords": ["mascot", "マスコット", "ぽよ余"],
     "versions": ["_C.png"],
-    "tags" : ["白上的角色"]
+    "tags": ["白上的角色"]
   },
   {
     "id": "hBP01-104",
@@ -190,7 +215,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["staff", "スタッフ", "春先のどか"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hSD01-017",
@@ -200,7 +226,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["staff", "スタッフ", "マネちゃん"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hSD01-018",
@@ -210,6 +237,7 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["item", "アイテム", "サブパソコン", "備用電腦"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ""
   }
-] 
+]

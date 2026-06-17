@@ -3,191 +3,193 @@
     "id": "hSD12-001",
     "type": "Oshi",
     "name": "シオリ・ノヴェラ",
-    "life" : "5",
+    "life": "5",
     "imageFolder": "hSD12/",
     "color": ["blue"],
     "searchKeywords": ["シオリ・ノヴェラ", "詩織·諾薇拉", "Shiori Novella"],
-    "skillType" : ["回合中1次", "遊戲中1次"],
-    "versions": ["_OSR.png"]  
+    "skillType": ["回合中1次", "遊戲中1次"],
+    "versions": ["_OSR.png"],
+    "tags": ""
   },
   {
     "id": "hSD12-002",
     "type": "Oshi",
     "name": "古石ビジュ―",
-    "life" : "5",
+    "life": "5",
     "imageFolder": "hSD12/",
     "color": ["purple"],
     "searchKeywords": ["古石ビジュ―", "古石碧珠", "Koseki Bijou"],
-    "skillType" : ["回合中1次", "遊戲中1次"],
-    "versions": ["_OSR.png"]  
+    "skillType": ["回合中1次", "遊戲中1次"],
+    "versions": ["_OSR.png"],
+    "tags": ""
   },
   {
     "id": "hSD12-003",
     "type": "Member",
     "name": "シオリ・ノヴェラ",
-    "hp" : "130",
+    "hp": "130",
     "imageFolder": "hSD12/",
     "color": ["blue"],
     "grade": "debut",
     "searchKeywords": ["シオリ・ノヴェラ", "詩織·諾薇拉", "Shiori Novella"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["EN", "Advent"],
-    "effectType": "Collaboration"  
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD12-004",
     "type": "Member",
     "name": "シオリ・ノヴェラ",
-    "hp" : "170",
+    "hp": "170",
     "imageFolder": "hSD12/",
     "color": ["blue"],
     "grade": "1st",
     "searchKeywords": ["シオリ・ノヴェラ", "詩織·諾薇拉", "Shiori Novella"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["EN", "Advent"],
-    "effectType": ""  
+    "effectType": ""
   },
   {
     "id": "hSD12-005",
     "type": "Member",
     "name": "シオリ・ノヴェラ",
-    "hp" : "160",
+    "hp": "160",
     "imageFolder": "hSD12/",
-    "color": ["blue"],  
+    "color": ["blue"],
     "grade": "1st",
     "searchKeywords": ["シオリ・ノヴェラ", "詩織·諾薇拉", "Shiori Novella"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_U.png"],
     "tags": ["EN", "Advent"],
-    "effectType": "Collaboration"  
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD12-006",
     "type": "Member",
     "name": "シオリ・ノヴェラ",
-    "hp" : "250",
+    "hp": "250",
     "imageFolder": "hSD12/",
     "color": ["blue"],
     "grade": "buzz",
     "searchKeywords": ["シオリ・ノヴェラ", "詩織·諾薇拉", "Shiori Novella"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_R.png"],
     "tags": ["EN", "Advent"],
-    "effectType": "Bloom"  
+    "effectType": "Bloom"
   },
   {
     "id": "hSD12-007",
     "type": "Member",
     "name": "シオリ・ノヴェラ",
-    "hp" : "200",
+    "hp": "200",
     "imageFolder": "hSD12/",
     "color": ["blue"],
     "grade": "2nd",
     "searchKeywords": ["シオリ・ノヴェラ", "詩織·諾薇拉", "Shiori Novella"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_RR.png"],
     "tags": ["EN", "Advent"],
-    "effectType": "Gift"  
+    "effectType": "Gift"
   },
   {
     "id": "hSD12-008",
     "type": "Member",
     "name": "古石ビジュ―",
-    "hp" : "110",
+    "hp": "110",
     "imageFolder": "hSD12/",
     "color": ["purple"],
     "grade": "debut",
     "searchKeywords": ["古石ビジュ―", "古石碧珠", "Koseki Bijou"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["EN", "Advent", "嬰兒"],
-    "effectType": "Collaboration"   
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD12-009",
     "type": "Member",
     "name": "古石ビジュ―",
-    "hp" : "130",
+    "hp": "130",
     "imageFolder": "hSD12/",
     "color": ["purple"],
     "grade": "1st",
     "searchKeywords": ["古石ビジュ―", "古石碧珠", "Koseki Bijou"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["EN", "Advent", "嬰兒"],
-    "effectType": "Bloom"   
+    "effectType": "Bloom"
   },
   {
     "id": "hSD12-010",
     "type": "Member",
     "name": "古石ビジュ―",
-    "hp" : "170",
+    "hp": "170",
     "imageFolder": "hSD12/",
     "color": ["purple"],
     "grade": "1st",
     "searchKeywords": ["古石ビジュ―", "古石碧珠", "Koseki Bijou"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_U.png"],
     "tags": ["EN", "Advent", "嬰兒"],
-    "effectType": ""   
+    "effectType": ""
   },
   {
     "id": "hSD12-011",
     "type": "Member",
     "name": "古石ビジュ―",
-    "hp" : "200",
+    "hp": "200",
     "imageFolder": "hSD12/",
     "color": ["purple"],
     "grade": "2nd",
     "searchKeywords": ["古石ビジュ―", "古石碧珠", "Koseki Bijou"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_RR.png"],
     "tags": ["EN", "Advent", "嬰兒"],
-    "effectType": "Bloom"   
+    "effectType": "Bloom"
   },
   {
     "id": "hSD12-012",
     "type": "Member",
     "name": "ネリッサ・レイヴンクロフト",
-    "hp" : "140",
+    "hp": "140",
     "imageFolder": "hSD12/",
     "color": ["purple"],
     "grade": "debut",
     "searchKeywords": ["ネリッサ・レイヴンクロフト", "納瑞莎·雷文克羅夫特", "Nerissa Ravencroft"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["EN", "Advent", "歌", "鳥"],
-    "effectType": ""   
+    "effectType": ""
   },
   {
     "id": "hSD12-013",
     "type": "Member",
     "name": "モココ・アビスガード",
-    "hp" : "130",
+    "hp": "130",
     "imageFolder": "hSD12/",
     "color": ["red"],
     "grade": "debut",
     "searchKeywords": ["モココ・アビスガード", "茸茸·阿比斯加德", "Mococo Abyssgard"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["EN", "Advent", "獸耳"],
-    "effectType": "Collaboration"   
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD12-014",
     "type": "Member",
     "name": "フワワ・アビスガード",
-    "hp" : "100",
+    "hp": "100",
     "imageFolder": "hSD12/",
     "color": ["blue"],
     "grade": "debut",
     "searchKeywords": ["フワワ・アビスガード", "軟軟·阿比斯加德", "Fuwawa Abyssgard"],
-    "skillType" : "",
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["EN", "Advent", "獸耳"],
-    "effectType": "Collaboration"   
+    "effectType": "Collaboration"
   },
   {
     "id": "hSD12-015",
@@ -198,7 +200,7 @@
     "grade": "",
     "searchKeywords": ["event", "イベント", "脱獄を果たした共犯者たち", "成功逃獄的共犯們"],
     "versions": ["_U.png"],
-    "tags" : ""
+    "tags": ""
   },
   {
     "id": "hSD12-016",
@@ -209,7 +211,7 @@
     "grade": "",
     "searchKeywords": ["mascot", "マスコット", "GEOW"],
     "versions": ["_C.png"],
-    "tags" : ""
+    "tags": ""
   },
   {
     "id": "hBP01-104",
@@ -219,7 +221,7 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["item", "アイテム", "ふつうのパソコン", "普通的電腦", "出場至舞台"],
-    "versions": ["_C.png" ],
+    "versions": ["_C.png"],
     "tags": ""
   },
   {
@@ -230,7 +232,7 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["event", "イベント", "じゃあ敵だね", "那就是敵人了", "交替"],
-    "versions": ["_U.png" ],
+    "versions": ["_U.png"],
     "tags": ["LIMITED"]
   },
   {
@@ -242,16 +244,18 @@
     "grade": "",
     "searchKeywords": ["item", "アイテム", "レトロパソコン", "復古電腦", "返回手牌"],
     "versions": ["_C.png"],
-    "tags" : ["LIMITED"]
+    "tags": ["LIMITED"]
   },
   {
     "id": "hBP04-050",
     "type": "Member",
     "name": "シオリ・ノヴェラ",
+    "hp": "",
     "imageFolder": "hSD12/",
     "color": ["blue"],
     "grade": "debut",
     "searchKeywords": ["シオリ・ノヴェラ", "詩織·諾薇拉", "Shiori Novella"],
+    "skillType": "",
     "versions": ["_02_C.png"],
     "tags": ["EN", "Advent"],
     "effectType": ""
@@ -260,10 +264,12 @@
     "id": "hBP04-063",
     "type": "Member",
     "name": "古石ビジュ―",
+    "hp": "",
     "imageFolder": "hSD12/",
     "color": ["purple"],
     "grade": "debut",
     "searchKeywords": ["古石ビジュ―", "古石碧珠", "Koseki Bijou"],
+    "skillType": "",
     "versions": ["_02_C.png"],
     "tags": ["EN", "Advent", "嬰兒"],
     "effectType": "Gift"
@@ -277,7 +283,7 @@
     "grade": "",
     "searchKeywords": ["event", "イベント", "Advent"],
     "versions": ["_U.png"],
-    "tags" : ["LIMITED"]
+    "tags": ["LIMITED"]
   },
   {
     "id": "hBP05-074",
@@ -299,6 +305,6 @@
     "grade": "",
     "searchKeywords": ["staff", "スタッフ", "春先のどか"],
     "versions": ["_C.png"],
-    "tags" : ["LIMITED"]
+    "tags": ["LIMITED"]
   }
-] 
+]

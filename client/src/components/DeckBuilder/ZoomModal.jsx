@@ -115,25 +115,25 @@ function ZoomModal({ card, imageUrl, onClose, onPrev, onNext }) {
       onClick={onClose}
     >
       {isMobile ? (
-        /* ── 手機版：左原圖、右(翻譯圖+按鈕)，固定高度區塊 ── */
+        /* ── 手機版：左原圖、右(翻譯圖+按鈕)，垂直置中 ── */
         <div
           style={{
-            display: "flex", flexDirection: "row",
-            gap: "8px", padding: "48px 8px 16px", width: "100%",
+            display: "flex", flexDirection: "row", alignItems: "center",
+            gap: "8px", padding: "52px 8px 16px", width: "100%",
             height: "100%", boxSizing: "border-box",
           }}
           onClick={e => e.stopPropagation()}
         >
           {/* 左欄：原圖 */}
-          <div style={{ flex: "1 1 0", minWidth: 0, display: "flex", alignItems: "flex-start" }}>
+          <div style={{ flex: "1 1 0", minWidth: 0, display: "flex", alignItems: "center" }}>
             <img src={imageUrl} alt="原圖"
-              style={{ width: "100%", objectFit: "contain", borderRadius: "8px", maxHeight: "75vh" }}
+              style={{ width: "100%", objectFit: "contain", borderRadius: "8px", maxHeight: "80vh" }}
             />
           </div>
           {/* 右欄：翻譯圖 + 按鈕 */}
           <div style={{
             flex: "1 1 0", minWidth: 0,
-            display: "flex", flexDirection: "column",
+            display: "flex", flexDirection: "column", justifyContent: "center",
             alignItems: "center", gap: "8px",
           }}>
             {primary && showTranslated && (

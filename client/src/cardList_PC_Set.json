@@ -19,7 +19,7 @@
     "grade": "",
     "searchKeywords": ["item", "アイテム", "カスタムパソコン", "改造電腦", "加入手牌"],
     "versions": ["_SR.png"],
-    "tags" : ""
+    "tags": ""
   },
   {
     "id": "hBP02-077",
@@ -30,7 +30,7 @@
     "grade": "",
     "searchKeywords": ["item", "アイテム", "レトロパソコン", "復古電腦", "返回手牌"],
     "versions": ["_SR.png"],
-    "tags" : ["LIMITED"]
+    "tags": ["LIMITED"]
   },
   {
     "id": "hSD01-018",
@@ -40,7 +40,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["item", "アイテム", "サブパソコン", "備用電腦"],
-    "versions": ["_SR.png"]
+    "versions": ["_SR.png"],
+    "tags": ""
   },
   {
     "id": "hSD01-019",
@@ -50,6 +51,7 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["item", "アイテム", "スゴイパソコン", "厲害電腦"],
-    "versions": ["_SR.png"]
+    "versions": ["_SR.png"],
+    "tags": ""
   }
 ]

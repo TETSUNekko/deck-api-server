@@ -1,33 +1,40 @@
 [
-  
   {
     "id": "hSD01-001",
     "type": "Oshi",
     "name": "ときのそら",
+    "life": "",
     "imageFolder": "hSD01/",
     "color": ["white"],
-    "grade": "",
     "searchKeywords": ["ときのそら", "時乃空", "Tokino Sora"],
-    "versions": ["_OSR.png"]  
+    "skillType": "",
+    "versions": ["_OSR.png"],
+    "tags": "",
+    "grade": ""
   },
   {
     "id": "hSD01-002",
     "type": "Oshi",
     "name": "AZKi",
+    "life": "",
     "imageFolder": "hSD01/",
     "color": ["green"],
-    "grade": "",
     "searchKeywords": ["AZKi", "AZKi", "AZKi"],
-    "versions": ["_OSR.png"]
+    "skillType": "",
+    "versions": ["_OSR.png"],
+    "tags": "",
+    "grade": ""
   },
   {
     "id": "hSD01-003",
     "type": "Member",
     "name": "ときのそら",
+    "hp": "",
     "imageFolder": "hSD01/",
     "color": ["white"],
     "grade": "debut",
     "searchKeywords": ["ときのそら", "時乃空", "Tokino Sora"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["JP", "0期生", "歌"],
     "effectType": ""
@@ -36,10 +43,12 @@
     "id": "hSD01-004",
     "type": "Member",
     "name": "ときのそら",
+    "hp": "",
     "imageFolder": "hSD01/",
     "color": ["white"],
     "grade": "debut",
     "searchKeywords": ["ときのそら", "時乃空", "Tokino Sora"],
+    "skillType": "",
     "versions": ["_R.png"],
     "tags": ["JP", "0期生", "歌"],
     "effectType": "Collaboration"
@@ -48,10 +57,12 @@
     "id": "hSD01-005",
     "type": "Member",
     "name": "ときのそら",
+    "hp": "",
     "imageFolder": "hSD01/",
     "color": ["white"],
     "grade": "1st",
     "searchKeywords": ["ときのそら", "時乃空", "Tokino Sora"],
+    "skillType": "",
     "versions": ["_U.png"],
     "tags": ["JP", "0期生", "歌"],
     "effectType": ""
@@ -60,10 +71,12 @@
     "id": "hSD01-006",
     "type": "Member",
     "name": "ときのそら",
+    "hp": "",
     "imageFolder": "hSD01/",
     "color": ["white"],
     "grade": "buzz",
     "searchKeywords": ["ときのそら", "時乃空", "Tokino Sora"],
+    "skillType": "",
     "versions": ["_RR.png"],
     "tags": ["JP", "0期生", "歌"],
     "effectType": ""
@@ -72,10 +85,12 @@
     "id": "hBP01-028",
     "type": "Member",
     "name": "IRyS",
+    "hp": "",
     "imageFolder": "hSD01/",
     "color": ["white"],
     "grade": "debut",
     "searchKeywords": ["IRyS", "IRyS", "IRyS"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["EN", "Promise", "歌"],
     "effectType": ""
@@ -84,10 +99,12 @@
     "id": "hSD01-007",
     "type": "Member",
     "name": "IRyS",
+    "hp": "",
     "imageFolder": "hSD01/",
     "color": ["white"],
     "grade": "debut",
     "searchKeywords": ["IRyS", "IRyS", "IRyS"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["EN", "Promise", "歌"],
     "effectType": "Collaboration"
@@ -96,10 +113,12 @@
     "id": "hSD01-008",
     "type": "Member",
     "name": "AZKi",
+    "hp": "",
     "imageFolder": "hSD01/",
     "color": ["green"],
     "grade": "debut",
     "searchKeywords": ["AZKi", "AZKi", "AZKi"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["JP", "0期生", "歌"],
     "effectType": ""
@@ -108,10 +127,12 @@
     "id": "hSD01-009",
     "type": "Member",
     "name": "AZKi",
+    "hp": "",
     "imageFolder": "hSD01/",
     "color": ["green"],
     "grade": "debut",
     "searchKeywords": ["AZKi", "AZKi", "AZKi"],
+    "skillType": "",
     "versions": ["_R.png"],
     "tags": ["JP", "0期生", "歌"],
     "effectType": "Collaboration"
@@ -120,10 +141,12 @@
     "id": "hSD01-010",
     "type": "Member",
     "name": "AZKi",
+    "hp": "",
     "imageFolder": "hSD01/",
     "color": ["green"],
     "grade": "1st",
     "searchKeywords": ["AZKi", "AZKi", "AZKi"],
+    "skillType": "",
     "versions": ["_U.png"],
     "tags": ["JP", "0期生", "歌"],
     "effectType": ""
@@ -132,10 +155,12 @@
     "id": "hSD01-011",
     "type": "Member",
     "name": "AZKi",
+    "hp": "",
     "imageFolder": "hSD01/",
     "color": ["green"],
     "grade": "2nd",
     "searchKeywords": ["AZKi", "AZKi", "AZKi"],
+    "skillType": "",
     "versions": ["_RR.png"],
     "tags": ["JP", "0期生", "歌"],
     "effectType": ""
@@ -144,10 +169,12 @@
     "id": "hSD01-012",
     "type": "Member",
     "name": "アイラニ・イオフィフティーン",
+    "hp": "",
     "imageFolder": "hSD01/",
     "color": ["green"],
     "grade": "debut",
     "searchKeywords": ["アイラニ・イオフィフティーン", "艾拉妮·伊歐菲芙婷", "Airani Iofifteen"],
+    "skillType": "",
     "versions": ["_C.png"],
     "tags": ["ID", "ID1期生", "畫"],
     "effectType": "Collaboration"
@@ -156,10 +183,12 @@
     "id": "hSD01-013",
     "type": "Member",
     "name": "SorAZ",
+    "hp": "",
     "imageFolder": "hSD01/",
     "color": ["green", "white"],
     "grade": "1st",
     "searchKeywords": ["AZKi", "ときのそら", "時乃空", "Tokino Sora", "SorAZ"],
+    "skillType": "",
     "versions": ["_R.png"],
     "tags": ["JP", "0期生", "歌"],
     "effectType": ""
@@ -168,10 +197,12 @@
     "id": "hSD01-014",
     "type": "Member",
     "name": "天音かなた",
+    "hp": "",
     "imageFolder": "hSD01/",
     "color": ["colorless"],
     "grade": "spot",
     "searchKeywords": ["天音かなた", "天音彼方", "Amane Kanata"],
+    "skillType": "",
     "versions": ["_U.png"],
     "tags": ["JP", "4期生", "歌"],
     "effectType": ""
@@ -180,10 +211,12 @@
     "id": "hSD01-015",
     "type": "Member",
     "name": "博衣こより",
+    "hp": "",
     "imageFolder": "hSD01/",
     "color": ["colorless"],
     "grade": "spot",
     "searchKeywords": ["博衣こより", "博衣小夜璃", "Hakui Koyori"],
+    "skillType": "",
     "versions": ["_U.png"],
     "tags": ["JP", "秘密結社holoX", "獸耳"],
     "effectType": "Collaboration"
@@ -196,7 +229,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["staff", "スタッフ", "春先のどか"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hSD01-017",
@@ -206,7 +240,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["staff", "スタッフ", "マネちゃん", "經紀醬"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hSD01-018",
@@ -216,7 +251,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["item", "アイテム", "サブパソコン", "備用電腦"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hSD01-019",
@@ -227,7 +263,7 @@
     "grade": "",
     "searchKeywords": ["item", "アイテム", "スゴイパソコン", "厲害電腦"],
     "versions": ["_C.png"],
-    "tags" : ["LIMITED"]
+    "tags": ["LIMITED"]
   },
   {
     "id": "hSD01-020",
@@ -237,7 +273,8 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["event", "イベント", "ホロリスの輪"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ""
   },
   {
     "id": "hSD01-021",
@@ -247,6 +284,7 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["event", "イベント", "First Gravity"],
-    "versions": ["_C.png"]
+    "versions": ["_C.png"],
+    "tags": ""
   }
-] 
+]
