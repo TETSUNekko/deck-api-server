@@ -7,7 +7,7 @@ const warningMap = {
   //"hBP01-010": "限制卡（一副牌中只能有一張）",
   //"hBP01-014": "限制卡（一副牌中只能有一張）",
   "hBP01-030": "限制卡（一副牌中只能有一張）",
-  "hBP02-094": "限制卡（一副牌中只能有一張）",
+  "hBP07-101": "限制卡（一副牌中只能有一張）",
 };
 
 export default function CardImage({ card, version, className, style, onZoom, onClick }) {
