@@ -54,8 +54,9 @@
 ### 1. 新增卡組
 1. 在 `client/public/webpcards/{setName}/` 放入 `.webp` 圖檔
 2. 在 `client/src/` 新增 `cardList_{setName}.json`，格式參考既有檔案
-3. 在 `client/src/components/cardsConfig.jsx` import 新的 JSON
-4. 執行 `cd client && npm run build:index` 重建索引
+3. 在 `client/src/components/cardsConfig.jsx` import 新的 JSON，並加進 `cardSets` 陣列
+4. **在 `client/src/components/SearchBar.jsx` 的 `SERIES_LIST` 加一筆**（否則彈數篩選器選不到這個新套組）
+5. 執行 `cd client && npm run build:index` 重建索引
 
 ### 2. 新增已有卡組的新圖（復刻/新版本）
 1. 把圖檔放進對應資料夾，命名格式：`{ID}_{版本}.webp`

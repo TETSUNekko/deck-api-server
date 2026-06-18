@@ -7,6 +7,7 @@ import cardListBP04 from "../cardList_hBP04.json";
 import cardListBP05 from "../cardList_hBP05.json";
 import cardListBP06 from "../cardList_hBP06.json";
 import cardListBP07 from "../cardList_hBP07.json";
+import cardListBP08 from "../cardList_hBP08.json";
 
 import cardListSD01 from "../cardList_hSD01.json";
 import cardListSD02 from "../cardList_hSD02.json";
@@ -33,16 +34,17 @@ import CardListYS01 from "../cardList_hYS01.json";
 import cardListPC from "../cardList_PC_Set.json";
 import cardListPR from "../cardList_PR.json";
 import cardList2025Live from "../cardList_2025Live_Set.json";
+import cardListTwinWafer from "../cardList_TwinWafer.json";
 
 // 🔹 集中管理所有卡表
 export const cardSets = [
-  cardListBP01, cardListBP02, cardListBP03, cardListBP04, cardListBP05, 
-  cardListBP06, cardListBP07,
+  cardListBP01, cardListBP02, cardListBP03, cardListBP04, cardListBP05,
+  cardListBP06, cardListBP07, cardListBP08,
   cardListSD01, cardListSD02, cardListSD03, cardListSD04, cardListSD05,
   cardListSD06, cardListSD07, cardListSD08, cardListSD09, cardListSD10,
   cardListSD11, cardListSD12, cardListSD13, cardListSD14, cardListSD15,
   cardListSD16, cardListSD17, cardListSD18, cardListSD19,
-  cardListPR, cardListBD24, energyCardList, CardListYS01, cardListPC, cardList2025Live
+  cardListPR, cardListBD24, energyCardList, CardListYS01, cardListPC, cardList2025Live, cardListTwinWafer
 ];
 
 // 🔹 集中管理標籤
@@ -73,4 +75,5 @@ export const changelog = [
   "  4/7 更新內容 : 部分BUG修復(新增露天&蝦皮查卡、匯出牌組卡片張數/速度問題、牌組張數細節顯示) ",
   " 4/24 更新內容 : 新增hSD14、hSD15、hSD16、hSD17、hSD18、hSD19卡表上線 ",
   " 5/22 更新內容 : 新增2025 Live Set 卡片、高版本能量卡以及部分缺漏更新",
+  " 6/18 更新內容 : hBP08「バウンサーバウンド」卡表上線 (卡片資料持續更新中) ",
 ];

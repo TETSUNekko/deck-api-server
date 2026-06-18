@@ -1,7 +1,7 @@
 # 設定資料夾與裁切參數
-$inputFolder = "C:\Users\Johna\Desktop\hSD11-008.jpg"
-$outputFolder = "C:\Users\Johna\Desktop\holotcg-online\client\public\webpcards\hSD11-trans"
-$prefix = "hSD09"
+$inputFolder = "C:\Users\Johna\Downloads\hBP08\hBP08"
+$outputFolder = "C:\Users\Johna\Desktop\holotcg-online\client\public\webpcards\hSD04-trans"
+$prefix = "hSD04"
 $width = 1120
 $height = 1080
 $usePrefix = $false   # 是否使用 prefix 命名（$true = 重新命名；$false = 保留原檔名）

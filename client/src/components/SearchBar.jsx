@@ -26,6 +26,7 @@ const SERIES_LIST = [
   { value: "hBP05", label: "hBP05　ブースターパック「エンチャントレガリア」" },
   { value: "hBP06", label: "hBP06　ブースターパック「アヤカシヴァーミリオン」" },
   { value: "hBP07", label: "hBP07　ブースターパック「ディーヴァフィーバー」" },
+  { value: "hBP08", label: "hBP08　ブースターパック「バウンサーバウンド」" },
   { value: "hSD01", label: "hSD01　スタートデッキ「ときのそら＆AZKi」" },
   { value: "hSD02", label: "hSD02　スタートデッキ 赤 百鬼あやめ" },
   { value: "hSD03", label: "hSD03　スタートデッキ 青 猫又おかゆ" },
@@ -51,6 +52,7 @@ const SERIES_LIST = [
   { value: "energy", label: "エールカード" },
   { value: "PC_Set", label: "オフィシャルホロカコレクション-PCセット-" },
   { value: "2025Live_Set", label: "オフィシャルホロカコレクション-2025ライブセット-" },
+  { value: "Twin_Wafer", label: "ツインウエハース" },
 ];
 
 // alignRight: 子選單往右展開（用於成員卡/支援卡子選單）
