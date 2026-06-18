@@ -166,7 +166,7 @@ function SearchBar({
     setSearchTerm(""); setFilterType("全部"); setFilterColor("全部顏色");
     setFilterGrade("全部階級"); setFilterSeries("全部彈數");
     setSupportSubtype("全部"); setFilterVersion("全部版本");
-    setFilterEffect("全部聯動");
+    setFilterEffect("全部效果");
     setSelectedTag("全部標籤"); setTagSearch("");
   };
 
@@ -179,8 +179,8 @@ function SearchBar({
   const versionLabel = filterVersion === "全部版本" ? "版本" : filterVersion.replace("_", "");
   const tagLabel = (!selectedTag || selectedTag === "全部標籤") ? "標籤" : `#${selectedTag}`;
   const versionList = ["全部版本","_C","_U","_S","_R","_RR","_SR","_UR","_HR","_OC","_OSR","_OUR","_SEC","_P","_SY"];
-  const effectMap = { "全部聯動": "全部聯動", Collaboration: "聯動", Bloom: "開花", Gift: "贈禮" };
-  const effectList = ["全部聯動", "Collaboration", "Bloom", "Gift"];
+  const effectMap = { "全部效果": "全部效果", Collaboration: "聯動", Bloom: "開花", Gift: "贈禮" };
+  const effectList = ["全部效果", "Collaboration", "Bloom", "Gift"];
 
   return (
     <div style={{ position: "sticky", top: 0, zIndex: 40 }}>
@@ -320,7 +320,7 @@ function SearchBar({
 
         {/* 聯動效果 */}
         <div ref={refs.effect} style={{ flexShrink: 0 }}>
-          <div style={filterEffect !== "全部聯動" ? CHIP_ON : CHIP} onClick={() => toggle("effect")}>
+          <div style={filterEffect !== "全部效果" ? CHIP_ON : CHIP} onClick={() => toggle("effect")}>
             {effectMap[filterEffect] || filterEffect} <span style={{ fontSize: "10px", opacity: 0.6 }}>▾</span>
           </div>
           <PortalDropdown anchorRef={refs.effect} open={open === "effect"}>

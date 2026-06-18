@@ -37,7 +37,7 @@ function DeckBuilder() {
   const [filterSeries, setFilterSeries] = useState("全部彈數");
   const [supportSubtype, setSupportSubtype] = useState("全部");
   const [filterVersion, setFilterVersion] = useState("全部版本");
-  const [filterEffect, setFilterEffect] = useState("全部聯動");
+  const [filterEffect, setFilterEffect] = useState("全部效果");
   const [selectedTag, setSelectedTag] = useState("全部標籤");
   const [shareCode, setShareCode] = useState("");
   const [loading, setLoading] = useState(false);
@@ -125,7 +125,7 @@ function DeckBuilder() {
       const matchTag = !selectedTag || selectedTag === "全部標籤" || (Array.isArray(card.tags) && card.tags.includes(selectedTag));
       const matchSeries = filterSeries === "全部彈數" || card.folder === filterSeries;
       const matchVersion = filterVersion === "全部版本" || card.version === filterVersion;
-      const matchEffect = filterEffect === "全部聯動" || card.effectType === filterEffect;
+      const matchEffect = filterEffect === "全部效果" || card.effectType === filterEffect;
       if (!(matchType && matchSearch && matchColor && matchGrade && matchSubtype && matchTag && matchSeries && matchVersion && matchEffect)) return false;
       const k = `${card.id}|${card.version}`;
       if (seen.has(k)) return false;
