@@ -490,6 +490,34 @@
     "effectType": "Collaboration"
   },
   {
+    "id": "hBP01-056",
+    "type": "Member",
+    "name": "鷹嶺ルイ",
+    "hp": "",
+    "imageFolder": "hBP08/",
+    "color": ["red"],
+    "grade": "debut",
+    "searchKeywords": ["鷹嶺ルイ", "鷹嶺琉依", "Takane Rui"],
+    "skillType": "",
+    "versions": ["_C_02.png", "_HR.png"],
+    "tags": ["JP", "秘密結社holoX", "鳥", "酒"],
+    "effectType": ""
+  },
+  {
+    "id": "hBP01-062",
+    "type": "Member",
+    "name": "小鳥遊キアラ",
+    "hp": "",
+    "imageFolder": "hBP08/",
+    "color": ["red"],
+    "grade": "debut",
+    "searchKeywords": ["小鳥遊キアラ", "小鳥遊琪亞拉", "Takanashi Kiara", "可以從自己的1張手牌存檔:這個藝能傷害+20"],
+    "skillType": "",
+    "versions": ["_C_02.png"],
+    "tags": ["EN", "Myth", "鳥"],
+    "effectType": ""
+  },
+  {
     "id": "hBP03-037",
     "type": "Member",
     "name": "モココ・アビスガード",
@@ -894,34 +922,6 @@
     "versions": ["_R.png", "_SR.png"],
     "tags": ["EN", "Advent", "獸耳"],
     "effectType": "Gift"
-  },
-  {
-    "id": "hBP01-056",
-    "type": "Member",
-    "name": "鷹嶺ルイ",
-    "hp": "",
-    "imageFolder": "hBP08/",
-    "color": ["red"],
-    "grade": "debut",
-    "searchKeywords": ["鷹嶺ルイ", "鷹嶺琉依", "Takane Rui"],
-    "skillType": "",
-    "versions": ["_C_02.png", "_HR.png"],
-    "tags": ["JP", "秘密結社holoX", "鳥", "酒"],
-    "effectType": ""
-  },
-  {
-    "id": "hBP01-062",
-    "type": "Member",
-    "name": "小鳥遊キアラ",
-    "hp": "",
-    "imageFolder": "hBP08/",
-    "color": ["red"],
-    "grade": "debut",
-    "searchKeywords": ["小鳥遊キアラ", "小鳥遊琪亞拉", "Takanashi Kiara", "可以從自己的1張手牌存檔:這個藝能傷害+20"],
-    "skillType": "",
-    "versions": ["_C_02.png"],
-    "tags": ["EN", "Myth", "鳥"],
-    "effectType": ""
   },
   {
     "id": "hSD11-007",

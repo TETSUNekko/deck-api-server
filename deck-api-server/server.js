@@ -242,7 +242,8 @@ app.post('/export-deck', async (req, res, next) => {
   try {
     const { oshi = [], deck = [], energy = [] } = req.body;
 
-    const MAX_OSHI = 1, MAX_DECK = 50, MAX_ENERGY = 20;
+    // 主推卡只能1張才符合官方牌組規則，但匯出圖片是給玩家自由分享用，不在這裡擋，只擋誇張數量避免圖片爆炸
+    const MAX_OSHI = 30, MAX_DECK = 50, MAX_ENERGY = 20;
     if (oshi.length > MAX_OSHI || deck.length > MAX_DECK || energy.length > MAX_ENERGY) {
       return res.status(400).json({ error: 'Card count exceeds limit' });
     }
@@ -254,8 +255,9 @@ app.post('/export-deck', async (req, res, next) => {
     const mainRows = Math.ceil((deck.length || 0) / mainCols);
     const energyRows = Math.ceil((energy.length || 0) / 2);
 
+    const oshiCount = oshi.length || 0;
     const oshiTop = 60 * SCALE;
-    const oshiBottom = oshiTop + cardH;
+    const oshiBottom = oshiTop + (oshiCount > 0 ? oshiCount * cardH + (oshiCount - 1) * gap : 0);
     const energyBaseY = oshiBottom + 80 * SCALE;
 
     const canvasH = Math.max(
@@ -325,12 +327,13 @@ app.post('/export-deck', async (req, res, next) => {
     // 所有圖片 URL 與位置先計算好，再並行載入
     const drawJobs = [];
 
-    // OSHI
-    if (oshi[0]) {
-      const entry = parseKey(oshi[0].key);
-      if (entry) drawJobs.push({
+    // OSHI（規則上只能1張，但這裡不擋，多張就往下疊）
+    for (let i = 0; i < oshi.length; i++) {
+      const entry = parseKey(oshi[i].key);
+      if (!entry) continue;
+      drawJobs.push({
         url: `${CARDS_CDN}/${entry.folder}/${entry.id}${entry.version}.png`,
-        x: 40 * SCALE, y: oshiTop, w: cardW, h: cardH, count: oshi[0].count || 1,
+        x: 40 * SCALE, y: oshiTop + i * (cardH + gap), w: cardW, h: cardH, count: oshi[i].count || 1,
       });
     }
 
