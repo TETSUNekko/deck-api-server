@@ -1,5 +1,6 @@
 // SearchBar.jsx
 import React, { useState, useRef, useEffect, useCallback } from "react";
+import { track } from '../utils/track';
 import ReactDOM from "react-dom";
 
 const CHIP = {
@@ -154,6 +155,7 @@ function SearchBar({
   }, [close]);
 
   const handleCopyCode = async () => {
+    track('share_code');
     const data = await onExportCode();
     if (data) {
       navigator.clipboard.writeText(data)
@@ -168,6 +170,7 @@ function SearchBar({
     setSupportSubtype("全部"); setFilterVersion("全部版本");
     setFilterEffect("全部效果");
     setSelectedTag("全部標籤"); setTagSearch("");
+    track('clear_filters');
   };
 
   const typeMap = { "全部": "卡片種類", Oshi: "主推卡", Member: "成員卡", Support: "支援卡", Energy: "能量卡" };
@@ -217,8 +220,8 @@ function SearchBar({
             {typeMap[filterType]}{extraLabel} <span style={{ fontSize: "10px", opacity: 0.6 }}>▾</span>
           </div>
           <PortalDropdown anchorRef={refs.type} open={open === "type"}>
-            <DItem onClick={() => { setFilterType("全部"); setFilterGrade("全部階級"); setSupportSubtype("全部"); close(); }} active={filterType === "全部"}>全部卡片</DItem>
-            <DItem onClick={() => { setFilterType("Oshi"); setFilterGrade("全部階級"); setSupportSubtype("全部"); close(); }} active={filterType === "Oshi"}>主推卡</DItem>
+            <DItem onClick={() => { setFilterType("全部"); setFilterGrade("全部階級"); setSupportSubtype("全部"); track('filter_type', {value:'全部'}); close(); }} active={filterType === "全部"}>全部卡片</DItem>
+            <DItem onClick={() => { setFilterType("Oshi"); setFilterGrade("全部階級"); setSupportSubtype("全部"); track('filter_type', {value:'Oshi'}); close(); }} active={filterType === "Oshi"}>主推卡</DItem>
 
             {/* 成員卡 — 子選單往右 */}
             <div ref={refs.member}>
@@ -227,7 +230,7 @@ function SearchBar({
               </DItem>
               <PortalDropdown anchorRef={refs.member} open={memberSub} alignRight>
                 {["全部階級","debut","1st","2nd","buzz","spot"].map(g => (
-                  <DItem key={g} onClick={() => { setFilterType("Member"); setFilterGrade(g); setSupportSubtype("全部"); close(); }} active={filterType === "Member" && filterGrade === g}>{g}</DItem>
+                  <DItem key={g} onClick={() => { setFilterType("Member"); setFilterGrade(g); setSupportSubtype("全部"); track('filter_type', {value:`Member_${g}`}); close(); }} active={filterType === "Member" && filterGrade === g}>{g}</DItem>
                 ))}
               </PortalDropdown>
             </div>
@@ -239,12 +242,12 @@ function SearchBar({
               </DItem>
               <PortalDropdown anchorRef={refs.support} open={supportSub} alignRight>
                 {["全部","item","event","tool","mascot","fan","staff"].map(s => (
-                  <DItem key={s} onClick={() => { setFilterType("Support"); setSupportSubtype(s); setFilterGrade("全部階級"); close(); }} active={filterType === "Support" && supportSubtype === s}>{s}</DItem>
+                  <DItem key={s} onClick={() => { setFilterType("Support"); setSupportSubtype(s); setFilterGrade("全部階級"); track('filter_type', {value:`Support_${s}`}); close(); }} active={filterType === "Support" && supportSubtype === s}>{s}</DItem>
                 ))}
               </PortalDropdown>
             </div>
 
-            <DItem onClick={() => { setFilterType("Energy"); setFilterGrade("全部階級"); setSupportSubtype("全部"); close(); }} active={filterType === "Energy"}>能量卡</DItem>
+            <DItem onClick={() => { setFilterType("Energy"); setFilterGrade("全部階級"); setSupportSubtype("全部"); track('filter_type', {value:'Energy'}); close(); }} active={filterType === "Energy"}>能量卡</DItem>
           </PortalDropdown>
         </div>
 
@@ -255,7 +258,7 @@ function SearchBar({
           </div>
           <PortalDropdown anchorRef={refs.color} open={open === "color"}>
             {[["全部顏色","全部顏色"],["red","紅"],["white","白"],["blue","藍"],["green","綠"],["yellow","黃"],["purple","紫"],["colorless","無色"]].map(([v,l]) => (
-              <DItem key={v} onClick={() => { setFilterColor(v); close(); }} active={filterColor === v}>{l}</DItem>
+              <DItem key={v} onClick={() => { setFilterColor(v); track('filter_color', {value:v}); close(); }} active={filterColor === v}>{l}</DItem>
             ))}
           </PortalDropdown>
         </div>
@@ -268,7 +271,7 @@ function SearchBar({
           <PortalDropdown anchorRef={refs.series} open={open === "series"}>
             <div style={{ maxHeight: "300px", overflowY: "auto" }}>
               {SERIES_LIST.map(({ value, label }) => (
-                <DItem key={value} onClick={() => { setFilterSeries(value); close(); }} active={filterSeries === value}>
+                <DItem key={value} onClick={() => { setFilterSeries(value); track('filter_series', {value}); close(); }} active={filterSeries === value}>
                   {label}
                 </DItem>
               ))}
@@ -294,9 +297,9 @@ function SearchBar({
                   }}
                 />
               </div>
-              <DItem onClick={() => { setSelectedTag("全部標籤"); close(); setTagSearch(""); }} active={!selectedTag || selectedTag === "全部標籤"}>#全部標籤</DItem>
+              <DItem onClick={() => { setSelectedTag("全部標籤"); track('filter_tag', {value:'全部標籤'}); close(); setTagSearch(""); }} active={!selectedTag || selectedTag === "全部標籤"}>#全部標籤</DItem>
               {allTags.filter(t => t.includes(tagSearch)).map(tag => (
-                <DItem key={tag} onClick={() => { setSelectedTag(tag); close(); setTagSearch(""); }} active={selectedTag === tag}>#{tag}</DItem>
+                <DItem key={tag} onClick={() => { setSelectedTag(tag); track('filter_tag', {value:tag}); close(); setTagSearch(""); }} active={selectedTag === tag}>#{tag}</DItem>
               ))}
             </div>
           </PortalDropdown>
@@ -310,7 +313,7 @@ function SearchBar({
           <PortalDropdown anchorRef={refs.version} open={open === "version"}>
             <div style={{ maxHeight: "260px", overflowY: "auto" }}>
               {versionList.map(v => (
-                <DItem key={v} onClick={() => { setFilterVersion(v); close(); }} active={filterVersion === v}>
+                <DItem key={v} onClick={() => { setFilterVersion(v); track('filter_version', {value:v}); close(); }} active={filterVersion === v}>
                   {v === "全部版本" ? "全部版本" : v.replace("_", "")}
                 </DItem>
               ))}
@@ -325,7 +328,7 @@ function SearchBar({
           </div>
           <PortalDropdown anchorRef={refs.effect} open={open === "effect"}>
             {effectList.map(v => (
-              <DItem key={v} onClick={() => { setFilterEffect(v); close(); }} active={filterEffect === v}>
+              <DItem key={v} onClick={() => { setFilterEffect(v); track('filter_effect', {value:v}); close(); }} active={filterEffect === v}>
                 {effectMap[v]}
               </DItem>
             ))}
@@ -361,7 +364,7 @@ function SearchBar({
         borderBottom: "1px solid #2d2440",
         flexWrap: "wrap",
       }}>
-        <button style={{ ...BTN, borderColor: "#3d3155", color: "#9b8ab0", background: "#2a2240" }} onClick={onClearDeck}>🧹 清空牌組</button>
+        <button style={{ ...BTN, borderColor: "#3d3155", color: "#9b8ab0", background: "#2a2240" }} onClick={() => { track('clear_deck'); onClearDeck(); }}>🧹 清空牌組</button>
         
         <button
           style={{ ...BTN, borderColor: "#2d6e50", color: "#5dbf94", background: "#1a3028" }}
@@ -370,6 +373,7 @@ function SearchBar({
               alert(`❌ 主卡組需要剛好 50 張才能模擬起手（目前 ${deckCount} 張）`);
               return;
             }
+            track('draw_hand');
             onDrawHand();
           }}
         >
@@ -385,7 +389,7 @@ function SearchBar({
             opacity: exporting ? 0.7 : 1,
             cursor: exporting ? "not-allowed" : "pointer",
           }}
-          onClick={onExportImage}
+          onClick={() => { track('export_image'); onExportImage(); }}
           disabled={exporting}
         >
           {exporting ? "⏳ 匯出中..." : "🖼 匯出圖片"}
@@ -400,7 +404,7 @@ function SearchBar({
             color: "#c9b8e0", width: "110px", outline: "none", fontFamily: "inherit",
           }}
         />
-        <button style={{ ...BTN, borderColor: "#6b3fa0", color: "#c084fc", background: "#2d1e40" }} onClick={onImportCode}>
+        <button style={{ ...BTN, borderColor: "#6b3fa0", color: "#c084fc", background: "#2d1e40" }} onClick={() => { track('import_code'); onImportCode(); }}>
           {loading ? "讀取中..." : "📥 讀取代碼"}
         </button>
         <div style={{ flex: 1 }} />
