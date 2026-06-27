@@ -86,6 +86,15 @@ function DeckBuilder() {
       folderOrderMap.set(`${card.id}@${folder}`, index);
     });
 
+    // 建立 id -> 最豐富的 card 資料（優先選有 tags 的版本，避免 reprint 版 tags:"" 蓋掉正確的）
+    const baseCardMap = new Map();
+    allCards.forEach(c => {
+      const prev = baseCardMap.get(c.id);
+      const prevTagCount = Array.isArray(prev?.tags) ? prev.tags.length : 0;
+      const newTagCount = Array.isArray(c.tags) ? c.tags.length : 0;
+      if (!prev || newTagCount > prevTagCount) baseCardMap.set(c.id, c);
+    });
+
     return Object.entries(byKey)
       .map(([key]) => {
         const [idVer, folder] = key.split("@");
@@ -93,7 +102,7 @@ function DeckBuilder() {
         if (!match) return null;
         const id = match[1];
         const version = match[2] || "_C";
-        const baseCard = allCards.find((c) => c.id === id) || {};
+        const baseCard = baseCardMap.get(id) || {};
         return { id, version, folder, key, path: webpUrlFromKey(key), ...baseCard };
       })
       .filter(Boolean)
