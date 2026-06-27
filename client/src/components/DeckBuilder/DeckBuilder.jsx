@@ -125,7 +125,7 @@ function DeckBuilder() {
         card.type === filterType ||
         (filterType === "Energy" && isEnergy);
       const matchSearch =
-        card.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (card.id + (card.version || '')).toLowerCase().includes(searchTerm.toLowerCase()) ||
         (card.name && card.name.toLowerCase().includes(searchTerm.toLowerCase())) ||
         (card.searchKeywords && card.searchKeywords.some(k => k.toLowerCase().includes(searchTerm.toLowerCase())));
       const matchColor = filterColor === "全部顏色" || (Array.isArray(card.color) && card.color.includes(filterColor));
