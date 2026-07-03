@@ -20,7 +20,7 @@
     "color": ["white"],
     "searchKeywords": ["ベスティア・ゼータ", "維斯提亞·澤塔", "Vestia Zeta"],
     "skillType": ["回合中1次", "遊戲中1次"],
-    "versions": ["_OSR.png", "_OUR.png", "_SEC.png"],
+    "versions": ["_SEC.png", "_OSR.png", "_OUR.png"],
     "tags": ""
   },
   {
@@ -32,7 +32,7 @@
     "color": ["green"],
     "searchKeywords": ["大神ミオ", "大神澪", "Ookami Mio"],
     "skillType": ["回合中1次", "遊戲中1次"],
-    "versions": ["_OSR.png", "_OUR.png", "_SEC.png"],
+    "versions": ["_SEC.png", "_OSR.png", "_OUR.png"],
     "tags": ""
   },
   {
@@ -69,7 +69,7 @@
     "color": ["purple"],
     "searchKeywords": ["AZKi"],
     "skillType": ["回合中1次"],
-    "versions": ["_OSR.png", "_OUR.png", "_SEC.png"],
+    "versions": ["_SEC.png", "_OSR.png", "_OUR.png"],
     "tags": ""
   },
   {
@@ -81,7 +81,7 @@
     "color": ["yellow"],
     "searchKeywords": ["桃鈴ねね", "桃鈴音音", "Momosuzu Nene"],
     "skillType": ["回合中1次", "遊戲中1次"],
-    "versions": ["_OSR.png", "_OUR.png", "_SEC.png"],
+    "versions": ["_SEC.png", "_OSR.png", "_OUR.png"],
     "tags": ""
   },
   {
@@ -122,7 +122,7 @@
     "grade": "debut",
     "searchKeywords": ["角巻わため", "角卷綿芽", "Tsunomaki Watame"],
     "skillType": "",
-    "versions": ["_U.png", "_S.png"],
+    "versions": ["_U.png", "_S.png", "_P.png"],
     "tags": ["JP", "4期生", "獸耳", "歌"],
     "effectType": ""
   },

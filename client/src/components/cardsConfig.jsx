@@ -32,6 +32,7 @@ import cardListSD19 from "../cardList_hSD19.json";
 import energyCardList from "../cardList_hY.json";
 import CardListYS01 from "../cardList_hYS01.json";
 import cardListPC from "../cardList_PC_Set.json";
+import cardListCS01 from "../cardList_hCS01.json";
 import cardListPR from "../cardList_PR.json";
 import cardList2025Live from "../cardList_2025Live_Set.json";
 import cardListTwinWafer from "../cardList_TwinWafer.json";
@@ -44,7 +45,7 @@ export const cardSets = [
   cardListSD06, cardListSD07, cardListSD08, cardListSD09, cardListSD10,
   cardListSD11, cardListSD12, cardListSD13, cardListSD14, cardListSD15,
   cardListSD16, cardListSD17, cardListSD18, cardListSD19,
-  cardListPR, cardListBD24, energyCardList, CardListYS01, cardListPC, cardList2025Live, cardListTwinWafer
+  cardListPR, cardListBD24, energyCardList, CardListYS01, cardListPC, cardListCS01, cardList2025Live, cardListTwinWafer
 ];
 
 // 🔹 集中管理標籤

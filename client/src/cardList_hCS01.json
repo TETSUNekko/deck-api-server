@@ -1,0 +1,72 @@
+[
+  {
+    "id": "hBP01-081",
+    "type": "Member",
+    "name": "星街すいせい",
+    "hp": "",
+    "imageFolder": "hCS01/",
+    "color": ["blue"],
+    "grade": "2nd",
+    "searchKeywords": ["星街すいせい", "星街彗星", "Hoshimachi Suisei", "從自己的聲援牌組上方的1張卡，送進自己的藍色成員裡", "可以將這個成員的2張藍聲援存檔:這個成員每重疊一張成員卡，這個藝能傷害+60(這個藝能也可以選擇對手的後備成員作為對象)"],
+    "skillType": "",
+    "versions": ["_02_SR.png"],
+    "tags": ["JP", "0期生", "歌"],
+    "effectType": "Collaboration"
+  },
+  {
+    "id": "hBP02-013",
+    "type": "Member",
+    "name": "白上フブキ",
+    "hp": "",
+    "imageFolder": "hCS01/",
+    "color": ["white"],
+    "grade": "2nd",
+    "searchKeywords": ["白上フブキ", "白上吹雪", "Shirakami Fubuki", "這個成員可以被附上至多2張不同卡名的吉祥物", "自己的舞台每有1張吉祥物，這個藝能傷害+20"],
+    "skillType": "",
+    "versions": ["_02_SR.png"],
+    "tags": ["JP", "1期生", "獸耳", "畫", "Gamers"],
+    "effectType": "Gift"
+  },
+  {
+    "id": "hBP03-030",
+    "type": "Member",
+    "name": "さくらみこ",
+    "hp": "",
+    "imageFolder": "hCS01/",
+    "color": ["red"],
+    "grade": "2nd",
+    "searchKeywords": ["さくらみこ", "櫻巫女", "Sakura Miko"],
+    "skillType": "",
+    "versions": ["_02_SR.png"],
+    "tags": ["JP", "0期生", "嬰兒"],
+    "effectType": "Gift"
+  },
+  {
+    "id": "hBP04-013",
+    "type": "Member",
+    "name": "博衣こより",
+    "hp": "",
+    "imageFolder": "hCS01/",
+    "color": ["white"],
+    "grade": "2nd",
+    "searchKeywords": ["博衣こより", "博衣可佑理", "Hakui Koyori"],
+    "skillType": "",
+    "versions": ["_02_SR.png"],
+    "tags": ["JP", "秘密結社holoX", "獸耳"],
+    "effectType": "Gift"
+  },
+  {
+    "id": "hBP04-059",
+    "type": "Member",
+    "name": "ラプラス・ダークネス",
+    "hp": "",
+    "imageFolder": "hCS01/",
+    "color": ["purple"],
+    "grade": "2nd",
+    "searchKeywords": ["ラプラス・ダークネス", "拉普拉斯·達克尼斯", "Laplus Darknesss"],
+    "skillType": "",
+    "versions": ["_02_SR.png"],
+    "tags": ["JP", "秘密結社holoX", "射手"],
+    "effectType": "Bloom"
+  }
+]

@@ -25,6 +25,9 @@ function WelcomeModal({ show, onClose }) {
         style={{
           width: "100%",
           maxWidth: "520px",
+          maxHeight: "85vh",
+          display: "flex",
+          flexDirection: "column",
           borderRadius: "16px",
           overflow: "hidden",
           background: "#1e1830",
@@ -56,8 +59,8 @@ function WelcomeModal({ show, onClose }) {
           </p>
         </div>
 
-        {/* Changelog */}
-        <div style={{ padding: "18px 28px" }}>
+        {/* Changelog — 手機上內容過長時改為內部滾動，不撐爆視窗 */}
+        <div style={{ padding: "18px 28px", overflowY: "auto", flex: 1, minHeight: 0 }}>
           <p style={{ fontSize: "11px", fontWeight: 500, color: "#c9b8e0", marginBottom: "10px", letterSpacing: "0.08em", textTransform: "uppercase" }}>
             最近更新
           </p>

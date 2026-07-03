@@ -21,7 +21,7 @@
     "color": ["green"],
     "searchKeywords": ["アイラニ・イオフィフティーン", "艾拉妮·伊歐菲芙婷", "Airani Iofifteen"],
     "skillType": "",
-    "versions": ["_OSR.png", "_OUR.png", "_SEC.png"],
+    "versions": ["_SEC.png", "_OSR.png", "_OUR.png"],
     "tags": "",
     "grade": ""
   },
@@ -34,7 +34,7 @@
     "color": ["red"],
     "searchKeywords": ["尾丸ポルカ", "尾丸波爾卡", "Omaru Polka"],
     "skillType": "",
-    "versions": ["_OSR.png", "_OUR.png", "_SEC.png"],
+    "versions": ["_SEC.png", "_OSR.png", "_OUR.png"],
     "tags": "",
     "grade": ""
   },
@@ -60,7 +60,7 @@
     "color": ["purple"],
     "searchKeywords": ["癒月ちょこ", "癒月巧可", "Yuzuki Choco"],
     "skillType": "",
-    "versions": ["_OSR.png", "_OUR.png", "_SEC.png"],
+    "versions": ["_SEC.png", "_OSR.png", "_OUR.png"],
     "tags": "",
     "grade": ""
   },
@@ -128,7 +128,7 @@
     "grade": "debut",
     "searchKeywords": ["白銀ノエル", "白銀諾艾爾", "Shirogane Noel"],
     "skillType": "",
-    "versions": ["_S.png", "_U.png"],
+    "versions": ["_U.png", "_S.png"],
     "tags": ["JP", "3期生", "酒"],
     "effectType": "Gift"
   },
@@ -142,7 +142,7 @@
     "grade": "debut",
     "searchKeywords": ["白銀ノエル", "白銀諾艾爾", "Shirogane Noel"],
     "skillType": "",
-    "versions": ["_S.png", "_C.png"],
+    "versions": ["_C.png", "_S.png"],
     "tags": ["JP", "3期生", "酒"],
     "effectType": "Collaboration"
   },
@@ -156,7 +156,7 @@
     "grade": "1st",
     "searchKeywords": ["白銀ノエル", "白銀諾艾爾", "Shirogane Noel"],
     "skillType": "",
-    "versions": ["_S.png", "_U.png"],
+    "versions": ["_U.png", "_S.png"],
     "tags": ["JP", "3期生", "酒"],
     "effectType": "Gift"
   },
@@ -170,7 +170,7 @@
     "grade": "1st",
     "searchKeywords": ["白銀ノエル", "白銀諾艾爾", "Shirogane Noel"],
     "skillType": "",
-    "versions": ["_SR.png", "_R.png"],
+    "versions": ["_R.png", "_SR.png"],
     "tags": ["JP", "3期生", "酒"],
     "effectType": "Bloom"
   },
@@ -184,7 +184,7 @@
     "grade": "2nd",
     "searchKeywords": ["白銀ノエル", "白銀諾艾爾", "Shirogane Noel"],
     "skillType": "",
-    "versions": ["_SR.png", "_RR.png", "_UR.png"],
+    "versions": ["_RR.png", "_SR.png", "_UR.png"],
     "tags": ["JP", "3期生", "酒"],
     "effectType": ""
   },
@@ -198,7 +198,7 @@
     "grade": "2nd",
     "searchKeywords": ["ときのそら", "時乃空", "Tokino Sora"],
     "skillType": "",
-    "versions": ["_SR.png", "_R.png"],
+    "versions": ["_R.png", "_SR.png"],
     "tags": ["JP", "0期生", "歌"],
     "effectType": "Gift"
   },
@@ -240,7 +240,7 @@
     "grade": "2nd",
     "searchKeywords": ["兔田ぺこら", "兔田佩可拉", "Usada Pekora"],
     "skillType": "",
-    "versions": ["_UR.png", "_SR.png", "_RR.png", "_SEC.png"],
+    "versions": ["_RR.png", "_SR.png", "_UR.png", "_SEC.png"],
     "tags": ["JP", "3期生", "獸耳"],
     "effectType": "Gift"
   },
@@ -380,7 +380,7 @@
     "grade": "2nd",
     "searchKeywords": ["アイラニ・イオフィフティーン", "艾拉妮·伊歐菲芙婷", "Airani Iofifteen"],
     "skillType": "",
-    "versions": ["_UR.png", "_SR.png", "_RR.png"],
+    "versions": ["_RR.png", "_SR.png", "_UR.png"],
     "tags": ["ID", "ID1期生", "畫"],
     "effectType": "Gift"
   },
@@ -534,7 +534,7 @@
     "grade": "2nd",
     "searchKeywords": ["尾丸ポルカ", "尾丸波爾卡", "Omaru Polka"],
     "skillType": "",
-    "versions": ["_UR.png", "_SR.png", "_RR.png"],
+    "versions": ["_RR.png", "_SR.png", "_UR.png"],
     "tags": ["JP", "5期生", "獸耳"],
     "effectType": "Bloom"
   },
@@ -898,7 +898,7 @@
     "grade": "2nd",
     "searchKeywords": ["癒月ちょこ", "癒月巧可", "Yuzuki Choco"],
     "skillType": "",
-    "versions": ["_UR.png", "_SR.png", "_RR.png"],
+    "versions": ["_RR.png", "_SR.png", "_UR.png"],
     "tags": ["JP", "2期生", "料理"],
     "effectType": ""
   },
@@ -912,7 +912,7 @@
     "grade": "debut",
     "searchKeywords": ["ネリッサ・レイヴンクロフト", "納瑞莎·雷文克羅夫特", "Nerissa Ravencroft"],
     "skillType": "",
-    "versions": ["_S.png", "_U.png"],
+    "versions": ["_U.png", "_S.png"],
     "tags": ["EN", "Advent", "歌", "鳥"],
     "effectType": "Collaboration"
   },
@@ -926,7 +926,7 @@
     "grade": "debut",
     "searchKeywords": ["ネリッサ・レイヴンクロフト", "納瑞莎·雷文克羅夫特", "Nerissa Ravencroft"],
     "skillType": "",
-    "versions": ["_S.png", "_C.png"],
+    "versions": ["_C.png", "_S.png"],
     "tags": ["EN", "Advent", "歌", "鳥"],
     "effectType": "Collaboration"
   },
@@ -940,7 +940,7 @@
     "grade": "1st",
     "searchKeywords": ["ネリッサ・レイヴンクロフト", "納瑞莎·雷文克羅夫特", "Nerissa Ravencroft"],
     "skillType": "",
-    "versions": ["_S.png", "_U.png"],
+    "versions": ["_U.png", "_S.png"],
     "tags": ["EN", "Advent", "歌", "鳥"],
     "effectType": ""
   },
@@ -954,7 +954,7 @@
     "grade": "1st",
     "searchKeywords": ["ネリッサ・レイヴンクロフト", "納瑞莎·雷文克羅夫特", "Nerissa Ravencroft"],
     "skillType": "",
-    "versions": ["_SR.png", "_R.png"],
+    "versions": ["_R.png", "_SR.png"],
     "tags": ["EN", "Advent", "歌", "鳥"],
     "effectType": "Bloom"
   },
@@ -968,7 +968,7 @@
     "grade": "2nd",
     "searchKeywords": ["ネリッサ・レイヴンクロフト", "納瑞莎·雷文克羅夫特", "Nerissa Ravencroft"],
     "skillType": "",
-    "versions": ["_SR.png", "_UR.png", "_RR.png"],
+    "versions": ["_RR.png", "_RR_02.png", "_SR.png", "_SR_02.png", "_UR.png", "_UR_02.png"],
     "tags": ["EN", "Advent", "歌", "鳥"],
     "effectType": "Gift"
   },
@@ -982,7 +982,7 @@
     "grade": "2nd",
     "searchKeywords": ["常闇トワ", "常闇永遠", "Tokoyami Towa"],
     "skillType": "",
-    "versions": ["_SR.png", "_R.png"],
+    "versions": ["_R.png", "_SR.png"],
     "tags": ["JP", "4期生", "歌", "射手"],
     "effectType": "Bloom"
   },
@@ -996,7 +996,7 @@
     "grade": "debut",
     "searchKeywords": ["不知火フレア", "不知火芙蕾雅", "Shiranui Flare"],
     "skillType": "",
-    "versions": ["_S.png", "_U.png"],
+    "versions": ["_U.png", "_S.png"],
     "tags": ["JP", "3期生", "半精靈"],
     "effectType": "Collaboration"
   },
@@ -1010,7 +1010,7 @@
     "grade": "debut",
     "searchKeywords": ["不知火フレア", "不知火芙蕾雅", "Shiranui Flare"],
     "skillType": "",
-    "versions": ["_S.png", "_C.png"],
+    "versions": ["_C.png", "_S.png"],
     "tags": ["JP", "3期生", "半精靈"],
     "effectType": "Collaboration"
   },
@@ -1024,7 +1024,7 @@
     "grade": "1st",
     "searchKeywords": ["不知火フレア", "不知火芙蕾雅", "Shiranui Flare"],
     "skillType": "",
-    "versions": ["_S.png", "_U.png"],
+    "versions": ["_U.png", "_S.png"],
     "tags": ["JP", "3期生", "半精靈"],
     "effectType": "Gift"
   },
@@ -1038,7 +1038,7 @@
     "grade": "1st",
     "searchKeywords": ["不知火フレア", "不知火芙蕾雅", "Shiranui Flare"],
     "skillType": "",
-    "versions": ["_SR.png", "_R.png"],
+    "versions": ["_R.png", "_SR.png"],
     "tags": ["JP", "3期生", "半精靈"],
     "effectType": "Gift"
   },
@@ -1052,7 +1052,7 @@
     "grade": "2nd",
     "searchKeywords": ["不知火フレア", "不知火芙蕾雅", "Shiranui Flare"],
     "skillType": "",
-    "versions": ["_SR.png", "_RR.png", "_UR.png"],
+    "versions": ["_RR.png", "_SR.png", "_UR.png"],
     "tags": ["JP", "3期生", "半精靈"],
     "effectType": "Gift"
   },
@@ -1247,7 +1247,7 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["tool", "ツール", "白銀ノエルのメイス", "白銀諾艾爾的錘矛", "藝能傷害+", "白銀ノエル", "白銀諾艾爾", "Shirogane Noel"],
-    "versions": ["_S.png", "_U.png"],
+    "versions": ["_U.png", "_S.png"],
     "tags": ""
   },
   {
@@ -1258,7 +1258,7 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["tool", "ツール", "アキ・ローゼンタールの斧", "亞綺·羅森塔爾的斧頭", "藝能傷害+", "アキ・ローゼンタール", "亞綺·羅森塔爾", "Aki Rosenthal"],
-    "versions": ["_S.png", "_U.png"],
+    "versions": ["_U.png", "_S.png"],
     "tags": ""
   },
   {
@@ -1269,7 +1269,7 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["tool", "ツール", "ネリッサ・レイヴンクロフトの杖", "納瑞莎·雷文克羅夫特的杖", "藝能傷害+", "ネリッサ・レイヴンクロフト", "納瑞莎·雷文克羅夫特", "Nerissa Ravencroft"],
-    "versions": ["_S.png", "_U.png"],
+    "versions": ["_U.png", "_S.png"],
     "tags": ""
   },
   {
@@ -1280,7 +1280,7 @@
     "color": "",
     "grade": "",
     "searchKeywords": ["tool", "ツール", "角巻わためのハープ", "角卷綿芽的豎琴", "藝能傷害+", "角巻わため", "角卷綿芽", "Tsunomaki Watame"],
-    "versions": ["_S.png", "_U.png"],
+    "versions": ["_U.png", "_S.png"],
     "tags": ""
   },
   {
@@ -1357,5 +1357,16 @@
     "versions": ["_02_C.png", "_HR.png"],
     "tags": ["JP", "3期生", "半精靈"],
     "effectType": ""
+  },
+  {
+    "id": "hBP02-085",
+    "type": "Support",
+    "name": "HOLOLIVE FANTASY",
+    "imageFolder": "hBP05/",
+    "color": "",
+    "grade": "",
+    "searchKeywords": ["event", "イベント", "HOLOLIVE FANTASY", "加入手牌"],
+    "versions": ["_HR.png"],
+    "tags": ["3期生", "LIMITED"]
   }
 ]
