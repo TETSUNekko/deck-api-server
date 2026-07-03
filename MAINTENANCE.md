@@ -1,5 +1,50 @@
 # HoloTCG Online 維護備忘錄
 
+## 官方卡圖自動同步工具（2026-07-03 新增）
+
+專案根目錄有兩支配套腳本，取代過去手動從官網一張張下載比對的流程：
+
+### sync-cards.cjs — 比對並下載缺圖
+```bash
+node sync-cards.cjs             # dry-run：列出官方有、本地缺的卡圖
+node sync-cards.cjs --download  # 下載 PNG 到 new_cards/（已 gitignore）並自動轉 webp 放進 webpcards/
+```
+- 資料來源：官方 decklog API `POST https://decklog.bushiroad.com/system/app/api/search/9`（免登入，需帶 Referer header），每頁 30 張分頁抓完
+- 圖片 CDN：`https://hololive-official-cardgame.com/wp-content/images/cardlist/{資料夾}/{檔名}.png`
+- 比對方式：**只比對檔名**（官方與本地資料夾名不一致，同卡可能在多個資料夾）
+- 資料夾對應：官方 `hWF01`＝本地 `Twin_Wafer`、官方 `hCO01`＝本地 `2025Live_Set`（寫在腳本的 `FOLDER_ALIAS`）
+- 轉檔依賴 ImageMagick（路徑寫在腳本開頭的 `MAGICK`）
+- `sele` 開頭的教學卡會自動跳過
+
+### update-versions.cjs — 補 JSON 資料
+```bash
+node update-versions.cjs
+```
+- 掃描 webpcards 全部圖檔，把 JSON `versions` 缺少的版本自動併入（依 VERSION_ORDER 排序）
+- 圖片所在資料夾若沒有對應 entry，**自動從其他彈數複製最豐富的一筆**（name/tags/effectType 都會帶過來）當 reprint entry
+- 找不到任何基礎資料的卡會列出來，需手動建立
+- 資料夾 → JSON 檔的對應寫在腳本的 `FOLDER_JSON`，**新增彈數時記得補這張表**
+
+### 新彈 / 新卡圖標準流程
+```bash
+node sync-cards.cjs --download   # 抓缺圖
+node update-versions.cjs         # 補 JSON versions / reprint entry
+cd client && npm run build:index # 重建圖片索引
+npm run build                    # 打包
+# 然後照常 deploy（cd client/dist → git add/commit/push origin gh-pages）
+```
+若出現全新資料夾（如 hCS01），另需：
+1. `update-versions.cjs` 的 `FOLDER_JSON` 加對應（會自動建新 JSON 檔）
+2. `cardsConfig.jsx` import 新 JSON 並加進 `cardSets`
+3. `SearchBar.jsx` 的 `SERIES_LIST` 加一筆
+
+### API 額外用途
+搜尋參數支援效果文字比對（`keyword_type: ["text"]`），可用來稽核資料缺漏，
+例如搜「LIMITED」可以拿到官方完整限制卡清單，跟我們 JSON 的 tags 比對。
+（2026-07-02 就是靠這個發現 6 張卡全部檔案都缺 LIMITED tag）
+
+---
+
 ## 2025-05-22 修復紀錄
 
 ### 修改內容
@@ -49,7 +94,7 @@
 
 ---
 
-## 新增卡片 SOP
+## 新增卡片 SOP（手動流程，一般情況請優先用上方的自動同步工具）
 
 ### 1. 新增卡組
 1. 在 `client/public/webpcards/{setName}/` 放入 `.webp` 圖檔
