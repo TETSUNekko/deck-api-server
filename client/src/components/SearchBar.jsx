@@ -53,6 +53,7 @@ const SERIES_LIST = [
   { value: "energy", label: "エールカード" },
   { value: "PC_Set", label: "オフィシャルホロカコレクション-PCセット-" },
   { value: "2025Live_Set", label: "オフィシャルホロカコレクション-2025ライブセット-" },
+  { value: "hCS01", label: "hCS01　オフィシャルホロカコレクション -1st Anniversary-" },
   { value: "Twin_Wafer", label: "ツインウエハース" },
 ];
 
