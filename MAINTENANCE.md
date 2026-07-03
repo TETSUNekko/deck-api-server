@@ -38,6 +38,14 @@ npm run build                    # 打包
 2. `cardsConfig.jsx` import 新 JSON 並加進 `cardSets`
 3. `SearchBar.jsx` 的 `SERIES_LIST` 加一筆
 
+### 生日卡（hBD）注意事項
+生日卡**不在 decklog API 裡**（非構築合法卡），sync-cards.cjs 抓不到。
+要用 `fetch-hbd24.cjs`：從官方卡表網站搜尋頁爬取
+（`hololive-official-cardgame.com/cardlist/cardsearch/?keyword=hBD24&...&view=text`，有分頁），
+自動下載圖檔＋建 JSON entry（color/譯名從同名主推卡複製）。
+hBD25 出了之後把腳本裡的系列代號改掉重跑即可。
+生日卡是全年陸續發售的，建議每隔幾個月跑一次確認有沒有新卡。
+
 ### API 額外用途
 搜尋參數支援效果文字比對（`keyword_type: ["text"]`），可用來稽核資料缺漏，
 例如搜「LIMITED」可以拿到官方完整限制卡清單，跟我們 JSON 的 tags 比對。
