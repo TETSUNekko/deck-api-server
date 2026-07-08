@@ -38,6 +38,13 @@ npm run build                    # 打包
 2. `cardsConfig.jsx` import 新 JSON 並加進 `cardSets`
 3. `SearchBar.jsx` 的 `SERIES_LIST` 加一筆
 
+### 官方資料庫已知錯誤（sync-cards.cjs 內建黑名單）
+- `hBP05/hBP02-085_HR.png`（2026-07-03 發現）：官方 decklog 的重複記錄，卡號掛 hBP02-085（HOLOLIVE FANTASY），
+  圖片實際是 **hBP02-065 ネリッサ・レイヴンクロフト 的 HR 卡**（卡面右下角編號可證）。
+  官方 API 中 hBP02-085 只有 U/S/P 版本，沒有 HR。
+  誤下載會讓 ネリッサ 的圖繼承 HOLOLIVE FANTASY 的 LIMITED tag，出現在錯誤的篩選結果。
+  已加入 sync-cards.cjs 的 `BLACKLIST`，若官方之後修正可移除。
+
 ### 生日卡（hBD）注意事項
 生日卡**不在 decklog API 裡**（非構築合法卡），sync-cards.cjs 抓不到。
 要用 `fetch-hbd24.cjs`：從官方卡表網站搜尋頁爬取
