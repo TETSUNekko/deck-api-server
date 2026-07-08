@@ -1357,16 +1357,5 @@
     "versions": ["_02_C.png", "_HR.png"],
     "tags": ["JP", "3期生", "半精靈"],
     "effectType": ""
-  },
-  {
-    "id": "hBP02-085",
-    "type": "Support",
-    "name": "HOLOLIVE FANTASY",
-    "imageFolder": "hBP05/",
-    "color": "",
-    "grade": "",
-    "searchKeywords": ["event", "イベント", "HOLOLIVE FANTASY", "加入手牌"],
-    "versions": ["_HR.png"],
-    "tags": ["3期生", "LIMITED"]
   }
 ]

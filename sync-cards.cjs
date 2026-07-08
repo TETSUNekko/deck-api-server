@@ -50,9 +50,14 @@ async function main() {
   }
   console.log(`本地卡圖總數: ${local.size}`);
 
+  // 官方資料庫已知錯誤，不要下載
+  const BLACKLIST = new Set([
+    'hBP05/hBP02-085_HR.png', // 檔名打錯的重複記錄，實際是 hBP02-065_HR ネリッサ
+  ]);
+
   // 3. 比對（用檔名，不含資料夾）；sele 開頭是教學卡，跳過
   const missing = [...official.keys()]
-    .filter(img => !img.startsWith('sele'))
+    .filter(img => !img.startsWith('sele') && !BLACKLIST.has(img))
     .filter(img => !local.has(path.basename(img, '.png')))
     .sort();
   if (!missing.length) {

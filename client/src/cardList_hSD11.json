@@ -190,7 +190,7 @@
     "grade": "",
     "searchKeywords": ["staff", "スタッフ", "春先のどか"],
     "versions": ["_C.png"],
-    "tags": ""
+    "tags": ["LIMITED"]
   },
   {
     "id": "hSD01-017",
@@ -201,7 +201,7 @@
     "grade": "",
     "searchKeywords": ["staff", "スタッフ", "マネちゃん"],
     "versions": ["_C.png"],
-    "tags": ""
+    "tags": ["LIMITED"]
   },
   {
     "id": "hSD01-019",
@@ -212,6 +212,6 @@
     "grade": "",
     "searchKeywords": ["item", "アイテム", "スゴイパソコン", "厲害電腦"],
     "versions": ["_C_02.png"],
-    "tags": ""
+    "tags": ["LIMITED"]
   }
 ]

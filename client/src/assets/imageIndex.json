@@ -964,7 +964,6 @@
     "hBP02-014_HR@hBP05": "hBP05/hBP02-014_HR.webp",
     "hBP02-065_02_C@hBP05": "hBP05/hBP02-065_02_C.webp",
     "hBP02-065_HR@hBP05": "hBP05/hBP02-065_HR.webp",
-    "hBP02-085_HR@hBP05": "hBP05/hBP02-085_HR.webp",
     "hBP05-001_OSR@hBP05": "hBP05/hBP05-001_OSR.webp",
     "hBP05-001_OUR@hBP05": "hBP05/hBP05-001_OUR.webp",
     "hBP05-002_OSR@hBP05": "hBP05/hBP05-002_OSR.webp",
@@ -3896,8 +3895,7 @@
       "_U",
       "_U_02",
       "_S",
-      "_02_P",
-      "_HR"
+      "_02_P"
     ],
     "hBP02-086": [
       "_C",

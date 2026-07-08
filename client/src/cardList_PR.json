@@ -1225,7 +1225,7 @@
     "grade": "",
     "searchKeywords": ["event", "イベント", "凸待ち"],
     "versions": ["_P_2.png", "_P_1.png", "_P_3.png"],
-    "tags": ""
+    "tags": ["LIMITED"]
   },
   {
     "id": "hBP03-093",
@@ -1598,7 +1598,7 @@
     "grade": "",
     "searchKeywords": ["staff", "スタッフ", "春先のどか"],
     "versions": ["_P.png", "_P_02.png"],
-    "tags": ""
+    "tags": ["LIMITED"]
   },
   {
     "id": "hSD01-017",
@@ -1609,7 +1609,7 @@
     "grade": "",
     "searchKeywords": ["staff", "スタッフ", "マネちゃん"],
     "versions": ["_P.png"],
-    "tags": ""
+    "tags": ["LIMITED"]
   },
   {
     "id": "hSD01-018",
@@ -1659,7 +1659,7 @@
     "grade": "",
     "searchKeywords": ["event", "イベント", "いろはにほへっと あやふぶみ"],
     "versions": ["_P.png"],
-    "tags": ""
+    "tags": ["LIMITED"]
   },
   {
     "id": "hSD03-002",
@@ -1768,7 +1768,7 @@
     "grade": "",
     "searchKeywords": ["event", "イベント", "不知火建設"],
     "versions": ["_P.png"],
-    "tags": ""
+    "tags": ["LIMITED"]
   },
   {
     "id": "hSD08-002",
