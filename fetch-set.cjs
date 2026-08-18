@@ -154,9 +154,15 @@ const decode = s => s
   const needTranslation = [];
   const skipped = [];
   for (const c of [...byId.values()].sort((a, b) => a.num.localeCompare(b.num))) {
-    const versions = [...c.versions].sort((a, b) => vr(a) - vr(b) || a.localeCompare(b));
-    // 這彈沒有專屬卡圖（官方沿用原彈圖）→ 不建 entry，原彈已涵蓋
-    if (!versions.length) { skipped.push(`${c.num}  ${c.name}`); continue; }
+    let versions = [...c.versions].sort((a, b) => vr(a) - vr(b) || a.localeCompare(b));
+    // 官方沿用原彈卡圖（沒出新圖）→ 仍要建 entry，否則彈數篩選會漏掉這張，
+    // 但卡圖要從原彈複製一份進本彈資料夾（本站慣例：收錄在哪彈就複製到哪個資料夾）
+    if (!versions.length && c.otherFolders.size) {
+      const [srcFolder, ver] = [...c.otherFolders.entries()][0];
+      versions = [ver];
+      skipped.push({ num: c.num, name: c.name, from: srcFolder, file: c.num + ver.replace('.png', '') });
+    }
+    if (!versions.length) continue;
 
     const color = COLOR[c.colorJa] || '';
     const exist = existingById.get(c.num);
@@ -215,13 +221,11 @@ const decode = s => s
     needTranslation.forEach(t => console.log('  ' + t));
   }
   if (skipped.length) {
-    console.log(`\nℹ️ 以下 ${skipped.length} 張收錄於本彈但沿用原彈卡圖，未建 entry（原彈已涵蓋）:`);
-    skipped.forEach(s => console.log('  ' + s));
-  }
-  const cross = [...byId.values()].filter(c => c.otherFolders.size);
-  if (cross.length) {
-    console.log(`\nℹ️ 以下卡片有其他資料夾的版本，跑 update-versions.cjs 會自動建對應 entry:`);
-    cross.forEach(c => c.otherFolders.forEach((v, f) => console.log(`  ${c.num}${v.replace('.png','')} → ${f}`)));
+    console.log(`\n⚠️ 以下 ${skipped.length} 張官方沿用原彈卡圖，entry 已建但**卡圖要手動複製進本彈資料夾**:`);
+    skipped.forEach(s => console.log(`  ${s.file}.webp   ${s.from}/ → ${SET}/   (${s.name})`));
+    console.log(`  一鍵複製（PowerShell）:`);
+    console.log(`  $w="client/public/webpcards"; ` + skipped.map(s =>
+      `cp "$w/${s.from}/${s.file}.webp" "$w/${SET}/"`).join('; '));
   }
 
   if (WRITE) {
