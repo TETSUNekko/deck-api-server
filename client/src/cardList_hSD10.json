@@ -146,7 +146,7 @@
     "grade": "",
     "searchKeywords": ["event", "イベント", "WHAT'S UP!!!!! KEEEEEP GROWING!!!!!"],
     "versions": ["_U.png"],
-    "tags": ["LIMITED", "FLOW GLOW"]
+    "tags": ["LIMITED"]
   },
   {
     "id": "hSD10-012",
@@ -157,7 +157,7 @@
     "grade": "",
     "searchKeywords": ["event", "イベント", "FLOW GLOW"],
     "versions": ["_U.png"],
-    "tags": ["LIMITED", "FLOW GLOW"]
+    "tags": ["LIMITED"]
   },
   {
     "id": "hSD10-013",
@@ -168,7 +168,7 @@
     "grade": "",
     "searchKeywords": ["tool", "ツール", "ふぐ太郎", "河豚太郎"],
     "versions": ["_C.png"],
-    "tags": ["FLOW GLOW"]
+    "tags": []
   },
   {
     "id": "hSD01-016",

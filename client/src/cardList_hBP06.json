@@ -100,7 +100,7 @@
     "id": "hBP02-016",
     "type": "Member",
     "name": "白銀ノエル",
-    "hp": "",
+    "hp": "130",
     "imageFolder": "hBP06/",
     "color": ["white"],
     "grade": "1st",
@@ -324,7 +324,7 @@
     "id": "hBP01-041",
     "type": "Member",
     "name": "兔田ぺこら",
-    "hp": "",
+    "hp": "90",
     "imageFolder": "hBP06/",
     "color": ["green"],
     "grade": "1st",
@@ -535,7 +535,7 @@
     "id": "hBP02-031",
     "type": "Member",
     "name": "宝鐘マリン",
-    "hp": "",
+    "hp": "130",
     "imageFolder": "hBP06/",
     "color": ["red"],
     "grade": "1st",
@@ -1294,7 +1294,7 @@
     "hp": "140",
     "imageFolder": "hBP06/",
     "color": ["yellow"],
-    "grade": "debut",
+    "grade": "1st",
     "searchKeywords": ["大空スバル", "大空昴", "Ozora Subaru"],
     "skillType": "",
     "versions": ["_U.png", "_S.png"],
@@ -1361,7 +1361,7 @@
     "id": "hSD07-007",
     "type": "Member",
     "name": "不知火フレア",
-    "hp": "",
+    "hp": "150",
     "imageFolder": "hBP06/",
     "color": ["yellow"],
     "grade": "1st",
@@ -1438,7 +1438,7 @@
     "grade": "",
     "searchKeywords": ["event", "イベント", "ドローイングストリーム", "繪畫直播"],
     "versions": ["_C.png", "_S.png"],
-    "tags": ["LIMITED", "畫"]
+    "tags": ["LIMITED"]
   },
   {
     "id": "hBP06-090",
@@ -1460,7 +1460,7 @@
     "grade": "",
     "searchKeywords": ["event", "イベント", "ホロライブ1期生", "Hololive 1期生"],
     "versions": ["_U.png", "_S.png"],
-    "tags": ["LIMITED", "1期生"]
+    "tags": ["LIMITED"]
   },
   {
     "id": "hBP06-092",
@@ -1482,7 +1482,7 @@
     "grade": "",
     "searchKeywords": ["event", "イベント", "山田ルイ54世", "山田琉依54世"],
     "versions": ["_U.png"],
-    "tags": ["LIMITED", "秘密結社holoX"]
+    "tags": ["LIMITED"]
   },
   {
     "id": "hBP06-094",
@@ -1504,7 +1504,7 @@
     "grade": "",
     "searchKeywords": ["event", "イベント", "IDENTIFY -AREA 15-"],
     "versions": ["_U.png"],
-    "tags": ["LIMITED", "ID1期生"]
+    "tags": ["LIMITED"]
   },
   {
     "id": "hBP06-096",

@@ -312,7 +312,7 @@
     "id": "hBP01-044",
     "type": "Member",
     "name": "AZKi",
-    "hp": "",
+    "hp": "100",
     "imageFolder": "hBP07/",
     "color": ["green"],
     "grade": "debut",
@@ -326,7 +326,7 @@
     "id": "hBP02-024",
     "type": "Member",
     "name": "大神ミオ",
-    "hp": "",
+    "hp": "90",
     "imageFolder": "hBP07/",
     "color": ["green"],
     "grade": "debut",
@@ -536,7 +536,7 @@
     "id": "hBP03-025",
     "type": "Member",
     "name": "さくらみこ",
-    "hp": "",
+    "hp": "100",
     "imageFolder": "hBP07/",
     "color": ["red"],
     "grade": "debut",
@@ -550,7 +550,7 @@
     "id": "hBP03-031",
     "type": "Member",
     "name": "赤井はあと",
-    "hp": "",
+    "hp": "100",
     "imageFolder": "hBP07/",
     "color": ["red"],
     "grade": "debut",
@@ -760,7 +760,7 @@
     "id": "hBP01-092",
     "type": "Member",
     "name": "オーロ・クロニー",
-    "hp": "",
+    "hp": "70",
     "imageFolder": "hBP07/",
     "color": ["blue"],
     "grade": "debut",
@@ -774,7 +774,7 @@
     "id": "hBP04-050",
     "type": "Member",
     "name": "シオリ・ノヴェラ",
-    "hp": "",
+    "hp": "110",
     "imageFolder": "hBP07/",
     "color": ["blue"],
     "grade": "debut",
@@ -1131,7 +1131,7 @@
     "searchKeywords": ["ラプラス・ダークネス", "拉普拉斯·達克尼斯", "Laplus Darknesss"],
     "skillType": "",
     "versions": ["_R.png", "_SR.png"],
-    "tags": ["JP", "秘密結社holoX", "射手"],
+    "tags": ["JP", "秘密結社holoX", "射手", "歌"],
     "effectType": "Collaboration"
   },
   {
@@ -1145,7 +1145,7 @@
     "searchKeywords": ["ラプラス・ダークネス", "拉普拉斯·達克尼斯", "Laplus Darknesss"],
     "skillType": "",
     "versions": ["_RR.png", "_SR.png", "_UR.png"],
-    "tags": ["JP", "秘密結社holoX", "射手"],
+    "tags": ["JP", "秘密結社holoX", "射手", "歌"],
     "effectType": "Bloom"
   },
   {
@@ -1489,7 +1489,7 @@
     "grade": "",
     "searchKeywords": ["event", "イベント", "時の支配者 -Promise-", "時之支配者 -Promise-"],
     "versions": ["_U.png"],
-    "tags": ["LIMITED", "Promise"]
+    "tags": ["LIMITED"]
   },
   {
     "id": "hBP07-098",
@@ -1676,6 +1676,6 @@
     "grade": "",
     "searchKeywords": ["tool", "ツール", "ふぐ太郎", "河豚太郎"],
     "versions": ["_02_C.png"],
-    "tags": ["FLOW GLOW"]
+    "tags": []
   }
 ]

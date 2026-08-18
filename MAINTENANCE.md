@@ -58,6 +58,34 @@ node sync-cards.cjs --download  # 下載 PNG 到 new_cards/（已 gitignore）�
 
 官方卡表網站兩者都有，所以 `fetch-set.cjs` 走網站爬蟲而非 API。
 
+### audit-cards.cjs — 拿官方卡表對帳全站資料（2026-08-18 新增）
+```bash
+node audit-cards.cjs               # 只回報差異
+node audit-cards.cjs --fix-tags    # 補「官方有、我們沒有」的 tags
+node audit-cards.cjs --fix-hp      # 補 hp 空白（不覆蓋已有數值）
+node audit-cards.cjs --refetch     # 忽略快取重抓官方（約 171 頁、2 分鐘）
+```
+- 官方資料快取在 `.official-cards.json`（已 gitignore），改 `TAG` 對照表**不必重抓**
+  （標籤是從快取的 `rawTags` 重算的）
+- 報告分五段：① 缺漏 tags ② 多出來的 tags ③ type/grade/hp/color 不符
+  ④ 官方查無此卡號 ⑤ 未對應的官方標籤
+- **同一張卡「同時有缺又有多」會標 ⚠️ 且不自動補**——那通常是抄錯（例如期別寫錯），
+  自動補只會變成兩個都在
+- **第 ⑤ 段是零才代表第 ① 段可信**：對不到的官方標籤會被當成「官方沒有這個 tag」
+
+⚠️ `TAG` 對照表在 `fetch-set.cjs` 和 `audit-cards.cjs` **各有一份，要同步改**。
+2026-08-18 對帳抓出 4 個原本錯的對應：
+
+| 原本以為 | 官方實際 | 本站標籤 |
+|---|---|---|
+| `#言語学` | `#語学` | 語言學 |
+| `#白上の者` | `#白上'sキャラクター` | 白上的角色 |
+| （無） | `#FLOW GLOW` | FLOW GLOW |
+| （無） | `#カエラ'sアームズ` | 卡埃拉的武器 |
+
+`#FLOW GLOW` 是個坑：**官方標籤含空白**，而解析用的 `#[^\s#]+` 遇到空白就斷，
+只會切出 `FLOW`。所以對照表裡是 `'FLOW': 'FLOW GLOW'`。
+
 ### update-versions.cjs — 補 JSON 資料
 ```bash
 node update-versions.cjs
@@ -134,9 +162,8 @@ npm run build
 
 多色卡（例如 `["red","blue"]`）依既有資料是插在第一個顏色的區塊內。
 
-**現況：`cardList_hEB01.json` 還沒排序**，目前是照卡號 `localeCompare` 排的
-（`fetch-set.cjs` 產出時的預設），所以型別和顏色是交錯的。
-`fetch-set.cjs` 的輸出排序之後要改成上面的規則。
+`fetch-set.cjs` 產出時已直接照這個規則排序（步驟 5），新彈不需要再手動排。
+`cardList_hEB01.json` 已於 2026-08-18 補排完成。
 
 ### 收工前跑一次健康檢查
 用本文件最後的健檢腳本，兩個數字都要是 0：
@@ -225,6 +252,88 @@ hBD25 出了之後把腳本裡的系列代號改掉重跑即可。
 ### 跨 Set 的復刻牌
 卡片 ID 和 `imageFolder` 不同是**正常設計**，代表這張牌以不同圖在另一個 set 出現。例如：
 - `hBP01-104` 在 `hSD11.json` 中 `imageFolder: hSD11/` → 使用 hSD11 資料夾內的圖
+
+### 同卡號的 tags 只有一份（2026-08-18 釐清）
+**同一個卡號的 tags 是固定的，不會因為收錄在哪一彈而不同。** 同角色但 tags 不同
+（例如有沒有 `#夏季`）的是**不同卡號的不同卡**，不要混為一談。
+
+目前 36 個 cardList JSON 共 1816 筆 entry、1262 個唯一卡號（**與官方卡表的卡號數完全相同**），
+其中 554 筆是復刻重複。
+
+### 2026-08-18 全站對帳結果（`audit-cards.cjs`）
+**全部修完，四個項目現在都是 0。** 修正內容：
+
+| 類型 | 筆數 | 內容 |
+|---|---|---|
+| tags 缺漏 | 22 | 最大宗是 hBP03 的 8 張支援卡 + hPR-002 漏 `#LIMITED`；hPR-001 さくらみこ 整組 tags 是空的 |
+| hp 空白 | 683 | 幾乎都是 PR / TwinWafer 的復刻 entry |
+| 期別抄錯 | 6 | hSD19-005~009 大空スバル 寫成 3期生/4期生 → **2期生**；hBP05-072 角巻わため 寫成 Gamers → **4期生** |
+| grade 抄錯 | 5 | hBP02-025 大神ミオ（hBP02 + TwinWafer）、hBP03-032 赤井はあと、hBP06-079 大空スバル、hBP08-016 ときのそら 寫 debut → **1st** |
+| hp 抄錯 | 3 | hBP01-023 ときのそら 110→**210**、hSD14-008 白上フブキ 160→**140**、hSD17-009 星街すいせい 180→**170** |
+| color 抄錯 | 1 | hBD24-055 AZKi purple → **green**（手動改，見下方說明） |
+| 自己加的 tags | 38 | 支援卡上加的主題標籤（`#歌`、`#Promise`、`#秘密結社holoX`、`#FLOW GLOW` 等），官方沒有 → **依指示全部刪除，先讓資料與官方一致**。之後若要重做「支援卡主題搜尋」，要另外設計一套自訂標籤機制，不要混進 `tags` 欄 |
+
+**grade 那 4 張的根因查過了：沒有系統性原因，是各自獨立的抄寫錯誤。**
+驗證方式：全站「官方 1st、且前一號是同角色 debut 卡」的組合共 127 張，只有這 4 張寫錯；
+「有 `_S` 版本的角色卡」共 224 張也沒有相關性。1262 張裡錯 4 張 ≈ 0.3%。
+
+⚠️ **color 不做自動修正**：官方頁面的色彩欄位只抓得到第一個 `<img alt>`，多色卡會漏掉其他顏色，
+自動覆蓋等於把多色卡改成單色。所以 `audit-cards.cjs` 只回報 color 差異，要改請手動。
+
+**新標籤上線時記得同步 `cardsConfig.jsx` 的 `allTags`**，否則篩選下拉選不到
+（這次的 `卡埃拉的武器` 就是這種情況）。檢查指令：
+```bash
+node -e "const fs=require('fs'),p='client/src';const used=new Set();for(const f of fs.readdirSync(p).filter(x=>/^cardList_/.test(x)))for(const c of JSON.parse(fs.readFileSync(p+'/'+f,'utf8')))(Array.isArray(c.tags)?c.tags:[]).forEach(t=>used.add(t));const cfg=fs.readFileSync('client/src/components/cardsConfig.jsx','utf8');const listed=new Set(cfg.match(/export const allTags = \[([\s\S]*?)\];/)[1].match(/\"[^\"]+\"/g).map(x=>x.slice(1,-1)));console.log('資料有、選單沒有:',[...used].filter(t=>!listed.has(t)))"
+```
+
+**tags 來源**：官方卡表網站的 `view=text` 頁面有「タグ」欄（`fetch-set.cjs` 已在抓）；
+**decklog API 沒有 tags 也沒有顏色**。
+
+✅ 全站對帳已於 2026-08-18 執行完畢，見下方 `audit-cards.cjs`。
+
+⚠️ **DeckBuilder 目前無法區分同卡號在不同彈的 tags**：[DeckBuilder.jsx](client/src/components/DeckBuilder/DeckBuilder.jsx)
+的 `baseCardMap` 是用 **id 全域查「tags 最多的那一筆」**，不分 folder。所以只要任一彈
+的 entry tags 較齊全，全部彈的同卡號都會吃到那一份。這也代表**復刻 entry 的
+name / tags / hp / searchKeywords 實際上不會被顯示**——它們只提供 `imageFolder` 的排序位置。
+
+---
+
+## 組牌輔助功能（2026-08-18 新增）
+
+### 篩選條件 ↔ 網址參數
+[DeckBuilder.jsx](client/src/components/DeckBuilder/DeckBuilder.jsx) 的 9 個篩選狀態會同步到網址：
+`?q=&type=&color=&grade=&series=&sub=&ver=&effect=&tag=`
+例：`holotcgtw.com/?series=hBP08&color=blue&grade=1st`
+
+- 等於預設值的參數**不寫進網址**，網址保持乾淨
+- 用 `replaceState` 不是 `pushState`——搜尋框每打一個字都推歷史的話上一頁會按不完，
+  代價是**上一頁不會回到前一個查詢**
+- 新增篩選條件時要同時更新 `FILTER_DEFAULTS` 和寫回網址的那個 `useEffect`，兩邊都要加
+
+### 起手機率 [OddsModal.jsx](client/src/components/DeckBuilder/OddsModal.jsx) + [odds.js](client/src/utils/odds.js)
+超幾何分布，純前端。**不要求牌組滿 50 張**（跟「起手測試」不同，那個要求剛好 50），
+未滿時以目前張數計算並在介面標註。
+
+- `odds.js` 用**對數階乘**算組合數，直接算 C(50,7) 這種會爆 double
+- 自我檢查：`node client/src/utils/odds.test.mjs`，改動 odds.js 後跑一次
+- 目標可選 Bloom 階級 / 顏色 / 標籤 / 指定卡片，下拉**只列牌組裡真的有的**，
+  避免選到永遠 0% 的選項
+
+### 正規牌組檢查 [deckCheck.js](client/src/utils/deckCheck.js)
+**只提示、永不阻擋**——因為很多使用者是拿來查卡而不是組正規牌組。
+底部「檢查」標籤點開才顯示清單，旁邊的「關閉檢查」可整組關掉（存 localStorage `deckCheck`）。
+
+檢查的規則（只放官方明文的**構築**規則，不自己發明）：
+- 主推卡 1 張、主卡組 50 張、能量卡 20 張
+- 同一卡號最多 4 張（不同版本卡圖算同一張）；**能量卡不受此限**
+
+不檢查的：
+- **LIMITED**——那是「1 回合只能用 1 張」的**使用**限制，不是構築限制
+- 卡片顏色與主推的關係——不是構築規則
+
+### 統計列
+[DeckArea.jsx](client/src/components/DeckBuilder/DeckArea.jsx) 主卡組那一列已有 Bloom 階級
+與支援卡分類，2026-08-18 補上**顏色配比**（多色卡每個顏色各算一次，所以總和會大於卡片數）。
 
 ---
 
