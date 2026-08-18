@@ -11,6 +11,7 @@ import { sortDeckByType } from "../../utils/sort";
 import { API_BASE, saveDeck, importDecklog, loadDeck } from "../../utils/api";
 import { Folder } from "lucide-react";
 import DrawHandModal from "./DrawHandModal";
+import OddsModal from "./OddsModal";
 
 const folderRank = (f = "") => {
   if (/^hYS\d+$/i.test(f)) return 100;
@@ -22,6 +23,14 @@ const folderRank = (f = "") => {
   return 999;
 };
 
+// 篩選條件 ↔ 網址參數：可分享、重整不掉、搜尋引擎可收錄
+// ponytail: 用 replaceState 不用 pushState —— 每次打字都推一筆歷史會讓上一頁按不完
+const FILTER_DEFAULTS = {
+  q: "", type: "全部", color: "全部顏色", grade: "全部階級", series: "全部彈數",
+  sub: "全部", ver: "全部版本", effect: "全部效果", tag: "全部標籤",
+};
+const urlParam = (k) => new URLSearchParams(window.location.search).get(k) ?? FILTER_DEFAULTS[k];
+
 function DeckBuilder() {
   // ── 狀態 ────────────────────────────────────────────────
   const [zoomImageUrl, setZoomImageUrl] = useState("");
@@ -30,21 +39,22 @@ function DeckBuilder() {
   const [oshiCards, setOshiCards] = useState([]);
   const [deckCards, setDeckCards] = useState([]);
   const [energyCards, setEnergyCards] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [filterType, setFilterType] = useState("全部");
-  const [filterColor, setFilterColor] = useState("全部顏色");
-  const [filterGrade, setFilterGrade] = useState("全部階級");
-  const [filterSeries, setFilterSeries] = useState("全部彈數");
-  const [supportSubtype, setSupportSubtype] = useState("全部");
-  const [filterVersion, setFilterVersion] = useState("全部版本");
-  const [filterEffect, setFilterEffect] = useState("全部效果");
-  const [selectedTag, setSelectedTag] = useState("全部標籤");
+  const [searchTerm, setSearchTerm] = useState(() => urlParam("q"));
+  const [filterType, setFilterType] = useState(() => urlParam("type"));
+  const [filterColor, setFilterColor] = useState(() => urlParam("color"));
+  const [filterGrade, setFilterGrade] = useState(() => urlParam("grade"));
+  const [filterSeries, setFilterSeries] = useState(() => urlParam("series"));
+  const [supportSubtype, setSupportSubtype] = useState(() => urlParam("sub"));
+  const [filterVersion, setFilterVersion] = useState(() => urlParam("ver"));
+  const [filterEffect, setFilterEffect] = useState(() => urlParam("effect"));
+  const [selectedTag, setSelectedTag] = useState(() => urlParam("tag"));
   const [shareCode, setShareCode] = useState("");
   const [loading, setLoading] = useState(false);
   const [showWelcome, setShowWelcome] = useState(true);
   const [deckVisible, setDeckVisible] = useState(false);
   const [exporting, setExporting] = useState(false);
   const [showDrawHand, setShowDrawHand] = useState(false);
+  const [showOdds, setShowOdds] = useState(false);
 
   // 拖拉分隔線
   const [cardPanelWidth, setCardPanelWidth] = useState(58); // 百分比
@@ -62,6 +72,18 @@ function DeckBuilder() {
     window.addEventListener("resize", handler);
     return () => window.removeEventListener("resize", handler);
   }, []);
+
+  // 篩選條件變動時寫回網址（等於預設值的就不寫，網址保持乾淨）
+  useEffect(() => {
+    const cur = { q: searchTerm, type: filterType, color: filterColor, grade: filterGrade,
+      series: filterSeries, sub: supportSubtype, ver: filterVersion, effect: filterEffect, tag: selectedTag };
+    const sp = new URLSearchParams(window.location.search);
+    for (const [k, v] of Object.entries(cur)) {
+      if (v === FILTER_DEFAULTS[k]) sp.delete(k); else sp.set(k, v);
+    }
+    const qs = sp.toString();
+    window.history.replaceState(null, "", qs ? `?${qs}` : window.location.pathname);
+  }, [searchTerm, filterType, filterColor, filterGrade, filterSeries, supportSubtype, filterVersion, filterEffect, selectedTag]);
 
   // ── 卡片資料（memoized，不隨 state 重算）────────────────
   const allCards = useMemo(() => {
@@ -118,6 +140,7 @@ function DeckBuilder() {
   // ── 過濾（memoized，只在篩選條件變動時重算）─────────────
   const filteredCards = useMemo(() => {
     const seen = new Set();
+    const q = searchTerm.toLowerCase(); // 迴圈外算一次，別在 2000+ 筆裡重算
     return indexedCards.filter((card) => {
       const isEnergy = card.folder === "energy" || card.type === "Energy";
       const matchType =
@@ -125,9 +148,9 @@ function DeckBuilder() {
         card.type === filterType ||
         (filterType === "Energy" && isEnergy);
       const matchSearch =
-        (card.id + (card.version || '')).toLowerCase().includes(searchTerm.toLowerCase()) ||
-        (card.name && card.name.toLowerCase().includes(searchTerm.toLowerCase())) ||
-        (card.searchKeywords && card.searchKeywords.some(k => k.toLowerCase().includes(searchTerm.toLowerCase())));
+        (card.id + (card.version || '')).toLowerCase().includes(q) ||
+        (card.name && card.name.toLowerCase().includes(q)) ||
+        (card.searchKeywords && card.searchKeywords.some(k => k.toLowerCase().includes(q)));
       const matchColor = filterColor === "全部顏色" || (Array.isArray(card.color) && card.color.includes(filterColor));
       const matchGrade = filterGrade === "全部階級" || card.grade === filterGrade;
       const matchSubtype = supportSubtype === "全部" || (Array.isArray(card.searchKeywords) && card.searchKeywords.includes(supportSubtype));
@@ -356,6 +379,7 @@ function DeckBuilder() {
         }}
         deckCount={deckCards.length}
         onDrawHand={() => setShowDrawHand(true)}
+        onOdds={() => setShowOdds(true)}
       />
 
       {/* 主區域 */}
@@ -461,6 +485,10 @@ function DeckBuilder() {
           onClose={() => setShowDrawHand(false)}
           onZoom={handleZoom}
         />
+      )}
+
+      {showOdds && (
+        <OddsModal deckCards={deckCards} onClose={() => setShowOdds(false)} />
       )}
     </div>
   );

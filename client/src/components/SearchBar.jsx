@@ -122,7 +122,7 @@ function SearchBar({
   onExportImage, exporting,
   onExportCode, onImportCode, onClearDeck,
   selectedTag, setSelectedTag, allTags,
-  loading, deckCount, onDrawHand
+  loading, deckCount, onDrawHand, onOdds
 }) {
   const [open, setOpen] = useState(null);
   const [memberSub, setMemberSub] = useState(false);
@@ -381,7 +381,14 @@ function SearchBar({
         >
           🃏 起手測試
         </button>
-                
+
+        <button
+          style={{ ...BTN, borderColor: "#6b3fa0", color: "#c084fc", background: "#2d1e40" }}
+          onClick={() => { track('deck_odds'); onOdds(); }}
+        >
+          🎲 起手機率
+        </button>
+
         <button
           style={{
             ...BTN,

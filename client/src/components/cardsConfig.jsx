@@ -59,7 +59,7 @@ export const allTags = [
   "畫", "歌", "酒", "鳥", "秘密結社holoX", "Gamers", "料理",
   "射手", "語言學", "Advent", "HoloWitch", "魔法", "白上的角色",
   "嬰兒", "DEV_IS", "ReGLOSS", "Justice", "食物", "香菇", "夏季", "小夜璃實驗室",
-  "FLOW GLOW", "Buzz商品"
+  "FLOW GLOW", "Buzz商品", "卡埃拉的武器"
 
 ];
 

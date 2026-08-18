@@ -1,6 +1,16 @@
 // src/components/DeckBuilder/DeckArea.jsx
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import CardImage from "./CardImage";
+import { checkDeck } from "../../utils/deckCheck";
+
+const DECK_COLORS = [
+  { key: "white",  label: "白", color: "#e8e0f0" },
+  { key: "green",  label: "綠", color: "#34d399" },
+  { key: "red",    label: "紅", color: "#f87171" },
+  { key: "blue",   label: "藍", color: "#60a5fa" },
+  { key: "purple", label: "紫", color: "#c084fc" },
+  { key: "yellow", label: "黃", color: "#fbbf24" },
+];
 
 const DeckArea = React.forwardRef(function DeckArea(
   { oshiCards, deckCards, energyCards, setOshiCards, setDeckCards, setEnergyCards, filteredCards, onZoom, deckVisible },
@@ -36,6 +46,23 @@ const DeckArea = React.forwardRef(function DeckArea(
     item:  deckCards.filter(c => c.type === "Support" && (c.searchKeywords || []).some(k => ITEM_KEYS.includes(k))).length,
     other: deckCards.filter(c => c.type === "Support" && !(c.searchKeywords || []).some(k => [...TMF_KEYS, ...ITEM_KEYS].includes(k))).length,
   };
+
+  // 顏色配比：多色卡每個顏色都算一次
+  const colorStats = useMemo(() => {
+    const m = Object.fromEntries(DECK_COLORS.map(c => [c.key, 0]));
+    deckCards.forEach(c => (Array.isArray(c.color) ? c.color : []).forEach(k => { if (k in m) m[k]++; }));
+    return m;
+  }, [deckCards]);
+
+  // 正規牌組檢查：只提示不阻擋，可整組關閉
+  const [checkOn, setCheckOn] = useState(() => localStorage.getItem("deckCheck") !== "off");
+  const [checkOpen, setCheckOpen] = useState(false);
+  useEffect(() => { localStorage.setItem("deckCheck", checkOn ? "on" : "off"); }, [checkOn]);
+  const issues = useMemo(
+    () => (checkOn ? checkDeck(oshiCards, deckCards, energyCards) : []),
+    [checkOn, oshiCards, deckCards, energyCards]
+  );
+  const hasError = issues.some(i => i.level === "error");
 
   if (isMobile && !deckVisible) return null;
 
@@ -177,6 +204,17 @@ const DeckArea = React.forwardRef(function DeckArea(
               </span>
             ))}
           </div>
+          {/* 顏色配比 */}
+          <div style={{ display: "flex", gap: "4px", marginBottom: "6px", flexWrap: "wrap" }}>
+            {DECK_COLORS.filter(c => colorStats[c.key] > 0).map(({ key, label, color }) => (
+              <span key={key} style={{
+                fontSize: "10px", padding: "1px 6px", borderRadius: "8px",
+                background: `${color}18`, border: `1px solid ${color}55`, color,
+              }}>
+                {label} {colorStats[key]}
+              </span>
+            ))}
+          </div>
           {deckCards.length === 0
             ? <p style={{ fontSize: "11px", color: "#3d3155" }}>尚未選擇主卡</p>
             : renderCards(deckCards, setDeckCards, "#c084fc", "deck")
@@ -192,13 +230,56 @@ const DeckArea = React.forwardRef(function DeckArea(
         </div>
       </div>
 
+      {/* 正規檢查（只提示、不阻擋任何操作） */}
+      {checkOn && checkOpen && (
+        <div style={{
+          padding: "8px 12px", borderTop: "1px solid #2d2440",
+          background: "#231d33", flexShrink: 0, maxHeight: "22vh", overflowY: "auto",
+        }}>
+          {issues.length === 0
+            ? <div style={{ fontSize: "11px", color: "#5dbf94" }}>✅ 符合正規牌組規則</div>
+            : issues.map((i, n) => (
+              <div key={n} style={{ fontSize: "11px", color: i.level === "error" ? "#f87171" : "#fbbf24", marginBottom: "3px" }}>
+                {i.level === "error" ? "✕" : "!"} {i.text}
+              </div>
+            ))
+          }
+          <div style={{ fontSize: "10px", color: "#4a3f5c", marginTop: "6px" }}>
+            僅供參考，不影響任何操作。LIMITED 是「1 回合 1 張」的使用限制，不列入構築檢查。
+          </div>
+        </div>
+      )}
+
       {/* 底部總計 */}
       <div style={{
         padding: "8px 12px", borderTop: "1px solid #2d2440",
-        display: "flex", justifyContent: "space-between", flexShrink: 0,
+        display: "flex", justifyContent: "space-between", alignItems: "center", gap: "8px", flexShrink: 0,
       }}>
         <span style={{ fontSize: "11px", color: "#c9b8e0" }}>總計</span>
-        <span style={{ fontSize: "11px", color: "#c084fc", fontWeight: 500 }}>{total} 張</span>
+        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          {checkOn && (
+            <span
+              onClick={() => setCheckOpen(o => !o)}
+              title="正規牌組檢查"
+              style={{
+                fontSize: "10px", padding: "1px 8px", borderRadius: "10px", cursor: "pointer",
+                background: issues.length ? (hasError ? "#3d1e20" : "#3a2f18") : "#1a3028",
+                border: `1px solid ${issues.length ? (hasError ? "#e84040" : "#8a6d2f") : "#2d6e50"}`,
+                color: issues.length ? (hasError ? "#f87171" : "#fbbf24") : "#5dbf94",
+              }}
+            >
+              {issues.length ? `⚠ ${issues.length}` : "✅"} 檢查
+            </span>
+          )}
+          <span
+            onClick={() => { setCheckOn(v => !v); setCheckOpen(false); }}
+            title={checkOn ? "關閉正規檢查（純查卡時用）" : "開啟正規檢查"}
+            style={{ fontSize: "10px", color: "#4a3f5c", cursor: "pointer" }}
+          >
+            {checkOn ? "關閉檢查" : "開啟檢查"}
+          </span>
+          <span style={{ fontSize: "11px", color: "#c084fc", fontWeight: 500 }}>{total} 張</span>
+        </div>
       </div>
     </div>
   );
