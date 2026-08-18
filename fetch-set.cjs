@@ -35,6 +35,11 @@ const TAG = {
   'トリ': '鳥', 'お酒': '酒',
   'サマー': '夏季', '夏': '夏季',
   '白上の者': '白上的角色', 'こよラボ': '小夜璃實驗室', 'Buzzグッズ': 'Buzz商品',
+  // 2026-08-18 全站對帳時發現官方實際寫法與這裡不同，補上（audit-cards.cjs 的 TAG 表要同步）
+  '語学': '語言學',                    // 官方是 #語学，不是 #言語学
+  '白上\'sキャラクター': '白上的角色',   // 官方是 #白上'sキャラクター
+  'FLOW': 'FLOW GLOW',                // 官方寫 #FLOW GLOW，標籤含空白，#[^\s#]+ 只切得到 FLOW
+  'カエラ\'sアームズ': '卡埃拉的武器',
 };
 
 // 支援卡中文譯名（角色卡會自動從既有卡表撈，支援卡沒有前例只能列表）
@@ -198,7 +203,21 @@ const decode = s => s
     }
   }
 
-  // 5. 輸出
+  // 5. 排序：主推 → 角色 → 支援；主推/角色再依白綠紅藍紫黃，同色照卡號
+  //    支援卡不分顏色，維持官方列表順序
+  const TORDER = ['Oshi', 'Member', 'Support'];
+  const CORDER = ['white', 'green', 'red', 'blue', 'purple', 'yellow'];
+  out.forEach((c, i) => c.__i = i);
+  out.sort((a, b) =>
+    TORDER.indexOf(a.type) - TORDER.indexOf(b.type) ||
+    (a.type === 'Support'
+      ? a.__i - b.__i
+      : CORDER.indexOf([].concat(a.color || [])[0]) - CORDER.indexOf([].concat(b.color || [])[0]) ||
+        a.id.localeCompare(b.id))
+  );
+  out.forEach(c => delete c.__i);
+
+  // 6. 輸出
   const body = out.map(e => '  ' + JSON.stringify(e, null, 2).replace(/\n/g, '\n  ')).join(',\n');
   const text = ('[\n' + body + '\n]\n').replace(
     /\[\s+("(?:[^"\\]|\\.)*"(?:,\s+"(?:[^"\\]|\\.)*")*)\s+\]/g,
