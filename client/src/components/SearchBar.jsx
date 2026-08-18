@@ -19,6 +19,7 @@ const BTN = {
 
 const SERIES_LIST = [
   { value: "全部彈數", label: "全部彈數" },
+  { value: "hEB01", label: "hEB01　エクストラブースター サマー・ホログラム" },
   { value: "hYS01", label: "hYS01　エントリーカップ「ブルーミングレディアンス」スタートエールセット" },
   { value: "hBP01", label: "hBP01　ブースターパック「ブルーミングレディアンス」" },
   { value: "hBP02", label: "hBP02　ブースターパック「クインテットスペクトラム」" },

@@ -1893,6 +1893,40 @@
     "hBP03-030_02_SR@hCS01": "hCS01/hBP03-030_02_SR.webp",
     "hBP04-013_02_SR@hCS01": "hCS01/hBP04-013_02_SR.webp",
     "hBP04-059_02_SR@hCS01": "hCS01/hBP04-059_02_SR.webp",
+    "hEB01-001_OSR@hEB01": "hEB01/hEB01-001_OSR.webp",
+    "hEB01-002_OSR@hEB01": "hEB01/hEB01-002_OSR.webp",
+    "hEB01-003_OSR@hEB01": "hEB01/hEB01-003_OSR.webp",
+    "hEB01-004_C@hEB01": "hEB01/hEB01-004_C.webp",
+    "hEB01-005_U@hEB01": "hEB01/hEB01-005_U.webp",
+    "hEB01-006_C@hEB01": "hEB01/hEB01-006_C.webp",
+    "hEB01-007_U@hEB01": "hEB01/hEB01-007_U.webp",
+    "hEB01-008_R@hEB01": "hEB01/hEB01-008_R.webp",
+    "hEB01-009_R@hEB01": "hEB01/hEB01-009_R.webp",
+    "hEB01-010_RR@hEB01": "hEB01/hEB01-010_RR.webp",
+    "hEB01-011_C@hEB01": "hEB01/hEB01-011_C.webp",
+    "hEB01-012_U@hEB01": "hEB01/hEB01-012_U.webp",
+    "hEB01-013_C@hEB01": "hEB01/hEB01-013_C.webp",
+    "hEB01-014_U@hEB01": "hEB01/hEB01-014_U.webp",
+    "hEB01-015_R@hEB01": "hEB01/hEB01-015_R.webp",
+    "hEB01-016_R@hEB01": "hEB01/hEB01-016_R.webp",
+    "hEB01-017_RR@hEB01": "hEB01/hEB01-017_RR.webp",
+    "hEB01-018_C@hEB01": "hEB01/hEB01-018_C.webp",
+    "hEB01-019_U@hEB01": "hEB01/hEB01-019_U.webp",
+    "hEB01-020_C@hEB01": "hEB01/hEB01-020_C.webp",
+    "hEB01-021_U@hEB01": "hEB01/hEB01-021_U.webp",
+    "hEB01-022_R@hEB01": "hEB01/hEB01-022_R.webp",
+    "hEB01-023_R@hEB01": "hEB01/hEB01-023_R.webp",
+    "hEB01-024_RR@hEB01": "hEB01/hEB01-024_RR.webp",
+    "hEB01-025_C@hEB01": "hEB01/hEB01-025_C.webp",
+    "hEB01-026_U@hEB01": "hEB01/hEB01-026_U.webp",
+    "hEB01-027_C@hEB01": "hEB01/hEB01-027_C.webp",
+    "hEB01-028_C@hEB01": "hEB01/hEB01-028_C.webp",
+    "hEB01-029_C@hEB01": "hEB01/hEB01-029_C.webp",
+    "hEB01-030_U@hEB01": "hEB01/hEB01-030_U.webp",
+    "hEB01-031_C@hEB01": "hEB01/hEB01-031_C.webp",
+    "hEB01-032_U@hEB01": "hEB01/hEB01-032_U.webp",
+    "hEB01-033_C@hEB01": "hEB01/hEB01-033_C.webp",
+    "hEB01-034_U@hEB01": "hEB01/hEB01-034_U.webp",
     "hBP01-004_P@hPR": "hPR/hBP01-004_P.webp",
     "hBP01-009_P@hPR": "hPR/hBP01-009_P.webp",
     "hBP01-012_P@hPR": "hPR/hBP01-012_P.webp",
@@ -2100,6 +2134,7 @@
     "hBP07-097_P@hPR": "hPR/hBP07-097_P.webp",
     "hBP07-100_P@hPR": "hPR/hBP07-100_P.webp",
     "hBP08-060_P@hPR": "hPR/hBP08-060_P.webp",
+    "hEB01-012_P@hPR": "hPR/hEB01-012_P.webp",
     "hPR-001_P@hPR": "hPR/hPR-001_P.webp",
     "hPR-002_C@hPR": "hPR/hPR-002.webp",
     "hPR-002_P@hPR": "hPR/hPR-002_P.webp",
@@ -6745,6 +6780,109 @@
       "_C",
       "_C_02",
       "_P"
+    ],
+    "hEB01-001": [
+      "_OSR"
+    ],
+    "hEB01-002": [
+      "_OSR"
+    ],
+    "hEB01-003": [
+      "_OSR"
+    ],
+    "hEB01-004": [
+      "_C"
+    ],
+    "hEB01-005": [
+      "_U"
+    ],
+    "hEB01-006": [
+      "_C"
+    ],
+    "hEB01-007": [
+      "_U"
+    ],
+    "hEB01-008": [
+      "_R"
+    ],
+    "hEB01-009": [
+      "_R"
+    ],
+    "hEB01-010": [
+      "_RR"
+    ],
+    "hEB01-011": [
+      "_C"
+    ],
+    "hEB01-012": [
+      "_U",
+      "_P"
+    ],
+    "hEB01-013": [
+      "_C"
+    ],
+    "hEB01-014": [
+      "_U"
+    ],
+    "hEB01-015": [
+      "_R"
+    ],
+    "hEB01-016": [
+      "_R"
+    ],
+    "hEB01-017": [
+      "_RR"
+    ],
+    "hEB01-018": [
+      "_C"
+    ],
+    "hEB01-019": [
+      "_U"
+    ],
+    "hEB01-020": [
+      "_C"
+    ],
+    "hEB01-021": [
+      "_U"
+    ],
+    "hEB01-022": [
+      "_R"
+    ],
+    "hEB01-023": [
+      "_R"
+    ],
+    "hEB01-024": [
+      "_RR"
+    ],
+    "hEB01-025": [
+      "_C"
+    ],
+    "hEB01-026": [
+      "_U"
+    ],
+    "hEB01-027": [
+      "_C"
+    ],
+    "hEB01-028": [
+      "_C"
+    ],
+    "hEB01-029": [
+      "_C"
+    ],
+    "hEB01-030": [
+      "_U"
+    ],
+    "hEB01-031": [
+      "_C"
+    ],
+    "hEB01-032": [
+      "_U"
+    ],
+    "hEB01-033": [
+      "_C"
+    ],
+    "hEB01-034": [
+      "_U"
     ],
     "hPR-001": [
       "_P"

@@ -29,6 +29,8 @@ import cardListSD17 from "../cardList_hSD17.json";
 import cardListSD18 from "../cardList_hSD18.json";
 import cardListSD19 from "../cardList_hSD19.json";
 
+import cardListEB01 from "../cardList_hEB01.json";
+
 import energyCardList from "../cardList_hY.json";
 import CardListYS01 from "../cardList_hYS01.json";
 import cardListPC from "../cardList_PC_Set.json";
@@ -39,6 +41,7 @@ import cardListTwinWafer from "../cardList_TwinWafer.json";
 
 // 🔹 集中管理所有卡表
 export const cardSets = [
+  cardListEB01,
   cardListBP01, cardListBP02, cardListBP03, cardListBP04, cardListBP05,
   cardListBP06, cardListBP07, cardListBP08,
   cardListSD01, cardListSD02, cardListSD03, cardListSD04, cardListSD05,
@@ -55,7 +58,7 @@ export const allTags = [
   "Myth", "Promise", "colorless", "半精靈", "獸耳", "海",
   "畫", "歌", "酒", "鳥", "秘密結社holoX", "Gamers", "料理",
   "射手", "語言學", "Advent", "HoloWitch", "魔法", "白上的角色",
-  "嬰兒", "DEV_IS", "ReGLOSS", "Justice", "食物", "香菇", "夏季", "可佑理實驗室",
+  "嬰兒", "DEV_IS", "ReGLOSS", "Justice", "食物", "香菇", "夏季", "小夜璃實驗室",
   "FLOW GLOW", "Buzz商品"
 
 ];
@@ -72,11 +75,12 @@ export const changelog = [
   //"12/18 更新內容 : hBP06 「アヤカシヴァーミリオン」卡表上線",
   //"  1/8 更新內容 : 匯出/讀取代碼功能更新完成(可以搜尋任何官方五碼或是本網站六碼代碼)",
   //" 2/24 更新內容 : Advence hSD12 & Justice hSD13 卡表上線",
-  " 3/13 更新內容 : hBP07 卡表上線",
-  "  4/7 更新內容 : 部分BUG修復(新增露天&蝦皮查卡、匯出牌組卡片張數/速度問題、牌組張數細節顯示) ",
+  //" 3/13 更新內容 : hBP07 卡表上線",
+  //"  4/7 更新內容 : 部分BUG修復(新增露天&蝦皮查卡、匯出牌組卡片張數/速度問題、牌組張數細節顯示) ",
   " 4/24 更新內容 : 新增hSD14、hSD15、hSD16、hSD17、hSD18、hSD19卡表上線 ",
   " 5/22 更新內容 : 新增2025 Live Set 卡片、高版本能量卡以及部分缺漏更新",
   " 6/18 更新內容 : hBP08「バウンサーバウンド」 & 「ツインウエハース」餅卡卡片上線 (卡片資料持續更新中) ",
   " 6/19 更新內容 : 限制卡更新；新增連動、開花、贈禮效果搜尋欄；hBP08全卡圖+資料上線 ",
   "  7/3 更新內容 : 網站優化及BUG修正；卡圖補齊，現在各版本卡圖皆可搜尋 ",
+  " 8/18 更新內容 : 博衣こより中文翻譯修正；hEB01卡表上線 "
 ];

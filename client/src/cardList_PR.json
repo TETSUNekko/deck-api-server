@@ -1292,7 +1292,7 @@
     "imageFolder": "hPR/",
     "color": ["white"],
     "grade": "debut",
-    "searchKeywords": ["博衣こより", "博衣可佑理", "Hakui Koyori"],
+    "searchKeywords": ["博衣こより", "博衣小夜璃", "博衣可佑理", "Hakui Koyori"],
     "skillType": "",
     "versions": ["_P.png"],
     "tags": ["JP", "秘密結社holoX", "獸耳"],
@@ -1306,7 +1306,7 @@
     "imageFolder": "hPR/",
     "color": ["white"],
     "grade": "debut",
-    "searchKeywords": ["博衣こより", "博衣可佑理", "Hakui Koyori"],
+    "searchKeywords": ["博衣こより", "博衣小夜璃", "博衣可佑理", "Hakui Koyori"],
     "skillType": "",
     "versions": ["_P_02.png"],
     "tags": ["JP", "秘密結社holoX", "獸耳"],
@@ -2094,7 +2094,7 @@
     "imageFolder": "hPR/",
     "color": ["white"],
     "grade": "2nd",
-    "searchKeywords": ["博衣こより", "博衣可佑理", "Hakui Koyori"],
+    "searchKeywords": ["博衣こより", "博衣小夜璃", "博衣可佑理", "Hakui Koyori"],
     "skillType": "",
     "versions": ["_P.png"],
     "tags": ["JP", "秘密結社holoX", "獸耳"],
@@ -3423,5 +3423,19 @@
     "searchKeywords": ["staff", "スタッフ", "holoAN"],
     "versions": ["_P.png"],
     "tags": ["LIMITED"]
+  },
+  {
+    "id": "hEB01-012",
+    "type": "Member",
+    "name": "宝鐘マリン",
+    "hp": "120",
+    "imageFolder": "hPR/",
+    "color": ["blue"],
+    "grade": "debut",
+    "searchKeywords": ["宝鐘マリン", "寶鐘瑪琳", "Houshou Marin"],
+    "skillType": "",
+    "versions": ["_P.png"],
+    "tags": ["JP", "3期生", "畫", "海", "夏季"],
+    "effectType": "Collaboration"
   }
 ]
