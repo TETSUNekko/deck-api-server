@@ -1,8 +1,39 @@
 # HoloTCG Online 維護備忘錄
 
-## 官方卡圖自動同步工具（2026-07-03 新增）
+## 官方卡圖自動同步工具（2026-07-03 新增，2026-08-18 補 fetch-set.cjs）
 
-專案根目錄有兩支配套腳本，取代過去手動從官網一張張下載比對的流程：
+專案根目錄有數支配套腳本，取代過去手動從官網一張張下載比對的流程。
+**新彈上線用 `fetch-set.cjs`，日常補漏用 `sync-cards.cjs`。**
+
+### fetch-set.cjs — 新彈完整卡表（主力工具）
+```bash
+node fetch-set.cjs hEB01           # 預覽解析結果，不寫檔
+node fetch-set.cjs hEB01 --write   # 產生 client/src/cardList_hEB01.json
+```
+從**官方卡表網站**爬整個商品的收錄清單，自動填卡名／顏色／HP／Bloom 等級／標籤／效果類型。
+
+⚠️ **最重要的一個坑：必須用 `expansion_name` 不能用 `keyword`**
+```
+?expansion_name=hEB01     ← 正確：整個商品的收錄清單（含復刻卡）
+?keyword=hEB01            ← 錯誤：只抓得到卡號開頭是 hEB01 的卡
+```
+新彈通常收錄大量**復刻卡**，它們的卡號是原本的（例如 `hBP01-021`），只是在新彈出了新圖
+（`hEB01/hBP01-021_C_02.png`）。用 keyword 搜會整批漏掉。
+2026-08-18 hEB01 第一次爬就踩到：只抓到 34 張自身卡，實際整彈 93 張。
+
+腳本的其他行為：
+- **復刻卡用「卡號」對既有資料**，不是比對卡名。因為官方與本站的漢字字形可能不同
+  （官方 `兎田ぺこら` U+514E／本站 `兔田ぺこら` U+5154），比對名字會失敗。
+  對到既有 entry 就沿用本站的 `name` 和 `searchKeywords`，字形與譯名自動保持一致。
+- **沒有專屬卡圖的收錄卡會自動跳過**。有些復刻卡官方沿用原彈圖（沒出 `_02` 新圖），
+  這種不該建 entry，原彈的 entry 已經涵蓋，硬建會被健檢判成版本錯誤。
+  hEB01 有 9 張是這種（`hBP01-104/107/118`、`hBP02-079/095`、`hBP03-088`、
+  `hBP04-105`、`hSD01-018`、`hSD06-011`）。
+- 標籤對應表 `TAG` 用的是**官方日文標籤原文**，容易猜錯，跑預覽會列出未對應的。
+  已知易錯：`#トリ`→鳥、`#お酒`→酒、`#ベイビー`→嬰兒、`#シューター`→射手、`#こよラボ`→小夜璃實驗室
+- 支援卡沒有前例可對時要手動補 `NAME_ZH` 表。**中文譯名直接讀 `webpcards/<彈>-trans/` 的翻譯圖**
+  （鳳凰貓做的圖上就印著卡片中文名），不要自己猜。
+- `hp` 會填官方實際數值（UI 沒用到，純 metadata，但有總比空白好）
 
 ### sync-cards.cjs — 比對並下載缺圖
 ```bash
@@ -16,6 +47,13 @@ node sync-cards.cjs --download  # 下載 PNG 到 new_cards/（已 gitignore）�
 - 轉檔依賴 ImageMagick（路徑寫在腳本開頭的 `MAGICK`）
 - `sele` 開頭的教學卡會自動跳過
 
+⚠️ **decklog API 的兩個盲點**（所以新彈不能只靠 sync-cards.cjs）：
+1. **完全不收主推卡**。拿任何主推卡卡號去查都是 0 筆（`hSD01-001` 也一樣）。
+   試過 `card_kind`／`deck_type` 等參數都被忽略，也找不到另外的端點。
+2. **沒有顏色／標籤欄位**，只有不透明的 `p_param`／`g_param`。
+
+官方卡表網站兩者都有，所以 `fetch-set.cjs` 走網站爬蟲而非 API。
+
 ### update-versions.cjs — 補 JSON 資料
 ```bash
 node update-versions.cjs
@@ -25,18 +63,60 @@ node update-versions.cjs
 - 找不到任何基礎資料的卡會列出來，需手動建立
 - 資料夾 → JSON 檔的對應寫在腳本的 `FOLDER_JSON`，**新增彈數時記得補這張表**
 
+### process-images.ps1 — 翻譯圖裁切
+翻譯圖是 1920x1080，取右半 1120x1080 輸出 webp。
+```powershell
+.\process-images.ps1 -InputFolder "C:\...\hEB01" -AutoRoute -DryRun   # 先看分流對不對
+.\process-images.ps1 -InputFolder "C:\...\hEB01" -AutoRoute           # 實際輸出
+```
+`-AutoRoute` 依檔名自動分流到對應的 `<彈數>-trans` 資料夾：
+```
+hEB01-hBP01-021.jpg → hEB01-trans\hBP01-021.webp   （復刻卡：前綴=所在彈數，其餘=卡號）
+hEB01-001.jpg       → hEB01-trans\hEB01-001.webp   （自身卡）
+hBP04-001.jpg       → hBP04-trans\hBP04-001.webp   （散裝檔案依卡號歸位）
+```
+復刻卡要用**原始卡號**當檔名，是為了配合 `ZoomModal.jsx` 的查找順序：
+```js
+primary  = `webpcards/${entry.folder}-trans/${entry.id}.webp`   // 卡圖所在彈數
+fallback = `webpcards/${id前綴}-trans/${entry.id}.webp`          // 卡片原始彈數
+```
+這樣復刻卡會優先吃到新彈版本的翻譯，沒有才 fallback 回原彈的舊翻譯。
+
+⚠️ **這支檔案必須存成 UTF-8 with BOM**。PowerShell 5.1 讀 .ps1 預設當 ANSI(cp950)，
+沒 BOM 的話裡面的中文會亂碼，導致字串沒收尾、整個檔案語法錯誤。
+用別的編輯器改完記得確認編碼。
+
 ### 新彈 / 新卡圖標準流程
 ```bash
-node sync-cards.cjs --download   # 抓缺圖
-node update-versions.cjs         # 補 JSON versions / reprint entry
-cd client && npm run build:index # 重建圖片索引
-npm run build                    # 打包
-# 然後照常 deploy（cd client/dist → git add/commit/push origin gh-pages）
+# 1. 卡表資料（新彈用這支，含主推卡與復刻卡）
+node fetch-set.cjs <彈數>            # 先預覽，確認沒有「未對應標籤」「缺譯名」警告
+node fetch-set.cjs <彈數> --write
+
+# 2. 卡圖：官方 PNG → webp（Q=92 是 ImageMagick 預設值，與既有圖一致）
+#    直接 magick in.png out.webp 即可，不用加參數
+
+# 3. 翻譯圖
+.\process-images.ps1 -InputFolder "<翻譯圖資料夾>" -AutoRoute
+
+# 4. 補其他資料夾的版本（例如 hPR 的促銷版）
+node update-versions.cjs
+
+# 5. 索引 + 打包
+cd client && npm run build:index
+npm run build
+# 然後 deploy（cd client/dist → git add/commit/push origin gh-pages）
 ```
-若出現全新資料夾（如 hCS01），另需：
-1. `update-versions.cjs` 的 `FOLDER_JSON` 加對應（會自動建新 JSON 檔）
-2. `cardsConfig.jsx` import 新 JSON 並加進 `cardSets`
+全新資料夾（如 hEB01、hCS01）另需三處掛載：
+1. `update-versions.cjs` 的 `FOLDER_JSON` 加對應
+2. `cardsConfig.jsx` import 新 JSON 並加進 `cardSets`（放前面＝卡片列表排前面）
 3. `SearchBar.jsx` 的 `SERIES_LIST` 加一筆
+
+新標籤還要加進 `cardsConfig.jsx` 的 `allTags`，否則標籤篩選選單看不到。
+
+### 收工前跑一次健康檢查
+用本文件最後的健檢腳本，兩個數字都要是 0：
+- 孤兒圖片（有圖無索引）→ 忘了跑 `build:index`
+- 版本錯誤（JSON versions 找不到對應圖）→ JSON 寫了不存在的版本，或圖還沒轉 webp
 
 ### 官方資料庫已知錯誤（sync-cards.cjs 內建黑名單）
 - `hBP05/hBP02-085_HR.png`（2026-07-03 發現）：官方 decklog 的重複記錄，卡號掛 hBP02-085（HOLOLIVE FANTASY），
@@ -57,6 +137,20 @@ hBD25 出了之後把腳本裡的系列代號改掉重跑即可。
 搜尋參數支援效果文字比對（`keyword_type: ["text"]`），可用來稽核資料缺漏，
 例如搜「LIMITED」可以拿到官方完整限制卡清單，跟我們 JSON 的 tags 比對。
 （2026-07-02 就是靠這個發現 6 張卡全部檔案都缺 LIMITED tag）
+
+### 譯名變更的處理方式（2026-08-18 博衣こより 案例）
+中文譯名改版時（`可佑理` → `小夜璃`），要動的地方有三處：
+1. **tag**：`cardsConfig.jsx` 的 `allTags` + 各 cardList JSON 的 `tags`
+2. **searchKeywords**：跨檔案散落各處，用腳本掃比較保險
+3. **翻譯圖**：譯者重出的圖蓋掉舊檔（`process-images.ps1 -AutoRoute` 會自動歸位）
+
+`searchKeywords` 的做法是**新譯名排前面、舊譯名保留在後**：
+```json
+["博衣こより", "博衣小夜璃", "博衣可佑理", "Hakui Koyori"]
+```
+直接取代會讓習慣舊稱呼的玩家搜不到，兩個都留沒有副作用。
+
+同一角色的關聯字也要一起改：`AI可佑理`→`AI小夜璃`、`可佑理的助手君`→`小夜璃的助手君`。
 
 ---
 
