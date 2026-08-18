@@ -29,9 +29,10 @@ const TAG = {
   'DEV_IS': 'DEV_IS', 'ReGLOSS': 'ReGLOSS', 'FLOW GLOW': 'FLOW GLOW',
   'ゲーマーズ': 'Gamers', 'Gamers': 'Gamers',
   '秘密結社holoX': '秘密結社holoX', 'ホロウィッチ': 'HoloWitch',
-  '歌': '歌', '酒': '酒', '絵': '畫', '料理': '料理', '海': '海', '鳥': '鳥',
-  'ケモミミ': '獸耳', 'ハーフエルフ': '半精靈', '射手': '射手', '言語学': '語言學',
-  '魔法': '魔法', '赤ちゃん': '嬰兒', '食べ物': '食物', 'きのこ': '香菇',
+  '歌': '歌', '絵': '畫', '料理': '料理', '海': '海',
+  'ケモミミ': '獸耳', 'ハーフエルフ': '半精靈', 'シューター': '射手', '言語学': '語言學',
+  '魔法': '魔法', 'ベイビー': '嬰兒', '食べ物': '食物', 'きのこ': '香菇',
+  'トリ': '鳥', 'お酒': '酒',
   'サマー': '夏季', '夏': '夏季',
   '白上の者': '白上的角色', 'こよラボ': '小夜璃實驗室', 'Buzzグッズ': 'Buzz商品',
 };
@@ -57,12 +58,14 @@ const decode = s => s
 
 (async () => {
   // 1. 抓所有分頁的 <li> 卡片區塊
+  // 用 expansion_name（收錄商品）而非 keyword —— keyword 只抓得到卡號開頭相符的卡，
+  // 會漏掉整彈的復刻卡（例如 hEB01 收錄的 hBP01-021_C_02）
   const blocks = [];
-  for (let p = 1; p <= 10; p++) {
-    const url = `${SITE}/cardlist/cardsearch/?keyword=${SET}&attribute%5B0%5D=all&expansion_name=&card_kind%5B0%5D=all&rare%5B0%5D=all&bloom_level%5B0%5D=all&parallel%5B0%5D=all&view=text&page=${p}`;
+  for (let p = 1; p <= 20; p++) {
+    const url = `${SITE}/cardlist/cardsearch/?keyword=&attribute%5B0%5D=all&expansion_name=${SET}&card_kind%5B0%5D=all&rare%5B0%5D=all&bloom_level%5B0%5D=all&parallel%5B0%5D=all&view=text&page=${p}`;
     const html = await (await fetch(url)).text();
     const parts = html.split('<li><a href="/cardlist/?id=').slice(1);
-    const hits = parts.filter(b => b.includes(`${SET}-`));
+    const hits = parts.filter(b => /<p class="number">/.test(b));
     if (!hits.length) break;
     blocks.push(...hits);
     await new Promise(r => setTimeout(r, 300));
@@ -73,7 +76,7 @@ const decode = s => s
   const unknownTags = new Set();
   for (const b of blocks) {
     const num = (b.match(/<p class="number">([^<]+)<\/p>/) || [])[1];
-    if (!num || !num.startsWith(SET + '-')) continue;
+    if (!num) continue;
 
     const img = (b.match(/images\/cardlist\/([^"]+)\.png/) || [])[1] || '';
     const [folder, file] = img.split('/');
@@ -125,11 +128,16 @@ const decode = s => s
     else e.otherFolders.set(folder, version + '.png');
   }
 
-  // 3. 從既有卡表撈同名角色的中英譯名
+  // 3. 從既有卡表建索引：卡號 → 最完整的既有 entry；卡名 → 中英譯名
+  //    復刻卡優先用「卡號」對既有資料（官方與本站的漢字字形可能不同，例如 兎田/兔田）
+  const existingById = new Map();
   const nameKeywords = new Map();
   for (const f of fs.readdirSync(SRC).filter(f => f.startsWith('cardList_') && f.endsWith('.json'))) {
     for (const c of JSON.parse(fs.readFileSync(path.join(SRC, f), 'utf8'))) {
-      if (c.name && Array.isArray(c.searchKeywords) && !nameKeywords.has(c.name)) {
+      if (!Array.isArray(c.searchKeywords)) continue;
+      const prev = existingById.get(c.id);
+      if (!prev || c.searchKeywords.length > prev.searchKeywords.length) existingById.set(c.id, c);
+      if (c.name && !nameKeywords.has(c.name)) {
         const kw = c.searchKeywords.filter(k => k.length < 25 && !Object.values(SUBTYPE).includes(k) && !Object.keys(SUBTYPE).includes(k));
         if (kw.length) nameKeywords.set(c.name, kw);
       }
@@ -144,12 +152,21 @@ const decode = s => s
 
   const out = [];
   const needTranslation = [];
+  const skipped = [];
   for (const c of [...byId.values()].sort((a, b) => a.num.localeCompare(b.num))) {
     const versions = [...c.versions].sort((a, b) => vr(a) - vr(b) || a.localeCompare(b));
+    // 這彈沒有專屬卡圖（官方沿用原彈圖）→ 不建 entry，原彈已涵蓋
+    if (!versions.length) { skipped.push(`${c.num}  ${c.name}`); continue; }
+
     const color = COLOR[c.colorJa] || '';
+    const exist = existingById.get(c.num);
+    // 沿用本站既有的卡名與關鍵字（官方漢字字形可能不同，例如 兎田/兔田）
+    const name = exist && exist.name ? exist.name : c.name;
 
     let searchKeywords;
-    if (c.type === 'Support') {
+    if (exist) {
+      searchKeywords = [...exist.searchKeywords];
+    } else if (c.type === 'Support') {
       const subtypeJa = Object.keys(SUBTYPE).find(k => SUBTYPE[k] === c.subtype) || '';
       searchKeywords = [c.subtype, subtypeJa, c.name];
       const zh = NAME_ZH[c.name];
@@ -162,15 +179,15 @@ const decode = s => s
     }
 
     if (c.type === 'Oshi') {
-      out.push({ id: c.num, type: 'Oshi', name: c.name, life: '', imageFolder: c.folder + '/',
+      out.push({ id: c.num, type: 'Oshi', name, life: '', imageFolder: c.folder + '/',
         color: color ? [color] : [], searchKeywords, skillType: '', versions,
         tags: c.tags.length ? c.tags : '', grade: '' });
     } else if (c.type === 'Member') {
-      out.push({ id: c.num, type: 'Member', name: c.name, hp: c.hp || '', imageFolder: c.folder + '/',
+      out.push({ id: c.num, type: 'Member', name, hp: c.hp || '', imageFolder: c.folder + '/',
         color: color ? [color] : [], grade: c.grade, searchKeywords, skillType: '', versions,
         tags: c.tags.length ? c.tags : '', effectType: c.effectType });
     } else {
-      out.push({ id: c.num, type: 'Support', name: c.name, imageFolder: c.folder + '/',
+      out.push({ id: c.num, type: 'Support', name, imageFolder: c.folder + '/',
         color: '', grade: '', searchKeywords, versions, tags: c.tags.length ? c.tags : '' });
     }
   }
@@ -196,6 +213,10 @@ const decode = s => s
   if (needTranslation.length) {
     console.log(`\n⚠️ 缺譯名（需手動補 searchKeywords）:`);
     needTranslation.forEach(t => console.log('  ' + t));
+  }
+  if (skipped.length) {
+    console.log(`\nℹ️ 以下 ${skipped.length} 張收錄於本彈但沿用原彈卡圖，未建 entry（原彈已涵蓋）:`);
+    skipped.forEach(s => console.log('  ' + s));
   }
   const cross = [...byId.values()].filter(c => c.otherFolders.size);
   if (cross.length) {
