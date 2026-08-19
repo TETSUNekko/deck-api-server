@@ -1,0 +1,13 @@
+{
+  "name": "HoloTCG Online 牌組建構器",
+  "short_name": "HoloTCG",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#1a1625",
+  "theme_color": "#1a1625",
+  "icons": [
+    { "src": "favicon.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "favicon.svg", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
