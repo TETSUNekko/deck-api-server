@@ -9,9 +9,11 @@ import ZoomModal from "./ZoomModal";
 import WelcomeModal from "./WelcomeModal";
 import { sortDeckByType } from "../../utils/sort";
 import { API_BASE, saveDeck, importDecklog, loadDeck } from "../../utils/api";
+import { toKeys, loadCurrent, saveCurrent } from "../../utils/deckStorage";
 import { Folder } from "lucide-react";
 import DrawHandModal from "./DrawHandModal";
 import OddsModal from "./OddsModal";
+import MyDecksModal from "./MyDecksModal";
 
 const folderRank = (f = "") => {
   if (/^hYS\d+$/i.test(f)) return 100;
@@ -55,6 +57,7 @@ function DeckBuilder() {
   const [exporting, setExporting] = useState(false);
   const [showDrawHand, setShowDrawHand] = useState(false);
   const [showOdds, setShowOdds] = useState(false);
+  const [showMyDecks, setShowMyDecks] = useState(false);
 
   // 拖拉分隔線
   const [cardPanelWidth, setCardPanelWidth] = useState(58); // 百分比
@@ -220,8 +223,8 @@ function DeckBuilder() {
     try {
       const { code } = await saveDeck(payload);
       setShareCode(code);
-      alert("✅ 代碼已產生：" + code);
-      return code;
+      // 回傳連結而不是純代碼：貼到 Discord / X 會顯示牌組預覽圖
+      return `${API_BASE}/d/${code}`;
     } catch {
       alert("❌ 匯出失敗");
       return null;
@@ -264,6 +267,66 @@ function DeckBuilder() {
   }, [oshiCards, deckCards, energyCards, groupByCard]);
 
   // ── 匯入代碼 ─────────────────────────────────────────────
+  // 代碼匯入與本機存檔共用：把 [{key}] / [{id,version,count}] 還原成完整卡片物件
+  const attachCardData = useCallback((list) =>
+    list.flatMap((item) => {
+      const { key, id, version, count } = typeof item === "string" ? { key: item } : item;
+      let matchKey = key;
+      if (!matchKey && id && version) {
+        const candidate = `${id}${version}`;
+        matchKey = Object.keys(byKey).find(k => k.startsWith(candidate));
+        if (!matchKey) {
+          for (const v of [`${version}_U`, `${version}_C`]) {
+            matchKey = Object.keys(byKey).find(k => k.startsWith(`${id}${v}`));
+            if (matchKey) break;
+          }
+        }
+        if (!matchKey) return [];
+      }
+      const entry = parseKey(matchKey);
+      if (!entry) return [];
+      const baseCard = allCards.find(c => c.id === entry.id) || {};
+      return Array.from({ length: count || 1 }, () => ({
+        ...baseCard, id: entry.id, version: entry.version,
+        folder: entry.folder, key: matchKey,
+        filename: `${entry.id}${entry.version}.png`,
+        path: webpUrlFromKey(matchKey),
+      }));
+    }), [allCards]);
+
+  // 進站還原：網址帶 ?code= 優先（別人分享的連結），否則還原上次編輯的內容
+  const restored = useRef(false);
+  useEffect(() => {
+    const shared = new URLSearchParams(window.location.search).get("code");
+    if (shared) {
+      setShareCode(shared);
+      loadDeck(shared)
+        .then(data => {
+          setOshiCards(attachCardData(data.oshi || []));
+          setDeckCards(sortDeckByType(attachCardData(data.main || data.deck || [])));
+          setEnergyCards(attachCardData(data.energy || []));
+        })
+        .catch(() => alert("❌ 這個分享連結的牌組讀不到，可能已過期（代碼保存 90 天）"))
+        .finally(() => { restored.current = true; });
+      return;
+    }
+    const saved = loadCurrent();
+    if (saved) {
+      setOshiCards(attachCardData(saved.oshi || []));
+      setDeckCards(sortDeckByType(attachCardData(saved.deck || [])));
+      setEnergyCards(attachCardData(saved.energy || []));
+    }
+    restored.current = true;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // 牌組一有變動就寫回暫存
+  // ponytail: 還原完成前不寫，否則掛載當下的空牌組會先把暫存洗掉
+  useEffect(() => {
+    if (!restored.current) return;
+    saveCurrent({ oshi: toKeys(oshiCards), deck: toKeys(deckCards), energy: toKeys(energyCards) });
+  }, [oshiCards, deckCards, energyCards]);
+
   const handleImportCode = useCallback(async () => {
     setLoading(true);
     try {
@@ -273,30 +336,6 @@ function DeckBuilder() {
       } else {
         data = await loadDeck(shareCode);
       }
-      const attachCardData = (list) =>
-        list.flatMap(({ key, id, version, count }) => {
-          let matchKey = key;
-          if (!matchKey && id && version) {
-            const candidate = `${id}${version}`;
-            matchKey = Object.keys(byKey).find(k => k.startsWith(candidate));
-            if (!matchKey) {
-              for (const v of [`${version}_U`, `${version}_C`]) {
-                matchKey = Object.keys(byKey).find(k => k.startsWith(`${id}${v}`));
-                if (matchKey) break;
-              }
-            }
-            if (!matchKey) return [];
-          }
-          const entry = parseKey(matchKey);
-          if (!entry) return [];
-          const baseCard = allCards.find(c => c.id === entry.id) || {};
-          return Array.from({ length: count || 1 }, () => ({
-            ...baseCard, id: entry.id, version: entry.version,
-            folder: entry.folder, key: matchKey,
-            filename: `${entry.id}${entry.version}.png`,
-            path: webpUrlFromKey(matchKey),
-          }));
-        });
       setOshiCards(attachCardData(data.oshi || []));
       setDeckCards(attachCardData(data.main || data.deck || []));
       setEnergyCards(attachCardData(data.energy || []));
@@ -306,7 +345,7 @@ function DeckBuilder() {
     } finally {
       setLoading(false);
     }
-  }, [shareCode, allCards]);
+  }, [shareCode, attachCardData]);
 
   // ── 拖拉分隔線 ───────────────────────────────────────────
   useEffect(() => {
@@ -380,6 +419,7 @@ function DeckBuilder() {
         deckCount={deckCards.length}
         onDrawHand={() => setShowDrawHand(true)}
         onOdds={() => setShowOdds(true)}
+        onMyDecks={() => setShowMyDecks(true)}
       />
 
       {/* 主區域 */}
@@ -489,6 +529,18 @@ function DeckBuilder() {
 
       {showOdds && (
         <OddsModal deckCards={deckCards} onClose={() => setShowOdds(false)} />
+      )}
+
+      {showMyDecks && (
+        <MyDecksModal
+          current={{ oshi: toKeys(oshiCards), deck: toKeys(deckCards), energy: toKeys(energyCards) }}
+          onLoad={(d) => {
+            setOshiCards(attachCardData(d.oshi || []));
+            setDeckCards(sortDeckByType(attachCardData(d.deck || [])));
+            setEnergyCards(attachCardData(d.energy || []));
+          }}
+          onClose={() => setShowMyDecks(false)}
+        />
       )}
     </div>
   );

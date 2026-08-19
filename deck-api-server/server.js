@@ -238,14 +238,13 @@ app.get('/import-decklog/:code', async (req, res, next) => {
 });
 
 /* ===================== 9) 牌組圖輸出（使用 R2 CDN）===================== */
-app.post('/export-deck', async (req, res, next) => {
-  try {
-    const { oshi = [], deck = [], energy = [] } = req.body;
-
+// 牌組圖渲染：POST /export-deck 與分享頁的 OG 預覽圖共用同一份邏輯
+async function renderDeckImage({ oshi = [], deck = [], energy = [] }) {
+  {
     // 主推卡只能1張才符合官方牌組規則，但匯出圖片是給玩家自由分享用，不在這裡擋，只擋誇張數量避免圖片爆炸
     const MAX_OSHI = 30, MAX_DECK = 50, MAX_ENERGY = 20;
     if (oshi.length > MAX_OSHI || deck.length > MAX_DECK || energy.length > MAX_ENERGY) {
-      return res.status(400).json({ error: 'Card count exceeds limit' });
+      throw Object.assign(new Error('Card count exceeds limit'), { status: 400 });
     }
 
     const SCALE = 2; // 2x 解析度，避免模糊
@@ -387,9 +386,101 @@ app.post('/export-deck', async (req, res, next) => {
       drawCardImage(ctx, imgResults[i], job.x, job.y, job.w, job.h, job.count);
     });
 
+    return await canvas.encode('png');
+  }
+}
+
+app.post('/export-deck', async (req, res, next) => {
+  try {
+    const buf = await renderDeckImage(req.body || {});
     res.setHeader('Content-Type', 'image/png');
-    const buf = await canvas.encode('png');
     return res.end(buf);
+  } catch (err) {
+    if (err.status) return res.status(err.status).json({ error: err.message });
+    return next(err);
+  }
+});
+
+/* ===================== 9.5) 分享頁：OG 預覽（Discord / Twitter / LINE）=====================
+   GitHub Pages 是靜態站，沒辦法針對不同代碼吐不同的 og:image，
+   所以分享連結指向這裡：本路由回一頁帶 OG meta 的 HTML，再把人導回網站。 */
+const SITE_URL = process.env.SITE_URL || 'https://tetsunekko.github.io/holotcgtw/';
+const ogCache = new Map();               // code -> { buf, ts }
+const OG_TTL = 60 * 60 * 1000;           // 1 小時
+const OG_MAX = 100;
+
+async function loadPayload(code) {
+  const { rows } = await pool.query(
+    'SELECT payload FROM deck_codes WHERE code = $1', [code]
+  );
+  return rows[0]?.payload || null;
+}
+
+const esc = (s) => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+app.get('/og/:code.png', async (req, res, next) => {
+  try {
+    const code = (req.params.code || '').trim().toUpperCase();
+    const hit = ogCache.get(code);
+    if (hit && Date.now() - hit.ts < OG_TTL) {
+      res.setHeader('Content-Type', 'image/png');
+      res.setHeader('Cache-Control', 'public, max-age=3600');
+      return res.end(hit.buf);
+    }
+
+    const payload = await loadPayload(code);
+    if (!payload) return res.status(404).json({ error: 'Code not found' });
+
+    const buf = await renderDeckImage({
+      oshi: payload.oshi || [], deck: payload.main || payload.deck || [], energy: payload.energy || [],
+    });
+
+    // 超過上限就丟掉最舊的（Map 是插入順序）
+    if (ogCache.size >= OG_MAX) ogCache.delete(ogCache.keys().next().value);
+    ogCache.set(code, { buf, ts: Date.now() });
+
+    res.setHeader('Content-Type', 'image/png');
+    res.setHeader('Cache-Control', 'public, max-age=3600');
+    return res.end(buf);
+  } catch (err) {
+    return next(err);
+  }
+});
+
+app.get('/d/:code', async (req, res, next) => {
+  try {
+    const code = (req.params.code || '').trim().toUpperCase();
+    const payload = await loadPayload(code);
+    const target = `${SITE_URL}?code=${encodeURIComponent(code)}`;
+
+    if (!payload) {
+      return res.status(404).type('html').send(
+        `<!doctype html><meta charset="utf-8"><title>找不到牌組</title>` +
+        `<p>找不到代碼 ${esc(code)}，可能已過期（代碼保存 90 天）。</p>` +
+        `<p><a href="${esc(SITE_URL)}">回到 HoloTCG Online</a></p>`
+      );
+    }
+
+    const n = (a) => (a || []).reduce((s, c) => s + (c.count || 1), 0);
+    const title = `HoloTCG 牌組 ${code}`;
+    const desc = `主推 ${n(payload.oshi)} 張・主卡組 ${n(payload.main || payload.deck)} 張・能量 ${n(payload.energy)} 張`;
+    const img = `${req.protocol}://${req.get('host')}/og/${encodeURIComponent(code)}.png`;
+
+    res.type('html').send(`<!doctype html>
+<html lang="zh-TW"><head><meta charset="utf-8">
+<title>${esc(title)}</title>
+<meta name="description" content="${esc(desc)}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="${esc(title)}">
+<meta property="og:description" content="${esc(desc)}">
+<meta property="og:image" content="${esc(img)}">
+<meta property="og:url" content="${esc(target)}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="${esc(img)}">
+<meta http-equiv="refresh" content="0; url=${esc(target)}">
+</head><body>
+<p>正在開啟牌組 ${esc(code)}…　<a href="${esc(target)}">沒有自動跳轉請點這裡</a></p>
+</body></html>`);
   } catch (err) {
     return next(err);
   }

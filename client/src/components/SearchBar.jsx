@@ -122,7 +122,7 @@ function SearchBar({
   onExportImage, exporting,
   onExportCode, onImportCode, onClearDeck,
   selectedTag, setSelectedTag, allTags,
-  loading, deckCount, onDrawHand, onOdds
+  loading, deckCount, onDrawHand, onOdds, onMyDecks
 }) {
   const [open, setOpen] = useState(null);
   const [memberSub, setMemberSub] = useState(false);
@@ -158,11 +158,15 @@ function SearchBar({
 
   const handleCopyCode = async () => {
     track('share_code');
-    const data = await onExportCode();
-    if (data) {
-      navigator.clipboard.writeText(data)
-        .then(() => alert(`📋 已複製代碼 ${data} 到剪貼簿！`))
-        .catch(() => alert("❌ 無法複製代碼"));
+    const link = await onExportCode();
+    if (link) {
+      navigator.clipboard.writeText(link)
+        .then(() => alert(`📋 已複製分享連結！
+貼到 Discord / X 會顯示牌組預覽圖。
+
+${link}`))
+        .catch(() => alert(`❌ 無法自動複製，請手動複製：
+${link}`));
     }
   };
 
@@ -367,6 +371,13 @@ function SearchBar({
         flexWrap: "wrap",
       }}>
         <button style={{ ...BTN, borderColor: "#3d3155", color: "#9b8ab0", background: "#2a2240" }} onClick={() => { track('clear_deck'); onClearDeck(); }}>🧹 清空牌組</button>
+
+        <button
+          style={{ ...BTN, borderColor: "#6b3fa0", color: "#c084fc", background: "#2d1e40" }}
+          onClick={() => { track('my_decks'); onMyDecks(); }}
+        >
+          📁 我的牌組
+        </button>
         
         <button
           style={{ ...BTN, borderColor: "#2d6e50", color: "#5dbf94", background: "#1a3028" }}
