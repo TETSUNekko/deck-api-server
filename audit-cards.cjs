@@ -75,7 +75,11 @@ function parseBlock(b) {
   else if (kind.includes('ホロメン')) { type = 'Member'; grade = kind.includes('Buzz') ? 'buzz' : (BLOOM[bloomJa] || ''); }
   else type = 'Support';
 
-  return { num, name, kind, tags, rawTags, type, grade, hp, color: COLOR[colorJa] || '' };
+  // エクストラ（このホロメンはデッキに何枚でも入れられる）＝不受 4 張上限。
+  // 用 <div class="extra"> 判斷，不能比對效果文字裡的「何枚でも」——
+  // 有些卡只是在效果文裡「提到」エクストラ卡（例如 hBP08-062 鷹嶺ルイ）。
+  const extra = /<div class="extra">/.test(b);
+  return { num, name, kind, tags, rawTags, type, grade, hp, extra, color: COLOR[colorJa] || '' };
 }
 
 async function fetchAll() {
@@ -195,6 +199,22 @@ const serialize = arr => {
 
   console.log(`\n═══ 4. 官方卡表查無此卡號：${notFound.size} 個 ═══`);
   [...notFound].forEach(([id, v]) => console.log(`  ${id} ${v.name || ''}  (${[...new Set(v.files.map(set))].join(', ')})`));
+
+  // エクストラ卡清單給前端的牌組檢查用
+  const extras = Object.values(official).filter(o => o.extra).map(o => o.num).sort();
+  const EXTRA_OUT = path.join(SRC, 'unlimitedCards.json');
+  const prevExtras = fs.existsSync(EXTRA_OUT) ? JSON.parse(fs.readFileSync(EXTRA_OUT, 'utf8')) : [];
+  console.log(`
+═══ 6. エクストラ（不受 4 張上限）：${extras.length} 張 ═══`);
+  if (extras.length) {
+    extras.forEach(n => console.log(`  ${n} ${official[n].name}`));
+    if (JSON.stringify(extras) !== JSON.stringify(prevExtras)) {
+      fs.writeFileSync(EXTRA_OUT, JSON.stringify(extras, null, 2) + "\n", 'utf8');
+      console.log(`  ✏️ 已更新 unlimitedCards.json（原本 ${prevExtras.length} 張）`);
+    }
+  } else if (prevExtras.length) {
+    console.log('  ⚠️ 這次一張都沒抓到，但檔案裡有資料 —— 可能是官方頁面改版，先不覆蓋');
+  }
 
   if (unknownTags.size) {
     console.log(`\n═══ 5. 未對應的官方標籤（TAG 表要補，否則第 1 項會少報）：${unknownTags.size} 個 ═══`);

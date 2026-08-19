@@ -1,3 +1,9 @@
+import unlimited from "../unlimitedCards.json";
+
+// エクストラ「このホロメンはデッキに何枚でも入れられる」的卡不受 4 張上限。
+// 清單由 audit-cards.cjs 從官方卡表產生（認 <div class="extra">），新彈跑一次就會更新。
+const UNLIMITED = new Set(unlimited);
+
 // 正規牌組檢查 —— 只回報問題，不阻擋任何操作
 // ponytail: 只檢查官方明文的「構築」規則。LIMITED 是「1 回合 1 張」的使用限制、
 // 不是構築限制，所以不列入；顏色與主推的關係也不是構築規則，同樣不檢查。
@@ -17,7 +23,7 @@ export function checkDeck(oshiCards, deckCards, energyCards) {
   // 同一張卡（同卡號）最多 4 張 —— 不同版本卡圖算同一張
   // 能量卡不受此限（同色能量本來就會放很多張），所以只看主卡組
   for (const [id, n] of countById(deckCards)) {
-    if (n > 4) {
+    if (n > 4 && !UNLIMITED.has(id)) {
       const name = deckCards.find(c => c.id === id)?.name || id;
       issues.push({ level: "error", text: `${name}（${id}）超過 4 張上限（目前 ${n} 張）` });
     }
@@ -33,4 +39,4 @@ const countById = (cards) => {
 };
 
 export const overLimitIds = (deckCards) =>
-  new Set([...countById(deckCards)].filter(([, n]) => n > 4).map(([id]) => id));
+  new Set([...countById(deckCards)].filter(([id, n]) => n > 4 && !UNLIMITED.has(id)).map(([id]) => id));
