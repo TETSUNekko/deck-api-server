@@ -55,7 +55,7 @@ export const cardSets = [
 export const allTags = [
   "LIMITED", "0期生", "1期生", "2期生", "3期生", "4期生", "5期生",
   "EN", "ID", "ID1期生", "ID2期生", "ID3期生", "JP",
-  "Myth", "Promise", "colorless", "半精靈", "獸耳", "海",
+  "Myth", "Promise", "半精靈", "獸耳", "海",
   "畫", "歌", "酒", "鳥", "秘密結社holoX", "Gamers", "料理",
   "射手", "語言學", "Advent", "HoloWitch", "魔法", "白上的角色",
   "嬰兒", "DEV_IS", "ReGLOSS", "Justice", "食物", "香菇", "夏季", "小夜璃實驗室",
